@@ -1,10 +1,17 @@
 # Proof-Preserving Graph Theory (Lean 4)
 
-**22 machine-checked theorems. Zero sorry. Zero warnings.**
+**38 machine-checked theorems. Zero sorry. Zero warnings.**
 
 A formal mathematical framework for structural resilience: graphs where every edge satisfies a refinement relation and both endpoints maintain their local invariants.
 
-Port of `proof_preserving_graphs.pvs` (originally in PVS, NASA Langley).
+Port of `proof_preserving_graphs.pvs` and `lowrisc_boot_verification.pvs` (originally in PVS, NASA Langley).
+
+## Files
+
+| File | Theorems | Scope |
+|------|----------|-------|
+| `PPGraph.lean` | 22 | Core framework: validity, walks, paths, evolution, monotonicity, connectivity, separation, deterministic traversal, violation detection, certificate chains |
+| `PPGraphBoot.lean` | 16 | Secure boot chain: layered DAG, failure isolation, lock-out, OpenTitan instantiation (ROM → ROM_EXT → BL0 → Kernel) |
 
 ## Theorems
 
@@ -46,6 +53,27 @@ Port of `proof_preserving_graphs.pvs` (originally in PVS, NASA Langley).
 ## Application: Hardware Root-of-Trust
 
 See `PPGraphBoot.lean` — concrete instantiation for OpenTitan secure boot (ROM → ROM_EXT → BL0 → Kernel). Layered DAG, failure isolation, lock-out property.
+
+### Boot Chain Theorems
+
+| # | Name | Statement |
+|---|------|-----------|
+| T1 | `layered_implies_lockout` | layered → full lock-out |
+| T2 | `layered_is_valid` | layered → pp_valid |
+| T3 | `layered_acyclic` | layered edge → endpoints distinct |
+| T4 | `boot_failure_blocks` | invariant fails → no pp-edge out |
+| T5 | `verification_implies_invariants` | verification → both invariants hold |
+| T6 | `verification_implies_refinement` | verification → refinement holds |
+| T7 | `secure_boot_invariants` | secure boot → all edge endpoints valid |
+| T8 | `failed_stage_isolated` | failed stage → no outgoing edges |
+| T9 | `ot_levels_increasing` | OpenTitan edges go strictly upward |
+| T10 | `ot_unique_levels` | one stage per level |
+| T11 | `ot_rom_is_root` | ROM is the only level-0 stage |
+| T12 | `ot_single_verifier` | every non-ROM stage has a verifier |
+| T13 | `ot_edges_refine` | edges imply refinement |
+| T14 | `ot_no_backward` | no backward edges |
+| T15 | `ot_signature_failure_blocks` | invalid signature → invariant fails |
+| T16 | `ot_full_chain_valid` | all signatures valid → full chain valid |
 
 ## PVS Version
 
