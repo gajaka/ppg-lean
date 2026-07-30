@@ -1,6 +1,6 @@
 # Proof-Preserving Graph Theory (Lean 4)
 
-**50 machine-checked theorems. Zero sorry. Zero warnings.**
+**60 machine-checked theorems. Zero sorry. Zero warnings.**
 
 A formal mathematical framework for structural resilience: graphs where every edge satisfies a refinement relation and both endpoints maintain their local invariants.
 
@@ -13,6 +13,7 @@ Port of `proof_preserving_graphs.pvs` and `lowrisc_boot_verification.pvs` (origi
 | `PPGraph.lean` | 22 | Core framework: validity, walks, paths, evolution, monotonicity, connectivity, separation, deterministic traversal, violation detection, certificate chains |
 | `PPGraphBoot.lean` | 16 | Secure boot chain: layered DAG, failure isolation, lock-out, OpenTitan instantiation (ROM → ROM_EXT → BL0 → Kernel) |
 | `PPGraphRefinement.lean` | 12 | Refinement relations: relation extension, RR definition, consistency lemmas, homogeneous specialization, PPGraphConfig (port of NASA `sets_aux/rr_rel.pvs`) |
+| `PPGraphMeta.lean` | 10 | Meta-PPG: graphs over refinement relations, backward compatibility, upgrade chains, spec versioning |
 
 ## Theorems
 
