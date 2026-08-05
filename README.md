@@ -11,10 +11,10 @@ Port of `proof_preserving_graphs.pvs` and `lowrisc_boot_verification.pvs` (origi
 | File | Theorems | Scope |
 |------|----------|-------|
 | `PPGraph.lean` | 22 | Core framework: validity, walks, paths, evolution, monotonicity, connectivity, separation, deterministic traversal, violation detection, certificate chains |
-| `PPGraphBoot.lean` | 16 | Secure boot chain: layered DAG, failure isolation, lock-out, OpenTitan instantiation (ROM → ROM_EXT → BL0 → Kernel) |
+| `PPGraphBoot.lean` | 16 | Secure boot chain: layered DAG, failure isolation, lock-out, OpenTitan instantiation (ROM --> ROM_EXT --> BL0 --> Kernel) |
 | `PPGraphRefinement.lean` | 12 | Refinement relations: relation extension, RR definition, consistency lemmas, homogeneous specialization, PPGraphConfig (port of NASA `sets_aux/rr_rel.pvs`) |
 | `PPGraphMeta.lean` | 10 | Meta-PPG: graphs over refinement relations, backward compatibility, upgrade chains, spec versioning |
-| `PPGraphMetaLowRISC.lean` | 14 | OpenTitan instance: spec v1→v2→v3, upgrade safety, failure propagation, correctness forward-propagation |
+| `PPGraphMetaLowRISC.lean` | 14 | OpenTitan instance: spec v1-->v2-->v3, upgrade safety, failure propagation, correctness forward-propagation |
 | `PPGraphCategorical.lean` | 10 | Categorical structure: morphisms, embeddings, quotients, refinement, simulation, composition |
 | `PPGraphCategoricalLowRISC.lean` | 10 | LUCES ≅ OpenTitan isomorphism: proof portability between domains |
 
@@ -57,7 +57,7 @@ Port of `proof_preserving_graphs.pvs` and `lowrisc_boot_verification.pvs` (origi
 
 ## Application: Hardware Root-of-Trust
 
-See `PPGraphBoot.lean` — concrete instantiation for OpenTitan secure boot (ROM → ROM_EXT → BL0 → Kernel). Layered DAG, failure isolation, lock-out property.
+See `PPGraphBoot.lean` — concrete instantiation for OpenTitan secure boot (ROM --> ROM_EXT --> BL0 --> Kernel). Layered DAG, failure isolation, lock-out property.
 
 ### Boot Chain Theorems
 
