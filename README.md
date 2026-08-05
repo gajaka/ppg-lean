@@ -22,9 +22,9 @@ Port of `proof_preserving_graphs.pvs` and `lowrisc_boot_verification.pvs` (origi
 
 | # | Name | Statement |
 |---|------|-----------|
-| T1 | `valid_implies_weak` | pp_valid → pp_valid_weak |
-| T2 | `pp_valid_implies_invariants` | pp_valid edge → both endpoints satisfy invariant |
-| T3 | `pp_path_is_walk` | pp_path → pp_walk |
+| T1 | `valid_implies_weak` | pp_valid --> pp_valid_weak |
+| T2 | `pp_valid_implies_invariants` | pp_valid edge --> both endpoints satisfy invariant |
+| T3 | `pp_path_is_walk` | pp_path --> pp_walk |
 | T4 | `pp_walk_invariants` | all vertices on pp_walk satisfy invariant |
 | T5 | `pp_path_endpoints_invariant` | start and end of pp_path satisfy invariant |
 | T6 | `subgraph_valid` | subgraph of pp_valid graph is pp_valid |
@@ -38,10 +38,10 @@ Port of `proof_preserving_graphs.pvs` and `lowrisc_boot_verification.pvs` (origi
 | T14 | `violating_isolated` | violating vertices have no outgoing edges |
 | T15 | `violating_no_incoming` | violating vertices have no incoming edges |
 | T16 | `deterministic_is_valid` | deterministic graph is pp_valid |
-| T17 | `inference_function_exists` | deterministic → inference function exists |
+| T17 | `inference_function_exists` | deterministic --> inference function exists |
 | T18 | `empty_separates_iff_disconnected` | empty separator ↔ not connected |
-| T19 | `certificate_chain_sound` | certificate chain → all invariants hold |
-| T20 | `certificate_chain_connects` | certificate chain → endpoints connected |
+| T19 | `certificate_chain_sound` | certificate chain --> all invariants hold |
+| T20 | `certificate_chain_connects` | certificate chain --> endpoints connected |
 | T21 | `walk_resilience` | pp_walk persists under transformation |
 | T22 | `connectivity_resilience` | connectivity persists under transformation |
 
@@ -63,22 +63,22 @@ See `PPGraphBoot.lean` — concrete instantiation for OpenTitan secure boot (ROM
 
 | # | Name | Statement |
 |---|------|-----------|
-| T1 | `layered_implies_lockout` | layered → full lock-out |
-| T2 | `layered_is_valid` | layered → pp_valid |
-| T3 | `layered_acyclic` | layered edge → endpoints distinct |
-| T4 | `boot_failure_blocks` | invariant fails → no pp-edge out |
-| T5 | `verification_implies_invariants` | verification → both invariants hold |
-| T6 | `verification_implies_refinement` | verification → refinement holds |
-| T7 | `secure_boot_invariants` | secure boot → all edge endpoints valid |
-| T8 | `failed_stage_isolated` | failed stage → no outgoing edges |
+| T1 | `layered_implies_lockout` | layered --> full lock-out |
+| T2 | `layered_is_valid` | layered --> pp_valid |
+| T3 | `layered_acyclic` | layered edge --> endpoints distinct |
+| T4 | `boot_failure_blocks` | invariant fails --> no pp-edge out |
+| T5 | `verification_implies_invariants` | verification --> both invariants hold |
+| T6 | `verification_implies_refinement` | verification --> refinement holds |
+| T7 | `secure_boot_invariants` | secure boot --> all edge endpoints valid |
+| T8 | `failed_stage_isolated` | failed stage --> no outgoing edges |
 | T9 | `ot_levels_increasing` | OpenTitan edges go strictly upward |
 | T10 | `ot_unique_levels` | one stage per level |
 | T11 | `ot_rom_is_root` | ROM is the only level-0 stage |
 | T12 | `ot_single_verifier` | every non-ROM stage has a verifier |
 | T13 | `ot_edges_refine` | edges imply refinement |
 | T14 | `ot_no_backward` | no backward edges |
-| T15 | `ot_signature_failure_blocks` | invalid signature → invariant fails |
-| T16 | `ot_full_chain_valid` | all signatures valid → full chain valid |
+| T15 | `ot_signature_failure_blocks` | invalid signature --> invariant fails |
+| T16 | `ot_full_chain_valid` | all signatures valid --> full chain valid |
 
 ## PVS Version
 
