@@ -49,7 +49,7 @@ Port of `proof_preserving_graphs.pvs` and `lowrisc_boot_verification.pvs` (origi
 
 **Structural Resilience:** Graph evolution forms a partial order (T7+T8+T9). Invariant sets grow monotonically (T10). Paths persist once established (T21).
 
-**Deterministic Traversal:** Inference function extraction without Axiom of Choice (T17). Via classical choice on unique successor.
+**Deterministic Traversal:** Inference function extraction without Axiom of Choice (T17). Uniqueness (one successor per vertex) gives definite description.
 
 **Fault Tolerance:** Byzantine (violating) vertices are completely isolated — no outgoing edges (T14), no incoming edges (T15). Connected vertices are always honest (T13).
 
