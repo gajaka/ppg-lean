@@ -1,6 +1,6 @@
 # Proof-Preserving Graph Theory (Lean 4)
 
-**94 machine-checked theorems. Zero sorry. Zero warnings.**
+**101 machine-checked theorems. Zero sorry. Zero warnings.**
 
 A formal mathematical framework for structural resilience: graphs where every edge satisfies a refinement relation and both endpoints maintain their local invariants.
 
@@ -17,6 +17,7 @@ Port of `proof_preserving_graphs.pvs` and `lowrisc_boot_verification.pvs` (origi
 | `PPGraphMetaLowRISC.lean` | 14 | OpenTitan instance: spec v1-->v2-->v3, upgrade safety, failure propagation, correctness forward-propagation |
 | `PPGraphCategorical.lean` | 10 | Categorical structure: morphisms, embeddings, quotients, refinement, simulation, composition |
 | `PPGraphCategoricalLowRISC.lean` | 10 | LUCES ≅ OpenTitan isomorphism: proof portability between domains |
+| `PPGraphRepair.lean` | 7 | Repair semantics: isolation reversal, route bypass, locality, convergence |
 
 ## Theorems
 
@@ -54,6 +55,8 @@ Port of `proof_preserving_graphs.pvs` and `lowrisc_boot_verification.pvs` (origi
 **Fault Tolerance:** Byzantine (violating) vertices are completely isolated — no outgoing edges (T14), no incoming edges (T15). Connected vertices are always honest (T13).
 
 **Secure Boot Application:** Certificate chains formalize verified boot sequences (T19, T20). Failure at any point is detectable and isolating.
+
+**Repair Semantics:** Isolated vertices can be restored via relational choice from rr_rel neighbors. Route repair bypasses failed vertices through valid alternatives. Repair is local (does not cascade) and converges on finite graphs.
 
 ## Application: Hardware Root-of-Trust
 
