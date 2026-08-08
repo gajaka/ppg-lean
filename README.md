@@ -17,7 +17,7 @@ Port of `proof_preserving_graphs.pvs` and `lowrisc_boot_verification.pvs` (origi
 | `PPGraphMetaLowRISC.lean` | 14 | OpenTitan instance: spec v1-->v2-->v3, upgrade safety, failure propagation, correctness forward-propagation |
 | `PPGraphCategorical.lean` | 10 | Categorical structure: morphisms, embeddings, quotients, refinement, simulation, composition |
 | `PPGraphCategoricalLowRISC.lean` | 10 | LUCES ≅ OpenTitan isomorphism: proof portability between domains |
-| `PPGraphRepair.lean` | 7 | Repair semantics: isolation reversal, route bypass, locality, convergence |
+| `PPGraphRepair.lean` | 9 | Repair semantics: isolation reversal, route bypass, locality, convergence |
 
 ## Theorems
 
@@ -85,7 +85,7 @@ See `PPGraphBoot.lean` — concrete instantiation for OpenTitan secure boot (ROM
 
 ## PVS Version
 
-The original PVS formalization with 177 theorems across 26 theories: [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories)
+The original PVS formalization with 221 theorems across 30 theories: [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories)
 
 ## Author
 
