@@ -35,6 +35,16 @@ def repair_possible (v : V) : Prop :=
 def repair_candidates (v : V) (w : V) : Prop :=
   w ≠ v ∧ G.rr_rel v w ∧ G.invariant_holds w
 
+-- Relational choice: extract a concrete repair target
+-- Uses Classical.choose on the existential witness.
+noncomputable def repair_target (v : V) (h : repair_possible G v) : V :=
+  Classical.choose h.2
+
+-- The chosen target satisfies the repair predicate
+theorem repair_target_valid (v : V) (h : repair_possible G v) :
+    repair_candidates G v (repair_target G v h) :=
+  Classical.choose_spec h.2
+
 -- Route repair: bypass isolated vertex through valid neighbor
 def route_repairable (x v y : V) : Prop :=
   isolated G v ∧ G.edge x v ∧ G.edge v y ∧
@@ -103,6 +113,7 @@ theorem active_independent_of_isolated (x w : V) (_ : V)
 -- ═══════════════════════════════════════════════════════════════════
 
 #check @repair_candidates_exist
+#check @repair_target_valid
 #check @repair_locality
 #check @healthy_self_stable
 #check @route_bypass
