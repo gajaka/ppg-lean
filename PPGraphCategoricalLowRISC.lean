@@ -15,27 +15,8 @@
 -/
 
 import Mathlib.Tactic
-
--- Inline definitions
-structure Graph (V : Type) where
-  vertices : V → Prop
-  edges : V → V → Prop
-  edges_in_vertices : ∀ x y, edges x y → vertices x ∧ vertices y
-
-def pp_edge {V : Type} (rr_rel : V → V → Prop) (invariant_holds : V → Prop)
-    (x y : V) : Prop :=
-  x ≠ y ∧ invariant_holds x ∧ invariant_holds y ∧ rr_rel x y
-
-def pp_valid {V : Type} (G : Graph V) (rr_rel : V → V → Prop)
-    (invariant_holds : V → Prop) : Prop :=
-  ∀ x y, G.edges x y → pp_edge rr_rel invariant_holds x y
-
-def pp_morphism {T U : Type} (f : T → U) (G1 : Graph T) (G2 : Graph U)
-    (rr_T : T → T → Prop) (inv_T : T → Prop)
-    (rr_U : U → U → Prop) (inv_U : U → Prop) : Prop :=
-  (∀ x, G1.vertices x → G2.vertices (f x)) ∧
-  (∀ x y, G1.edges x y ∧ pp_edge rr_T inv_T x y →
-    G2.edges (f x) (f y) ∧ pp_edge rr_U inv_U (f x) (f y))
+import PPGraph
+import PPGraphCategorical
 
 -- ═══════════════════════════════════════════════════════════════════
 -- Section 1: LUCES Certificate Chain (source domain)
@@ -151,7 +132,7 @@ theorem morphism_preserves_edges (x y : LucesStage)
   cases x <;> cases y <;> simp [luces_edges, luces_to_boot, boot_edges] at *
 
 -- T7: Morphism preserves pp-edges (when invariants are compatible)
-theorem morphism_preserves_pp_edges
+theorem luces_boot_preserves_pp_edges
     (luces_valid : LucesStage → Prop) (boot_valid : BootStage → Prop)
     (h_compat : ∀ s, luces_valid s → boot_valid (luces_to_boot s))
     (x y : LucesStage)
@@ -172,7 +153,7 @@ theorem luces_boot_morphism
   · intro _ _; exact trivial
   · intro x y ⟨he, hpp⟩
     exact ⟨morphism_preserves_edges x y he,
-           morphism_preserves_pp_edges luces_valid boot_valid h_compat x y hpp⟩
+           luces_boot_preserves_pp_edges luces_valid boot_valid h_compat x y hpp⟩
 
 -- T9: pp-validity transfers: if LUCES chain is pp-valid,
 -- then OpenTitan chain is pp-valid (under compatible invariants)
@@ -183,7 +164,7 @@ theorem validity_transfers
     ∀ x y : LucesStage, luces_graph.edges x y →
       pp_edge boot_rr boot_valid (luces_to_boot x) (luces_to_boot y) := by
   intro x y he
-  exact morphism_preserves_pp_edges luces_valid boot_valid h_compat x y (h_luces_valid x y he)
+  exact luces_boot_preserves_pp_edges luces_valid boot_valid h_compat x y (h_luces_valid x y he)
 
 -- T10: Structural isomorphism: both chains have identical pp-structure
 -- (bijective morphism in both directions)
