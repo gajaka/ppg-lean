@@ -20,6 +20,7 @@
 -/
 
 import Mathlib.Tactic
+import PPGraph
 
 -- ═══════════════════════════════════════════════════════════════════
 -- Section 1: Refinement Configuration (Node Type)
