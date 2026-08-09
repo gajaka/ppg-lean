@@ -85,7 +85,7 @@ See `PPGraphBoot.lean` — concrete instantiation for OpenTitan secure boot (ROM
 
 ## PVS Version
 
-The original PVS formalization with 221 theorems across 30 theories: [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories)
+The original PVS formalization with 239 theorems across 32 theories: [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories)
 
 ## Author
 
