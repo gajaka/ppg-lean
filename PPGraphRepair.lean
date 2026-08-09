@@ -6,17 +6,22 @@
   to active status via relational choice from its rr_rel neighbors.
 
   Key idea: repair(v) = choose w : rr_rel v w ∧ invariant_holds w
+
+  Imports PPGraph.lean for core Graph structure and pp_valid/pp_edge.
 -/
 
 import Mathlib.Tactic
+import PPGraph
 
 variable {V : Type}
 
--- Core PPG structure
+-- Bundled PPG for repair semantics
 structure PPGraph (V : Type) where
   edge : V → V → Prop
   rr_rel : V → V → Prop
   invariant_holds : V → Prop
+
+variable (G : PPGraph V)
 
 variable (G : PPGraph V)
 
