@@ -1,6 +1,6 @@
 # Proof-Preserving Graph Theory (Lean 4)
 
-**101 machine-checked theorems. Zero sorry. Zero warnings.**
+**103 machine-checked theorems. Zero sorry. Zero warnings.**
 
 A formal mathematical framework for structural resilience: graphs where every edge satisfies a refinement relation and both endpoints maintain their local invariants.
 
