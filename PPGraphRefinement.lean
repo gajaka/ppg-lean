@@ -10,6 +10,7 @@
 -/
 
 import Mathlib.Tactic
+import PPGraph
 
 -- ═══════════════════════════════════════════════════════════════════
 -- Section 1: Relation Extension
@@ -180,5 +181,19 @@ theorem f_consistent_pp_edge {T : Type} (cfg : PPGraphConfig T) (x y : T)
 #check @RR_hom_refl_id
 #check @g_consistent_hom
 #check @f_consistent_hom
+-- Bridge: PPGraphConfig satisfies pp_edge from PPGraph.lean
+theorem refinement_satisfies_pp_edge {T : Type} (cfg : PPGraphConfig T) (x y : T)
+    (h : pp_edge_concrete cfg x y) :
+    pp_edge (RR_hom cfg.le_T cfg.f_abs cfg.g_con) cfg.invariant_holds x y :=
+  ⟨h.1, h.2.1, h.2.2.1, h.2.2.2⟩
+
+theorem refinement_graph_is_pp_valid {T : Type} (cfg : PPGraphConfig T)
+    (G : Graph T)
+    (h : ∀ x y, G.edges x y → pp_edge_concrete cfg x y) :
+    pp_valid G (RR_hom cfg.le_T cfg.f_abs cfg.g_con) cfg.invariant_holds :=
+  fun x y he => refinement_satisfies_pp_edge cfg x y (h x y he)
+
 #check @g_consistent_pp_edge
 #check @f_consistent_pp_edge
+#check @refinement_satisfies_pp_edge
+#check @refinement_graph_is_pp_valid
