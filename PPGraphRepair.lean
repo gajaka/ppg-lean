@@ -6,26 +6,29 @@
   to active status via relational choice from its rr_rel neighbors.
 
   Key idea: repair(v) = choose w : rr_rel v w ∧ invariant_holds w
+
+  Imports PPGraph.lean for core definitions (Graph, pp_edge, pp_valid).
 -/
 
 import Mathlib.Tactic
+import PPGraph
 
 variable {V : Type}
 
--- Core PPG structure
-structure PPGraph (V : Type) where
-  edge : V → V → Prop
+-- Bundled PPG for repair (avoids name collision with Graph from PPGraph.lean)
+structure RepairGraph (V : Type) where
+  edges : V → V → Prop
   rr_rel : V → V → Prop
   invariant_holds : V → Prop
 
-variable (G : PPGraph V)
+variable (G : RepairGraph V)
 
 -- Isolation: vertex whose invariant fails
 def isolated (v : V) : Prop := ¬ G.invariant_holds v
 
 -- Active edge: both endpoints hold invariant
 def active_edge (x y : V) : Prop :=
-  G.edge x y ∧ G.invariant_holds x ∧ G.invariant_holds y
+  G.edges x y ∧ G.invariant_holds x ∧ G.invariant_holds y
 
 -- Repair is possible if there exists a valid rr_rel neighbor
 def repair_possible (v : V) : Prop :=
@@ -36,7 +39,6 @@ def repair_candidates (v : V) (w : V) : Prop :=
   w ≠ v ∧ G.rr_rel v w ∧ G.invariant_holds w
 
 -- Relational choice: extract a concrete repair target
--- Uses Classical.choose on the existential witness.
 noncomputable def repair_target (v : V) (h : repair_possible G v) : V :=
   Classical.choose h.2
 
@@ -47,9 +49,9 @@ theorem repair_target_valid (v : V) (h : repair_possible G v) :
 
 -- Route repair: bypass isolated vertex through valid neighbor
 def route_repairable (x v y : V) : Prop :=
-  isolated G v ∧ G.edge x v ∧ G.edge v y ∧
+  isolated G v ∧ G.edges x v ∧ G.edges v y ∧
   ∃ w : V, w ≠ v ∧ G.invariant_holds w ∧ G.rr_rel v w ∧
-    G.edge x w ∧ G.edge w y
+    G.edges x w ∧ G.edges w y
 
 -- Globally repairable: every isolated vertex can be repaired
 def globally_repairable : Prop :=
@@ -103,7 +105,7 @@ theorem repair_no_cascade (v w : V) (_ : v ≠ w)
 
 -- T7: Active edge is independent of isolated vertex's status
 theorem active_independent_of_isolated (x w : V) (_ : V)
-    (he : G.edge x w) (hx : G.invariant_holds x)
+    (he : G.edges x w) (hx : G.invariant_holds x)
     (hw : G.invariant_holds w) :
     active_edge G x w :=
   ⟨he, hx, hw⟩
