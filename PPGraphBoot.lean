@@ -7,17 +7,7 @@
 -/
 
 import Mathlib.Tactic
-
-structure Graph (V : Type) where
-  vertices : V → Prop
-  edges : V → V → Prop
-  edges_in_vertices : ∀ x y, edges x y → vertices x ∧ vertices y
-
-def pp_edge {V : Type} (rr_rel : V → V → Prop) (invariant_holds : V → Prop) (x y : V) : Prop :=
-  x ≠ y ∧ invariant_holds x ∧ invariant_holds y ∧ rr_rel x y
-
-def pp_valid {V : Type} (G : Graph V) (rr_rel : V → V → Prop) (invariant_holds : V → Prop) : Prop :=
-  ∀ x y, G.edges x y → pp_edge rr_rel invariant_holds x y
+import PPGraph
 
 -- ═══════════════════════════════════════════════════════════════════
 -- PART 1: Abstract Boot Chain Verification
