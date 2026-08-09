@@ -12,39 +12,7 @@
 -/
 
 import Mathlib.Tactic
-
--- Inline from PPGraphMeta (standalone compilation)
-structure EquivRel (T : Type) where
-  rel : T → T → Prop
-  refl : ∀ x, rel x x
-  symm : ∀ x y, rel x y → rel y x
-  trans : ∀ x y z, rel x y → rel y z → rel x z
-
-structure RefinementConfig (T : Type) where
-  le : EquivRel T
-  f_abs : T → T
-  g_con : T → T
-
-def rr_of {T : Type} (cfg : RefinementConfig T) (x y : T) : Prop :=
-  (cfg.le.rel x (cfg.g_con y)) ∨
-  (cfg.le.rel (cfg.g_con y) x ∧ cfg.le.rel (cfg.f_abs x) (cfg.f_abs x)) ∨
-  (cfg.le.rel (cfg.g_con y) (cfg.g_con y) ∧ cfg.le.rel (cfg.f_abs x) y)
-
-def config_valid {T : Type} (cfg : RefinementConfig T) : Prop :=
-  (∀ y : T, cfg.le.rel (cfg.g_con y) (cfg.g_con y)) ∧
-  (∀ x : T, cfg.le.rel (cfg.f_abs x) (cfg.f_abs x)) ∧
-  (∀ x : T, rr_of cfg x x)
-
-def configs_compatible {T : Type} (cfg1 cfg2 : RefinementConfig T) : Prop :=
-  ∀ x y : T, rr_of cfg1 x y → rr_of cfg2 x y
-
-def meta_pp_edge {T : Type} (cfg1 cfg2 : RefinementConfig T) : Prop :=
-  cfg1 ≠ cfg2 ∧ config_valid cfg1 ∧ config_valid cfg2 ∧
-  configs_compatible cfg1 cfg2
-
-def implementation_correct {T : Type} (cfg : RefinementConfig T)
-    (impl_pairs : T → T → Prop) : Prop :=
-  ∀ x y, impl_pairs x y → rr_of cfg x y
+import PPGraphMeta
 
 -- ═══════════════════════════════════════════════════════════════════
 -- Section 1: OpenTitan Boot Stages
