@@ -143,6 +143,75 @@ theorem equiv_class_uniform (F : CertFamily D Θ)
   exact propext (h_equiv d)
 
 -- ═══════════════════════════════════════════════════════════════════
+-- Section 6: Induced Order on the Quotient
+-- ═══════════════════════════════════════════════════════════════════
+
+/-- Induced order on representatives: t1 ≼ t2 if every data certified
+    at t1 is also certified at t2.
+    (This is the order that descends to the quotient.) -/
+def cert_le (F : CertFamily D Θ) (t1 t2 : Θ) : Prop :=
+  ∀ d : D, fully_certified F d t1 → fully_certified F d t2
+
+theorem cert_le_refl (F : CertFamily D Θ) (t : Θ) :
+    cert_le F t t := fun _ h => h
+
+theorem cert_le_trans (F : CertFamily D Θ) (t1 t2 t3 : Θ)
+    (h12 : cert_le F t1 t2) (h23 : cert_le F t2 t3) :
+    cert_le F t1 t3 :=
+  fun d h => h23 d (h12 d h)
+
+/-- The induced order is compatible with certification equivalence.
+    If t1 ~ t1' and t2 ~ t2', then t1 ≼ t2 ↔ t1' ≼ t2'. -/
+theorem cert_le_respects_equiv (F : CertFamily D Θ)
+    (t1 t1' t2 t2' : Θ)
+    (h1 : cert_equiv F t1 t1') (h2 : cert_equiv F t2 t2') :
+    cert_le F t1 t2 ↔ cert_le F t1' t2' := by
+  constructor
+  · intro h d hd'
+    have hd : fully_certified F d t1 := (h1 d).mpr hd'
+    have h2d : fully_certified F d t2 := h d hd
+    exact (h2 d).mp h2d
+  · intro h d hd
+    have hd' : fully_certified F d t1' := (h1 d).mp hd
+    have h2d' : fully_certified F d t2' := h d hd'
+    exact (h2 d).mpr h2d'
+
+/-- Well-defined order on the quotient -/
+def SpecQuotient.le (F : CertFamily D Θ) (q1 q2 : SpecQuotient F) : Prop :=
+  Quotient.lift₂ (cert_le F)
+    (fun t1 t2 t1' t2' h1 h2 => propext (cert_le_respects_equiv F t1 t1' t2 t2' h1 h2))
+    q1 q2
+
+/-- The quotient carries a preorder -/
+instance (F : CertFamily D Θ) : Preorder (SpecQuotient F) where
+  le := SpecQuotient.le F
+  le_refl := by
+    intro q
+    refine Quotient.inductionOn q ?_
+    intro t
+    exact cert_le_refl F t
+  le_trans := by
+    intro q1 q2 q3
+    refine Quotient.inductionOn₃ q1 q2 q3 ?_
+    intro t1 t2 t3 h12 h23
+    exact cert_le_trans F t1 t2 t3 h12 h23
+
+/-- Antisymmetry on the quotient (because we already quotiented by cert_equiv) -/
+theorem SpecQuotient.le_antisymm (F : CertFamily D Θ)
+    (q1 q2 : SpecQuotient F)
+    (h12 : q1 ≤ q2) (h21 : q2 ≤ q1) : q1 = q2 := by
+  refine Quotient.inductionOn₂ q1 q2 (fun t1 t2 h12 h21 => ?_) h12 h21
+  apply Quotient.sound
+  intro d
+  constructor
+  · exact h12 d
+  · exact h21 d
+
+/-- PartialOrder on the quotient -/
+instance (F : CertFamily D Θ) : PartialOrder (SpecQuotient F) where
+  le_antisymm := SpecQuotient.le_antisymm F
+
+-- ═══════════════════════════════════════════════════════════════════
 -- Verification
 -- ═══════════════════════════════════════════════════════════════════
 
@@ -157,3 +226,7 @@ theorem equiv_class_uniform (F : CertFamily D Θ)
 #check @quotient_projection_surjective
 #check @equiv_chain_collapses
 #check @equiv_class_uniform
+#check @cert_le_refl
+#check @cert_le_trans
+#check @cert_le_respects_equiv
+#check @SpecQuotient.le_antisymm
