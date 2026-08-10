@@ -14,4 +14,4 @@ lean_lib PPGraph where
   srcDir := "."
   roots := #[`PPGraph, `PPGraphBoot, `PPGraphRefinement, `PPGraphMeta,
              `PPGraphMetaLowRISC, `PPGraphCategorical, `PPGraphCategoricalLowRISC,
-             `PPGraphRepair]
+             `PPGraphRepair, `PPGraphParametric, `PPGraphParametricQuotient]
