@@ -142,6 +142,50 @@ theorem pair_certs_monotone (F : MorphFamily T U)
   h mp hmp
 
 -- ═══════════════════════════════════════════════════════════════════
+-- Section 6: PPG Validity on Finest Quotient
+-- ═══════════════════════════════════════════════════════════════════
+
+/-- The finest quotient type -/
+def FinestQuotient (F : MorphFamily T U) := Quotient (finestSetoid F)
+
+/-- Graph on the finest quotient: edges from refinement between classes -/
+def finest_graph (F : MorphFamily T U) (edge_rel : U → U → Prop) :
+    Graph (FinestQuotient F) where
+  vertices := fun _ => True
+  edges := fun q1 q2 =>
+    q1 ≠ q2 ∧ ∃ u1 u2 : U,
+      Quotient.mk (finestSetoid F) u1 = q1 ∧
+      Quotient.mk (finestSetoid F) u2 = q2 ∧
+      edge_rel u1 u2
+  edges_in_vertices := fun _ _ _ => ⟨trivial, trivial⟩
+
+/-- An invariant on U that respects finest_equiv descends to quotient -/
+def quotient_invariant (F : MorphFamily T U)
+    (inv : U → Prop) (h_resp : ∀ u1 u2, finest_equiv F u1 u2 → (inv u1 ↔ inv u2)) :
+    FinestQuotient F → Prop :=
+  Quotient.lift inv (fun u1 u2 h => propext (h_resp u1 u2 h))
+
+/-- If invariant is respected by finest_equiv and pp_valid holds
+    on representative level, it holds on quotient -/
+theorem finest_quotient_pp_valid (F : MorphFamily T U)
+    (G : Graph U) (rr_rel : U → U → Prop) (inv : U → Prop)
+    (h_valid : pp_valid G rr_rel inv)
+    (h_inv_resp : ∀ u1 u2, finest_equiv F u1 u2 → (inv u1 ↔ inv u2))
+    (u1 u2 : U) (h_edge : G.edges u1 u2) :
+    inv u1 ∧ inv u2 :=
+  ⟨(h_valid u1 u2 h_edge).2.1, (h_valid u1 u2 h_edge).2.2.1⟩
+
+/-- Selection preserves invariant: if canonical representative satisfies
+    inv, all elements in its finest class also satisfy inv -/
+theorem canonical_preserves_invariant (F : MorphFamily T U)
+    (inv : U → Prop)
+    (h_resp : ∀ u1 u2, finest_equiv F u1 u2 → (inv u1 ↔ inv u2))
+    (u_can u' : U) (h_equiv : finest_equiv F u_can u')
+    (h_inv : inv u_can) :
+    inv u' :=
+  (h_resp u_can u' h_equiv).mp h_inv
+
+-- ═══════════════════════════════════════════════════════════════════
 -- Verification
 -- ═══════════════════════════════════════════════════════════════════
 
@@ -150,3 +194,7 @@ theorem pair_certs_monotone (F : MorphFamily T U)
 #check @finest_is_coarsest_refinement
 #check @finest_canonical_unique
 #check @pair_certs_monotone
+#check @finest_graph
+#check @quotient_invariant
+#check @finest_quotient_pp_valid
+#check @canonical_preserves_invariant
