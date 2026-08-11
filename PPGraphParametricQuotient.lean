@@ -230,3 +230,77 @@ instance (F : CertFamily D Θ) : PartialOrder (SpecQuotient F) where
 #check @cert_le_trans
 #check @cert_le_respects_equiv
 #check @SpecQuotient.le_antisymm
+
+-- ═══════════════════════════════════════════════════════════════════
+-- Section 7: Lattice on Quotient (under InfClosed assumption)
+-- ═══════════════════════════════════════════════════════════════════
+
+variable {Θ' : Type} [Lattice Θ']
+
+/-- CertInfClosed: every certificate in the family is closed under meet -/
+def CertInfClosed (F : CertFamily D Θ') : Prop :=
+  ∀ C ∈ F.certs, ∀ (d : D) (a b : Θ'), C d a → C d b → C d (a ⊓ b)
+
+/-- Under CertInfClosed, fully_certified is closed under meet -/
+theorem certified_inf_closed' (F : CertFamily D Θ') (d : D) (t1 t2 : Θ')
+    (h_ic : CertInfClosed F)
+    (h1 : fully_certified F d t1) (h2 : fully_certified F d t2) :
+    fully_certified F d (t1 ⊓ t2) := by
+  intro C hC
+  exact h_ic C hC d t1 t2 (h1 C hC) (h2 C hC)
+
+/-- Under CertInfClosed, cert_equiv respects meet -/
+theorem cert_inf_respects_equiv' (F : CertFamily D Θ')
+    (h_ic : CertInfClosed F)
+    (t1 t1' t2 t2' : Θ')
+    (h1 : cert_equiv F t1 t1') (h2 : cert_equiv F t2 t2') :
+    cert_equiv F (t1 ⊓ t2) (t1' ⊓ t2') := by
+  intro d
+  constructor
+  · intro h_cert
+    have h_t1 : fully_certified F d t1 :=
+      (certified_meet_implies_both F d t1 t2 h_cert).1
+    have h_t2 : fully_certified F d t2 :=
+      (certified_meet_implies_both F d t1 t2 h_cert).2
+    have h_t1' : fully_certified F d t1' := (h1 d).mp h_t1
+    have h_t2' : fully_certified F d t2' := (h2 d).mp h_t2
+    exact certified_inf_closed' F d t1' t2' h_ic h_t1' h_t2'
+  · intro h_cert
+    have h_t1' : fully_certified F d t1' :=
+      (certified_meet_implies_both F d t1' t2' h_cert).1
+    have h_t2' : fully_certified F d t2' :=
+      (certified_meet_implies_both F d t1' t2' h_cert).2
+    have h_t1 : fully_certified F d t1 := (h1 d).mpr h_t1'
+    have h_t2 : fully_certified F d t2 := (h2 d).mpr h_t2'
+    exact certified_inf_closed' F d t1 t2 h_ic h_t1 h_t2
+
+/-- Well-defined meet on the quotient (under CertInfClosed) -/
+def SpecQuotient.inf_ic (F : CertFamily D Θ') (h_ic : CertInfClosed F)
+    (q1 q2 : SpecQuotient F) : SpecQuotient F :=
+  Quotient.lift₂ (fun t1 t2 => Quotient.mk (certSetoid F) (t1 ⊓ t2))
+    (fun t1 t2 t1' t2' h1 h2 => Quotient.sound
+      (cert_inf_respects_equiv' F h_ic t1 t1' t2 t2' h1 h2))
+    q1 q2
+
+-- ═══════════════════════════════════════════════════════════════════
+-- Verification
+-- ═══════════════════════════════════════════════════════════════════
+
+#check @cert_equiv_refl
+#check @cert_equiv_symm
+#check @cert_equiv_trans
+#check @equiv_and_order_implies_same_cert
+#check @canonical_unique_up_to_equiv
+#check @canonical_unique
+#check @cert_respects_equiv
+#check @spec_edge_respects_equiv
+#check @quotient_projection_surjective
+#check @equiv_chain_collapses
+#check @equiv_class_uniform
+#check @cert_le_refl
+#check @cert_le_trans
+#check @cert_le_respects_equiv
+#check @SpecQuotient.le_antisymm
+#check @certified_inf_closed'
+#check @cert_inf_respects_equiv'
+#check @SpecQuotient.inf_ic
