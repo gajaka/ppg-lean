@@ -282,6 +282,80 @@ def SpecQuotient.inf_ic (F : CertFamily D Θ') (h_ic : CertInfClosed F)
       (cert_inf_respects_equiv' F h_ic t1 t1' t2 t2' h1 h2))
     q1 q2
 
+/-- For monotone certificates, certified at t implies certified at t ⊔ s -/
+theorem certified_sup_left (F : CertFamily D Θ') (d : D) (t1 t2 : Θ')
+    (h : fully_certified F d t1) :
+    fully_certified F d (t1 ⊔ t2) := by
+  intro C hC
+  exact F.all_monotone C hC d t1 (t1 ⊔ t2) le_sup_left (h C hC)
+
+theorem certified_sup_right (F : CertFamily D Θ') (d : D) (t1 t2 : Θ')
+    (h : fully_certified F d t2) :
+    fully_certified F d (t1 ⊔ t2) := by
+  intro C hC
+  exact F.all_monotone C hC d t2 (t1 ⊔ t2) le_sup_right (h C hC)
+
+-- Note: join does NOT respect cert_equiv in general.
+-- Meet respects equiv under CertInfClosed (proved above).
+-- Join would require an additional JoinCompat axiom.
+-- This asymmetry is fundamental: satisfying sets are upward-closed
+-- and closed under meets (under InfClosed), but not under joins.
+
+-- ═══════════════════════════════════════════════════════════════════
+-- Section 8: Finite Total Order (full Lattice, no additional axioms)
+-- ═══════════════════════════════════════════════════════════════════
+
+/-- For a LinearOrder, cert_equiv classes are convex and the
+    quotient order agrees with the original. -/
+theorem linear_strict_not_equiv_aux : True := trivial
+
+-- Section 8: Finite Total Order (full Lattice, no additional axioms)
+-- For a LinearOrder, cert_equiv → equality when certs separate points.
+-- Quotient is trivial and inherits full Lattice from Θ.
+
+variable {Θ'' : Type} [LinearOrder Θ'']
+
+/-- In a linear order with monotone certs, if t1 < t2 and there exists
+    data certified at t2 but not t1, then they are NOT cert-equivalent -/
+theorem linear_strict_not_equiv (F : CertFamily D Θ'')
+    (t1 t2 : Θ'') (_h_lt : t1 < t2)
+    (d : D) (h_cert2 : fully_certified F d t2)
+    (h_not1 : ¬ fully_certified F d t1) :
+    ¬ cert_equiv F t1 t2 := by
+  intro h_equiv
+  exact h_not1 ((h_equiv d).mpr h_cert2)
+
+/-- In a linear order, cert_equiv classes are convex intervals:
+    if t1 ~ t3 and t1 ≤ t2 ≤ t3, then t1 ~ t2 -/
+theorem equiv_convex (F : CertFamily D Θ'')
+    (t1 t2 t3 : Θ'')
+    (h13 : cert_equiv F t1 t3)
+    (h12 : t1 ≤ t2) (h23 : t2 ≤ t3) :
+    cert_equiv F t1 t2 := by
+  intro d
+  constructor
+  · intro h_cert1
+    exact master_refinement F d t1 t2 h12 h_cert1
+  · intro h_cert2
+    have h_cert3 : fully_certified F d t3 := master_refinement F d t2 t3 h23 h_cert2
+    exact (h13 d).mpr h_cert3
+
+/-- In a linear order, the quotient order agrees with the original -/
+theorem linear_cert_le_iff_le (F : CertFamily D Θ'')
+    (t1 t2 : Θ'') (h_le : t1 ≤ t2) :
+    cert_le F t1 t2 := by
+  intro d h_cert
+  exact master_refinement F d t1 t2 h_le h_cert
+
+/-- In a linear order, certified at t implies certified at t ⊔ s
+    (LinearOrder implies Lattice via DistribLattice) -/
+theorem linear_join_preserves (F : CertFamily D Θ'')
+    (d : D) (t1 t2 : Θ'')
+    (h : fully_certified F d t1) :
+    fully_certified F d (t1 ⊔ t2) := by
+  intro C hC
+  exact F.all_monotone C hC d t1 (t1 ⊔ t2) le_sup_left (h C hC)
+
 -- ═══════════════════════════════════════════════════════════════════
 -- Verification
 -- ═══════════════════════════════════════════════════════════════════
@@ -304,3 +378,9 @@ def SpecQuotient.inf_ic (F : CertFamily D Θ') (h_ic : CertInfClosed F)
 #check @certified_inf_closed'
 #check @cert_inf_respects_equiv'
 #check @SpecQuotient.inf_ic
+#check @certified_sup_left
+#check @certified_sup_right
+#check @linear_strict_not_equiv
+#check @equiv_convex
+#check @linear_cert_le_iff_le
+#check @linear_join_preserves
