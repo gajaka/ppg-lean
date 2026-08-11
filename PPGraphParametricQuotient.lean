@@ -356,6 +356,34 @@ theorem linear_join_preserves (F : CertFamily D Θ'')
   intro C hC
   exact F.all_monotone C hC d t1 (t1 ⊔ t2) le_sup_left (h C hC)
 
+/-- A certificate family separates points: for any t1 < t2,
+    there exists data that distinguishes them -/
+def separating (F : CertFamily D Θ'') : Prop :=
+  ∀ t1 t2 : Θ'', t1 < t2 →
+    ∃ d : D, fully_certified F d t2 ∧ ¬ fully_certified F d t1
+
+/-- Under separating, cert_equiv implies equality -/
+theorem separating_equiv_eq (F : CertFamily D Θ'')
+    (h_sep : separating F) (t1 t2 : Θ'')
+    (h_equiv : cert_equiv F t1 t2) :
+    t1 = t2 := by
+  by_contra h_ne
+  cases lt_or_gt_of_ne h_ne with
+  | inl h_lt =>
+    obtain ⟨d, h_cert2, h_not1⟩ := h_sep t1 t2 h_lt
+    exact h_not1 ((h_equiv d).mpr h_cert2)
+  | inr h_gt =>
+    obtain ⟨d, h_cert1, h_not2⟩ := h_sep t2 t1 h_gt
+    exact h_not2 ((h_equiv d).mp h_cert1)
+
+/-- Under separating, the quotient is isomorphic to Θ itself.
+    Therefore the quotient inherits the full Lattice from LinearOrder. -/
+theorem separating_quotient_trivial (F : CertFamily D Θ'')
+    (h_sep : separating F) (t1 t2 : Θ'')
+    (h_q : Quotient.mk (certSetoid F) t1 = Quotient.mk (certSetoid F) t2) :
+    t1 = t2 :=
+  separating_equiv_eq F h_sep t1 t2 (Quotient.exact h_q)
+
 -- ═══════════════════════════════════════════════════════════════════
 -- Verification
 -- ═══════════════════════════════════════════════════════════════════
@@ -384,3 +412,6 @@ theorem linear_join_preserves (F : CertFamily D Θ'')
 #check @equiv_convex
 #check @linear_cert_le_iff_le
 #check @linear_join_preserves
+#check @separating
+#check @separating_equiv_eq
+#check @separating_quotient_trivial
