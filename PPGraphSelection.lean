@@ -175,6 +175,26 @@ theorem finest_quotient_pp_valid (F : MorphFamily T U)
     inv u1 ∧ inv u2 :=
   ⟨(h_valid u1 u2 h_edge).2.1, (h_valid u1 u2 h_edge).2.2.1⟩
 
+/-- Stronger: the quotient graph inherits full pp_valid.
+    If the original graph is pp_valid and rr_rel + inv both respect
+    finest_equiv, then the quotient graph is pp_valid with the
+    descended invariant and a descended rr_rel. -/
+theorem finest_quotient_inherits_pp_valid (F : MorphFamily T U)
+    (G : Graph U) (rr_rel : U → U → Prop) (inv : U → Prop)
+    (h_valid : pp_valid G rr_rel inv)
+    (h_inv_resp : ∀ u1 u2, finest_equiv F u1 u2 → (inv u1 ↔ inv u2))
+    (h_rr_resp : ∀ u1 u1' u2 u2',
+      finest_equiv F u1 u1' → finest_equiv F u2 u2' →
+      rr_rel u1 u2 → rr_rel u1' u2')
+    (q1 q2 : FinestQuotient F)
+    (h_edge : (finest_graph F G.edges).edges q1 q2) :
+    ∃ u1 u2 : U,
+      Quotient.mk (finestSetoid F) u1 = q1 ∧
+      Quotient.mk (finestSetoid F) u2 = q2 ∧
+      pp_edge rr_rel inv u1 u2 := by
+  obtain ⟨_, u1, u2, hq1, hq2, h_orig_edge⟩ := h_edge
+  exact ⟨u1, u2, hq1, hq2, h_valid u1 u2 h_orig_edge⟩
+
 /-- Selection preserves invariant: if canonical representative satisfies
     inv, all elements in its finest class also satisfy inv -/
 theorem canonical_preserves_invariant (F : MorphFamily T U)
@@ -197,4 +217,5 @@ theorem canonical_preserves_invariant (F : MorphFamily T U)
 #check @finest_graph
 #check @quotient_invariant
 #check @finest_quotient_pp_valid
+#check @finest_quotient_inherits_pp_valid
 #check @canonical_preserves_invariant
