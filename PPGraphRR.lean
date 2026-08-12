@@ -133,6 +133,45 @@ theorem config_id_reduces (cfg : PPGConfig V)
   exact ⟨h, h⟩
 
 -- ═══════════════════════════════════════════════════════════════════
+-- Section 5: Concrete PP-Edge and Validity Bridge
+-- (ported from PPGraphRefinement.lean before its removal)
+-- ═══════════════════════════════════════════════════════════════════
+
+/-- A concrete pp-edge under a PPGConfig: distinct, both invariant-holding,
+    and related by the config's derived rr_rel. -/
+def PPGConfig.pp_edge_concrete (cfg : PPGConfig V) (x y : V) : Prop :=
+  x ≠ y ∧ cfg.invariant x ∧ cfg.invariant y ∧ cfg.rr_rel x y
+
+/-- g-consistent edge is a valid concrete pp-edge (if invariants hold) -/
+theorem PPGConfig.g_consistent_pp_edge (cfg : PPGConfig V) (x y : V)
+    (hne : x ≠ y) (hix : cfg.invariant x) (hiy : cfg.invariant y)
+    (hg : cfg.le_eq x (cfg.g_con y)) :
+    cfg.pp_edge_concrete x y :=
+  ⟨hne, hix, hiy,
+   g_consistent_with_RR cfg.le_eq cfg.le_eq cfg.f_abs cfg.g_con (x, y)
+     (fun _ _ h => cfg.is_equiv.symm h) (fun _ => cfg.is_equiv.refl _) hg⟩
+
+/-- f-consistent edge is a valid concrete pp-edge (if invariants hold) -/
+theorem PPGConfig.f_consistent_pp_edge (cfg : PPGConfig V) (x y : V)
+    (hne : x ≠ y) (hix : cfg.invariant x) (hiy : cfg.invariant y)
+    (hf : cfg.le_eq y (cfg.f_abs x)) :
+    cfg.pp_edge_concrete x y :=
+  ⟨hne, hix, hiy,
+   f_consistent_with_RR cfg.le_eq cfg.le_eq cfg.f_abs cfg.g_con (x, y)
+     (fun _ => cfg.is_equiv.refl _) (fun _ _ h => cfg.is_equiv.symm h) hf⟩
+
+/-- Bridge: a concrete pp-edge is a pp_edge in the sense of PPGraph.lean -/
+theorem PPGConfig.pp_edge_concrete_is_pp_edge (cfg : PPGConfig V) (x y : V)
+    (h : cfg.pp_edge_concrete x y) :
+    pp_edge cfg.rr_rel cfg.invariant x y := h
+
+/-- Bridge: a graph whose edges all satisfy pp_edge_concrete is PPGConfig.valid -/
+theorem PPGConfig.graph_valid_of_concrete_edges (cfg : PPGConfig V) (G : Graph V)
+    (h : ∀ x y, G.edges x y → cfg.pp_edge_concrete x y) :
+    cfg.valid G :=
+  fun x y he => h x y he
+
+-- ═══════════════════════════════════════════════════════════════════
 -- Verification
 -- ═══════════════════════════════════════════════════════════════════
 
@@ -144,4 +183,10 @@ theorem config_id_reduces (cfg : PPGConfig V)
 #check @rr_rel_id
 #check @PPGConfig.rr_rel
 #check @PPGConfig.valid
+#check @config_id_reduces
+#check @PPGConfig.pp_edge_concrete
+#check @PPGConfig.g_consistent_pp_edge
+#check @PPGConfig.f_consistent_pp_edge
+#check @PPGConfig.pp_edge_concrete_is_pp_edge
+#check @PPGConfig.graph_valid_of_concrete_edges
 #check @config_id_reduces

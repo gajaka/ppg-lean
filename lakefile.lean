@@ -12,6 +12,6 @@ require mathlib from git
 @[default_target]
 lean_lib PPGraph where
   srcDir := "."
-  roots := #[`PPGraph, `PPGraphBoot, `PPGraphRefinement, `PPGraphMeta,
+  roots := #[`PPGraph, `PPGraphBoot, `PPGraphMeta,
              `PPGraphMetaLowRISC, `PPGraphCategorical, `PPGraphCategoricalLowRISC,
              `PPGraphRepair, `PPGraphParametric, `PPGraphParametricQuotient, `PPGraphRR, `PPGraphBlocking, `PPGraphQuotientBridge, `PPGraphSelection]
