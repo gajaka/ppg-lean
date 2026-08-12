@@ -183,6 +183,47 @@ theorem lens_cert_monotone [DecidableEq (MorphPair T U)]
     lens_family_cert target u S2 :=
   fun mp hmp => h_pass mp (h_sub hmp)
 
+-- ═══════════════════════════════════════════════════════════════════
+-- Section 5b: Formal CertFamily Instance via OrderDual
+-- ═══════════════════════════════════════════════════════════════════
+
+-- Θ = (Finset (MorphPair T U))ᵒᵈ with the standard dual order.
+-- In OrderDual: S1 ≤ S2 in dual ↔ S2 ⊆ S1 in original.
+-- So "larger in dual order" = "fewer lenses" = "weaker spec".
+
+/-- The single certificate for the lens CertFamily:
+    data u is certified at spec level S iff it passes all lenses in S -/
+def lens_certificate [DecidableEq (MorphPair T U)] (target : U) :
+    Certificate U (Finset (MorphPair T U))ᵒᵈ :=
+  fun u S => lens_family_cert target u (OrderDual.ofDual S)
+
+/-- The lens certificate is monotone w.r.t. the dual order -/
+theorem lens_certificate_monotone [DecidableEq (MorphPair T U)] (target : U) :
+    monotone_cert (lens_certificate target : Certificate U (Finset (MorphPair T U))ᵒᵈ) := by
+  intro u S1 S2 h_le h_cert
+  -- h_le : S1 ≤ S2 in dual, i.e., ofDual S2 ⊆ ofDual S1
+  exact lens_cert_monotone target u (OrderDual.ofDual S1) (OrderDual.ofDual S2)
+    h_le h_cert
+
+/-- The lens CertFamily: one certificate, monotone over dual-ordered Finsets -/
+def lensCertFamily [DecidableEq (MorphPair T U)] (target : U) :
+    CertFamily U (Finset (MorphPair T U))ᵒᵈ where
+  certs := [lens_certificate target]
+  all_monotone := by
+    intro C hC
+    simp at hC
+    subst hC
+    exact lens_certificate_monotone target
+
+/-- master_refinement applied to the lens CertFamily:
+    S1 ≤ S2 (dual) ∧ certified at S1 → certified at S2 -/
+theorem lens_master_refinement [DecidableEq (MorphPair T U)] (target : U)
+    (u : U) (S1 S2 : (Finset (MorphPair T U))ᵒᵈ)
+    (h_le : S1 ≤ S2)
+    (h_cert : fully_certified (lensCertFamily target) u S1) :
+    fully_certified (lensCertFamily target) u S2 :=
+  master_refinement (lensCertFamily target) u S1 S2 h_le h_cert
+
 /-- Conjunction of all lenses in the family = finest_equiv -/
 theorem all_lenses_iff_finest (F : MorphFamily T U) (target : U) (u : U) :
     (∀ mp ∈ F.pairs, lens_pred mp target u) ↔ finest_equiv F u target :=
@@ -284,6 +325,10 @@ theorem canonical_preserves_invariant (F : MorphFamily T U)
 #check @lens_pred
 #check @lens_family_cert
 #check @lens_cert_monotone
+#check @lens_certificate
+#check @lens_certificate_monotone
+#check @lensCertFamily
+#check @lens_master_refinement
 #check @all_lenses_iff_finest
 #check @lens_pred_refl
 #check @lens_propagates
