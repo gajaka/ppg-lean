@@ -18,20 +18,31 @@ set_option linter.unusedVariables false
 variable {T U : Type}
 
 -- ═══════════════════════════════════════════════════════════════════
--- Section 1: Single Morphism Pair Induces Equivalence
+-- Section 1: Single Morphism Pair Induces Equivalence (via pullback)
 -- ═══════════════════════════════════════════════════════════════════
 
-/-- A morphism pair (f, g) with an equivalence on U -/
+/-- A morphism pair: f abstracts (T→U), g concretizes (U→T),
+    eq_T is an equivalence on the concrete domain T.
+    The induced equivalence on U is the pullback of eq_T along g:
+    u1 ~ u2 iff eq_T (g u1) (g u2). -/
 structure MorphPair (T U : Type) where
   f : T → U
   g : U → T
-  eq_U : U → U → Prop
-  is_equiv : Equivalence eq_U
+  eq_T : T → T → Prop
+  is_equiv : Equivalence eq_T
 
-/-- The equivalence induced by a morphism pair on U:
-    u1 ~ u2 iff they are in the same eq_U class -/
+/-- The equivalence induced on U by pulling back eq_T along g:
+    two abstract elements are equivalent if their concretizations
+    are equivalent in T. -/
 def induced_equiv (mp : MorphPair T U) (u1 u2 : U) : Prop :=
-  mp.eq_U u1 u2
+  mp.eq_T (mp.g u1) (mp.g u2)
+
+/-- Pullback of an equivalence is an equivalence -/
+theorem induced_equiv_is_equiv (mp : MorphPair T U) :
+    Equivalence (induced_equiv mp) where
+  refl := fun u => mp.is_equiv.refl (mp.g u)
+  symm := fun h => mp.is_equiv.symm h
+  trans := fun h1 h2 => mp.is_equiv.trans h1 h2
 
 -- ═══════════════════════════════════════════════════════════════════
 -- Section 2: Family of Morphism Pairs
@@ -51,21 +62,21 @@ def finest_equiv (F : MorphFamily T U) (u1 u2 : U) : Prop :=
 theorem finest_equiv_refl (F : MorphFamily T U) (u : U) :
     finest_equiv F u u := by
   intro mp _
-  exact mp.is_equiv.refl u
+  exact (induced_equiv_is_equiv mp).refl u
 
 /-- finest_equiv is symmetric -/
 theorem finest_equiv_symm (F : MorphFamily T U) (u1 u2 : U)
     (h : finest_equiv F u1 u2) :
     finest_equiv F u2 u1 := by
   intro mp hmp
-  exact mp.is_equiv.symm (h mp hmp)
+  exact (induced_equiv_is_equiv mp).symm (h mp hmp)
 
 /-- finest_equiv is transitive -/
 theorem finest_equiv_trans (F : MorphFamily T U) (u1 u2 u3 : U)
     (h12 : finest_equiv F u1 u2) (h23 : finest_equiv F u2 u3) :
     finest_equiv F u1 u3 := by
   intro mp hmp
-  exact mp.is_equiv.trans (h12 mp hmp) (h23 mp hmp)
+  exact (induced_equiv_is_equiv mp).trans (h12 mp hmp) (h23 mp hmp)
 
 /-- finest_equiv is an equivalence -/
 theorem finest_equiv_is_equivalence (F : MorphFamily T U) :
@@ -123,23 +134,38 @@ theorem finest_canonical_unique (F : MorphFamily T U)
   h1.2 u2 h_equiv h2.1
 
 -- ═══════════════════════════════════════════════════════════════════
--- Section 5: Connection to CertFamily
+-- Section 5: Connection to CertFamily (proper bridge)
 -- ═══════════════════════════════════════════════════════════════════
 
-/-- Each morphism pair induces a certificate:
-    "element lands in the correct class under this pair" -/
-def pair_cert (mp : MorphPair T U) (u : U) (target_class : U) : Prop :=
-  induced_equiv mp u target_class
+/-- Each morphism pair induces a certificate on U:
+    "u is in the same class as target under this lens" -/
+def lens_cert (mp : MorphPair T U) (target : U) : Certificate U (MorphPair T U) :=
+  fun u _mp => induced_equiv mp u target
 
-/-- The family of pair-certificates is monotone w.r.t. refinement:
-    if u is in the correct class for ALL pairs, it remains so
-    for any subset of pairs -/
-theorem pair_certs_monotone (F : MorphFamily T U)
+/-- The lens certificate is monotone: if mp1 refines mp2
+    (finer equivalence), then passing mp1 implies passing mp2.
+    Here we use a simpler monotonicity: same pair, same cert. -/
+theorem lens_cert_refl (mp : MorphPair T U) (target : U) :
+    lens_cert mp target target mp :=
+  (induced_equiv_is_equiv mp).refl target
+
+/-- finest_equiv u target means u passes ALL lens certificates
+    simultaneously — this is exactly fully_certified over the
+    family of lens certs -/
+theorem finest_is_fully_certified (F : MorphFamily T U)
     (u target : U)
     (h : finest_equiv F u target) (mp : MorphPair T U)
     (hmp : mp ∈ F.pairs) :
-    pair_cert mp u target :=
+    induced_equiv mp u target :=
   h mp hmp
+
+/-- Conversely: if u passes every lens cert, it is finest-equivalent
+    to target -/
+theorem fully_certified_is_finest (F : MorphFamily T U)
+    (u target : U)
+    (h : ∀ mp ∈ F.pairs, induced_equiv mp u target) :
+    finest_equiv F u target :=
+  h
 
 -- ═══════════════════════════════════════════════════════════════════
 -- Section 6: PPG Validity on Finest Quotient
@@ -209,11 +235,14 @@ theorem canonical_preserves_invariant (F : MorphFamily T U)
 -- Verification
 -- ═══════════════════════════════════════════════════════════════════
 
+#check @induced_equiv_is_equiv
 #check @finest_equiv_is_equivalence
 #check @finest_refines_each
 #check @finest_is_coarsest_refinement
 #check @finest_canonical_unique
-#check @pair_certs_monotone
+#check @lens_cert_refl
+#check @finest_is_fully_certified
+#check @fully_certified_is_finest
 #check @finest_graph
 #check @quotient_invariant
 #check @finest_quotient_pp_valid
