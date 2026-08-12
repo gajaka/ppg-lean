@@ -158,20 +158,32 @@ theorem finest_canonical_unique (F : MorphFamily T U)
   h1.2 u2 h_equiv h2.1
 
 -- ═══════════════════════════════════════════════════════════════════
--- Section 5: Proper Bridge to CertFamily
+-- Section 5: Proper CertFamily Instance
 -- ═══════════════════════════════════════════════════════════════════
 
--- Each MorphPair is one certificate. The family of pairs IS a CertFamily
--- where Θ = Nat (index into the list) and D = U.
--- Certificate i at data u: "u is equivalent to target under lens i".
--- Monotonicity: trivial (each cert is independent of the level axis).
--- The real structure: finest_equiv = conjunction of all certs = fully_certified.
+-- Θ = Set of lenses (ordered by reverse inclusion: bigger set = stricter).
+-- Certificate: "u passes all lenses in S".
+-- master_refinement gives lens_superset_refines for free.
 
 /-- Each lens defines a predicate on U: "equivalent to target" -/
 def lens_pred (mp : MorphPair T U) (target : U) (u : U) : Prop :=
   induced_equiv mp u target
 
-/-- Conjunction of all lens predicates = finest_equiv -/
+/-- Certificate over a set of lenses: u passes ALL lenses in S -/
+def lens_family_cert (target : U) (u : U) (S : Finset (MorphPair T U)) : Prop :=
+  ∀ mp ∈ S, lens_pred mp target u
+
+/-- lens_family_cert is monotone w.r.t. reverse inclusion:
+    if S1 ⊇ S2 (S1 is stricter) and u passes S1, then u passes S2.
+    This IS master_refinement for the lens CertFamily. -/
+theorem lens_cert_monotone [DecidableEq (MorphPair T U)]
+    (target : U) (u : U) (S1 S2 : Finset (MorphPair T U))
+    (h_sub : S2 ⊆ S1)
+    (h_pass : lens_family_cert target u S1) :
+    lens_family_cert target u S2 :=
+  fun mp hmp => h_pass mp (h_sub hmp)
+
+/-- Conjunction of all lenses in the family = finest_equiv -/
 theorem all_lenses_iff_finest (F : MorphFamily T U) (target : U) (u : U) :
     (∀ mp ∈ F.pairs, lens_pred mp target u) ↔ finest_equiv F u target :=
   Iff.rfl
@@ -192,15 +204,6 @@ theorem lens_propagates (F : MorphFamily T U) (target : U) (u u' : U)
   have h_u : mp.eq_T (mp.g u) (mp.g target) := h_pass mp hmp
   have h_uu' : mp.eq_T (mp.g u) (mp.g u') := (h_finest mp hmp)
   exact mp.is_equiv.trans (mp.is_equiv.symm h_uu') h_u
-
-/-- Master refinement for lenses: if u passes a superset of lenses
-    that u' passes, then u is "stricter certified" than u' -/
-theorem lens_superset_refines (F : MorphFamily T U) (target : U) (u : U)
-    (S1 S2 : List (MorphPair T U))
-    (h_sub : ∀ mp, mp ∈ S2 → mp ∈ S1)
-    (h_pass : ∀ mp ∈ S1, lens_pred mp target u) :
-    ∀ mp ∈ S2, lens_pred mp target u :=
-  fun mp hmp => h_pass mp (h_sub mp hmp)
 
 -- ═══════════════════════════════════════════════════════════════════
 -- Section 6: PPG Validity on Finest Quotient
@@ -279,10 +282,11 @@ theorem canonical_preserves_invariant (F : MorphFamily T U)
 #check @finest_is_coarsest_refinement
 #check @finest_canonical_unique
 #check @lens_pred
+#check @lens_family_cert
+#check @lens_cert_monotone
 #check @all_lenses_iff_finest
 #check @lens_pred_refl
 #check @lens_propagates
-#check @lens_superset_refines
 #check @finest_graph
 #check @quotient_invariant
 #check @finest_quotient_pp_valid
