@@ -44,6 +44,30 @@ theorem induced_equiv_is_equiv (mp : MorphPair T U) :
   symm := fun h => mp.is_equiv.symm h
   trans := fun h1 h2 => mp.is_equiv.trans h1 h2
 
+/-- f-g consistency: f and g are compatible with eq_T.
+    Round-trip g(f(t)) is equivalent to t. -/
+def fg_consistent (mp : MorphPair T U) : Prop :=
+  ∀ t : T, mp.eq_T t (mp.g (mp.f t))
+
+/-- Under fg_consistent, f(t1) and f(t2) are induced-equivalent
+    whenever t1 and t2 are eq_T-equivalent -/
+theorem f_preserves_equiv (mp : MorphPair T U)
+    (h_fg : fg_consistent mp) (t1 t2 : T)
+    (h_eq : mp.eq_T t1 t2) :
+    induced_equiv mp (mp.f t1) (mp.f t2) := by
+  unfold induced_equiv
+  have h1 : mp.eq_T (mp.g (mp.f t1)) t1 := mp.is_equiv.symm (h_fg t1)
+  have h2 : mp.eq_T t2 (mp.g (mp.f t2)) := h_fg t2
+  exact mp.is_equiv.trans (mp.is_equiv.trans h1 h_eq) h2
+
+/-- Under fg_consistent, g is a section of f up to equivalence:
+    f(g(u)) is induced-equivalent to u -/
+theorem g_section (mp : MorphPair T U)
+    (h_fg : fg_consistent mp) (u : U) :
+    induced_equiv mp (mp.f (mp.g u)) u := by
+  unfold induced_equiv
+  exact mp.is_equiv.symm (h_fg (mp.g u))
+
 -- ═══════════════════════════════════════════════════════════════════
 -- Section 2: Family of Morphism Pairs
 -- ═══════════════════════════════════════════════════════════════════
@@ -236,6 +260,9 @@ theorem canonical_preserves_invariant (F : MorphFamily T U)
 -- ═══════════════════════════════════════════════════════════════════
 
 #check @induced_equiv_is_equiv
+#check @fg_consistent
+#check @f_preserves_equiv
+#check @g_section
 #check @finest_equiv_is_equivalence
 #check @finest_refines_each
 #check @finest_is_coarsest_refinement
