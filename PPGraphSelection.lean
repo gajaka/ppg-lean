@@ -72,10 +72,10 @@ theorem g_section (mp : MorphPair T U)
 -- Section 2: Family of Morphism Pairs
 -- ═══════════════════════════════════════════════════════════════════
 
-/-- A family of morphism pairs -/
+/-- A family of morphism pairs (Set-based, matching PVS port) -/
 structure MorphFamily (T U : Type) where
-  pairs : List (MorphPair T U)
-  nonempty : pairs ≠ []
+  pairs : Set (MorphPair T U)
+  nonempty : ∃ mp, mp ∈ pairs
 
 /-- The finest equivalence: intersection of all induced equivalences.
     u1 ~* u2 iff u1 ~ᵢ u2 for ALL pairs in the family -/
