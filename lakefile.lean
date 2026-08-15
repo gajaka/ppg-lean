@@ -15,4 +15,4 @@ lean_lib PPGraph where
   roots := #[`PPGraph, `PPGraphCategorical, `PPGraphMeta,
              `PPGraphRepair, `PPGraphRR, `PPGraphParametric,
              `PPGraphParametricQuotient, `PPGraphBlocking,
-             `PPGraphQuotientBridge, `PPGraphSelection, `PPGraphEquivBridge]
+             `PPGraphQuotientBridge, `PPGraphSelection, `PPGraphEquivBridge, `PPGraphComplementarySlackness]
