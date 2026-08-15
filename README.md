@@ -52,6 +52,10 @@ The specification graph carries proof-preserving graph (PPG) structure.
 9. **Hierarchical selection**: Family of lenses, finest equiv, CertFamily instance
 10. **Concrete instance**: Threshold with Lattice, self-certifying canonical
 
+## Related Publication
+
+D. Stosic, "Optimal Transport Geometry of Natural Spectral Regime Transitions," 2026. [DOI: 10.5281/zenodo.21956336](https://zenodo.org/records/21956336)
+
 ## Author
 
 Dragan Stosic, MSc
