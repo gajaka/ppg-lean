@@ -1,6 +1,6 @@
 # Parameterized Proof-Preserving Certification (Lean 4)
 
-**Machine-checked. Zero sorry.**
+**153 theorems. Zero sorry.**
 
 A formal theory of parameterized certification over partially ordered specification spaces.
 Certificate predicates are monotone: passing a stricter contract implies passing all weaker ones.
@@ -20,6 +20,7 @@ The specification graph carries proof-preserving graph (PPG) structure.
 | `PPGraphBlocking.lean` | 7 | Blocking certificates: diagnostic layer, canonical has empty blocking, stricter has nonempty |
 | `PPGraphQuotientBridge.lean` | 7 | Bridge: spec graph projects to quotient PPG via surjective morphism |
 | `PPGraphSelection.lean` | 17 | Hierarchical representative selection: pullback equiv, finest equiv, CertFamily instance via OrderDual Finset, pp_quotient bridge |
+| `PPGraphComplementarySlackness.lean` | 5 | LP duality for optimal transport: pointwise CS, Monge structure, strict uniqueness, zero duality gap certificate |
 
 ## Central Theorems
 
@@ -35,6 +36,8 @@ The specification graph carries proof-preserving graph (PPG) structure.
 | 8 | `separating_equiv_eq` | Quotient | Under separating family, cert_equiv implies equality |
 | 9 | `lens_master_refinement` | Selection | One-liner from master_refinement via OrderDual Finset |
 | 10 | `proj_is_pp_quotient` | QuotientBridge | Spec graph → quotient is surjective pp_morphism |
+| 11 | `cs_pointwise` | ComplementarySlackness | dual_feasible ∧ P(i,j)>0 ∧ P·slack=0 → u(i)+v(j)=C(i,j) |
+| 12 | `monge_cs_strict_unique` | ComplementarySlackness | Monge + CS + strict → unique tight entry per row |
 
 ## Theory Layers
 
