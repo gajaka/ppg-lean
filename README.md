@@ -52,6 +52,7 @@ The specification graph carries proof-preserving graph (PPG) structure.
 8. **Quotient structure**: PartialOrder on quotient, LinearOrder separating
 9. **Hierarchical selection**: Family of lenses, finest equiv, CertFamily instance
 10. **Concrete instance**: Threshold with Lattice, self-certifying canonical
+11. **Self-assessment**: Failure containment, contamination impossibility, assessment trichotomy, repair operator (S→V→S with spec fixed), monotone recovery via proof obligations
 
 ## Related
 
