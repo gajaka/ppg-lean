@@ -1,6 +1,6 @@
 # Parameterized Proof-Preserving Certification (Lean 4)
 
-**153 theorems. Zero sorry.**
+**164 theorems. Zero sorry.**
 
 A formal theory of parameterized certification over partially ordered specification spaces.
 Certificate predicates are monotone: passing a stricter contract implies passing all weaker ones.
@@ -21,6 +21,7 @@ The specification graph carries proof-preserving graph (PPG) structure.
 | `PPGraphQuotientBridge.lean` | 7 | Bridge: spec graph projects to quotient PPG via surjective morphism |
 | `PPGraphSelection.lean` | 17 | Hierarchical representative selection: pullback equiv, finest equiv, CertFamily instance via OrderDual Finset, pp_quotient bridge |
 | `PPGraphComplementarySlackness.lean` | 5 | LP duality for optimal transport: pointwise CS, Monge structure, strict uniqueness, zero duality gap certificate |
+| `PPGraphSelfAssessment.lean` | 11 | Failure containment, contamination impossibility, assessment trichotomy, monotone recovery (state-based, spec fixed), three evolution modes |
 
 ## Central Theorems
 
@@ -51,6 +52,7 @@ The specification graph carries proof-preserving graph (PPG) structure.
 8. **Quotient structure**: PartialOrder on quotient, LinearOrder separating
 9. **Hierarchical selection**: Family of lenses, finest equiv, CertFamily instance
 10. **Concrete instance**: Threshold with Lattice, self-certifying canonical
+11. **Self-assessment**: Failure containment, contamination impossibility, assessment trichotomy, repair operator (S→V→S with spec fixed), monotone recovery via proof obligations
 
 ## Related
 
