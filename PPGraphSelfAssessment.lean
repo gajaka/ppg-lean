@@ -76,8 +76,9 @@ theorem no_silent_redefinition (G1 G2 : Graph V)
 -- ═══════════════════════════════════════════════════════════════════
 
 /-- Every vertex falls into exactly one of three categories:
-    certified (invariant holds), repairable (isolated but has
-    rr_rel neighbor), or permanently isolated (no candidate). -/
+    certified (invariant holds), repairable (isolated with at least
+    one repair candidate), or currently non-repairable (isolated
+    with no candidate in the current state). -/
 theorem assessment_trichotomy (G : RepairGraph V) (v : V) :
     G.invariant_holds v ∨
     (isolated G v ∧ ∃ w, repair_candidates G v w) ∨
@@ -147,9 +148,9 @@ theorem repair_monotone_recovery (R : RepairOp S V) (spec : Spec S V)
     spec (R s v) v ∧ (∀ w, w ≠ v → spec s w → spec (R s v) w) :=
   ⟨h_valid.1 h_broken, h_valid.2⟩
 
-/-- The certified set after repair is a strict superset: it contains
-    everything from before plus v (which was not certified before). -/
-theorem repair_strict_growth (R : RepairOp S V) (spec : Spec S V)
+/-- Preservation: every previously certified vertex remains certified
+    after repair. This is set inclusion Certified(s) ⊆ Certified(R(s,v)). -/
+theorem repair_preserves_certified (R : RepairOp S V) (spec : Spec S V)
     (s : S) (v : V)
     (h_broken : broken spec s v)
     (h_valid : valid_repair R spec s v)
@@ -160,15 +161,28 @@ theorem repair_strict_growth (R : RepairOp S V) (spec : Spec S V)
     exact absurd h_was_cert h_broken
   · exact h_valid.2 w h_eq h_was_cert
 
-/-- Relaxation contrast: relaxation weakens the spec (θ₁ ≤ θ₂ means
-    Cert(d,θ₁) → Cert(d,θ₂)), repair strengthens the state.
-    Under repair, the bar stays fixed and the system moves to meet it.
-    Under relaxation, the system stays fixed and the bar is lowered. -/
-theorem repair_vs_relaxation (R : RepairOp S V) (spec : Spec S V)
+/-- Strict growth: the certified set after repair is a PROPER superset.
+    Certified(s) ⊊ Certified(R(s,v)):
+    - v is in Certified(R(s,v)) but not in Certified(s)
+    - everything in Certified(s) is in Certified(R(s,v))
+    This is the key theorem: repair produces genuine monotone growth. -/
+theorem repair_strict_growth (R : RepairOp S V) (spec : Spec S V)
     (s : S) (v : V)
     (h_broken : broken spec s v)
     (h_valid : valid_repair R spec s v) :
-    -- Repair: same spec, different state, target now passes
+    (∀ w, spec s w → spec (R s v) w) ∧
+    (spec (R s v) v ∧ ¬ spec s v) := by
+  constructor
+  · intro w h_cert
+    exact repair_preserves_certified R spec s v h_broken h_valid w h_cert
+  · exact ⟨h_valid.1 h_broken, h_broken⟩
+
+/-- Repair restores the broken target under the same fixed specification.
+    The state changes, the spec does not. -/
+theorem repair_restores_broken_target (R : RepairOp S V) (spec : Spec S V)
+    (s : S) (v : V)
+    (h_broken : broken spec s v)
+    (h_valid : valid_repair R spec s v) :
     spec (R s v) v ∧ ¬ spec s v :=
   ⟨h_valid.1 h_broken, h_broken⟩
 
@@ -216,8 +230,9 @@ theorem failure_total_isolation (G : Graph V) (rr_rel : V → V → Prop)
 #check @assessment_trichotomy
 #check @certified_excludes_isolated
 #check @repair_monotone_recovery
+#check @repair_preserves_certified
 #check @repair_strict_growth
-#check @repair_vs_relaxation
+#check @repair_restores_broken_target
 #check @failure_contained
 #check @failure_fully_isolated
 #check @failure_total_isolation
