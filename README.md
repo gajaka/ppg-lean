@@ -1,4 +1,4 @@
-# Parameterized Proof-Preserving Certification (Lean 4)
+# Proof-Preserving Graphs: Formal Certification, Self-Assessment, and Repair (Lean 4)
 
 **172 theorems. Zero sorry.**
 
