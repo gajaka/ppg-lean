@@ -2,6 +2,8 @@
 
 **172 theorems. Zero sorry.**
 
+**Core is closed.** Four questions, each with a machine-checked answer: How far does certification reach? What stops it from going further? Can the failure be safely contained and repaired? Did repair provably advance certification?
+
 A formal theory of parameterized certification over partially ordered specification spaces.
 Certificate predicates are monotone: passing a stricter contract implies passing all weaker ones.
 The specification graph carries proof-preserving graph (PPG) structure.
