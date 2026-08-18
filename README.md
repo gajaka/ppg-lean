@@ -63,6 +63,10 @@ The specification graph carries proof-preserving graph (PPG) structure.
 - **PVS formalization:** [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories) — 435 theorems, 39 theories
 - **Paper:** D. Stosic, "Optimal Transport Geometry of Natural Spectral Regime Transitions," 2026. [DOI: 10.5281/zenodo.21956336](https://zenodo.org/records/21956336)
 
+## Availability
+
+The core theory is closed. I am available for formal verification, runtime verification, or theorem proving positions (remote, B2B contract from Belgrade, Serbia). Contact: dragan.stosic@gmail.com
+
 ## Author
 
 Dragan Stosic, MSc
