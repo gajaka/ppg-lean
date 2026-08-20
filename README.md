@@ -63,6 +63,14 @@ The specification graph carries proof-preserving graph (PPG) structure.
 - **PVS formalization:** [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories) — 435 theorems, 39 theories
 - **Paper:** D. Stosic, "Optimal Transport Geometry of Natural Spectral Regime Transitions," 2026. [DOI: 10.5281/zenodo.21956336](https://zenodo.org/records/21956336)
 
+## Open Problem: Probabilistic Repair Convergence
+
+The blocking dependency decomposition reveals that some certificate components are locally repairable while others are genuinely coupled (negative discriminant proves infeasibility of the General LLL condition for certain pairs). This raises the question: can we formally guarantee that a randomized repair operator converges to a good state?
+
+The natural framework is the Lovász Local Lemma (Alon and Spencer, "The Probabilistic Method", 4th ed., Wiley 2016, Lemma 5.1.1): given bad events with bounded dependency and probabilities satisfying the General LLL condition, a configuration where no bad event occurs exists with positive probability. The algorithmic version (Moser-Tardos, 2010) gives a constructive randomized repair procedure with expected polynomial convergence.
+
+This is active ongoing work.
+
 ## Availability
 
 The core theory is closed. I am available for formal verification, runtime verification, or theorem proving positions (remote, B2B contract from Belgrade, Serbia). Contact: dragan.stosic@gmail.com
