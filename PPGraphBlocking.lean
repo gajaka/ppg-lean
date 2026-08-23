@@ -5,7 +5,7 @@
   Defines the set of certificates that prevent certification at a
   given level. Canonical level has no blocking; stricter levels do.
 
-  Key insight: (θ_c, B(d)) = (canonical level, blocking certificates)
+  Structure: (θ_c, B(d)) = (canonical level, blocking certificates).
     Canonical tells how far certification reaches.
     Blocking tells why it stops there.
 -/

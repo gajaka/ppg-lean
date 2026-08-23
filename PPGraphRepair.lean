@@ -5,7 +5,7 @@
   Extends PPG with repair: an isolated vertex can be restored
   to active status via relational choice from its rr_rel neighbors.
 
-  Key idea: repair(v) = choose w : rr_rel v w ∧ invariant_holds w
+  repair(v) = choose w : rr_rel v w ∧ invariant_holds w
 
   Imports PPGraph.lean for core definitions (Graph, pp_edge, pp_valid).
 -/

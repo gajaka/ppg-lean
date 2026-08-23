@@ -4,7 +4,7 @@
   A PPG where nodes ARE refinement relations (rr_rel instances)
   and edges are compatibility transformations between them.
 
-  Key idea: if an implementation is correct under rr_rel_1, and
+  If an implementation is correct under rr_rel_1, and
   there exists a meta-edge to rr_rel_2, then the implementation
   remains correct under rr_rel_2. This is backward compatibility
   formalized as a proof-preserving graph.
