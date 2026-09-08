@@ -25,6 +25,8 @@ The specification graph carries proof-preserving graph (PPG) structure.
 | `PPGraphComplementarySlackness.lean` | 5 | LP duality for optimal transport: pointwise CS, Monge structure, strict uniqueness, zero duality gap certificate |
 | `PPGraphSelfAssessment.lean` | 12 | Failure containment, contamination impossibility, assessment trichotomy, monotone recovery (state-based, spec fixed), three evolution modes |
 | `PPGraphAssessmentBridge.lean` | 8 | Bridge: self-assessment ↔ parametric certification. Complete repair cycle: strict growth + blocking cleared + canonical frontier advances |
+| `PPGraphProbabilistic.lean` | 6 | Blocking dependency decomposition: dependency graph, LLL feasibility, pair infeasibility (quadratic discriminant), repair classification |
+| `PPGraphLLL.lean` | 30 | General Lovász Local Lemma (Alon-Spencer 5.1.1): key inductive bound, denominator telescope, good-event lower bound, positive probability, good state exists |
 
 ## Central Theorems
 
@@ -63,13 +65,13 @@ The specification graph carries proof-preserving graph (PPG) structure.
 - **PVS formalization:** [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories) — 393 machine-checked results (336 theorems + 57 lemmas), 43 theories
 - **Paper:** D. Stosic, "Optimal Transport Geometry of Natural Spectral Regime Transitions," 2026. [DOI: 10.5281/zenodo.21956336](https://zenodo.org/records/21956336)
 
-## Open Problem: Probabilistic Repair Convergence
+## Probabilistic Repair: the Local Lemma, and what remains open
 
 The blocking dependency decomposition reveals that some certificate components are locally repairable while others are genuinely coupled (negative discriminant proves infeasibility of the General LLL condition for certain pairs). This raises the question: can we formally guarantee that a randomized repair operator converges to a good state?
 
-The natural framework is the Lovász Local Lemma (Alon and Spencer, "The Probabilistic Method", 4th ed., Wiley 2016, Lemma 5.1.1): given bad events with bounded dependency and probabilities satisfying the General LLL condition, a configuration where no bad event occurs exists with positive probability. The algorithmic version (Moser-Tardos, 2010) gives a constructive randomized repair procedure with expected polynomial convergence.
+The framework is the Lovász Local Lemma (Alon and Spencer, "The Probabilistic Method", 4th ed., Wiley 2016, Lemma 5.1.1): given bad events with bounded dependency and probabilities satisfying the General LLL condition, a configuration where no bad event occurs exists with positive probability. The General LLL is now formalized here (`PPGraphLLL.lean`), machine-checked with zero sorry, division-free, in both this Lean development and the PVS one.
 
-This is active ongoing work.
+What remains open is the constructive convergence side: connecting the existence result to an expected-polynomial bound on a randomized repair procedure. This is active ongoing work.
 
 ## Availability
 
