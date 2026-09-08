@@ -60,7 +60,7 @@ The specification graph carries proof-preserving graph (PPG) structure.
 
 ## Related
 
-- **PVS formalization:** [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories) — 435 theorems, 39 theories
+- **PVS formalization:** [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories) — 393 machine-checked results (336 theorems + 57 lemmas), 43 theories
 - **Paper:** D. Stosic, "Optimal Transport Geometry of Natural Spectral Regime Transitions," 2026. [DOI: 10.5281/zenodo.21956336](https://zenodo.org/records/21956336)
 
 ## Open Problem: Probabilistic Repair Convergence
