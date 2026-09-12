@@ -71,7 +71,7 @@ The blocking dependency decomposition reveals that some certificate components a
 
 The framework is the Lovász Local Lemma (Alon and Spencer, "The Probabilistic Method", 4th ed., Wiley 2016, Lemma 5.1.1): given bad events with bounded dependency and probabilities satisfying the General LLL condition, a configuration where no bad event occurs exists with positive probability. The General LLL is now formalized here (`PPGraphLLL.lean`), machine-checked with zero sorry, division-free, in both this Lean development and the PVS one.
 
-What remains open is the constructive convergence side: connecting the existence result to an expected-polynomial bound on a randomized repair procedure. This is active ongoing work.
+The constructive side, the Moser-Tardos resampling procedure with its witness tree, injectivity, and algebraic convergence bound, is now formalized (currently in the PVS development, with a Lean version forthcoming). What remains open is the final probabilistic step: the expected-polynomial bound (E[T_LOG]) linking the algebraic weight to the expected number of resamplings. This is active ongoing work.
 
 ## Availability
 
