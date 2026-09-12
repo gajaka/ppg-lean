@@ -59,6 +59,8 @@ The specification graph carries proof-preserving graph (PPG) structure.
 10. **Concrete instance**: Threshold with Lattice, self-certifying canonical
 11. **Self-assessment**: Failure containment, contamination impossibility, assessment trichotomy, repair operator (S→V→S with spec fixed), monotone recovery via proof obligations
 12. **Assessment bridge**: Parametric certification as instance of self-assessment. Complete cycle: canonical → blocking → repair → strict growth → blocking cleared → canonical frontier advances
+13. **Blocking dependency decomposition and Local Lemma**: the blocking set decomposes by shared variable; the General Lovász Local Lemma decides whether a coupled component can be repaired (existence), division-free proof, positive probability of a good state
+14. **Constructive repair (Moser-Tardos)**: when a component is repairable, resampling reaches a good state; resample operator, witness tree, injectivity, algebraic convergence bound (forthcoming in this Lean development; currently in the PVS one)
 
 ## Related
 
