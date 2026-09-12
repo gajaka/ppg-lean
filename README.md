@@ -1,6 +1,6 @@
 # Proof-Preserving Graphs: Formal Certification, Self-Assessment, and Repair (Lean 4)
 
-**172 theorems. Zero sorry.**
+**209 theorems. Zero sorry.**
 
 **Core is closed.** Four questions, each with a machine-checked answer: How far does certification reach? What stops it from going further? Can the failure be safely contained and repaired? Did repair provably advance certification?
 
@@ -62,7 +62,7 @@ The specification graph carries proof-preserving graph (PPG) structure.
 
 ## Related
 
-- **PVS formalization:** [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories) — 393 machine-checked results (336 theorems + 57 lemmas), 43 theories
+- **PVS formalization:** [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories) — 460 machine-checked results (340 theorems + 120 lemmas), 52 theories
 - **Paper:** D. Stosic, "Optimal Transport Geometry of Natural Spectral Regime Transitions," 2026. [DOI: 10.5281/zenodo.21956336](https://zenodo.org/records/21956336)
 
 ## Probabilistic Repair: the Local Lemma, and what remains open
