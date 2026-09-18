@@ -1,6 +1,6 @@
 # Proof-Preserving Graphs: Formal Certification, Self-Assessment, and Repair (Lean 4)
 
-**209 theorems. Zero sorry.**
+**245 theorems. Zero sorry.**
 
 **Core is closed.** Four questions, each with a machine-checked answer: How far does certification reach? What stops it from going further? Can the failure be safely contained and repaired? Did repair provably advance certification?
 
@@ -27,6 +27,13 @@ The specification graph carries proof-preserving graph (PPG) structure.
 | `PPGraphAssessmentBridge.lean` | 8 | Bridge: self-assessment ↔ parametric certification. Complete repair cycle: strict growth + blocking cleared + canonical frontier advances |
 | `PPGraphProbabilistic.lean` | 6 | Blocking dependency decomposition: dependency graph, LLL feasibility, pair infeasibility (quadratic discriminant), repair classification |
 | `PPGraphLLL.lean` | 30 | General Lovász Local Lemma (Alon-Spencer 5.1.1): key inductive bound, denominator telescope, good-event lower bound, positive probability, good state exists |
+| `PPGraphMoserTardos.lean` | 3 | Product probability space and resample operator |
+| `PPGraphMoserTardosProcess.lean` | 2 | The resample-until-fixed algorithm as a process |
+| `PPGraphMoserTardosWitness.lean` | 5 | Dependency graph and witness tree data structure |
+| `PPGraphMoserTardosGrowing.lean` | 8 | Address-indexed growing tree, backward construction of the witness tree from a log |
+| `PPGraphMoserTardosInjectivity.lean` | 13 | Injectivity of the witness-tree encoding: distinct resampling occurrences give distinct trees |
+| `PPGraphMoserTardosWeight.lean` | 3 | Tree weight, the combinatorial quantity used in the convergence bound |
+| `PPGraphMoserTardosConvergence.lean` | 2 | Algebraic core of the convergence bound (Alon-Spencer 5.7.3): tree weight bounded by the LLL weights |
 
 ## Central Theorems
 
@@ -60,7 +67,7 @@ The specification graph carries proof-preserving graph (PPG) structure.
 11. **Self-assessment**: Failure containment, contamination impossibility, assessment trichotomy, repair operator (S→V→S with spec fixed), monotone recovery via proof obligations
 12. **Assessment bridge**: Parametric certification as instance of self-assessment. Complete cycle: canonical → blocking → repair → strict growth → blocking cleared → canonical frontier advances
 13. **Blocking dependency decomposition and Local Lemma**: the blocking set decomposes by shared variable; the General Lovász Local Lemma decides whether a coupled component can be repaired (existence), division-free proof, positive probability of a good state
-14. **Constructive repair (Moser-Tardos)**: when a component is repairable, resampling reaches a good state; resample operator, witness tree, injectivity, algebraic convergence bound (forthcoming in this Lean development; currently in the PVS one)
+14. **Constructive repair (Moser-Tardos)**: when a component is repairable, resampling reaches a good state; resample operator, witness tree, injectivity, algebraic convergence bound (now formalized here, in both this Lean development and the PVS one)
 
 ## Related
 
@@ -73,7 +80,7 @@ The blocking dependency decomposition reveals that some certificate components a
 
 The framework is the Lovász Local Lemma (Alon and Spencer, "The Probabilistic Method", 4th ed., Wiley 2016, Lemma 5.1.1): given bad events with bounded dependency and probabilities satisfying the General LLL condition, a configuration where no bad event occurs exists with positive probability. The General LLL is now formalized here (`PPGraphLLL.lean`), machine-checked with zero sorry, division-free, in both this Lean development and the PVS one.
 
-The constructive side, the Moser-Tardos resampling procedure with its witness tree, injectivity, and algebraic convergence bound, is now formalized (currently in the PVS development, with a Lean version forthcoming). What remains open is the final probabilistic step: the expected-polynomial bound (E[T_LOG]) linking the algebraic weight to the expected number of resamplings. This is active ongoing work.
+The constructive side, the Moser-Tardos resampling procedure with its witness tree, injectivity, and algebraic convergence bound, is now formalized in both this Lean development and the PVS one. What remains open is the final probabilistic step: the expected-polynomial bound (E[T_LOG]) linking the algebraic weight to the expected number of resamplings. This is active ongoing work.
 
 ## Availability
 
