@@ -152,8 +152,6 @@ In PVS: the PPG core, the General LLL, and the base Moser-Tardos infrastructure.
 
 ## Author
 
-## Author
-
 Dragan Stosic, MSc
 
 ## License
