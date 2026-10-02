@@ -1,5 +1,15 @@
 # Proof-Preserving Graphs: Formal Certification, Self-Assessment, and Repair (Lean 4)
 
+## Motivation
+
+I built a small embedded system, an adaptive-lighting controller running on ESP32 hardware, and I wanted to do more than check whether its output passed or failed. A pass/fail answer throws away the useful information. For any given run I wanted to know three things: how far the system is certified, what is stopping it from being certified further, and whether that obstruction can be repaired.
+
+That turned the usual question around. The usual question is "does the data meet the specification?" The better question is "how far does certification reach, and what blocks it from reaching further?" Once certification is graded rather than binary, a failing run is no longer a dead end: it carries a boundary (how far it got), a reason (which checks block it), and a decision (whether the block can be removed).
+
+Today this runs offline, certifying log files against formal specifications. The direction I find most interesting is live: running the certification against the system as it runs, on the hardware itself, so it continuously knows its certified boundary, localizes whatever is blocking it, and repairs that part while running rather than after the fact in a log. That is the use case this theory is built for: certificate-driven correction, with every outcome carrying its own proof.
+
+This repository is the pure mathematics behind that: the certification framework, the structure of blocking, and the repair layer, machine-checked in Lean 4. The applied side, with the information-geometry background and the concrete certificate examples, lives in the companion PVS development ([luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories)).
+
 ## Overview
 
 A certificate is a predicate that says a system meets a contract. Given data and a specification level, the certificate either holds or it does not. The specifications are not a flat list: they are ordered, from weaker contracts to stricter ones. The basic property this theory is built on is monotonicity: if a system passes a stricter contract, it also passes every weaker one. So for each piece of data there is a highest level it can be certified at, and everything at or below that level holds. This highest reachable level is the canonical level, and certification is exactly the set of levels at or below it.
