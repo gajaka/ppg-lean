@@ -93,6 +93,16 @@ The specification graph carries proof-preserving graph (PPG) structure.
 | 10 | `proj_is_pp_quotient` | QuotientBridge | Spec graph → quotient is surjective pp_morphism |
 | 11 | `cs_pointwise` | ComplementarySlackness | dual_feasible ∧ P(i,j)>0 ∧ P·slack=0 → u(i)+v(j)=C(i,j) |
 | 12 | `monge_cs_strict_unique` | ComplementarySlackness | Monge + CS + strict → unique tight entry per row |
+| 13 | `lll_good_state_exists` | LLL | General LLL (Alon-Spencer 5.1.1): a state avoiding all bad events exists |
+| 14 | `independence_implies_lopsidependence` | LopsidedLLL | Lopsided LLL subsumes the General LLL (equality ⟹ the ≤ hypothesis) |
+| 15 | `repair_noninterference` | BDD | A repair confined to one component cannot change any obligation in another |
+| 16 | `mt_trajectory_localizes` | BDDMoserTardos | The whole MT process in one component never changes another component, at any step |
+| 17 | `τCheck_holds_of_real_trajectory` | Correspondence | Lemma 2.1(ii): a genuine real trajectory passes its own witness-tree check |
+| 18 | `logMeasure_τCheck_eq_prod_p` | Probability | Theorem 5.7.2: Pr[τ-check passes] = ∏ p(label) over the tree vertices |
+| 19 | `sum_mtWeight_le` | Convergence | Σ_α w(D,α) ≤ Σ_α x(α) (algebraic MT budget bound) |
+| 20 | `randomInitETLog_le_sum` | OccurrenceExpectation | **E[T_LOG] ≤ Σ_α x(α)**: the Moser-Tardos expected-work bound, no termination assumption |
+| 21 | `randomInitETLog_lt_top` | OccurrenceExpectation | Finite MT budgets ⟹ finite expected work (E[T_LOG] < ∞) |
+| 22 | `mtRepairGraph_globally_repairable` | RepairBridge | Moser-Tardos reachability makes the abstract proof-preserving repair globally hold |
 
 ## Theory Layers
 
