@@ -28,12 +28,6 @@ The whole development is machine-checked in Lean 4 with no `sorry`. Every end st
 
 ![Proof-Preserving Graph Theory: a map from certificates through blocking dependency decomposition and the Lovász Local Lemma to the Moser-Tardos witness-tree counting, the expected-work bound E[T_LOG], and the repair bridge.](ppg-theory.svg)
 
-**Core is closed.** Four questions, each with a machine-checked answer: How far does certification reach? What stops it from going further? Can the failure be safely contained and repaired? Did repair provably advance certification?
-
-A formal theory of parameterized certification over partially ordered specification spaces.
-Certificate predicates are monotone: passing a stricter contract implies passing all weaker ones.
-The specification graph carries proof-preserving graph (PPG) structure.
-
 ## Files
 
 | File | Theorems | Scope |
