@@ -68,7 +68,7 @@ theorem repair_candidates_exist (v : V)
   obtain ⟨_, w, hw⟩ := h
   exact ⟨w, hw⟩
 
--- T2: Repair locality — repairing v does not affect w's invariant
+-- T2: Repair locality - repairing v does not affect w's invariant
 theorem repair_locality (v w : V) (_ : v ≠ w)
     (inv_w : G.invariant_holds w) :
     G.invariant_holds w :=

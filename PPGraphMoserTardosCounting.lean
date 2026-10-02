@@ -96,7 +96,7 @@ noncomputable def randC {S : VarSpaces V} {ι : Type} [Fintype ι] [DecidableEq 
     (P : MTProcess S ι) (ω0 : MTState S) (ω : LogSpace S) : ℕ → ι :=
   fun t => pickFirstViolated P (randTraj P ω0 ω t)
 
-/-- Number of GENUINELY violated steps (not counting steps where
+/-- Number of genuinely violated steps (not counting steps where
     nothing was violated and `pickFirstViolated` fell back to its
     default) among the first T. This is what the book calls TLOG. -/
 noncomputable def TLOG {S : VarSpaces V} {ι : Type} [Fintype ι] [DecidableEq ι] [Nonempty ι]

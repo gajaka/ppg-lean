@@ -59,7 +59,7 @@ theorem incidence_mul_transpose_apply (vars : CertVars C V) (c1 c2 : C) :
     _ = ((vars c1 ∩ vars c2).card : ℝ) := by
         rw [Finset.sum_boole, Finset.filter_univ_mem]
 
-/-- THE BRIDGE: two certificates are `dependent` (share a variable) iff
+/-- Bridge: two certificates are `dependent` (share a variable) iff
     the corresponding entry of the incidence matrix's Gram matrix M Mᵀ
     is positive. Matches `CoupledIn` (`PPGraphBDD.lean`), which is
     `dependent` restricted to B - so `CoupledIn vars B c1 c2` holds iff

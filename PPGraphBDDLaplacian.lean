@@ -147,9 +147,9 @@ theorem reachable_iff_sameComponent (vars : CertVars C V) (B : Finset C) (c1 c2 
   ⟨reachable_imp_sameComponent vars B c1 c2,
     fun h => sameComponent_imp_reachable vars B c1.val c2.val h c1.property c2.property⟩
 
--- Section 3: the payoff - component count is the Laplacian's nullspace dimension.
+-- Section 3: component count is the Laplacian's nullspace dimension.
 
-/-- THE SPECTRAL BRIDGE: the number of BDD components of `B` equals the
+/-- Spectral bridge: the number of BDD components of `B` equals the
     dimension of the nullspace of the BDD dependency graph's Laplacian
     matrix. Free consequence of Mathlib's own
     `card_connectedComponent_eq_finrank_ker_toLin'_lapMatrix`, applied to

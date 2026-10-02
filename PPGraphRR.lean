@@ -1,10 +1,10 @@
 /-
   PPGraphRR.lean
-  Refinement Relations — Port of sets_aux@rr_rel (NASA pvslib, Stosic)
+  Refinement Relations - Port of sets_aux@rr_rel (NASA pvslib, Stosic)
 
   Faithful port of:
-    - relation_extension[T, U]
-    - rr_rel[T, U]
+   - relation_extension[T, U]
+   - rr_rel[T, U]
 
   The refinement relation RR is defined over pairs (T, U) where
   each domain is partitioned by an equivalence relation, and
@@ -36,7 +36,7 @@ theorem rel_extension_is_equivalence (le_T : T → T → Prop) (le_U : U → U �
   trans := fun h1 h2 => ⟨h_T.trans h1.1 h2.1, h_U.trans h1.2 h2.2⟩
 
 -- ═══════════════════════════════════════════════════════════════════
--- Section 2: RR — Refinement Relation (port of rr_rel.pvs)
+-- Section 2: RR - Refinement Relation (port of rr_rel.pvs)
 -- ═══════════════════════════════════════════════════════════════════
 
 /-- The refinement relation RR on pairs (t, u):

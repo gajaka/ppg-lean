@@ -1,6 +1,6 @@
 /-
   PPGraphBlocking.lean
-  Blocking Certificates — Diagnostic Layer
+  Blocking Certificates - Diagnostic Layer
 
   Defines the set of certificates that prevent certification at a
   given level. Canonical level has no blocking; stricter levels do.

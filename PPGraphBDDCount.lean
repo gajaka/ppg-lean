@@ -8,7 +8,7 @@
   the pre-existing, C-indexed `compOf` vocabulary that
   `repair_noninterference_all` (PPGraphBDD.lean Section 3) actually uses.
 
-  The payoff: `repair_noninterference_all` already proves that repairs
+  The result: `repair_noninterference_all` already proves that repairs
   confined to two DIFFERENT compOf-groups never interfere. This file
   proves there are EXACTLY `Fintype.card (bddGraph vars B).ConnectedComponent`
   many such groups - so that count is not just an abstract spectral
@@ -84,7 +84,7 @@ theorem compGroup_bijective (vars : CertVars C V) (B : Finset C) :
     Function.Bijective (compGroup vars B) :=
   ⟨compGroup_injective vars B, compGroup_surjective vars B⟩
 
--- Section 3: THE COUNT. Exactly as many BDD components as distinct
+-- Section 3: component count. Exactly as many BDD components as distinct
 -- compOf-groups - the concrete, repair-relevant restatement of today's
 -- spectral component count.
 

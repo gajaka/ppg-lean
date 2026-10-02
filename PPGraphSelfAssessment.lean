@@ -45,7 +45,7 @@ theorem contamination_impossible (G1 G2 : Graph V)
 
 /-- If a vertex violates in G1, it also violates in G2 under pp_transform
     (since pp_transform preserves vertices and uses the same invariant).
-    Violations propagate forward — they cannot be erased by extension. -/
+    Violations propagate forward - they cannot be erased by extension. -/
 theorem violations_propagate (G1 G2 : Graph V)
     (rr_rel : V → V → Prop) (invariant_holds : V → Prop)
     (h_transform : pp_transform G1 G2 rr_rel invariant_holds)
@@ -107,18 +107,18 @@ theorem certified_excludes_isolated (G : RepairGraph V) (v : V)
 --   Repair:       s → s', Spec fixed
 --
 -- Repair is a function on states. The specification is an external
--- fixed parameter — repair has no access to it as a mutable object.
+-- fixed parameter - repair has no access to it as a mutable object.
 -- The type system enforces spec immutability.
 -- ═══════════════════════════════════════════════════════════════════
 
 variable {S : Type}
 
 /-- Repair operator: given a state and a target vertex, produce a new state.
-    This is the primitive — what the system does when it attempts to fix v. -/
+    This is the primitive - what the system does when it attempts to fix v. -/
 def RepairOp (S V : Type) := S → V → S
 
 /-- Specification: evaluates a state at a vertex. Fixed, external, immutable.
-    Repair cannot access or modify the specification — only the state. -/
+    Repair cannot access or modify the specification - only the state. -/
 def Spec (S V : Type) := S → V → Prop
 
 /-- Target is broken in the current state. -/
@@ -140,7 +140,7 @@ def valid_repair (R : RepairOp S V) (spec : Spec S V) (s : S) (v : V) : Prop :=
 /-- Monotone recovery: any valid repair operator on a broken target
     produces a strictly larger certified region. The new state certifies
     everything the old state certified, plus the target.
-    This is NOT definitional — it requires both proof obligations. -/
+    This is NOT definitional - it requires both proof obligations. -/
 theorem repair_monotone_recovery (R : RepairOp S V) (spec : Spec S V)
     (s : S) (v : V)
     (h_broken : broken spec s v)
@@ -163,8 +163,8 @@ theorem repair_preserves_certified (R : RepairOp S V) (spec : Spec S V)
 
 /-- Strict growth: the certified set after repair is a PROPER superset.
     Certified(s) ⊊ Certified(R(s,v)):
-    - v is in Certified(R(s,v)) but not in Certified(s)
-    - everything in Certified(s) is in Certified(R(s,v))
+   - v is in Certified(R(s,v)) but not in Certified(s)
+   - everything in Certified(s) is in Certified(R(s,v))
     This is the key theorem: repair produces genuine monotone growth. -/
 theorem repair_strict_growth (R : RepairOp S V) (spec : Spec S V)
     (s : S) (v : V)

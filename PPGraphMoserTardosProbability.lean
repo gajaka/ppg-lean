@@ -264,7 +264,7 @@ theorem infinitePi_iInter_eq_prod_of_dependsOn {ι' : Type}
 end BlockIndep
 
 -- -------------------------------------------------------------------
--- THE PAYOFF: Theorem 5.7.2's probability bound, `τCheck`'s
+-- The main result: Theorem 5.7.2's probability bound, `τCheck`'s
 -- probability under `logMeasure` splits into a product over the
 -- witness tree's own vertices.
 -- -------------------------------------------------------------------

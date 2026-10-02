@@ -2,7 +2,7 @@
   PPGraphMoserTardosCheckShape.lean
   Algorithmic Lovász Local Lemma (Moser-Tardos), the entropy-compression
   assembly step: tauCheck depends only on the reconstructed tree's
-  CANONICAL SHAPE, not on which GrowingTree (raw addresses) realizes it.
+  canonical shape, not on which GrowingTree (raw addresses) realizes it.
 
   This is the piece `PPGraphMoserTardosCheckInvariance.lean` built the
   foundation for (`GrowingTree.localCount_eq_footprintCountBeyondAt`,
@@ -213,9 +213,9 @@ theorem WTree.checkOKList_whole_congr {S : VarSpaces V} {ι : Type}
 end
 
 -- -------------------------------------------------------------------
--- Section 4: the payoff -- `tauCheck` agrees for any two Proper WTrees
+-- Section 4: `tauCheck` agrees for any two Proper WTrees
 -- sharing the same canonical shape. This is the piece that lets the
--- entropy-compression union bound sum over CANONICAL SHAPES (one fixed
+-- entropy-compression union bound sum over canonical shapes (one fixed
 -- representative each) instead of over the real process's raw,
 -- address-dependent occurring trees.
 -- -------------------------------------------------------------------
@@ -234,7 +234,7 @@ theorem WTree.tauCheck_iff_tauCheck_canonicalize {S : VarSpaces V} {ι : Type} [
     _ ↔ WTree.checkOK P ω (WTree.canonicalize t) 0 (WTree.canonicalize t) :=
         (WTree.canonicalize_checkOK P ω (WTree.canonicalize t) t hpr).symm
 
-/-- **The payoff**: `tauCheck` depends only on the CANONICAL SHAPE of
+/-- The main result: `tauCheck` depends only on the canonical shape of
     the tree, not on which Proper `WTree` realizes it. Two witness-tree
     reconstructions with the same canonical shape give the SAME
     tau-check verdict on any fixed log `omega`. -/

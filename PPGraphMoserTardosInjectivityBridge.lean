@@ -241,7 +241,7 @@ theorem GrowingTree.toWTree_countLabel {ι : Type} [DecidableEq ι] (T : Growing
   rfl
 
 -- -------------------------------------------------------------------
--- Section 4: THE payoff -- distinct occurrence-times of the same
+-- Section 4: distinct occurrence-times of the same
 -- event give distinct CANONICALIZED trees, i.e. injectivity survives
 -- the GrowingTree → WTree → wtreesUpTo conversion.
 -- -------------------------------------------------------------------

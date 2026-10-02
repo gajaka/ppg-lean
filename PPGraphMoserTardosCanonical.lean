@@ -299,7 +299,7 @@ theorem WTree.canonicalizeFuel_props {V : Type} [DecidableEq V] {S : VarSpaces V
         exact (hchild_ih ⟨β, hβ⟩).2.2.2.2
 
 -- -------------------------------------------------------------------
--- Section 5: the payoff -- canonicalize embeds any WellFormed+Proper
+-- Section 5: canonicalize embeds any WellFormed+Proper
 -- tree, weight-preserved, into `wtreesUpTo`
 -- -------------------------------------------------------------------
 

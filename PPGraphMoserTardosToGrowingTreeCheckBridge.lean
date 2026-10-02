@@ -275,7 +275,7 @@ theorem WTree.checkOKList_iff_toGT_domChildren {ι : Type} {S : VarSpaces V} (P 
 end
 
 -- -------------------------------------------------------------------
--- Section 3: the payoff. `τCheck P (WTree.toGrowingTree t) ω` agrees
+-- Section 3: `τCheck P (WTree.toGrowingTree t) ω` agrees
 -- with `WTree.tauCheck P ω t`, for an ARBITRARY WTree `t` -- no
 -- `τC`/`toWTreeFuel` roundtrip involved.
 -- -------------------------------------------------------------------

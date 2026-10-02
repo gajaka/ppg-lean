@@ -109,7 +109,7 @@ noncomputable def ETLog {S : VarSpaces V} {ι : Type} [Fintype ι] [DecidableEq 
     (P : MTProcess S ι) (ω0 : MTState S) : ℝ≥0∞ :=
   ∫⁻ ω, TLog P ω0 ω ∂(logMeasure S)
 
-/-- THE payoff: E[T_LOG] decomposes as a sum, over every candidate
+/-- The main result: E[T_LOG] decomposes as a sum, over every candidate
     stopping time `t`, of the probability the process is STILL running
     at `t` -- linearity of expectation over T_LOG's indicator-sum
     definition, via `lintegral_tsum` swapping the integral and the

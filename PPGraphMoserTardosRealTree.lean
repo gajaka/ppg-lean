@@ -310,7 +310,7 @@ theorem τC_root_label {S : VarSpaces V} {ι : Type}
   rw [hb0] at hbl
   simpa using hbl
 
-/-- THE payoff: `τC P C t`'s address representation genuinely embeds as
+/-- The main result: `τC P C t`'s address representation genuinely embeds as
     a WellFormed + Proper WTree rooted at `C t` -- matching exactly the
     conditions `wtreesUpTo` (PPGraphMoserTardosWeightSum.lean)
     enumerates. This is the tree-representation gap flagged as future

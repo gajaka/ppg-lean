@@ -83,7 +83,7 @@ theorem attachAt_lab_new_addr {S : VarSpaces V} {ι : Type}
   unfold GrowingTree.attachChild newAttachAddr
   simp
 
-/-- THE core single-step fact: whenever an attachment actually happens,
+/-- The core single-step fact: whenever an attachment actually happens,
     the newly attached vertex is STRICTLY deeper than every candidate for
     that attachment - not just the one chosen. Verified against
     Moser-Tardos arXiv:0903.0544v3 Lemma 2.1's proof: this is exactly the
@@ -177,7 +177,7 @@ theorem dom_subset_τBuild_of_le {S : VarSpaces V} {ι : Type}
   | base => exact Finset.Subset.refl _
   | succ k _ ih => exact ih.trans (dom_subset_τBuild_succ P C t k)
 
-/-- THE GLOBAL FACT, threaded through the actual τC(t) construction (not
+/-- The global fact, threaded through the actual τC(t) construction (not
     just an abstract single tree `T`): a vertex `v` present at ANY step
     `m` at-or-before `n`, whose label matches-or-neighbors the label
     `C (t-1-n)` being attached at step `n+1`, is STRICTLY shallower than
