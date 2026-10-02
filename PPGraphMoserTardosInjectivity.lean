@@ -34,17 +34,17 @@ open Classical
 
 variable {V : Type} [DecidableEq V]
 
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 -- Counting vertices by label
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
 /-- The number of vertices of `T` carrying label `A`. -/
 def countLabel {ι : Type} [DecidableEq ι] (T : GrowingTree ι) (A : ι) : ℕ :=
   (T.dom.filter (fun v => T.lab v = A)).card
 
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 -- The indices scanned after n backward steps from time t
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
 /-- The set of log indices already processed after `n` backward steps
     of `τBuild _ _ t _`: step `n` handles index `t - 1 - (n - 1)`, so
@@ -91,9 +91,9 @@ theorem stepsCovered_mem_of_lt {t : ℕ} : ∀ n, ∀ s, t - n ≤ s → s < t �
     · exact Or.inl heq
     · exact Or.inr (ih s (by omega) hlt)
 
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 -- Attaching a label that already occurs adds exactly one more of it
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
 theorem candidates_nonempty_of_label {S : VarSpaces V} {ι : Type} (P : MTProcess S ι)
     (T : GrowingTree ι) (a : ι) (v : List ℕ) (hv : v ∈ T.dom) (hlab : T.lab v = a) :
@@ -177,10 +177,10 @@ theorem GrowingTree.attachAt_countLabel_of_ne {S : VarSpaces V} {ι : Type} [Dec
   · exact GrowingTree.attachChild_countLabel_ne T _ a A hne
   · rfl
 
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 -- The main invariant: root survives, keeps its label, and the count
 -- of A-labelled vertices tracks exactly how often A = C(t) recurs
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
 theorem τBuild_root_and_count {S : VarSpaces V} {ι : Type} [DecidableEq ι]
     (P : MTProcess S ι) (C : ℕ → ι) (t : ℕ) :
@@ -242,27 +242,27 @@ theorem τBuild_root_and_count {S : VarSpaces V} {ι : Type} [DecidableEq ι]
         have hstep : stepsCovered t (m + 1) = insert (t - 1 - m) (stepsCovered t m) := rfl
         rw [hstep, Finset.filter_insert, if_neg hA]
 
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 -- Injectivity: distinct occurrence-times of the same event give
 -- distinct witness trees
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
-theorem τC_injective_on_occurrences {S : VarSpaces V} {ι : Type} [DecidableEq ι]
+/-- The stronger, directly-useful fact underneath `τC_injective_on_occurrences`:
+    the per-label occurrence COUNTS themselves differ (not just the trees), for
+    the shared label `C t1 = C t2` -- exactly the invariant that survives
+    `GrowingTree.toWTree`/`WTree.canonicalize` unchanged
+    (`GrowingTree.toWTreeFuel_countLabel`, `WTree.canonicalize_countLabel`,
+    PPGraphMoserTardosInjectivityBridge.lean), which the plain tree-inequality
+    above does not by itself guarantee survives that conversion. -/
+theorem τC_countLabel_ne_of_lt {S : VarSpaces V} {ι : Type} [DecidableEq ι]
     (P : MTProcess S ι) (C : ℕ → ι) (t1 t2 : ℕ)
     (ht1 : 0 < t1) (ht2 : 0 < t2) (hlt : t1 < t2) (hA : C t1 = C t2) :
-    τC P C t1 ≠ τC P C t2 := by
-  intro heq
+    countLabel (τC P C t1) (C t1) ≠ countLabel (τC P C t2) (C t2) := by
   have hc1 := (τBuild_root_and_count P C t1 (t1 - 1) (by omega)).2.2
   have hc2 := (τBuild_root_and_count P C t2 (t2 - 1) (by omega)).2.2
-  have heq' : τBuild P C t1 (t1 - 1) = τBuild P C t2 (t2 - 1) := heq
-  rw [heq'] at hc1
-  simp only [hA] at hc1
-  -- hc1 : countLabel (τBuild P C t2 (t2-1)) (C t2)
-  --     = 1 + (stepsCovered t1 (t1-1)).filter (fun s => C s = C t2)).card
-  -- hc2 : countLabel (τBuild P C t2 (t2-1)) (C t2)
-  --     = 1 + (stepsCovered t2 (t2-1)).filter (fun s => C s = C t2)).card
-  have hcount : (1 : ℕ) + ((stepsCovered t1 (t1 - 1)).filter (fun s => C s = C t2)).card =
-      1 + ((stepsCovered t2 (t2 - 1)).filter (fun s => C s = C t2)).card := hc1.symm.trans hc2
+  show countLabel (τBuild P C t1 (t1 - 1)) (C t1) ≠ countLabel (τBuild P C t2 (t2 - 1)) (C t2)
+  rw [hc1, hc2, hA]
+  intro hcount
   have hnotmem : t1 ∉ stepsCovered t1 (t1 - 1) := by
     intro hmem
     have := stepsCovered_le ht1 (t1 - 1) t1 hmem
@@ -284,9 +284,16 @@ theorem τC_injective_on_occurrences {S : VarSpaces V} {ι : Type} [DecidableEq 
   have hcard := Finset.card_lt_card hsub
   omega
 
--- ═══════════════════════════════════════════════════════════════════
+theorem τC_injective_on_occurrences {S : VarSpaces V} {ι : Type} [DecidableEq ι]
+    (P : MTProcess S ι) (C : ℕ → ι) (t1 t2 : ℕ)
+    (ht1 : 0 < t1) (ht2 : 0 < t2) (hlt : t1 < t2) (hA : C t1 = C t2) :
+    τC P C t1 ≠ τC P C t2 := by
+  intro heq
+  exact τC_countLabel_ne_of_lt P C t1 t2 ht1 ht2 hlt hA (by rw [heq, hA])
+
+-- -------------------------------------------------------------------
 -- Verification
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
 #check @countLabel
 #check @stepsCovered
@@ -302,4 +309,5 @@ theorem τC_injective_on_occurrences {S : VarSpaces V} {ι : Type} [DecidableEq 
 #check @GrowingTree.attachAt_countLabel_of_label
 #check @GrowingTree.attachAt_countLabel_of_ne
 #check @τBuild_root_and_count
+#check @τC_countLabel_ne_of_lt
 #check @τC_injective_on_occurrences

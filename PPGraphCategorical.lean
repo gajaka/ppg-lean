@@ -6,7 +6,7 @@
   Formalizes structure-preserving maps, embeddings, quotients,
   refinement between graphs, and simulation relations.
 
-  Refinement at the GRAPH level is the natural
+  Key insight: refinement at the GRAPH level is the natural
   generalization of rr_rel at the ELEMENT level. A concrete
   graph refines an abstract graph via a quotient morphism.
 -/

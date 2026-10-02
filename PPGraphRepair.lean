@@ -3,9 +3,9 @@
   Repair Semantics for Proof-Preserving Graphs
 
   Extends PPG with repair: an isolated vertex can be restored
-  to active status via relational choice from its rr_rel neighbors.
+  to active status via relational choice from its reach_rel neighbors.
 
-  repair(v) = choose w : rr_rel v w ∧ invariant_holds w
+  Key idea: repair(v) = choose w : reach_rel v w ∧ invariant_holds w
 
   Imports PPGraph.lean for core definitions (Graph, pp_edge, pp_valid).
 -/
@@ -18,7 +18,7 @@ variable {V : Type}
 -- Bundled PPG for repair (avoids name collision with Graph from PPGraph.lean)
 structure RepairGraph (V : Type) where
   edges : V → V → Prop
-  rr_rel : V → V → Prop
+  reach_rel : V → V → Prop
   invariant_holds : V → Prop
 
 variable (G : RepairGraph V)
@@ -30,13 +30,13 @@ def isolated (v : V) : Prop := ¬ G.invariant_holds v
 def active_edge (x y : V) : Prop :=
   G.edges x y ∧ G.invariant_holds x ∧ G.invariant_holds y
 
--- Repair is possible if there exists a valid rr_rel neighbor
+-- Repair is possible if there exists a valid reach_rel neighbor
 def repair_possible (v : V) : Prop :=
-  isolated G v ∧ ∃ w : V, w ≠ v ∧ G.rr_rel v w ∧ G.invariant_holds w
+  isolated G v ∧ ∃ w : V, w ≠ v ∧ G.reach_rel v w ∧ G.invariant_holds w
 
 -- Repair candidates: set of valid neighbors
 def repair_candidates (v : V) (w : V) : Prop :=
-  w ≠ v ∧ G.rr_rel v w ∧ G.invariant_holds w
+  w ≠ v ∧ G.reach_rel v w ∧ G.invariant_holds w
 
 -- Relational choice: extract a concrete repair target
 noncomputable def repair_target (v : V) (h : repair_possible G v) : V :=
@@ -50,7 +50,7 @@ theorem repair_target_valid (v : V) (h : repair_possible G v) :
 -- Route repair: bypass isolated vertex through valid neighbor
 def route_repairable (x v y : V) : Prop :=
   isolated G v ∧ G.edges x v ∧ G.edges v y ∧
-  ∃ w : V, w ≠ v ∧ G.invariant_holds w ∧ G.rr_rel v w ∧
+  ∃ w : V, w ≠ v ∧ G.invariant_holds w ∧ G.reach_rel v w ∧
     G.edges x w ∧ G.edges w y
 
 -- Globally repairable: every isolated vertex can be repaired
@@ -74,12 +74,12 @@ theorem repair_locality (v w : V) (_ : v ≠ w)
     G.invariant_holds w :=
   inv_w
 
--- T3: If rr_rel is reflexive for healthy vertices, healthy vertices
+-- T3: If reach_rel is reflexive for healthy vertices, healthy vertices
 -- are trivially self-repairable
 theorem healthy_self_stable (v : V)
     (h_healthy : G.invariant_holds v)
-    (h_refl : G.invariant_holds v → G.rr_rel v v) :
-    G.rr_rel v v :=
+    (h_refl : G.invariant_holds v → G.reach_rel v v) :
+    G.reach_rel v v :=
   h_refl h_healthy
 
 -- T4: Route repair with healthy endpoints implies active bypass

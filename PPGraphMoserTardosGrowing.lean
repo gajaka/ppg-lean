@@ -25,9 +25,9 @@ open Classical
 
 variable {V : Type} [DecidableEq V]
 
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 -- Growing trees: finite address sets, addressable for attachment
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
 /-- A growing witness tree, represented by ADDRESS rather than as a
     plain rose tree: `[]` is the root, `v ++ [k]` is the (k+1)-th
@@ -60,9 +60,9 @@ theorem GrowingTree.singleton_valid {ι : Type} (i0 : ι) :
   intro v k hv
   simp [GrowingTree.singleton] at hv
 
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 -- Fresh child indices
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
 /-- Every vertex has some unused child-index: the map `k ↦ v ++ [k]`
     is injective, so if all of them were already in the finite set
@@ -131,9 +131,9 @@ theorem GrowingTree.attachChild_preserves_valid {ι : Type}
   ⟨T.attachChild_preserves_root v a hV.1,
    T.attachChild_preserves_prefix_closed v a hv hV.2⟩
 
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 -- Attachment candidates and the max-depth pick
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
 /-- The vertices `v` currently in the tree whose Γ+ contains `a`, i.e.
     `a ∈ Γ+([v])`: either `a` repeats `v`'s own label, or `a` is a
@@ -164,9 +164,9 @@ noncomputable def GrowingTree.attachAt {S : VarSpaces V} {ι : Type}
   else
     T
 
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 -- The τ_C(t) construction itself
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
 /-- `τBuild P C t n` is the tree after `n` backward steps starting
     from the isolated root labelled `C t`: step `n = 0` is
@@ -185,9 +185,9 @@ noncomputable def τC {S : VarSpaces V} {ι : Type}
     (P : MTProcess S ι) (C : ℕ → ι) (t : ℕ) : GrowingTree ι :=
   τBuild P C t (t - 1)
 
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 -- Verification
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
 #check @GrowingTree
 #check @GrowingTree.Valid

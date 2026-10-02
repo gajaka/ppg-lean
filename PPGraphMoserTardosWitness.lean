@@ -40,9 +40,9 @@ set_option linter.unusedSectionVars false
 
 variable {V : Type} [DecidableEq V]
 
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 -- Dependency graph
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
 /-- Two events are neighbors when their footprints overlap -- the
     dependency graph the whole LLL / Moser-Tardos analysis is stated
@@ -64,9 +64,9 @@ theorem mt_new_violation_neighbor {S : VarSpaces V} {ι : Type} (P : MTProcess S
     neighbor P (log t).1 j :=
   mt_new_violation_overlaps P log ω0 t j h_new h_now
 
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 -- Witness tree data structure
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
 /-- A witness tree: a finite rooted tree whose nodes are labeled by
     event indices. Pure shape only -- no requirement yet that it
@@ -120,9 +120,9 @@ theorem WTree.proper_singleton {ι : Type} (i : ι) :
     WTree.Proper (WTree.mk i ([] : List (WTree ι))) := by
   simp [WTree.Proper]
 
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 -- Verification
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
 #check @neighbor
 #check @neighbor_symm

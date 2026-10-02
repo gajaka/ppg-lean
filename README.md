@@ -1,6 +1,6 @@
 # Proof-Preserving Graphs: Formal Certification, Self-Assessment, and Repair (Lean 4)
 
-**245 theorems. Zero sorry.**
+**575 theorems. Zero sorry.**
 
 **Core is closed.** Four questions, each with a machine-checked answer: How far does certification reach? What stops it from going further? Can the failure be safely contained and repaired? Did repair provably advance certification?
 
@@ -80,7 +80,7 @@ The blocking dependency decomposition reveals that some certificate components a
 
 The framework is the Lovász Local Lemma (Alon and Spencer, "The Probabilistic Method", 4th ed., Wiley 2016, Lemma 5.1.1): given bad events with bounded dependency and probabilities satisfying the General LLL condition, a configuration where no bad event occurs exists with positive probability. The General LLL is now formalized here (`PPGraphLLL.lean`), machine-checked with zero sorry, division-free, in both this Lean development and the PVS one.
 
-The constructive side, the Moser-Tardos resampling procedure with its witness tree, injectivity, and algebraic convergence bound, is now formalized in both this Lean development and the PVS one. What remains open is the final probabilistic step: the expected-polynomial bound (E[T_LOG]) linking the algebraic weight to the expected number of resamplings. This is active ongoing work.
+The constructive side, the Moser-Tardos resampling procedure with its witness tree, injectivity, and algebraic convergence bound, is now formalized in both this Lean development and the PVS one. The final probabilistic step is now also complete here: the expected-work bound E[T_LOG] ≤ Σ x(α), linking the witness-tree weights to the expected number of resamplings (Alon and Spencer §5.7, witness-tree counting), with no termination assumption (finiteness is derived). A repair bridge then instantiates the abstract proof-preserving repair relation with Moser-Tardos reachability, so the convergence result supplies the witness that the abstract repair existential needs. The whole arc, LLL (existence), Moser-Tardos (constructive), and E[T_LOG] (expected work), is machine-checked here with zero sorry. The PVS port of this final arc is forthcoming.
 
 ## Availability
 

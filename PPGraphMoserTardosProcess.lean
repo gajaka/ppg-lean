@@ -17,9 +17,9 @@ set_option linter.unusedSectionVars false
 
 variable {V : Type} [DecidableEq V]
 
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 -- Layer 2: The Moser-Tardos process (resample-until-fixed algorithm)
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
 /-- A Moser-Tardos instance: a family of bad events indexed by `ι`,
     each with a declared footprint and a proof that the event really
@@ -81,9 +81,9 @@ theorem mt_new_violation_overlaps {S : VarSpaces V} {ι : Type} (P : MTProcess S
   intro h_disj
   exact h_new ((mt_step_preserves_unrelated P log ω0 t j h_disj).mpr h_now)
 
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 -- Verification
--- ═══════════════════════════════════════════════════════════════════
+-- -------------------------------------------------------------------
 
 #check @MTProcess
 #check @violated
