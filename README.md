@@ -144,13 +144,13 @@ The whole development is machine-checked in Lean 4 with no `sorry`. Every end st
 - **PVS formalization:** [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories) — 460 machine-checked results (340 theorems + 120 lemmas), 52 theories. This covers the PPG core, the General LLL, and the base Moser-Tardos infrastructure. The final arc published here in Lean (E[T_LOG], BDD, Lopsided/Variable LLL, repair bridge) is not yet in PVS.
 - **Paper:** D. Stosic, "Optimal Transport Geometry of Natural Spectral Regime Transitions," 2026. [DOI: 10.5281/zenodo.21956336](https://zenodo.org/records/21956336)
 
-## Probabilistic Repair: the Local Lemma and the expected-work bound
+## Probabilistic Repair: references and scope
 
-The blocking dependency decomposition reveals that some certificate components are locally repairable while others are genuinely coupled (negative discriminant proves infeasibility of the General LLL condition for certain pairs). This raises the question: can we formally guarantee that a randomized repair operator converges to a good state? The answer here is yes, with an explicit expected-work bound.
+The existence side is the Lovász Local Lemma (Alon and Spencer, "The Probabilistic Method", 4th ed., Wiley 2016, Lemma 5.1.1), formalized in `PPGraphLLL.lean`, division-free. The constructive side is Moser-Tardos (§5.7): the resampling procedure, witness tree, injectivity, and the expected-work bound E[T_LOG] ≤ Σ x(α) by witness-tree counting, with no termination assumption (finiteness is derived). The repair bridge instantiates the abstract repair relation with Moser-Tardos reachability, so the convergence result supplies the repair witness rather than assuming one.
 
-The framework is the Lovász Local Lemma (Alon and Spencer, "The Probabilistic Method", 4th ed., Wiley 2016, Lemma 5.1.1): given bad events with bounded dependency and probabilities satisfying the General LLL condition, a configuration where no bad event occurs exists with positive probability. The General LLL is now formalized here (`PPGraphLLL.lean`), machine-checked with zero sorry, division-free, in both this Lean development and the PVS one.
+In PVS: the PPG core, the General LLL, and the base Moser-Tardos infrastructure. The final arc published here in Lean (the E[T_LOG] bound, the blocking dependency decomposition, the Lopsided and Variable-version Local Lemmas, and the repair bridge) is not yet ported to PVS.
 
-The constructive side, the Moser-Tardos resampling procedure with its witness tree, injectivity, and algebraic convergence bound, is now formalized in both this Lean development and the PVS one. The final probabilistic step is now also complete here: the expected-work bound E[T_LOG] ≤ Σ x(α), linking the witness-tree weights to the expected number of resamplings (Alon and Spencer §5.7, witness-tree counting), with no termination assumption (finiteness is derived). A repair bridge then instantiates the abstract proof-preserving repair relation with Moser-Tardos reachability, so the convergence result supplies the witness that the abstract repair existential needs. The whole arc, LLL (existence), Moser-Tardos (constructive), and E[T_LOG] (expected work), is machine-checked here with zero sorry. This final arc (the E[T_LOG] bound, the blocking dependency decomposition, the Lopsided and Variable-version Local Lemmas, and the repair bridge) is formalized in Lean 4 only; it has not been ported to PVS yet.
+## Author
 
 ## Author
 
