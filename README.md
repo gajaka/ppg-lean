@@ -126,9 +126,9 @@ The specification graph carries proof-preserving graph (PPG) structure.
 - **PVS formalization:** [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories) — 460 machine-checked results (340 theorems + 120 lemmas), 52 theories
 - **Paper:** D. Stosic, "Optimal Transport Geometry of Natural Spectral Regime Transitions," 2026. [DOI: 10.5281/zenodo.21956336](https://zenodo.org/records/21956336)
 
-## Probabilistic Repair: the Local Lemma, and what remains open
+## Probabilistic Repair: the Local Lemma and the expected-work bound
 
-The blocking dependency decomposition reveals that some certificate components are locally repairable while others are genuinely coupled (negative discriminant proves infeasibility of the General LLL condition for certain pairs). This raises the question: can we formally guarantee that a randomized repair operator converges to a good state?
+The blocking dependency decomposition reveals that some certificate components are locally repairable while others are genuinely coupled (negative discriminant proves infeasibility of the General LLL condition for certain pairs). This raises the question: can we formally guarantee that a randomized repair operator converges to a good state? The answer here is yes, with an explicit expected-work bound.
 
 The framework is the Lovász Local Lemma (Alon and Spencer, "The Probabilistic Method", 4th ed., Wiley 2016, Lemma 5.1.1): given bad events with bounded dependency and probabilities satisfying the General LLL condition, a configuration where no bad event occurs exists with positive probability. The General LLL is now formalized here (`PPGraphLLL.lean`), machine-checked with zero sorry, division-free, in both this Lean development and the PVS one.
 
