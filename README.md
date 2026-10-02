@@ -124,10 +124,6 @@ The framework is the Lovász Local Lemma (Alon and Spencer, "The Probabilistic M
 
 The constructive side, the Moser-Tardos resampling procedure with its witness tree, injectivity, and algebraic convergence bound, is now formalized in both this Lean development and the PVS one. The final probabilistic step is now also complete here: the expected-work bound E[T_LOG] ≤ Σ x(α), linking the witness-tree weights to the expected number of resamplings (Alon and Spencer §5.7, witness-tree counting), with no termination assumption (finiteness is derived). A repair bridge then instantiates the abstract proof-preserving repair relation with Moser-Tardos reachability, so the convergence result supplies the witness that the abstract repair existential needs. The whole arc, LLL (existence), Moser-Tardos (constructive), and E[T_LOG] (expected work), is machine-checked here with zero sorry. The PVS port of this final arc is forthcoming.
 
-## Availability
-
-The core theory is closed. I am available for formal verification, runtime verification, or theorem proving positions (remote, B2B contract from Belgrade, Serbia). Contact: dragan.stosic@gmail.com
-
 ## Author
 
 Dragan Stosic, MSc
