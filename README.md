@@ -1,5 +1,19 @@
 # Proof-Preserving Graphs: Formal Certification, Self-Assessment, and Repair (Lean 4)
 
+## Overview
+
+A certificate is a predicate that says a system meets a contract. Given data and a specification level, the certificate either holds or it does not. The specifications are not a flat list: they are ordered, from weaker contracts to stricter ones. The basic property this theory is built on is monotonicity: if a system passes a stricter contract, it also passes every weaker one. So for each piece of data there is a highest level it can be certified at, and everything at or below that level holds. This highest reachable level is the canonical level, and certification is exactly the set of levels at or below it.
+
+Once certification is ordered this way, three questions become precise, and the theory answers each one.
+
+First, how far does certification reach. The canonical level is the answer: it is the top of the certified region, and the theory proves it exists under the usual lattice conditions and that nothing above it can be certified.
+
+Second, what stops it from going further. At a given level, the blocking set is the collection of certificates that fail there. The theory shows the blocking set is empty exactly at the canonical level, so a nonempty blocking set is a precise, inspectable reason the system is not certified higher. The blocking set also has internal structure: two failing certificates are coupled when they read a shared variable, and the connected components of that coupling graph are the groups that must be repaired together. Different components are independent, so repairing one cannot disturb another. This is the blocking dependency decomposition.
+
+Third, whether a failure can be contained and repaired. A violating element is isolated so it cannot corrupt the certified core, and repair moves the system to a new state that is certified at least as high as before. The question that remains is whether a repair exists at all. For that the theory turns to the Lovász Local Lemma: if each bad event has bounded dependence and small enough probability, a state avoiding all of them exists. The Moser-Tardos procedure then constructs such a state by resampling violated events, and the theory proves it converges, with an explicit bound on the expected number of resampling steps, E[T_LOG] ≤ Σ x(α). A final bridge connects this back to the abstract framework: Moser-Tardos reachability is a concrete instance of the abstract repair relation, so the convergence result supplies the witness the repair layer needs, rather than assuming one.
+
+The whole development is machine-checked in Lean 4 with no `sorry`. Every end state of the process carries its own proof: certified, or blocked with a reason, and when it is blocked, a decision on whether the block is repairable.
+
 **575 theorems. Zero sorry.**
 
 ![Proof-Preserving Graph Theory: a map from certificates through blocking dependency decomposition and the Lovász Local Lemma to the Moser-Tardos witness-tree counting, the expected-work bound E[T_LOG], and the repair bridge.](ppg-theory.svg)
