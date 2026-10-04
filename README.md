@@ -4,7 +4,13 @@
 
 ### The system
 
-I built a small embedded system, an adaptive-lighting controller: a four-node mesh of Seeed Studio XIAO ESP32 boards (ESP32-S3 and ESP32-C6) with an AS7341 spectral sensor and a TSL2591 lux sensor feeding a real-time control loop, running under 2 W with no cloud and no simulation. The nodes join, authenticate, and synchronize over a message protocol designed in the pi-calculus: a three-way join handshake with self-healing re-join, HMAC-authenticated challenge and response, timing-synchronized beacons, and sensor-data and registry messages across all four agents. The control logic is currently being migrated onto a custom-designed LUCES board. Weather inputs (cloud cover, humidity, solar radiation) come from the Open-Meteo API as a baseline. On top of this sits an optimal-transport (Monge) controller: the transport structure is reproducible in the real data, and the controller that tracks it has been developed in simulation ("[Optimal Transport Geometry of Natural Spectral Regime Transitions](https://doi.org/10.5281/zenodo.21956336)"). The empirical geometry behind it is in "[Empirical Information Geometry on an Embedded Adaptive Lighting System: Multi-Chart Manifold Transitions Under Signal Collapse](https://doi.org/10.5281/zenodo.20094759)" and "[Excitation-Dependent Observability Geometry on an Embedded Adaptive Lighting Manifold](https://doi.org/10.5281/zenodo.20389804)".
+I built a small embedded system, an adaptive-lighting controller: a four-node mesh of Seeed Studio XIAO ESP32 boards (ESP32-S3 and ESP32-C6) with an AS7341 spectral sensor and a TSL2591 lux sensor feeding a real-time control loop, running under 2 W with no cloud and no simulation. The nodes join, authenticate, and synchronize over a message protocol designed in the pi-calculus: a three-way join handshake with self-healing re-join, HMAC-authenticated challenge and response, timing-synchronized beacons, and sensor-data and registry messages across all four agents. The control logic is currently being migrated onto a custom-designed LUCES board. Weather inputs (cloud cover, humidity, solar radiation) come from the Open-Meteo API as a baseline. On top of this sits an optimal-transport (Monge) controller: the transport structure is reproducible in the real data, and the controller that tracks it has been developed in simulation.
+
+The background is in three published papers:
+
+- [Empirical Information Geometry on an Embedded Adaptive Lighting System: Multi-Chart Manifold Transitions Under Signal Collapse](https://doi.org/10.5281/zenodo.20094759)
+- [Excitation-Dependent Observability Geometry on an Embedded Adaptive Lighting Manifold](https://doi.org/10.5281/zenodo.20389804)
+- [Optimal Transport Geometry of Natural Spectral Regime Transitions](https://doi.org/10.5281/zenodo.21956336)
 
 ### The problem
 
