@@ -24,7 +24,7 @@ This repository is the pure mathematics behind that: the certification framework
 
 ## Overview
 
-A certificate is a predicate that says a system meets a contract. Given data and a specification level, the certificate either holds or it does not. The specifications are not a flat list: they are ordered, from weaker contracts to stricter ones. The basic property this theory is built on is monotonicity: if a system passes a stricter contract, it also passes every weaker one. So for each piece of data there is a highest level it can be certified at, and everything at or below that level holds. This highest reachable level is the canonical level, and certification is exactly the set of levels at or below it.
+A certificate is a predicate that says a system meets a contract. Given data and a specification level, the certificate either holds or it does not. Here the certificate is kept abstract, a predicate over data and level; the concrete certificates, together with the information-geometry quantities they test, are specified in the companion PVS development, and are out of scope for this repository, which presents the pure mathematical theory. The specifications are not a flat list: they are ordered, from weaker contracts to stricter ones. The basic property this theory is built on is monotonicity: if a system passes a stricter contract, it also passes every weaker one. So for each piece of data there is a highest level it can be certified at, and everything at or below that level holds. This highest reachable level is the canonical level, and certification is exactly the set of levels at or below it.
 
 Once certification is ordered this way, three questions become precise, and the theory answers each one.
 
