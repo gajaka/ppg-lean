@@ -8,9 +8,9 @@ I built a small embedded system, an adaptive-lighting controller: a four-node me
 
 The background is in three published papers:
 
-- [Empirical Information Geometry on an Embedded Adaptive Lighting System: Multi-Chart Manifold Transitions Under Signal Collapse](https://doi.org/10.5281/zenodo.20094759)
-- [Excitation-Dependent Observability Geometry on an Embedded Adaptive Lighting Manifold](https://doi.org/10.5281/zenodo.20389804)
-- [Optimal Transport Geometry of Natural Spectral Regime Transitions](https://doi.org/10.5281/zenodo.21956336)
+- D. Stosic, "Empirical Information Geometry on an Embedded Adaptive Lighting System: Multi-Chart Manifold Transitions Under Signal Collapse," 2026. [https://zenodo.org/records/20094759](https://zenodo.org/records/20094759)
+- D. Stosic, "Excitation-Dependent Observability Geometry on an Embedded Adaptive Lighting Manifold," 2026. [https://zenodo.org/records/20389804](https://zenodo.org/records/20389804)
+- D. Stosic, "Optimal Transport Geometry of Natural Spectral Regime Transitions," 2026. [https://zenodo.org/records/21956336](https://zenodo.org/records/21956336)
 
 ### The problem
 
@@ -154,7 +154,6 @@ The whole development is machine-checked in Lean 4 with no `sorry`. Every end st
 ## Related
 
 - **PVS formalization:** [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories) — 460 machine-checked results (340 theorems + 120 lemmas), 52 theories. This covers the PPG core, the General LLL, and the base Moser-Tardos infrastructure. The final arc published here in Lean (E[T_LOG], BDD, Lopsided/Variable LLL, repair bridge) is not yet in PVS.
-- **Paper:** D. Stosic, "Optimal Transport Geometry of Natural Spectral Regime Transitions," 2026. [DOI: 10.5281/zenodo.21956336](https://zenodo.org/records/21956336)
 
 ## Probabilistic Repair: references and scope
 
