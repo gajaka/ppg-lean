@@ -14,7 +14,9 @@ The background is in three published papers:
 
 ### The problem
 
-The system produces logs, and I wanted to do more than check whether those logs passed or failed. A pass/fail answer throws away the useful information. The better question is: how far does certification reach, and what blocks it from reaching further? Once certification is graded rather than binary, a failing run is no longer a dead end. It carries a boundary (how far it got), a reason (which checks block it), and a decision (whether the block can be removed).
+The system produces logs, and I wanted to do more than check whether those logs passed or failed. A pass/fail answer throws away the useful information. For any given run I wanted to know three things: how far the system is certified, what is stopping it from being certified further, and whether that obstruction can be repaired.
+
+The better question is "how far does certification reach, and what blocks it from reaching further?" Once certification is graded rather than binary, a failing run is no longer a dead end: it carries a boundary (how far it got), a reason (which checks block it), and a decision (whether the block can be removed).
 
 Today this runs offline, certifying log files against formal specifications. The direction I find most interesting is live: running the certification against the system as it runs, on the hardware itself, so it continuously knows its certified boundary, localizes whatever is blocking it, and repairs that part while running rather than after the fact in a log. That is the use case this theory is built for: certificate-driven correction, with every outcome carrying its own proof.
 
