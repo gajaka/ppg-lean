@@ -2,7 +2,9 @@
 
 ## Motivation
 
-I built a small embedded system, an adaptive-lighting controller running on ESP32 hardware, and I wanted to do more than check whether its output passed or failed. A pass/fail answer throws away the useful information. For any given run I wanted to know three things: how far the system is certified, what is stopping it from being certified further, and whether that obstruction can be repaired.
+I built a small embedded system, an adaptive-lighting controller: a four-node mesh of Seeed Studio XIAO ESP32 boards (ESP32-S3 and ESP32-C6) with an AS7341 spectral sensor and a TSL2591 lux sensor feeding a real-time control loop, running under 2 W with no cloud and no simulation. Weather inputs (cloud cover, humidity, solar radiation) come from the Open-Meteo API as a baseline. On top of this sits an optimal-transport (Monge) controller: the transport structure is reproducible in the real data, and the controller that tracks it has been developed in simulation ([paper 3](https://doi.org/10.5281/zenodo.21956336)). The empirical geometry behind it is in [paper 1](https://doi.org/10.5281/zenodo.20094759) and [paper 2](https://doi.org/10.5281/zenodo.20389804).
+
+The system produces logs, and I wanted to do more than check whether those logs passed or failed. A pass/fail answer throws away the useful information. For any given run I wanted to know three things: how far the system is certified, what is stopping it from being certified further, and whether that obstruction can be repaired.
 
 That turned the usual question around. The usual question is "does the data meet the specification?" The better question is "how far does certification reach, and what blocks it from reaching further?" Once certification is graded rather than binary, a failing run is no longer a dead end: it carries a boundary (how far it got), a reason (which checks block it), and a decision (whether the block can be removed).
 
