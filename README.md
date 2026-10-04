@@ -22,10 +22,6 @@ Today this runs offline, certifying log files against formal specifications. The
 
 This repository is the pure mathematics behind that: the certification framework, the structure of blocking, and the repair layer, machine-checked in Lean 4. The applied side, with the information-geometry background and the concrete certificate examples, lives in the companion PVS development ([luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories)).
 
-### A concrete run
-
-The certificates are checked against real logs at five ordered levels, S > A > B > C > D. The outcomes are not uniform, which is the point. Most logs reach canonical level C: the structure is sound, but the Monge concentration is too weak to certify at B. One run, boot334, fails at every level, because its generator coherence is negative, the spectral flow reverses mid-transition (cos = -0.74). The structural certificates pass everywhere; the dynamical one fails only on boot334. Different certificates read independent axes of the same data, and the canonical level plus the blocking set together say exactly how far each run is certified and why it stops there. The [certificate-runner results](https://github.com/gajaka/luces-pvs-theories/blob/main/CERT_RUNNER_RESULTS.md) show the certificates evaluated on these real transition logs.
-
 ## Overview
 
 A certificate is a predicate that says a system meets a contract. Given data and a specification level, the certificate either holds or it does not. The specifications are not a flat list: they are ordered, from weaker contracts to stricter ones. The basic property this theory is built on is monotonicity: if a system passes a stricter contract, it also passes every weaker one. So for each piece of data there is a highest level it can be certified at, and everything at or below that level holds. This highest reachable level is the canonical level, and certification is exactly the set of levels at or below it.
@@ -39,6 +35,10 @@ Second, what stops it from going further. At a given level, the blocking set is 
 Third, whether a failure can be contained and repaired. A violating element is isolated so it cannot corrupt the certified core, and repair moves the system to a new state that is certified at least as high as before. The question that remains is whether a repair exists at all. For that the theory turns to the Lovász Local Lemma: if each bad event has bounded dependence and small enough probability, a state avoiding all of them exists. The Moser-Tardos procedure then constructs such a state by resampling violated events, and the theory proves it converges, with an explicit bound on the expected number of resampling steps, E[T_LOG] ≤ Σ x(α). A final bridge connects this back to the abstract framework: Moser-Tardos reachability is a concrete instance of the abstract repair relation, so the convergence result supplies the witness the repair layer needs, rather than assuming one.
 
 The whole development is machine-checked in Lean 4 with no `sorry`. Every end state of the process carries its own proof: certified, or blocked with a reason, and when it is blocked, a decision on whether the block is repairable.
+
+### A concrete run
+
+The certificates are checked against real logs at five ordered levels, S > A > B > C > D. The outcomes are not uniform, which is the point. Most logs reach canonical level C: the structure is sound, but the Monge concentration is too weak to certify at B. One run, boot334, fails at every level, because its generator coherence is negative, the spectral flow reverses mid-transition (cos = -0.74). The structural certificates pass everywhere; the dynamical one fails only on boot334. Different certificates read independent axes of the same data, and the canonical level plus the blocking set together say exactly how far each run is certified and why it stops there. The [certificate-runner results](https://github.com/gajaka/luces-pvs-theories/blob/main/CERT_RUNNER_RESULTS.md) show the certificates evaluated on these real transition logs.
 
 **575 theorems. Zero sorry.**
 
