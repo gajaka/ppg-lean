@@ -169,6 +169,12 @@ The existence side is the Lovász Local Lemma (Alon and Spencer, "The Probabilis
 
 In PVS: the PPG core, the General LLL, and the base Moser-Tardos infrastructure. The final arc published here in Lean (the E[T_LOG] bound, the blocking dependency decomposition, the Lopsided and Variable-version Local Lemmas, and the repair bridge) is not yet ported to PVS.
 
+## Future work
+
+The certified repair region is exactly where the Local Lemma condition holds: there a repair provably exists, Moser-Tardos constructs it, and the expected work is bounded. Because the condition is sufficient rather than necessary, that region sits inside the set of instances that are actually repairable, and the difference between the two is open ground. A repair can exist, and the procedure can even succeed, in instances the current criterion does not certify.
+
+A natural next question: characterize the gap between LLL-certified repairability and actual repairability, and determine when constructive repair remains convergent beyond the certified region. Candidate directions include stronger sufficient criteria (the Lopsided and Variable-version Local Lemmas here are first steps, and Shearer's bound is the natural reference point) and, more ambitiously, a certificate derived from the Moser-Tardos process and the blocking-component structure itself. The longer-term aim is a system that distinguishes "I cannot certify repairability" from "no repair exists" -- two different statements the current theory does not yet separate.
+
 ## Author
 
 Dragan Stosic, MSc
