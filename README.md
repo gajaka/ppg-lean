@@ -40,7 +40,7 @@ The whole development is machine-checked in Lean 4 with no `sorry`. Every end st
 
 The certificates are checked against real logs at five ordered levels, S > A > B > C > D. The outcomes are not uniform, which is the point. Most logs reach canonical level C: the structure is sound, but the Monge concentration is too weak to certify at B. One run, boot334, fails at every level, because its generator coherence is negative, the spectral flow reverses mid-transition (cos = -0.74). The structural certificates pass everywhere; the dynamical one fails only on boot334. Different certificates read independent axes of the same data, and the canonical level plus the blocking set together say exactly how far each run is certified and why it stops there. The [certificate-runner results](https://github.com/gajaka/luces-pvs-theories/blob/main/CERT_RUNNER_RESULTS.md) show the certificates evaluated on these real transition logs.
 
-**575 theorems. Zero sorry.**
+The whole theory, 575 theorems with zero sorry, is depicted in the diagram below.
 
 ![Proof-Preserving Graph Theory: a map from certificates through blocking dependency decomposition and the Lovász Local Lemma to the Moser-Tardos witness-tree counting, the expected-work bound E[T_LOG], and the repair bridge.](ppg-theory.svg)
 
