@@ -171,9 +171,11 @@ In PVS: the PPG core, the General LLL, and the base Moser-Tardos infrastructure.
 
 ## Future work
 
-The certified repair region is exactly where the Local Lemma condition holds: there a repair provably exists, Moser-Tardos constructs it, and the expected work is bounded. Because the condition is sufficient rather than necessary, that region sits inside the set of instances that are actually repairable, and the difference between the two is open ground. A repair can exist, and the procedure can even succeed, in instances the current criterion does not certify.
+The repair region certified by the Local Lemma criterion is the region where the condition holds: there a repair provably exists, Moser-Tardos constructs it, and the expected work is bounded. Because the condition is sufficient rather than necessary, this certified region may be strictly smaller than the set of instances that are actually repairable, and the difference between the two is open ground. A repair may exist, and the procedure may even succeed, on instances that the current criterion does not certify.
 
-A natural next question: characterize the gap between LLL-certified repairability and actual repairability, and determine when constructive repair remains convergent beyond the certified region. Candidate directions include stronger sufficient criteria (the Lopsided and Variable-version Local Lemmas here are first steps, and Shearer's bound is the natural reference point) and, more ambitiously, a certificate derived from the Moser-Tardos process and the blocking-component structure itself. The longer-term aim is a system that distinguishes "I cannot certify repairability" from "no repair exists" -- two different statements the current theory does not yet separate.
+A natural next question is to characterize the gap between LLL-certified repairability and actual repairability, and to determine when constructive repair remains convergent beyond the certified region. Candidate directions include stronger sufficient criteria. The Lopsided and Variable-version Local Lemmas developed here are first steps, while Shearer's bound provides a natural reference point for the limits of dependency-graph-based guarantees. A more ambitious direction is to derive a certificate from the Moser-Tardos process and the blocking-component structure itself.
+
+The longer-term aim is a system that distinguishes "I cannot certify repairability" from "no repair exists." These are fundamentally different statements, and the current theory does not yet separate them.
 
 ## Author
 
