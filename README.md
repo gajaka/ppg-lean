@@ -1,125 +1,185 @@
 # Proof-Preserving Graphs: Formal Certification, Self-Assessment, and Repair (Lean 4)
 
-This public development contains **191 modules of generic PPG theory**. Concrete
-LUCES/nfer models, firmware, binary-memory models and measured datasets are outside
-this release. The embedded system below explains the motivation; its implementation
-is a separate development.
+This Lean 4 development studies graded certification, blocking and repair. It
+contains **191 modules of generic PPG theory**. The LUCES controller motivated the
+work; concrete LUCES/nfer models, firmware, binary-memory models and measured
+datasets are developed separately.
 
 ## Motivation
 
 ### The system
 
-I built a small embedded system, an adaptive-lighting controller: a four-node mesh of Seeed Studio XIAO ESP32 boards (ESP32-S3 and ESP32-C6) with an AS7341 spectral sensor and a TSL2591 lux sensor feeding a real-time control loop, running under 2 W with no cloud and no simulation. The nodes join, authenticate, and synchronize over a message protocol designed in the π-calculus: a three-way join handshake with self-healing re-join, HMAC-authenticated challenge and response, timing-synchronized beacons, and sensor-data and registry messages across all four agents. The control logic is currently being migrated onto a custom-designed LUCES board. Weather inputs (cloud cover, humidity, solar radiation) come from the Open-Meteo API as a baseline. On top of this sits a **Monge map controller**. Across many days and weather conditions, one thing holds: weather changes the cost, but not the map. That is what makes real-time control feasible, a single precomputed, certified transport map carries the system through its daily transitions by McCann displacement interpolation, at linear cost per step. The controller has been developed and validated in simulation.
+I built LUCES, an adaptive-lighting system with four Seeed Studio XIAO ESP32
+boards (ESP32-S3 and ESP32-C6). An AS7341 spectral sensor and a TSL2591 lux sensor
+feed a local control loop. The embedded network runs under 2 W. Its nodes join,
+authenticate and synchronize through a protocol designed in the π-calculus:
+a three-way handshake, HMAC challenge and response, synchronized beacons, and
+sensor-data and registry messages. A node that loses its connection can rejoin.
 
-The background is in three published papers:
+The transport-control work uses a **Monge map controller** and McCann displacement
+interpolation. The transition study found that the transport map remained stable
+across the recorded weather conditions while the cost changed. This motivated
+using a precomputed map for the daily transitions, with linear work per
+interpolation step. Weather inputs such as cloud cover, humidity and solar
+radiation come from Open-Meteo. The transport controller has been developed and
+validated in simulation, and the control logic is being migrated to a custom
+LUCES board.
 
-- "Empirical Information Geometry on an Embedded Adaptive Lighting System: Multi-Chart Manifold Transitions Under Signal Collapse," 2026. [https://zenodo.org/records/20094759](https://zenodo.org/records/20094759)
-- "Excitation-Dependent Observability Geometry on an Embedded Adaptive Lighting Manifold," 2026. [https://zenodo.org/records/20389804](https://zenodo.org/records/20389804)
-- "Optimal Transport Geometry of Natural Spectral Regime Transitions," 2026. [https://zenodo.org/records/21956336](https://zenodo.org/records/21956336)
+Three papers describe the experimental background:
+
+- [Empirical Information Geometry on an Embedded Adaptive Lighting System: Multi-Chart Manifold Transitions Under Signal Collapse](https://zenodo.org/records/20094759) (2026).
+- [Excitation-Dependent Observability Geometry on an Embedded Adaptive Lighting Manifold](https://zenodo.org/records/20389804) (2026).
+- [Optimal Transport Geometry of Natural Spectral Regime Transitions](https://zenodo.org/records/21956336) (2026).
 
 ### The problem
 
-The system produces logs, and I wanted to do more than check whether those logs passed or failed. A pass/fail answer throws away the useful information. For any given run I wanted to know three things: how far the system is certified, what is stopping it from being certified further, and whether that obstruction can be repaired.
+The controller produces logs, and I wanted each run to tell me more than whether
+it passed or failed. Which contracts still hold? Which checks prevent stronger
+certification? Can the state be repaired while preserving what is already
+certified?
 
-The better question is "how far does certification reach, and what blocks it from reaching further?" Once certification is graded rather than binary, a failing run is no longer a dead end: it carries a boundary (how far it got), a reason (which checks block it), and a decision (whether the block can be removed).
+A failed check does not answer those questions on its own. It may rule out a
+stricter contract while leaving weaker ones satisfied. It may share inputs with
+other checks, so changing those inputs can fix one failure and introduce another.
+And knowing that a good state exists does not tell us whether the controller can
+reach it through the actions it is allowed to take.
 
-Today this runs offline, certifying log files against formal specifications. The direction I find most interesting is live: running the certification against the system as it runs, on the hardware itself, so it continuously knows its certified boundary, localizes whatever is blocking it, and repairs that part while running rather than after the fact in a log. That is the use case this theory is built for: certificate-driven correction, with every outcome carrying its own proof.
+The current application checks recorded logs against formal specifications. This
+repository gives those checks a common mathematical framework: ordered
+certification, blocking dependencies and proof-preserving repair, machine-checked
+in Lean 4. The concrete certificates and their information-geometry background
+are developed in the companion [PVS project](https://github.com/gajaka/luces-pvs-theories).
 
-This repository is the formalization behind that: the certification framework, the structure of blocking, and the repair layer, machine-checked in Lean 4. The applied side, with the information-geometry background and the concrete certificate examples, lives in the companion PVS development ([luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories)).
+### Where this is heading
+
+I want to run the certificate checks on the controller while it operates. As new
+measurements arrive, it should report the contracts it currently satisfies and
+the checks that block a stricter target. When a check fails, the next step is to
+identify the affected variables, choose an allowed state change, and check the
+result again.
+
+The contract stays fixed during a repair. The state changes, and the repair must
+preserve the properties already certified. That is the distinction I want the
+running system to make: correcting its behavior and relaxing its requirements
+are different decisions.
+
+The aim is to make this part of the control loop, so the controller uses its own
+telemetry to guide recovery. Reaching that point requires a proved connection
+between the live measurements, the checker running on the board, and the state
+and repair model used here. The Lean library supplies the theory for that work;
+the controller implementation and its hardware behavior need their own proofs
+and measurements.
 
 ## Overview
 
-A certificate is a predicate that says a system meets a contract. Given data and a specification level, the certificate either holds or it does not.
+A certificate is a predicate over data and a specification level. It holds when
+the data meets the contract at that level. The library keeps the data and
+certificates abstract, so the same results can be used with different systems.
 
-*(Here the certificate is kept abstract, a predicate over data and level. The concrete certificates, together with the information-geometry quantities they test, are specified in the companion PVS development, and are out of scope for this repository, which presents the formalization.)*
+Specification levels are ordered. Passing a stricter contract entails passing
+every weaker one; this is the monotonicity assumption on a certificate family.
+When a strongest certified level exists, we call it the **canonical level**.
+It describes the whole certified region. Existence needs additional hypotheses:
+in the complete-lattice construction, the certified set must be nonempty and
+closed under infima of nonempty subsets. Monotonicity alone is insufficient.
 
-The specifications are not a flat list: they are ordered, from weaker contracts to stricter ones. The basic property this theory is built on is monotonicity: if a system passes a stricter contract, it also passes every weaker one. So for each piece of data there is a highest level it can be certified at, and everything at or below that level holds. This highest reachable level is the canonical level, and certification is exactly the set of levels at or below it.
+In the Lean order, smaller levels are stricter. The canonical level is therefore
+the least certified element, and the characterization is
+`Cert(d, θ) ↔ θ_c ≤ θ`. If no level passes, there is no canonical level in that
+specification space.
 
-Once certification is ordered this way, three questions become precise, and the theory answers each one.
+At a target level, the **blocking set** consists of the certificates that fail.
+It is empty exactly when the target is certified. To study repair, we also record
+the variables each certificate reads. Shared variables give edges in a dependency
+graph; its connected components group checks that may affect one another. Under
+predicate locality, changes confined to one component's footprint leave the
+other components unchanged. This guarantee applies to the selected certificate
+family. Passing checks omitted from that family still need a preservation proof.
 
-First, how far does certification reach. The canonical level is the answer: it is the top of the certified region, and the theory proves it exists under the usual lattice conditions and that nothing above it can be certified.
+The repair layer requires a state change to restore the target while preserving
+prior certification. It also separates three claims: a repair path exists, a
+chosen random procedure reaches a good state almost surely, and its expected
+work is bounded. Each claim needs its own evidence.
 
-Second, what stops it from going further. At a given level, the blocking set is the collection of certificates that fail there. It is empty exactly when that level is certified: at the canonical level and at every weaker level. A stricter level has a nonempty blocking set. Two failing certificates are coupled when they read a shared variable, and connected components identify coupled groups for repair. Different components have disjoint variable footprints, so under the locality condition (each certificate reads only its own variables) a repair confined to one component cannot change the evaluation of any certificate in another. This is the blocking dependency decomposition.
+The General and lopsided Lovász Local Lemmas give sufficient conditions for a
+positive probability of avoiding all bad events. In the product-variable model,
+Moser–Tardos resampling constructs a satisfying assignment by redrawing the
+variables of violated events. The library proves **E[T_LOG] ≤ Σ x(α)** under the
+stated resampling budgets. Here `x` bounds expected resamplings, rather than event
+probability; classical LLL parameters `q` give `x = q/(1−q)`. Finite expectation
+then implies almost-sure termination. The counting proof does not assume that the
+procedure terminates.
 
-Third, whether a failure can be contained and repaired. A violating element is
-isolated so it cannot corrupt the certified core. Under the repair obligations,
-repair changes the state while keeping the specification fixed and preserving
-or advancing certification. Three further questions are kept separate: does a
-repair path exist, does the chosen random procedure reach a good state almost
-surely, and how much work does it need?
+Pegden's independent-subset criterion and strict Shearer positivity give stronger
+expected-work bounds, including bounds for individual dependency components.
+The He–Li–Sun criterion also uses intersections of matched bad events: the
+reduced vector `p⁻ = p − δ²/17` may satisfy the criterion when the original vector
+does not.
+The corresponding expected-work and termination results cover arbitrary
+measurable admissible selection schedules, including history-dependent rules and
+independent auxiliary randomization. The probability, locality and policy
+hypotheses are stated in the Lean files. Failure of a sufficient criterion leaves
+repairability unresolved.
 
-The probabilistic route begins with the General and lopsided Lovász Local Lemmas:
-their conditions give positive probability of avoiding all bad events. In the
-variable-resampling model, the Moser–Tardos development constructs a repair by
-resampling violated events and bounds its expected work by E[T_LOG] ≤ Σ x(α)
-under the declared budgets. Finite expectation then gives almost-sure
-termination; termination is not assumed in the counting proof.
+Expected work can also be bounded from a potential for the repair process. A
+nonnegative integrable adapted potential satisfying the conditional drift
+inequality bounds the expected number of active steps. For finite rational
+transition models, checked potentials give upper bounds, first-step equations
+give exact expectations, and survival recurrences give timeout probabilities.
+A uniform bound on survival over a block of steps yields a geometric tail bound.
+Lumping and commuting-update projections transfer these results to smaller
+models when the transition laws and good-state tests are preserved. These bounds
+count model steps or resamplings; an execution-time argument is still needed for
+a hardware deadline.
 
-The certified region now extends beyond the original LLL criterion. Pegden's
-independent-subset criterion and strict Shearer positivity provide stronger
-expected-work bounds, including budgets for individual dependency components.
-He–Li–Sun additionally uses lower bounds on intersections of matched bad events:
-the reduced probability vector p⁻ = p − δ²/17 can satisfy the criterion even
-when the original vector does not. The corresponding expected-work and
-almost-sure termination results allow arbitrary measurable admissible selection
-schedules, including history-dependent rules and independent auxiliary
-randomization. Each result has its own probability, locality and policy
-hypotheses; failure of a sufficient criterion does not prove that repair is
-impossible.
+Finite models with decidable tests admit exhaustive reachability decisions.
+Potentially infinite models can use the same procedure when supplied with a
+proved exact finite abstraction and an executable way to realize its steps.
+The result is a concrete repair trace or a checked refutation that no good state
+is reachable. Minimal infeasible cores, invariant refutations and rational
+Farkas certificates provide further explanations under their model hypotheses.
+A closed bad class establishes failure for the specified random kernel and
+starting state; another policy may still repair the state. For the encoded
+infinite-model family, a reduction to halting proves that no total computable
+repairability test can decide every instance.
 
-There are also routes based on the repair process itself. A nonnegative
-potential with a proved conditional expected decrease bounds the expected
-number of active steps without an LLL, Shearer or HLS premise. For suitable
-finite rational transition models, checked drift potentials give upper bounds,
-and solutions of the first-step hitting-time equations give exact expectations.
-Survival recurrences give exact timeout probabilities and checked geometric
-tail bounds. Lumping and commuting-update projections transfer these results
-to a smaller model when their probability-preservation obligations are proved.
-A repair path alone does not establish a time bound, and these stochastic work
-bounds do not establish hardware deadlines.
+Moser–Tardos reachability is connected to the abstract repair relation. Given a
+good target, a constant resampling table supplies an existential path to it.
+This path gives no probability guarantee for a randomly drawn table; the
+expected-work and termination theorems establish those guarantees separately.
 
-Finally, finite models with decidable tests, and potentially infinite models
-supplied with a proved exact finite abstraction and executable realization,
-admit complete reachability decisions by exhaustive finite search: a concrete
-repair trace or a checked refutation that no good state is reachable. Minimal
-infeasible cores, invariant refutations and sound rational Farkas certificates
-provide additional explanations of impossibility under their model hypotheses.
-A closed bad class instead concerns the specified random kernel and starting
-state; it need not rule out another repair policy. For the encoded infinite
-model family, a halting-problem reduction proves that no computable total
-repairability decider can work uniformly. Moser–Tardos reachability instantiates
-the abstract PPG repair relation, and an existing good target supplies an
-existential path through a constant resampling table. That path is distinct from
-a probabilistic guarantee about a randomly drawn table.
-
-The whole development is machine-checked in Lean 4 with no `sorry` and no
-additional axioms. The audit checks that each declaration depends on at most
-Lean's standard foundational axioms (`propext`, `Classical.choice` and
-`Quot.sound`); any subset, including the empty set, is allowed. Depending on the
-model and available evidence, the repair layer supports a positive witness, a
-bound for the chosen procedure, or a checked refutation. An inconclusive
-sufficient test remains distinct from a proof of impossibility.
+All proofs are checked in Lean 4, with no `sorry` or additional axioms. The audit
+allows any subset of the standard foundational axioms `propext`,
+`Classical.choice` and `Quot.sound`, including the empty set.
 
 ### Application background (separate development)
 
-The certificates are checked against real logs at five ordered levels, S > A > B > C > D. The outcomes are not uniform, which is the point. Most logs reach canonical level C: the structure is sound, but the Monge concentration is too weak to certify at B. One run, boot334, fails at every level, because its generator coherence is negative, the spectral flow reverses mid-transition (cos = -0.74). The structural certificates pass everywhere; the dynamical one fails only on boot334. Different certificates read independent axes of the same data, and the canonical level plus the blocking set together say exactly how far each run is certified and why it stops there. The [certificate-runner results](https://github.com/gajaka/luces-pvs-theories/blob/main/CERT_RUNNER_RESULTS.md) show the certificates evaluated on these real transition logs.
+The companion application uses five levels, from the strictest `S` through `A`,
+`B`, `C` and `D`. It reports the strongest passing level and the checks that block
+stronger certification. The individual checks can give different results on the
+same log. In the published `boot334` example, structural checks pass while the
+spectral-direction check detects a reversal (`cos = −0.74`). A single verdict
+would hide that distinction. The
+[certificate-runner report](https://github.com/gajaka/luces-pvs-theories/blob/main/CERT_RUNNER_RESULTS.md)
+contains the concrete results. Different checks use different aspects of the
+measurements; shared data does not make them probabilistically independent.
 
 The library has **1,824 explicitly declared theorems and lemmas**, with an explicit
-`#check` for each. The diagram below maps certification, dependency decomposition,
-probabilistic repair, finite-state decisions, expected work and stopping bounds.
+`#check` for each. The diagram below shows how certification, dependency
+analysis, repair, finite decisions and work bounds fit together.
 
-The [complete module inventory](THEORY_INDEX.md) lists all 191 modules. Run
-`python3 tools/audit_ppgraph.py` to rebuild and inspect every project declaration's
-axiom dependencies, including generated theorem constants. The allowed set is
-**any subset** of `{propext, Classical.choice, Quot.sound}`. The results and source
-hashes are recorded in `PPGRAPH_AXIOM_AUDIT.txt` and `PPGRAPH_AXIOM_AUDIT.json`.
+The [module inventory](THEORY_INDEX.md) lists all 191 modules. Run
+`python3 tools/audit_ppgraph.py` to rebuild and inspect the axiom dependencies of
+every project declaration, including generated theorem constants. Results and
+source hashes are recorded in `PPGRAPH_AXIOM_AUDIT.txt` and
+`PPGRAPH_AXIOM_AUDIT.json`.
 
-[![Proof-Preserving Graph Theory: certification and blocking, LLL/MT/Shearer/HLS repair, drift, exact finite models and tails, feasibility and refutation, abstraction, undecidability, and certified repair.](ppg-theory.png)](ppg-theory.png)
+[![PPG theory: certification, blocking, probabilistic repair, drift, finite decisions, work and tail bounds, abstraction and undecidability.](ppg-theory.png)](ppg-theory.png)
 
 ## Files
 
-The table below describes the original layers. See [THEORY_INDEX.md](THEORY_INDEX.md)
-for the complete current inventory, including the extensions above.
+The table lists the original modules. [THEORY_INDEX.md](THEORY_INDEX.md) contains
+the full inventory, including the later probabilistic and decision results.
 
 | File | Theorems | Scope |
 |------|----------|-------|
@@ -131,7 +191,7 @@ for the complete current inventory, including the extensions above.
 | `PPGraphParametric.lean` | 24 | Parametric certification: master refinement, canonical levels, lattice operators, PPG bridge, repair bounds, threshold instance |
 | `PPGraphParametricQuotient.lean` | 26 | Quotient structure: cert_equiv, induced PartialOrder, CertInfClosed meet, LinearOrder separating |
 | `PPGraphBlocking.lean` | 7 | Blocking certificates: diagnostic layer, canonical has empty blocking, stricter has nonempty |
-| `PPGraphQuotientBridge.lean` | 5 | Bridge: spec graph projects to quotient PPG via surjective morphism |
+| `PPGraphQuotientBridge.lean` | 5 | Surjective specification projection: an edge maps to a quotient edge or collapses within a class; certification is well-defined on classes |
 | `PPGraphSelection.lean` | 23 | Hierarchical representative selection: pullback equiv, finest equiv, CertFamily instance via OrderDual Finset, pp_quotient bridge |
 | `PPGraphComplementarySlackness.lean` | 5 | LP duality for optimal transport: pointwise CS, Monge structure, strict uniqueness, zero duality gap certificate |
 | `PPGraphSelfAssessment.lean` | 12 | Failure containment, contamination impossibility, assessment trichotomy, monotone recovery (state-based, spec fixed), three evolution modes |
@@ -188,9 +248,9 @@ for the complete current inventory, including the extensions above.
 
 ## Central Theorems
 
-Selected results from the original framework and its extensions. Statements
-abbreviate the declared type, measurability and locality assumptions; the source
-contains the full hypotheses. Random-initialization bounds use slot zero of the
+The results below cover the original framework and later developments. Their
+summaries omit some type, measurability and locality assumptions; each linked
+Lean file gives the full statement. Random-initialization bounds use slot zero of the
 resampling table. Fixed-start results specify the initial state separately.
 Each theorem name links to its Lean source file.
 
@@ -224,13 +284,14 @@ Each theorem name links to its Lean source file.
 
     Lean: [canonical_spec_is_canonical](PPGraphParametric.lean).
 
-    In CompleteLattice + inf-closure, canonical exists
+    In a complete lattice, a nonempty certified set closed under infima of nonempty
+    subsets has a canonical level
 
 6. **Lower canonical bound**
 
     Lean: [no_repair_below_canonical](PPGraphParametric.lean).
 
-    Cannot certify below canonical level
+    For a fixed datum, no level outside the canonical upper set is certified
 
 7. **Canonical blocking set**
 
@@ -242,13 +303,13 @@ Each theorem name links to its Lean source file.
 
     Lean: [separating_equiv_eq](PPGraphParametricQuotient.lean).
 
-    Under separating family, cert_equiv implies equality
+    In a linear order with a separating certificate family, cert_equiv implies equality
 
 9. **Hierarchical selection**
 
     Lean: [lens_master_refinement](PPGraphSelection.lean).
 
-    One-liner from master_refinement via OrderDual Finset
+    Master refinement applied to the OrderDual Finset certificate family
 
 10. **Quotient projection**
 
@@ -327,7 +388,8 @@ Each theorem name links to its Lean source file.
 
     Lean: [mtRepairGraph_globally_repairable](PPGraphMoserTardosRepairBridge.lean).
 
-    Moser-Tardos reachability makes the abstract proof-preserving repair globally hold
+    Under the bridge hypotheses, Moser–Tardos reachability satisfies the abstract
+    proof-preserving repair relation
 
 
 ### Extended probabilistic repair and drift
@@ -380,7 +442,8 @@ Each theorem name links to its Lean source file.
     Lean: [RepairDrift.ConditionalCertificate.expectedActiveCount_le](PPGraphAdditiveDrift.lean).
 
     A nonnegative integrable adapted potential with conditional decrease δ > 0 on active
-    steps gives **E[active steps] ≤ E[V₀]/δ**
+    steps and conditional nonincrease on inactive steps gives
+    **E[active steps] ≤ E[V₀]/δ**
 
 30. **Full-resampling expected work**
 
@@ -447,7 +510,7 @@ fairness or eventual repair of that component.
     stopped counts on the same input stream; concrete state may be infinite
 
 
-The finite MT rows use the declared finite variables/domains, normalized rational
+The finite MT results use the declared finite variables and domains, normalized rational
 marginals and first-violated-event process. Reduction transfers laws and checked
 bounds under its additional mass/model hypotheses. A closed-bad-set certificate
 concerns the specified kernel and starting state, rather than every possible
@@ -506,8 +569,8 @@ distinct from an impossibility certificate.
 
 ## Theory Layers
 
-The layers below group the current development by purpose. The
-[module inventory](THEORY_INDEX.md) gives the complete file-level view.
+These groups describe what each part of the library does. The
+[module inventory](THEORY_INDEX.md) lists the individual files.
 
 ### Certification, structure and assessment
 
@@ -552,8 +615,9 @@ The layers below group the current development by purpose. The
     budgets and slack bounds; Pegden's independent-subset witness-tree criterion.
 
 11. **Component expected work**: Exact decomposition of resampling counts and
-    component-local Shearer budgets. A counted component can be bounded without
-    certifying the others; this does not assert fairness or component completion.
+    component-local Shearer budgets. The expected count for one component can be
+    bounded without certifying the others. This bound alone does not guarantee
+    that the schedule eventually serves or repairs that component.
 
 12. **Intersection-sensitive policies**: He–Li–Sun overlap discounts,
     witness-DAG bounds, expected work, and almost-sure termination for measurable
@@ -592,27 +656,31 @@ The layers below group the current development by purpose. The
     itself is not automatically discovered.
 
 19. **Limits of general decision procedures**: Undecidability of uniform
-    repairability testing for the halting-encoding infinite-model family. This
-    limits general automation; it is not a no-repair certificate for each
-    individual infinite instance.
+    repairability testing for the halting-encoding infinite-model family. A
+    particular infinite instance may still admit a repair witness or a refutation;
+    the theorem rules out a uniform total decision procedure.
 
 ## Related
 
-- **PVS formalization:** [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories) - 460 machine-checked results (340 theorems + 120 lemmas), 52 theories. This covers the PPG core, the General LLL, and the base Moser-Tardos infrastructure. The final arc published here in Lean (E[T_LOG], BDD, Lopsided/Variable LLL, repair bridge) is not yet in PVS.
+- [**luces-pvs-theories**](https://github.com/gajaka/luces-pvs-theories): the companion
+  PVS development, with 460 machine-checked results (340 theorems and 120 lemmas)
+  in 52 theories. It covers the PPG core, General LLL and base Moser–Tardos
+  infrastructure. The later expected-work, BDD, lopsided/variable-LLL and repair
+  results described here have not yet been ported to PVS.
 
 ## Probabilistic Repair: references and scope
 
-The development combines existence criteria, resampling bounds, process-based
-time certificates and reachability decisions. The references below identify the
-mathematical sources and the corresponding formalized scope; the Lean files
-contain the full hypotheses.
+The references below are the mathematical sources for the repair, work-bound
+and decision results. Each linked Lean file states the assumptions and the part
+of the source result that it formalizes.
 
 ### Local Lemmas and Moser–Tardos
 
 - **General LLL and resampling**: Alon and Spencer, *The Probabilistic Method*,
   4th ed., Wiley 2016, Lemma 5.1.1 and §5.7; Moser and Tardos,
   [*A constructive proof of the general Lovász Local Lemma*](https://arxiv.org/abs/0903.0544v3).
-  [PPGraphLLL.lean](PPGraphLLL.lean) proves the General LLL division-free.
+  [PPGraphLLL.lean](PPGraphLLL.lean) proves the General LLL using unconditional
+  measures, avoiding division by conditioning probabilities.
   The Moser–Tardos files cover the product resampling table, measurable
   trajectories, witness trees, injectivity, check probabilities and occurrence
   counting. [PPGraphMoserTardosOccurrenceExpectation.lean](PPGraphMoserTardosOccurrenceExpectation.lean)
@@ -637,39 +705,43 @@ contain the full hypotheses.
 - **Pegden**: [*An extension of the Moser-Tardos algorithmic local lemma*](https://arxiv.org/abs/1102.2853v2),
   Theorem 1.4. [PPGraphMoserTardosPegden.lean](PPGraphMoserTardosPegden.lean)
   replaces the original product budget by a sum over independent subsets of
-  each closed neighborhood. The same random-initialized process satisfies
-  E[T_LOG] ≤ Σ x(α) under this criterion, without assuming termination.
+  each closed neighborhood. With product-table initialization, the process
+  satisfies E[T_LOG] ≤ Σ x(α) under this criterion, without assuming termination.
 
 - **Shearer**: Harvey and Vondrák,
   [*Short proofs for generalizations of the Lovász Local Lemma: Shearer's condition and cluster expansion*](https://arxiv.org/abs/1711.06797v1),
-  §2, supplies the existence/lower-probability argument in
-  [PPGraphShearer.lean](PPGraphShearer.lean), formalized with strict positivity.
+  §2. The existence and probability lower-bound proofs in
+  [PPGraphShearer.lean](PPGraphShearer.lean) follow this presentation, using
+  strict positivity.
   The expected-work result is the Kolipaka–Szegedy bound, presented in
   [Vondrák's 2018 Lecture 8](https://theory.stanford.edu/~jvondrak/MATH233A-2018/Math233-lec08.pdf),
   Lemma 8.1 and Theorem 8.8. Stable-family identities also follow Harvey and
   Vondrák's [resampling-oracles paper](https://arxiv.org/abs/1504.02044v3), §5.
   [PPGraphShearerExpectation.lean](PPGraphShearerExpectation.lean) proves
-  E[T_LOG] ≤ Σ q_{α}/q_∅; slack and
-  [component-local budgets](PPGraphShearerBDDExpectation.lean) extend this bound.
-  A component-work bound does not assert fairness or eventual component repair.
+  E[T_LOG] ≤ Σ q_{α}/q_∅, with further bounds using slack and
+  [individual component budgets](PPGraphShearerBDDExpectation.lean). Bounding
+  a component's resampling count does not guarantee that the schedule eventually
+  serves or repairs it.
 
 - **He–Li–Sun**: [*Moser-Tardos Algorithm: Beyond Shearer's Bound*](https://arxiv.org/abs/2111.06527v1),
-  Theorem 1.6 and §3.3. Matching-compatible intersection lower bounds give
+  Theorem 1.6 and §3.3. Here p is the vector of actual positive event
+  probabilities. Lower bounds δ on intersections along a matching give
   p⁻ = p − δ²/17. Strict Shearer at p⁻ yields finite expected work; at
   (1+ε)p⁻, with ε > 0, the bound is m/ε for m bad events.
   [PPGraphHLSPolicyExpectation.lean](PPGraphHLSPolicyExpectation.lean) covers
-  arbitrary measurable admissible schedules, history-dependent rules and
-  independent auxiliary randomization under its exact positive probability,
+  arbitrary measurable admissible schedules, including history-dependent rules
+  and independent auxiliary randomization, under the stated probability,
   intersection and measurability hypotheses. Initialization uses slot zero of
-  the product table; almost-sure termination is derived.
+  the product table. The expected-work bound implies almost-sure termination.
 
 ### Potentials, stopping bounds and model reduction
 
 - **Additive drift**: Lengler, [*Drift Analysis*](https://arxiv.org/abs/1712.00964v2),
   Theorem 1, provides the background for
   [PPGraphAdditiveDrift.lean](PPGraphAdditiveDrift.lean). The formalization uses
-  a nonnegative integrable adapted stopped potential with conditional expected
-  decrease δ > 0, giving E[active steps] ≤ E[V₀]/δ. Its
+  a nonnegative integrable adapted potential whose conditional expectation
+  decreases by at least δ > 0 on active steps and does not increase on inactive
+  steps, giving E[active steps] ≤ E[V₀]/δ. Its
   [Moser–Tardos instance](PPGraphMoserTardosDrift.lean) uses the existing
   first-violated-event policy. Modeled costs are bounded separately; when every
   event resamples all variables, [full resampling](PPGraphMoserTardosFullResampling.lean)
@@ -702,9 +774,9 @@ contain the full hypotheses.
 The [finite decision](PPGraphCertifiedDecision.lean) and
 [exact-abstraction repair](PPGraphFiniteAbstractionRepair.lean) layers return
 positive witnesses or checked refutations under their declared enumeration,
-simulation, step-realization and good-state preservation obligations. Exhaustive
-search is explicit; no general efficient search or automatic abstraction
-discovery is claimed. [Minimal cores](PPGraphUnsatisfiableCore.lean) and
+forward simulation, executable step realization and good-state equivalence
+obligations. These procedures use exhaustive finite search. Constructing an
+exact abstraction is a separate task. [Minimal cores](PPGraphUnsatisfiableCore.lean) and
 [correction-set duality](PPGraphCorrectionDuality.lean) describe infeasible
 obligation families, while [invariant refutations](PPGraphReachabilityRefutation.lean)
 exclude good states along the declared repair relation.
@@ -713,49 +785,56 @@ For linear models, [PPGraphFarkasCertificate.lean](PPGraphFarkasCertificate.lean
 proves soundness of accepted rational infeasibility certificates, following the
 certificate direction of Dlask and Werner,
 [*Bounding Linear Programs by Constraint Propagation: Application to Max-SAT*](https://cmp.felk.cvut.cz/~dlaskto2/papers/Dlask-Werner-CP2020a.pdf),
-§2.1, Theorem 1. It does not assume that every infeasible model has a supplied
-certificate. The infinite-model decision limit reuses the computability
-apparatus described by Carneiro in
+§2.1, Theorem 1. The theorem checks a supplied certificate; it does not construct
+one for every infeasible model. The infinite-model decision limit reuses the
+computability apparatus described by Carneiro in
 [*Formalizing computability theory via partial recursive functions*](https://arxiv.org/abs/1810.08380v3),
 §§5.2–5.3. [PPGraphRepairUndecidability.lean](PPGraphRepairUndecidability.lean)
 constructs the repair-family reduction to the halting problem.
 
 [PPGraphMoserTardosRepairBridge.lean](PPGraphMoserTardosRepairBridge.lean)
-connects resampling reachability to abstract repair. Existence of a good target,
-almost-sure termination under a probability law, and bounded expected work are
-distinct claims. Failure of a sufficient criterion remains inconclusive;
-negative certificates must establish their own model-specific obstruction.
-Stochastic work and cost bounds do not establish native execution correctness
-or hardware deadlines.
-
-The companion PVS development covers the PPG core, General LLL and base
-Moser–Tardos infrastructure. The final expected-work, BDD, lopsided/variable-LLL
-and repair-bridge arc documented here is not yet ported to PVS; the further Lean
-extensions above should not be read as a claim of PVS parity.
+connects resampling reachability to abstract repair. A good target gives an
+existence witness; almost-sure termination and expected work require the
+probability-law hypotheses of their respective theorems. Refuting a repair
+requires evidence about the allowed model, beyond failure of a sufficient test.
+To apply work bounds on hardware, the model steps must also be linked to native
+execution and its timing.
 
 ## Future work
 
-The theory now separates "the selected criterion does not certify repairability"
-from "no repair exists." For finite models, and concrete models supplied with a
-proved exact finite abstraction and executable realization, the decision layer
-can return a repair path or a certificate that no such path exists. No algorithm
-is claimed to synthesize an exact abstraction for every system.
+The next application step is to connect the formal model to certification on the
+running controller. Live measurements must have a defined meaning in that model,
+and the board's checker must evaluate the corresponding predicates correctly.
+The allowed control actions then need repair semantics: which part of the state
+they can change, which contracts they restore, and which already-certified
+properties they preserve. Measurements of execution time and physical response
+are needed alongside those proofs.
 
-The probabilistic repair criteria remain sufficient conditions. Shearer, Pegden
-and He–Li–Sun extend the original LLL development. Finite potential witnesses and
-tail certificates provide a separate route to termination and time bounds under
-their checked transition-model hypotheses. A path alone does not imply such a
-time bound. A closed bad class refutes repair under its specified transition
-kernel; it does not refute every other repair policy.
+The intended loop is to observe the state, check the target,
+identify the blockers, apply a justified repair, and check again. When the
+available evidence does not justify a repair, the controller should report that
+limit. Relaxing a requirement must remain an explicit decision, rather than an
+unreported change to the contract during recovery.
 
-For arbitrary infinite models, the library proves that a total general
-repairability decider cannot exist. This is a limit on universal automation, not
-an impossibility certificate for every individual infinite instance.
+The mathematical work also leaves practical search problems. The finite decision
+procedures are complete for their declared models, but they use exhaustive
+search. An exact finite abstraction can reduce a larger model to a finite search,
+provided its simulation, realization and good-state obligations are proved.
+Finding such abstractions, repair witnesses and checked potentials efficiently
+is an open direction.
 
-Open directions include finding useful repair witnesses beyond the available
-criteria without exhaustive enumeration, and constructing tractable exact
-abstractions or checked potentials for concrete systems. Physical acquisition,
-native execution and hardware timing remain separate application obligations.
+The Local Lemma criteria provide sufficient conditions for a good state to
+exist; the resampling theorems give work and termination guarantees under their
+additional model hypotheses. More instances may be repairable even when none of
+those tests applies. Further work could identify classes for which repair
+witnesses or process certificates can be found and checked efficiently, and
+bound the work of the procedures used there. A path to a good state establishes
+reachability; a time bound still needs a proof about the chosen process.
+
+The undecidability result rules out a total computable repairability test for the
+encoded infinite-model family. For concrete infinite systems, open work includes
+constructing repair witnesses or refutations and identifying classes with
+computable decisions and work bounds.
 
 ## Author
 
