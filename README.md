@@ -108,20 +108,6 @@ The library has **1,824 explicitly declared theorems and lemmas**, with an expli
 `#check` for each. The diagram below maps certification, dependency decomposition,
 probabilistic repair, finite-state decisions, expected work and stopping bounds.
 
-### Later theory extensions
-
-- Shearer's criterion and expected-work bounds, including blocking-component
-  budgets and slack bounds; Pegden's witness-tree criterion.
-- The He–Li–Sun intersection-sensitive criterion, with expected-work and
-  almost-sure termination results for arbitrary measurable admissible selection
-  schedules, including history-dependent rules, under the stated hypotheses.
-- Positive repair witnesses, infeasibility and invariant refutations, finite
-  decision procedures, and constructive repair through a supplied exact finite
-  abstraction. General infinite-model repairability has an undecidability proof.
-- Drift and finite rational transition models, checked potential witnesses,
-  expected-time and tail bounds, closed-bad-class certificates, and exact model
-  reduction through lumping.
-
 The [complete module inventory](THEORY_INDEX.md) lists all 191 modules. Run
 `python3 tools/audit_ppgraph.py` to rebuild and inspect every project declaration's
 axiom dependencies, including generated theorem constants. The allowed set is
