@@ -3,8 +3,8 @@
   Refinement Relations - Port of sets_aux@rr_rel (NASA pvslib, Stosic)
 
   Faithful port of:
-   - relation_extension[T, U]
-   - rr_rel[T, U]
+    - relation_extension[T, U]
+    - rr_rel[T, U]
 
   The refinement relation RR is defined over pairs (T, U) where
   each domain is partitioned by an equivalence relation, and

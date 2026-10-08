@@ -1,5 +1,10 @@
 # Proof-Preserving Graphs: Formal Certification, Self-Assessment, and Repair (Lean 4)
 
+This public development contains **191 modules of generic PPG theory**. Concrete
+LUCES/nfer models, firmware, binary-memory models and measured datasets are outside
+this release. The embedded system below explains the motivation; its implementation
+is a separate development.
+
 ## Motivation
 
 ### The system
@@ -34,21 +39,46 @@ Once certification is ordered this way, three questions become precise, and the 
 
 First, how far does certification reach. The canonical level is the answer: it is the top of the certified region, and the theory proves it exists under the usual lattice conditions and that nothing above it can be certified.
 
-Second, what stops it from going further. At a given level, the blocking set is the collection of certificates that fail there. The theory shows the blocking set is empty exactly at the canonical level, so a nonempty blocking set is a precise, inspectable reason the system is not certified higher. The blocking set also has internal structure: two failing certificates are coupled when they read a shared variable, and the connected components of that coupling graph are the groups that must be repaired together. Different components have disjoint variable footprints, so under the locality condition (each certificate reads only its own variables) a repair confined to one component cannot change the evaluation of any certificate in another. This is the blocking dependency decomposition.
+Second, what stops it from going further. At a given level, the blocking set is the collection of certificates that fail there. It is empty exactly when that level is certified: at the canonical level and at every weaker level. A stricter level has a nonempty blocking set. Two failing certificates are coupled when they read a shared variable, and connected components identify coupled groups for repair. Different components have disjoint variable footprints, so under the locality condition (each certificate reads only its own variables) a repair confined to one component cannot change the evaluation of any certificate in another. This is the blocking dependency decomposition.
 
 Third, whether a failure can be contained and repaired. A violating element is isolated so it cannot corrupt the certified core, and repair moves the system to a new state that is certified at least as high as before. The question that remains is whether a repair exists at all. For that the theory turns to the Lovász Local Lemma, a classical existence theorem: if each bad event has bounded dependence and sufficiently small probability, a state avoiding all of them exists. This is a strong guarantee where it applies. When the condition holds, the Local Lemma certifies that a repair exists, and the Moser-Tardos procedure constructs one by resampling violated events, with an explicit bound on the expected number of resampling steps, E[T_LOG] ≤ Σ x(α). As with the Local Lemma in general, the condition is sufficient rather than necessary: outside that zone a repair may still exist and the procedure may still succeed, but these theorems do not promise it. So the condition draws a precise boundary, inside it repair is certified and constructive, outside it the theory is silent rather than negative. A final bridge connects this back to the abstract framework: Moser-Tardos reachability is a concrete instance of the abstract repair relation, so the convergence result supplies the witness the repair layer needs, rather than assuming one.
 
 The whole development is machine-checked in Lean 4 with no `sorry` and no additional axioms: the central theorems depend only on Lean's three standard foundational axioms (`propext`, `Classical.choice`, and `Quot.sound`, so standard that they are often called simply "the three axioms"), as confirmed by `#print axioms`. Every end state of the process carries its own proof: certified, or blocked with a reason, and when blocked, a sufficient test for whether the block admits a repair.
 
-### Run the example
+### Application background (separate development)
 
 The certificates are checked against real logs at five ordered levels, S > A > B > C > D. The outcomes are not uniform, which is the point. Most logs reach canonical level C: the structure is sound, but the Monge concentration is too weak to certify at B. One run, boot334, fails at every level, because its generator coherence is negative, the spectral flow reverses mid-transition (cos = -0.74). The structural certificates pass everywhere; the dynamical one fails only on boot334. Different certificates read independent axes of the same data, and the canonical level plus the blocking set together say exactly how far each run is certified and why it stops there. The [certificate-runner results](https://github.com/gajaka/luces-pvs-theories/blob/main/CERT_RUNNER_RESULTS.md) show the certificates evaluated on these real transition logs.
 
-The whole theory, 575 theorems with zero sorry, is depicted in the diagram below.
+The library has **1,824 explicitly declared theorems and lemmas**, with an explicit
+`#check` for each. The diagram below maps certification, dependency decomposition,
+probabilistic repair, finite-state decisions, expected work and stopping bounds.
 
-![Proof-Preserving Graph Theory: a map from certificates through blocking dependency decomposition and the Lovász Local Lemma to the Moser-Tardos witness-tree counting, the expected-work bound E[T_LOG], and the repair bridge.](ppg-theory.svg)
+### Later theory extensions
+
+- Shearer's criterion and expected-work bounds, including blocking-component
+  budgets and slack bounds; Pegden's witness-tree criterion.
+- The He–Li–Sun intersection-sensitive criterion, with expected-work and
+  almost-sure termination results for arbitrary measurable admissible selection
+  schedules, including history-dependent rules, under the stated hypotheses.
+- Positive repair witnesses, infeasibility and invariant refutations, finite
+  decision procedures, and constructive repair through a supplied exact finite
+  abstraction. General infinite-model repairability has an undecidability proof.
+- Drift and finite rational transition models, checked potential witnesses,
+  expected-time and tail bounds, closed-bad-class certificates, and exact model
+  reduction through lumping.
+
+The [complete module inventory](THEORY_INDEX.md) lists all 191 modules. Run
+`python3 tools/audit_ppgraph.py` to rebuild and inspect every project declaration's
+axiom dependencies, including generated theorem constants. The allowed set is
+**any subset** of `{propext, Classical.choice, Quot.sound}`. The results and source
+hashes are recorded in `PPGRAPH_AXIOM_AUDIT.txt` and `PPGRAPH_AXIOM_AUDIT.json`.
+
+[![Proof-Preserving Graph Theory: certification and blocking, LLL/MT/Shearer/HLS repair, drift, exact finite models and tails, feasibility and refutation, abstraction, undecidability, and certified repair.](ppg-theory.png)](ppg-theory.png)
 
 ## Files
+
+The table below describes the original layers. See [THEORY_INDEX.md](THEORY_INDEX.md)
+for the complete current inventory, including the extensions above.
 
 | File | Theorems | Scope |
 |------|----------|-------|
@@ -56,12 +86,12 @@ The whole theory, 575 theorems with zero sorry, is depicted in the diagram below
 | `PPGraphCategorical.lean` | 10 | Categorical structure: morphisms, embeddings, quotients, refinement, simulation, composition |
 | `PPGraphMeta.lean` | 10 | Meta-PPG: graphs over refinement relations, backward compatibility, upgrade chains, spec versioning |
 | `PPGraphRepair.lean` | 8 | Repair semantics: isolation reversal, route bypass, locality, convergence |
-| `PPGraphRR.lean` | 14 | Refinement relations: port of NASA pvslib sets_aux@rr_rel (rel_extension, RR, g/f-consistency, PPGConfig bridge) |
+| `PPGraphRR.lean` | 9 | Refinement relations: port of NASA pvslib sets_aux@rr_rel (rel_extension, RR, g/f-consistency, PPGConfig bridge) |
 | `PPGraphParametric.lean` | 24 | Parametric certification: master refinement, canonical levels, lattice operators, PPG bridge, repair bounds, threshold instance |
-| `PPGraphParametricQuotient.lean` | 25 | Quotient structure: cert_equiv, induced PartialOrder, CertInfClosed meet, LinearOrder separating |
+| `PPGraphParametricQuotient.lean` | 26 | Quotient structure: cert_equiv, induced PartialOrder, CertInfClosed meet, LinearOrder separating |
 | `PPGraphBlocking.lean` | 7 | Blocking certificates: diagnostic layer, canonical has empty blocking, stricter has nonempty |
-| `PPGraphQuotientBridge.lean` | 7 | Bridge: spec graph projects to quotient PPG via surjective morphism |
-| `PPGraphSelection.lean` | 17 | Hierarchical representative selection: pullback equiv, finest equiv, CertFamily instance via OrderDual Finset, pp_quotient bridge |
+| `PPGraphQuotientBridge.lean` | 5 | Bridge: spec graph projects to quotient PPG via surjective morphism |
+| `PPGraphSelection.lean` | 23 | Hierarchical representative selection: pullback equiv, finest equiv, CertFamily instance via OrderDual Finset, pp_quotient bridge |
 | `PPGraphComplementarySlackness.lean` | 5 | LP duality for optimal transport: pointwise CS, Monge structure, strict uniqueness, zero duality gap certificate |
 | `PPGraphSelfAssessment.lean` | 12 | Failure containment, contamination impossibility, assessment trichotomy, monotone recovery (state-based, spec fixed), three evolution modes |
 | `PPGraphAssessmentBridge.lean` | 8 | Bridge: self-assessment ↔ parametric certification. Complete repair cycle: strict growth + blocking cleared + canonical frontier advances |
@@ -71,7 +101,7 @@ The whole theory, 575 theorems with zero sorry, is depicted in the diagram below
 | `PPGraphMoserTardosProcess.lean` | 2 | The resample-until-fixed algorithm as a process |
 | `PPGraphMoserTardosWitness.lean` | 5 | Dependency graph and witness tree data structure |
 | `PPGraphMoserTardosGrowing.lean` | 8 | Address-indexed growing tree, backward construction of the witness tree from a log |
-| `PPGraphMoserTardosInjectivity.lean` | 13 | Injectivity of the witness-tree encoding: distinct resampling occurrences give distinct trees |
+| `PPGraphMoserTardosInjectivity.lean` | 14 | Injectivity of the witness-tree encoding: distinct resampling occurrences give distinct trees |
 | `PPGraphMoserTardosWeight.lean` | 3 | Tree weight, the combinatorial quantity used in the convergence bound |
 | `PPGraphMoserTardosConvergence.lean` | 2 | Algebraic core of the convergence bound (Alon-Spencer 5.7.3): tree weight bounded by the LLL weights |
 | `PPGraphLopsidedLLL.lean` | 6 | Lopsided LLL (Erdős-Spencer / Harris): strict generalization of the General LLL via the lopsidependence inequality |
@@ -111,7 +141,7 @@ The whole theory, 575 theorems with zero sorry, is depicted in the diagram below
 | `PPGraphMoserTardosOccurrenceProbability.lean` | 4 | Pr[witness U occurs] ≤ weight(U) via the 5.7.2 product bound |
 | `PPGraphMoserTardosWitnessFamily.lean` | 6 | Canonical enumeration of the witness family rooted at a label |
 | `PPGraphMoserTardosOccurrenceExpectation.lean` | 7 | The final bound: E[T_LOG] ≤ Σ x(α); finite budgets give finite expectation |
-| `PPGraphMoserTardosConstantLog.lean` | 7 | Reach a good state from any initial state via the constant log |
+| `PPGraphMoserTardosConstantLog.lean` | 9 | Reach a good state from any initial state via the constant log |
 | `PPGraphMoserTardosTermination.lean` | 7 | E[T_LOG] < ∞ ⟹ almost-sure termination ⟹ a good state exists (measure-one, not Classical.choose) |
 | `PPGraphMoserTardosRepairBridge.lean` | 8 | Moser-Tardos reachability instantiates the abstract proof-preserving repair relation |
 
@@ -161,7 +191,7 @@ The whole theory, 575 theorems with zero sorry, is depicted in the diagram below
 
 ## Related
 
-- **PVS formalization:** [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories) — 460 machine-checked results (340 theorems + 120 lemmas), 52 theories. This covers the PPG core, the General LLL, and the base Moser-Tardos infrastructure. The final arc published here in Lean (E[T_LOG], BDD, Lopsided/Variable LLL, repair bridge) is not yet in PVS.
+- **PVS formalization:** [luces-pvs-theories](https://github.com/gajaka/luces-pvs-theories) - 460 machine-checked results (340 theorems + 120 lemmas), 52 theories. This covers the PPG core, the General LLL, and the base Moser-Tardos infrastructure. The final arc published here in Lean (E[T_LOG], BDD, Lopsided/Variable LLL, repair bridge) is not yet in PVS.
 
 ## Probabilistic Repair: references and scope
 
@@ -171,11 +201,27 @@ In PVS: the PPG core, the General LLL, and the base Moser-Tardos infrastructure.
 
 ## Future work
 
-The repair region certified by the Local Lemma criterion is the region where the condition holds: there a repair provably exists, Moser-Tardos constructs it, and the expected work is bounded. Because the condition is sufficient rather than necessary, this certified region may be strictly smaller than the set of instances that are actually repairable, and the difference between the two is open ground. A repair may exist, and the procedure may even succeed, on instances that the current criterion does not certify.
+The theory now separates "the selected criterion does not certify repairability"
+from "no repair exists." For finite models, and concrete models supplied with a
+proved exact finite abstraction and executable realization, the decision layer
+can return a repair path or a certificate that no such path exists. No algorithm
+is claimed to synthesize an exact abstraction for every system.
 
-A natural next question is to characterize the gap between LLL-certified repairability and actual repairability, and to determine when constructive repair remains convergent beyond the certified region. Candidate directions include stronger sufficient criteria. The Lopsided and Variable-version Local Lemmas developed here are first steps, while Shearer's bound provides a natural reference point for the limits of dependency-graph-based guarantees. A more ambitious direction is to derive a certificate from the Moser-Tardos process and the blocking-component structure itself.
+The probabilistic repair criteria remain sufficient conditions. Shearer, Pegden
+and He–Li–Sun extend the original LLL development. Finite potential witnesses and
+tail certificates provide a separate route to termination and time bounds under
+their checked transition-model hypotheses. A path alone does not imply such a
+time bound. A closed bad class refutes repair under its specified transition
+kernel; it does not refute every other repair policy.
 
-The longer-term aim is a system that distinguishes "I cannot certify repairability" from "no repair exists." These are fundamentally different statements, and the current theory does not yet separate them.
+For arbitrary infinite models, the library proves that a total general
+repairability decider cannot exist. This is a limit on universal automation, not
+an impossibility certificate for every individual infinite instance.
+
+Open directions include finding useful repair witnesses beyond the available
+criteria without exhaustive enumeration, and constructing tractable exact
+abstractions or checked potentials for concrete systems. Physical acquisition,
+native execution and hardware timing remain separate application obligations.
 
 ## Author
 

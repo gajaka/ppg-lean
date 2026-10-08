@@ -229,3 +229,6 @@ theorem lopsided_lll_good_state_exists (A : BadEvents C Ω) (μ : Measure Ω)
 #check @lopsided_lll_good_event_lower_bound
 #check @lopsided_lll_positive_probability
 #check @lopsided_lll_good_state_exists
+
+-- Explicit checks for all remaining helper theorems.
+#check @lopsided_numerator_bound

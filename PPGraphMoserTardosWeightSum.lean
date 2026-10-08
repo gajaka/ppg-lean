@@ -356,3 +356,14 @@ theorem wtreesUpTo_mono_le (P : MTProcess S ι) :
 #check @mem_wtreesUpTo_proper
 #check @sum_wtreesUpTo_weight
 #check @WTree.decEq
+
+-- Explicit checks for all remaining helper theorems.
+#check @WTree.beqList_iff
+#check @WTree.beq_iff
+#check @list_map_eq_iff_of_mem
+#check @toList_map_prod
+#check @weight_mk_attach
+#check @wtreesUpTo_succ_children_sub
+#check @wtreesUpTo_succ_children_sup
+#check @wtreesUpTo_succ_disjoint
+#check @wtreesUpTo_succ_injOn

@@ -121,7 +121,7 @@ theorem τC_toWTreeFuel_checkOK {S : VarSpaces V} {ι : Type} [Fintype ι] [Deci
 -- agrees with the WTree-level `tauCheck` on the reconstructed tree.
 -- -------------------------------------------------------------------
 
-/-- **The address-to-shape bridge.** The real, address-indexed `tauCheck` on
+/-- The address-to-shape bridge. The real, address-indexed `tauCheck` on
     a `tau_C`-built tree agrees with the WTree-level `tauCheck` on its
     reconstruction. Combined with `tauCheck_congr_of_canonicalize_eq`, two
     `tau_C`-built trees whose reconstructions canonicalize to the SAME shape

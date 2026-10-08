@@ -275,12 +275,12 @@ theorem WTree.checkOKList_iff_toGT_domChildren {ι : Type} {S : VarSpaces V} (P 
 end
 
 -- -------------------------------------------------------------------
--- Section 3: `τCheck P (WTree.toGrowingTree t) ω` agrees
+-- Section 3: the result. `τCheck P (WTree.toGrowingTree t) ω` agrees
 -- with `WTree.tauCheck P ω t`, for an ARBITRARY WTree `t` -- no
 -- `τC`/`toWTreeFuel` roundtrip involved.
 -- -------------------------------------------------------------------
 
-/-- **The `toGrowingTree` address-to-shape bridge.** The address-indexed
+/-- The `toGrowingTree` address-to-shape bridge. The address-indexed
     `τCheck` on the direct `WTree -> GrowingTree` embedding agrees with the
     purely-`t`-level `WTree.tauCheck`. Combined with
     `WTree.tauCheck_congr_of_canonicalize_eq` and the existing `τC`-side bridge

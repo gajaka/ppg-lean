@@ -325,3 +325,7 @@ theorem GrowingTree.localCount_eq_footprintCountBeyondAt {S : VarSpaces V} {ι :
 #check @WTree.canonicalize_footprintCountBeyond
 #check @GrowingTree.toWTreeFuel_footprintCountBeyondAt
 #check @GrowingTree.localCount_eq_footprintCountBeyondAt
+
+-- Explicit checks for all remaining helper theorems.
+#check @WTree.canonicalizeFuel_footprintCountBeyondAt
+#check @WTree.footprintCountBeyondListAt_eq_sum

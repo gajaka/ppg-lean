@@ -264,7 +264,7 @@ theorem infinitePi_iInter_eq_prod_of_dependsOn {ι' : Type}
 end BlockIndep
 
 -- -------------------------------------------------------------------
--- The main result: Theorem 5.7.2's probability bound, `τCheck`'s
+-- The result: Theorem 5.7.2's probability bound, `τCheck`'s
 -- probability under `logMeasure` splits into a product over the
 -- witness tree's own vertices.
 -- -------------------------------------------------------------------
@@ -381,7 +381,7 @@ theorem logMeasure_map_readAt_eq_pi {S : VarSpaces V} [Fintype V] (n : V → ℕ
   rw [Measure.infinitePi_pi (μ := μCoin S) hmeas, Finset.prod_image hinj]
   rfl
 
-/-- **The closing identification**: each vertex's own check-probability
+/-- The closing identification: each vertex's own check-probability
     equals the label's base probability under the natural product
     measure over `MTState` -- matching what `mtWeight`'s `p` stands for
     in `PPGraphMoserTardosConvergence.lean`. -/
@@ -393,7 +393,7 @@ theorem logMeasure_checkState_eq_pi {S : VarSpaces V} [Fintype V] {ι : Type}
       Measure.map_apply (measurable_readAt _) (hbad (T.lab w))]
   rfl
 
-/-- **Theorem 5.7.2 in its usual stated form**: the probability a
+/-- Theorem 5.7.2 in its usual stated form: the probability a
     witness tree's τ-check passes equals the product, over its own
     vertices, of each vertex's LABEL's base probability -- combining
     `logMeasure_τCheck_eq_prod` (the independence/product-over-vertices
@@ -419,3 +419,7 @@ theorem logMeasure_τCheck_eq_prod_p {S : VarSpaces V} [Fintype V] {ι : Type} [
 #check @logMeasure_map_readAt_eq_pi
 #check @logMeasure_checkState_eq_pi
 #check @logMeasure_τCheck_eq_prod_p
+
+-- Explicit checks for all remaining helper theorems.
+#check @infinitePi_iInter_eq_prod_of_dependsOn
+#check @measurable_readAt

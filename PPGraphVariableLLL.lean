@@ -526,3 +526,8 @@ theorem lll_variable_lemma10 [Nonempty (Fin n)] (H : Bigraph n m)
 #check @boundary_lower
 #check @boundary_upper
 #check @lll_variable_lemma10
+
+-- Explicit checks for all remaining helper theorems.
+#check @IsCylinderOver.mono
+#check @IsCylinderOver.union
+#check @isCylinderOver_singleton_preimage

@@ -2,7 +2,7 @@
   PPGraphAssessmentBridge.lean
   Bridge: Self-Assessment ↔ Parametric Certification
 
-  The key insight: parametric certification IS an instance of the
+  The point: parametric certification IS an instance of the
   self-assessment repair model. We set:
 
     S := D        (system state = datum)

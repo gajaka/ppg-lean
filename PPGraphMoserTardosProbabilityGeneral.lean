@@ -113,7 +113,7 @@ theorem logMeasure_τCheck_eq_prod_general {S : VarSpaces V} {ι : Type} [Fintyp
     (fun w _ => checkState_event_dependsOn P T w)
     (fun w _ => measurableSet_checkState_event P hbad T w)
 
-/-- **Theorem 5.7.2, generalized**: holds for ANY GrowingTree `T` satisfying
+/-- Theorem 5.7.2, generalized: holds for ANY GrowingTree `T` satisfying
     `SameDepthIndependent` -- not just `τC P C t`. This is the form a future
     fixed, omega-independent witness-tree representative needs: it only has
     to be shown to satisfy `SameDepthIndependent` (a shape-inheritable fact,

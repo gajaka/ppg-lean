@@ -299,7 +299,7 @@ theorem WTree.canonicalizeFuel_props {V : Type} [DecidableEq V] {S : VarSpaces V
         exact (hchild_ih ⟨β, hβ⟩).2.2.2.2
 
 -- -------------------------------------------------------------------
--- Section 5: canonicalize embeds any WellFormed+Proper
+-- Section 5: the result -- canonicalize embeds any WellFormed+Proper
 -- tree, weight-preserved, into `wtreesUpTo`
 -- -------------------------------------------------------------------
 
@@ -417,3 +417,6 @@ theorem WTree.canonicalize_countLabel (A : ι) (t : WTree ι) (hpr : WTree.Prope
 #check @WTree.countLabelList_eq_sum
 #check @WTree.canonicalizeFuel_countLabel
 #check @WTree.canonicalize_countLabel
+
+-- Explicit checks for all remaining helper theorems.
+#check @WTree.mem_labelSet_iff

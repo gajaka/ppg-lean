@@ -125,7 +125,7 @@ theorem τBuild_lab_stable {S : VarSpaces V} {ι : Type}
 
 -- -------------------------------------------------------------------
 -- birth_label: a vertex's label in the FINAL tree is exactly `C`
--- applied to its birth time -- the use of birthStep/birthTime/
+-- applied to its birth time -- the result of birthStep/birthTime/
 -- τBuild_lab_stable, and the last ingredient before `τCheck`'s
 -- `T.lab w` can be related to the real trajectory's scheduling at all.
 -- -------------------------------------------------------------------
@@ -571,7 +571,7 @@ theorem localCount_ne_of_ne {S : VarSpaces V} {ι : Type}
     · exact hnotneighbor hneighbor'
   · exact ne_of_lt (localCount_strict_anti P (τC P C t) w2 w1 hw2 hw1 v hv2 hv1 hgt)
 
-/-- The distinctness fact `τCheck`'s independence argument needs:
+/-- THE distinctness fact `τCheck`'s independence argument needs:
     the log-coordinate pair `(v, localCount)` a vertex `w` reads for
     variable `v` uniquely identifies `w` -- two vertices reading the
     SAME variable at the SAME index must be the SAME vertex. -/

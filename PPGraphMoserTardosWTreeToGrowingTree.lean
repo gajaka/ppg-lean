@@ -287,7 +287,7 @@ theorem WTree.labelsAtDepthChildren_eq_domFilter_map {ι : Type} (d : ℕ) (whol
 end
 
 -- -------------------------------------------------------------------
--- Section 4: a purely-t-level, address-free hypothesis
+-- Section 4: the result -- a purely-t-level, address-free hypothesis
 -- (no two DISTINCT nodes at the same depth in `t` share a label, or are
 -- neighbors) is exactly what `SameDepthIndependent P (toGrowingTree t)`
 -- needs, transported via `labelsAtDepth_eq_domFilter_map` and
@@ -331,3 +331,13 @@ theorem WTree.toGrowingTree_sameDepthIndependent_of_labelsAtDepth
 #check @WTree.labelsAtDepth
 #check @WTree.labelsAtDepth_eq_domFilter_map
 #check @WTree.toGrowingTree_sameDepthIndependent_of_labelsAtDepth
+
+-- Explicit checks for all remaining helper theorems.
+#check @List.getElem?_and_drop_succ_of_drop_eq_cons
+#check @WTree.labelsAtDepthChildren_eq_domFilter_map
+#check @WTree.toGT_domChildren_head_disjoint
+#check @WTree.toGT_domChildren_head_ge
+#check @WTree.toGT_domChildren_length_pos
+#check @WTree.toGT_domChildren_prefix_mem
+#check @WTree.toGT_dom_prefix_mem
+#check @WTree.toGT_dom_root_mem

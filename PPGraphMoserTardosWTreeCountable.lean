@@ -113,3 +113,6 @@ instance WTree.instCountable : Countable (WTree ι) := by
   exact hinj.countable
 
 #check @WTree.instCountable
+
+-- Explicit checks for all remaining helper theorems.
+#check @WTree.size_le_sum_children

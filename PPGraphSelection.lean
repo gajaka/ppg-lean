@@ -407,3 +407,8 @@ theorem proj_is_pp_quotient (F : MorphFamily T U)
 #check @proj_preserves_edges_sep
 #check @proj_is_pp_morphism
 #check @proj_is_pp_quotient
+
+-- Explicit checks for all remaining helper theorems.
+#check @finest_equiv_refl
+#check @finest_equiv_symm
+#check @finest_equiv_trans

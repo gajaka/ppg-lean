@@ -381,3 +381,8 @@ theorem τCheck_holds_of_real_trajectory {S : VarSpaces V} {ι : Type}
 #check @randStep_state_eq_atIdx
 #check @RunningUntil
 #check @τCheck_holds_of_real_trajectory
+
+-- Explicit checks for all remaining helper theorems.
+#check @pickFirstViolated_notMem_bad_iff
+#check @pickFromList_notMem_bad_iff
+#check @randStep_notMem_bad_realC_iff

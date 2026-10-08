@@ -84,7 +84,7 @@ theorem compGroup_bijective (vars : CertVars C V) (B : Finset C) :
     Function.Bijective (compGroup vars B) :=
   ⟨compGroup_injective vars B, compGroup_surjective vars B⟩
 
--- Section 3: component count. Exactly as many BDD components as distinct
+-- Section 3: THE COUNT. Exactly as many BDD components as distinct
 -- compOf-groups - the concrete, repair-relevant restatement of today's
 -- spectral component count.
 
@@ -123,3 +123,9 @@ theorem safe_parallel_units (vars : CertVars C V) (B : Finset C)
 
 #check @card_bddComponents_eq_card_compOf_image
 #check @safe_parallel_units
+
+-- Explicit checks for all remaining helper theorems.
+#check @compGroup_bijective
+#check @compGroup_injective
+#check @compGroup_surjective
+#check @sameComponent_of_compOf_eq

@@ -163,8 +163,8 @@ theorem repair_preserves_certified (R : RepairOp S V) (spec : Spec S V)
 
 /-- Strict growth: the certified set after repair is a PROPER superset.
     Certified(s) ⊊ Certified(R(s,v)):
-   - v is in Certified(R(s,v)) but not in Certified(s)
-   - everything in Certified(s) is in Certified(R(s,v))
+    - v is in Certified(R(s,v)) but not in Certified(s)
+    - everything in Certified(s) is in Certified(R(s,v))
     This is the key theorem: repair produces genuine monotone growth. -/
 theorem repair_strict_growth (R : RepairOp S V) (spec : Spec S V)
     (s : S) (v : V)

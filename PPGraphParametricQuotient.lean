@@ -415,3 +415,6 @@ theorem separating_quotient_trivial (F : CertFamily D Θ'')
 #check @separating
 #check @separating_equiv_eq
 #check @separating_quotient_trivial
+
+-- Explicit checks for all remaining helper theorems.
+#check @linear_strict_not_equiv_aux
