@@ -41,9 +41,64 @@ First, how far does certification reach. The canonical level is the answer: it i
 
 Second, what stops it from going further. At a given level, the blocking set is the collection of certificates that fail there. It is empty exactly when that level is certified: at the canonical level and at every weaker level. A stricter level has a nonempty blocking set. Two failing certificates are coupled when they read a shared variable, and connected components identify coupled groups for repair. Different components have disjoint variable footprints, so under the locality condition (each certificate reads only its own variables) a repair confined to one component cannot change the evaluation of any certificate in another. This is the blocking dependency decomposition.
 
-Third, whether a failure can be contained and repaired. A violating element is isolated so it cannot corrupt the certified core, and repair moves the system to a new state that is certified at least as high as before. The question that remains is whether a repair exists at all. For that the theory turns to the Lovász Local Lemma, a classical existence theorem: if each bad event has bounded dependence and sufficiently small probability, a state avoiding all of them exists. This is a strong guarantee where it applies. When the condition holds, the Local Lemma certifies that a repair exists, and the Moser-Tardos procedure constructs one by resampling violated events, with an explicit bound on the expected number of resampling steps, E[T_LOG] ≤ Σ x(α). As with the Local Lemma in general, the condition is sufficient rather than necessary: outside that zone a repair may still exist and the procedure may still succeed, but these theorems do not promise it. So the condition draws a precise boundary, inside it repair is certified and constructive, outside it the theory is silent rather than negative. A final bridge connects this back to the abstract framework: Moser-Tardos reachability is a concrete instance of the abstract repair relation, so the convergence result supplies the witness the repair layer needs, rather than assuming one.
+Third, whether a failure can be contained and repaired. A violating element is
+isolated so it cannot corrupt the certified core. Under the repair obligations,
+repair changes the state while keeping the specification fixed and preserving
+or advancing certification. Three further questions are kept separate: does a
+repair path exist, does the chosen random procedure reach a good state almost
+surely, and how much work does it need?
 
-The whole development is machine-checked in Lean 4 with no `sorry` and no additional axioms: the central theorems depend only on Lean's three standard foundational axioms (`propext`, `Classical.choice`, and `Quot.sound`, so standard that they are often called simply "the three axioms"), as confirmed by `#print axioms`. Every end state of the process carries its own proof: certified, or blocked with a reason, and when blocked, a sufficient test for whether the block admits a repair.
+The probabilistic route begins with the General and lopsided Lovász Local Lemmas:
+their conditions give positive probability of avoiding all bad events. In the
+variable-resampling model, the Moser–Tardos development constructs a repair by
+resampling violated events and bounds its expected work by E[T_LOG] ≤ Σ x(α)
+under the declared budgets. Finite expectation then gives almost-sure
+termination; termination is not assumed in the counting proof.
+
+The certified region now extends beyond the original LLL criterion. Pegden's
+independent-subset criterion and strict Shearer positivity provide stronger
+expected-work bounds, including budgets for individual dependency components.
+He–Li–Sun additionally uses lower bounds on intersections of matched bad events:
+the reduced probability vector p⁻ = p − δ²/17 can satisfy the criterion even
+when the original vector does not. The corresponding expected-work and
+almost-sure termination results allow arbitrary measurable admissible selection
+schedules, including history-dependent rules and independent auxiliary
+randomization. Each result has its own probability, locality and policy
+hypotheses; failure of a sufficient criterion does not prove that repair is
+impossible.
+
+There are also routes based on the repair process itself. A nonnegative
+potential with a proved conditional expected decrease bounds the expected
+number of active steps without an LLL, Shearer or HLS premise. For suitable
+finite rational transition models, checked drift potentials give upper bounds,
+and solutions of the first-step hitting-time equations give exact expectations.
+Survival recurrences give exact timeout probabilities and checked geometric
+tail bounds. Lumping and commuting-update projections transfer these results
+to a smaller model when their probability-preservation obligations are proved.
+A repair path alone does not establish a time bound, and these stochastic work
+bounds do not establish hardware deadlines.
+
+Finally, finite models with decidable tests, and potentially infinite models
+supplied with a proved exact finite abstraction and executable realization,
+admit complete reachability decisions by exhaustive finite search: a concrete
+repair trace or a checked refutation that no good state is reachable. Minimal
+infeasible cores, invariant refutations and sound rational Farkas certificates
+provide additional explanations of impossibility under their model hypotheses.
+A closed bad class instead concerns the specified random kernel and starting
+state; it need not rule out another repair policy. For the encoded infinite
+model family, a halting-problem reduction proves that no computable total
+repairability decider can work uniformly. Moser–Tardos reachability instantiates
+the abstract PPG repair relation, and an existing good target supplies an
+existential path through a constant resampling table. That path is distinct from
+a probabilistic guarantee about a randomly drawn table.
+
+The whole development is machine-checked in Lean 4 with no `sorry` and no
+additional axioms. The audit checks that each declaration depends on at most
+Lean's standard foundational axioms (`propext`, `Classical.choice` and
+`Quot.sound`); any subset, including the empty set, is allowed. Depending on the
+model and available evidence, the repair layer supports a positive witness, a
+bound for the chosen procedure, or a checked refutation. An inconclusive
+sufficient test remains distinct from a proof of impossibility.
 
 ### Application background (separate development)
 
@@ -561,9 +616,136 @@ The layers below group the current development by purpose. The
 
 ## Probabilistic Repair: references and scope
 
-The existence side is the Lovász Local Lemma (Alon and Spencer, "The Probabilistic Method", 4th ed., Wiley 2016, Lemma 5.1.1), formalized in `PPGraphLLL.lean`, division-free. The constructive side is Moser-Tardos (§5.7): the resampling procedure, witness tree, injectivity, and the expected-work bound E[T_LOG] ≤ Σ x(α) by witness-tree counting, with no termination assumption (finiteness is derived). The repair bridge instantiates the abstract repair relation with Moser-Tardos reachability, so the convergence result supplies the repair witness rather than assuming one.
+The development combines existence criteria, resampling bounds, process-based
+time certificates and reachability decisions. The references below identify the
+mathematical sources and the corresponding formalized scope; the Lean files
+contain the full hypotheses.
 
-In PVS: the PPG core, the General LLL, and the base Moser-Tardos infrastructure. The final arc published here in Lean (the E[T_LOG] bound, the blocking dependency decomposition, the Lopsided and Variable-version Local Lemmas, and the repair bridge) is not yet ported to PVS.
+### Local Lemmas and Moser–Tardos
+
+- **General LLL and resampling**: Alon and Spencer, *The Probabilistic Method*,
+  4th ed., Wiley 2016, Lemma 5.1.1 and §5.7; Moser and Tardos,
+  [*A constructive proof of the general Lovász Local Lemma*](https://arxiv.org/abs/0903.0544v3).
+  [PPGraphLLL.lean](PPGraphLLL.lean) proves the General LLL division-free.
+  The Moser–Tardos files cover the product resampling table, measurable
+  trajectories, witness trees, injectivity, check probabilities and occurrence
+  counting. [PPGraphMoserTardosOccurrenceExpectation.lean](PPGraphMoserTardosOccurrenceExpectation.lean)
+  proves E[T_LOG] ≤ Σ x(α) in the library's resampling-budget parametrization;
+  [PPGraphMoserTardosTermination.lean](PPGraphMoserTardosTermination.lean)
+  derives almost-sure termination from finite expectation.
+
+- **Lopsided LLL**: The Erdős–Spencer criterion, as recalled by Harris in
+  [*Lopsidependency in the Moser-Tardos framework: Beyond the Lopsided Lovász Local Lemma*](https://arxiv.org/abs/1610.02420v4),
+  §1.2. [PPGraphLopsidedLLL.lean](PPGraphLopsidedLLL.lean) weakens independence
+  to the stated lopsidependence inequality. Harris's stronger orderability
+  criterion is outside this formalization.
+
+- **Variable-version geometry**: He, Li, Liu, Wang and Xia,
+  [*Variable Version Lovász Local Lemma: Beyond Shearer's Bound*](https://arxiv.org/abs/1709.05143v1),
+  §3, Lemma 10. [PPGraphVariableLLL.lean](PPGraphVariableLLL.lean) formalizes
+  the geometric boundary lemma and the cylinder-growth argument it needs;
+  it does not claim the paper's full necessary-and-sufficient characterization.
+
+### Stronger probabilistic bounds
+
+- **Pegden**: [*An extension of the Moser-Tardos algorithmic local lemma*](https://arxiv.org/abs/1102.2853v2),
+  Theorem 1.4. [PPGraphMoserTardosPegden.lean](PPGraphMoserTardosPegden.lean)
+  replaces the original product budget by a sum over independent subsets of
+  each closed neighborhood. The same random-initialized process satisfies
+  E[T_LOG] ≤ Σ x(α) under this criterion, without assuming termination.
+
+- **Shearer**: Harvey and Vondrák,
+  [*Short proofs for generalizations of the Lovász Local Lemma: Shearer's condition and cluster expansion*](https://arxiv.org/abs/1711.06797v1),
+  §2, supplies the existence/lower-probability argument in
+  [PPGraphShearer.lean](PPGraphShearer.lean), formalized with strict positivity.
+  The expected-work result is the Kolipaka–Szegedy bound, presented in
+  [Vondrák's 2018 Lecture 8](https://theory.stanford.edu/~jvondrak/MATH233A-2018/Math233-lec08.pdf),
+  Lemma 8.1 and Theorem 8.8. Stable-family identities also follow Harvey and
+  Vondrák's [resampling-oracles paper](https://arxiv.org/abs/1504.02044v3), §5.
+  [PPGraphShearerExpectation.lean](PPGraphShearerExpectation.lean) proves
+  E[T_LOG] ≤ Σ q_{α}/q_∅; slack and
+  [component-local budgets](PPGraphShearerBDDExpectation.lean) extend this bound.
+  A component-work bound does not assert fairness or eventual component repair.
+
+- **He–Li–Sun**: [*Moser-Tardos Algorithm: Beyond Shearer's Bound*](https://arxiv.org/abs/2111.06527v1),
+  Theorem 1.6 and §3.3. Matching-compatible intersection lower bounds give
+  p⁻ = p − δ²/17. Strict Shearer at p⁻ yields finite expected work; at
+  (1+ε)p⁻, with ε > 0, the bound is m/ε for m bad events.
+  [PPGraphHLSPolicyExpectation.lean](PPGraphHLSPolicyExpectation.lean) covers
+  arbitrary measurable admissible schedules, history-dependent rules and
+  independent auxiliary randomization under its exact positive probability,
+  intersection and measurability hypotheses. Initialization uses slot zero of
+  the product table; almost-sure termination is derived.
+
+### Potentials, stopping bounds and model reduction
+
+- **Additive drift**: Lengler, [*Drift Analysis*](https://arxiv.org/abs/1712.00964v2),
+  Theorem 1, provides the background for
+  [PPGraphAdditiveDrift.lean](PPGraphAdditiveDrift.lean). The formalization uses
+  a nonnegative integrable adapted stopped potential with conditional expected
+  decrease δ > 0, giving E[active steps] ≤ E[V₀]/δ. Its
+  [Moser–Tardos instance](PPGraphMoserTardosDrift.lean) uses the existing
+  first-violated-event policy. Modeled costs are bounded separately; when every
+  event resamples all variables, [full resampling](PPGraphMoserTardosFullResampling.lean)
+  gives exact geometric tails and the product-table random-initialization mean
+  E[T_LOG] = b/(1−b) in extended nonnegative reals, where b is the initial
+  bad-state probability.
+
+- **Finite rational models**: Mitzenmacher and Upfal,
+  [*Probability and Computing*, 2nd ed.](https://doi.org/10.1017/9781316651124),
+  §7.1.1 and Exercise 7.25; Levin and Peres,
+  [*Markov Chains and Mixing Times*, 2nd ed.](https://pages.uoregon.edu/dlevin/MARKOV/mcmt2e.pdf),
+  Exercise 10.22 and the uniform-block argument in the proof of Lemma 1.13.
+  [PPGraphFinitePotential.lean](PPGraphFinitePotential.lean) synthesizes checked
+  rational potentials through first-step hitting-time equations. The
+  [MT expectation bridge](PPGraphFinitePotentialExpectationMT.lean) gives exact
+  fixed-start and random-start means; the [tail bridge](PPGraphFinitePotentialTailMT.lean)
+  gives exact survival probabilities, checked geometric block bounds and
+  closed-bad-set certificates for the specified kernel and start.
+
+- **Exact reduction**: Levin and Peres, §2.3.1, Lemma 2.5 and equation (2.10).
+  [PPGraphFiniteLumping.lean](PPGraphFiniteLumping.lean) uses the local
+  transition-fiber mass identity and preservation of the good-state test.
+  [PPGraphFiniteLumpingUpdate.lean](PPGraphFiniteLumpingUpdate.lean) derives
+  reduction from commuting updates and a shared input law, allowing an infinite
+  concrete state space. A reachability abstraction alone does not justify
+  transferring expectations or tails.
+
+### Reachability, refutation and decision limits
+
+The [finite decision](PPGraphCertifiedDecision.lean) and
+[exact-abstraction repair](PPGraphFiniteAbstractionRepair.lean) layers return
+positive witnesses or checked refutations under their declared enumeration,
+simulation, step-realization and good-state preservation obligations. Exhaustive
+search is explicit; no general efficient search or automatic abstraction
+discovery is claimed. [Minimal cores](PPGraphUnsatisfiableCore.lean) and
+[correction-set duality](PPGraphCorrectionDuality.lean) describe infeasible
+obligation families, while [invariant refutations](PPGraphReachabilityRefutation.lean)
+exclude good states along the declared repair relation.
+
+For linear models, [PPGraphFarkasCertificate.lean](PPGraphFarkasCertificate.lean)
+proves soundness of accepted rational infeasibility certificates, following the
+certificate direction of Dlask and Werner,
+[*Bounding Linear Programs by Constraint Propagation: Application to Max-SAT*](https://cmp.felk.cvut.cz/~dlaskto2/papers/Dlask-Werner-CP2020a.pdf),
+§2.1, Theorem 1. It does not assume that every infeasible model has a supplied
+certificate. The infinite-model decision limit reuses the computability
+apparatus described by Carneiro in
+[*Formalizing computability theory via partial recursive functions*](https://arxiv.org/abs/1810.08380v3),
+§§5.2–5.3. [PPGraphRepairUndecidability.lean](PPGraphRepairUndecidability.lean)
+constructs the repair-family reduction to the halting problem.
+
+[PPGraphMoserTardosRepairBridge.lean](PPGraphMoserTardosRepairBridge.lean)
+connects resampling reachability to abstract repair. Existence of a good target,
+almost-sure termination under a probability law, and bounded expected work are
+distinct claims. Failure of a sufficient criterion remains inconclusive;
+negative certificates must establish their own model-specific obstruction.
+Stochastic work and cost bounds do not establish native execution correctness
+or hardware deadlines.
+
+The companion PVS development covers the PPG core, General LLL and base
+Moser–Tardos infrastructure. The final expected-work, BDD, lopsided/variable-LLL
+and repair-bridge arc documented here is not yet ported to PVS; the further Lean
+extensions above should not be read as a claim of PVS parity.
 
 ## Future work
 
