@@ -151,44 +151,204 @@ Selected results from the original framework and its extensions. Statements
 abbreviate the declared type, measurability and locality assumptions; the source
 contains the full hypotheses. Random-initialization bounds use slot zero of the
 resampling table. Fixed-start results specify the initial state separately.
+Each theorem name links to its Lean source file.
 
-| # | Name | File | Statement |
-|---|------|------|-----------|
-| 1 | `master_refinement` | Parametric | θ₁ ≤ θ₂ ∧ Cert(d,θ₁) → Cert(d,θ₂) |
-| 2 | `certified_iff_above_canonical` | Parametric | Cert(d,θ) ↔ θ_c ≤ θ (principal upper set) |
-| 3 | `certified_subgraph_pp_valid` | Parametric | Certified subgraph is pp_valid |
-| 4 | `repair_raises_canonical` | Parametric | After repair, canonical ≤ target |
-| 5 | `canonical_spec_is_canonical` | Parametric | In CompleteLattice + inf-closure, canonical exists |
-| 6 | `no_repair_below_canonical` | Parametric | Cannot certify below canonical level |
-| 7 | `canonical_blocking_empty` | Blocking | At canonical level, blocking set is empty |
-| 8 | `separating_equiv_eq` | Quotient | Under separating family, cert_equiv implies equality |
-| 9 | `lens_master_refinement` | Selection | One-liner from master_refinement via OrderDual Finset |
-| 10 | `proj_is_pp_quotient` | [Selection](PPGraphSelection.lean) | With pp_valid and edges separating classes, the finest-equivalence projection is surjective and preserves graph edges |
-| 11 | `cs_pointwise` | ComplementarySlackness | dual_feasible ∧ P(i,j)>0 ∧ P·slack=0 → u(i)+v(j)=C(i,j) |
-| 12 | `monge_cs_strict_unique` | ComplementarySlackness | Monge + CS + strict → unique tight entry per row |
-| 13 | `lll_good_state_exists` | LLL | General LLL (Alon-Spencer 5.1.1): a state avoiding all bad events exists |
-| 14 | `independence_implies_lopsidependence` | LopsidedLLL | Lopsided LLL subsumes the General LLL (equality ⟹ the ≤ hypothesis) |
-| 15 | `repair_noninterference` | BDD | A repair confined to one component cannot change any obligation in another |
-| 16 | `mt_trajectory_localizes` | BDDMoserTardos | The whole MT process in one component never changes another component, at any step |
-| 17 | `τCheck_holds_of_real_trajectory` | Correspondence | Lemma 2.1(ii): a genuine real trajectory passes its own witness-tree check |
-| 18 | `logMeasure_τCheck_eq_prod_p` | Probability | Theorem 5.7.2: Pr[τ-check passes] = ∏ p(label) over the tree vertices |
-| 19 | `sum_mtWeight_le` | Convergence | Σ_α w(D,α) ≤ Σ_α x(α) (algebraic MT budget bound) |
-| 20 | `randomInitETLog_le_sum` | OccurrenceExpectation | **E[T_LOG] ≤ Σ_α x(α)**: the Moser-Tardos expected-work bound, no termination assumption |
-| 21 | `randomInitETLog_lt_top` | OccurrenceExpectation | Finite MT budgets ⟹ finite expected work (E[T_LOG] < ∞) |
-| 22 | `mtRepairGraph_globally_repairable` | RepairBridge | Moser-Tardos reachability makes the abstract proof-preserving repair globally hold |
+### Certification, blocking and Moser–Tardos
+
+1. **Master refinement**
+
+    Lean: [master_refinement](PPGraphParametric.lean).
+
+    θ₁ ≤ θ₂ ∧ Cert(d,θ₁) → Cert(d,θ₂)
+
+2. **Canonical characterization**
+
+    Lean: [certified_iff_above_canonical](PPGraphParametric.lean).
+
+    Cert(d,θ) ↔ θ_c ≤ θ (principal upper set)
+
+3. **Certified subgraph validity**
+
+    Lean: [certified_subgraph_pp_valid](PPGraphParametric.lean).
+
+    Certified subgraph is pp_valid
+
+4. **Canonical bound after repair**
+
+    Lean: [repair_raises_canonical](PPGraphParametric.lean).
+
+    After repair, canonical ≤ target
+
+5. **Canonical existence**
+
+    Lean: [canonical_spec_is_canonical](PPGraphParametric.lean).
+
+    In CompleteLattice + inf-closure, canonical exists
+
+6. **Lower canonical bound**
+
+    Lean: [no_repair_below_canonical](PPGraphParametric.lean).
+
+    Cannot certify below canonical level
+
+7. **Canonical blocking set**
+
+    Lean: [canonical_blocking_empty](PPGraphBlocking.lean).
+
+    At canonical level, blocking set is empty
+
+8. **Separating certificate classes**
+
+    Lean: [separating_equiv_eq](PPGraphParametricQuotient.lean).
+
+    Under separating family, cert_equiv implies equality
+
+9. **Hierarchical selection**
+
+    Lean: [lens_master_refinement](PPGraphSelection.lean).
+
+    One-liner from master_refinement via OrderDual Finset
+
+10. **Quotient projection**
+
+    Lean: [proj_is_pp_quotient](PPGraphSelection.lean).
+
+    With pp_valid and edges separating classes, the finest-equivalence projection is
+    surjective and preserves graph edges
+
+11. **Pointwise complementary slackness**
+
+    Lean: [cs_pointwise](PPGraphComplementarySlackness.lean).
+
+    dual_feasible ∧ P(i,j)>0 ∧ P·slack=0 → u(i)+v(j)=C(i,j)
+
+12. **Strict Monge uniqueness**
+
+    Lean: [monge_cs_strict_unique](PPGraphComplementarySlackness.lean).
+
+    Monge + CS + strict → unique tight entry per row
+
+13. **General Local Lemma existence**
+
+    Lean: [lll_good_state_exists](PPGraphLLL.lean).
+
+    General LLL (Alon-Spencer 5.1.1): a state avoiding all bad events exists
+
+14. **Lopsided generalization**
+
+    Lean: [independence_implies_lopsidependence](PPGraphLopsidedLLL.lean).
+
+    Lopsided LLL subsumes the General LLL (equality ⟹ the ≤ hypothesis)
+
+15. **Component repair non-interference**
+
+    Lean: [repair_noninterference](PPGraphBDD.lean).
+
+    A repair confined to one component cannot change any obligation in another
+
+16. **Localized Moser–Tardos trajectories**
+
+    Lean: [mt_trajectory_localizes](PPGraphBDDMoserTardos.lean).
+
+    The whole MT process in one component never changes another component, at any step
+
+17. **Real-trajectory witness check**
+
+    Lean: [τCheck_holds_of_real_trajectory](PPGraphMoserTardosCorrespondence.lean).
+
+    Lemma 2.1(ii): a genuine real trajectory passes its own witness-tree check
+
+18. **Witness-check probability factorization**
+
+    Lean: [logMeasure_τCheck_eq_prod_p](PPGraphMoserTardosProbability.lean).
+
+    Theorem 5.7.2: Pr[τ-check passes] = ∏ p(label) over the tree vertices
+
+19. **Algebraic Moser–Tardos budget**
+
+    Lean: [sum_mtWeight_le](PPGraphMoserTardosConvergence.lean).
+
+    Σ_α w(D,α) ≤ Σ_α x(α) (algebraic MT budget bound)
+
+20. **Moser–Tardos expected work**
+
+    Lean: [randomInitETLog_le_sum](PPGraphMoserTardosOccurrenceExpectation.lean).
+
+    **E[T_LOG] ≤ Σ_α x(α)**: the Moser-Tardos expected-work bound, no termination assumption
+
+21. **Finite expected resampling work**
+
+    Lean: [randomInitETLog_lt_top](PPGraphMoserTardosOccurrenceExpectation.lean).
+
+    Finite MT budgets ⟹ finite expected work (E[T_LOG] < ∞)
+
+22. **Moser–Tardos repair bridge**
+
+    Lean: [mtRepairGraph_globally_repairable](PPGraphMoserTardosRepairBridge.lean).
+
+    Moser-Tardos reachability makes the abstract proof-preserving repair globally hold
+
 
 ### Extended probabilistic repair and drift
 
-| # | Name | File | Statement |
-|---|------|------|-----------|
-| 23 | `Pegden.randomInitETLog_le_sum` | [MoserTardosPegden](PPGraphMoserTardosPegden.lean) | Pegden's independent-subset budget on each closed neighborhood gives random-initialized **E[T_LOG] ≤ Σ x(α)** |
-| 24 | `Shearer.randomInitETLog_le_sum_stableBudget` | [ShearerExpectation](PPGraphShearerExpectation.lean) | Probability upper bounds satisfying strict Shearer positivity give **E[T_LOG] ≤ Σ q_{α}/q_∅** |
-| 25 | `Shearer.randomInitExpectedComponentCount_le_budget` | [ShearerBDDExpectation](PPGraphShearerBDDExpectation.lean) | Strict Shearer on one full dependency component bounds its expected resampling count, without certifying the other components |
-| 26 | `HLS.Policy.randomized_expectedWork_le_sum_stableBudget` | [HLSPolicyExpectation](PPGraphHLSPolicyExpectation.lean) | Positive event probabilities, matching-compatible intersection lower bounds and strict Shearer at **p⁻ = p − δ²/17** bound expected work by the singleton Shearer budgets, for jointly measurable admissible schedules with independent auxiliary randomness |
-| 27 | `HLS.Policy.randomized_expectedWork_le_card_div_slack` | [HLSPolicyExpectation](PPGraphHLSPolicyExpectation.lean) | Under the same policy/overlap assumptions, ε > 0 and strict Shearer at **(1+ε)p⁻** give **E[T] ≤ card(ι)/ε** |
-| 28 | `HLS.Policy.randomized_ae_exists_good` | [HLSPolicyExpectation](PPGraphHLSPolicyExpectation.lean) | Under the HLS policy criterion, a good state is reached almost surely under the seed/table product law; termination is a conclusion |
-| 29 | `RepairDrift.ConditionalCertificate.expectedActiveCount_le` | [AdditiveDrift](PPGraphAdditiveDrift.lean) | A nonnegative integrable adapted potential with conditional decrease δ > 0 on active steps gives **E[active steps] ≤ E[V₀]/δ** |
-| 30 | `RepairDrift.fullResampling_expected_work_eq` | [MoserTardosFullResampling](PPGraphMoserTardosFullResampling.lean) | If every event resamples all variables, random-initialized **E[T_LOG] = b/(1−b)** in extended nonnegative reals, with b = Pr[bad]; positive good-state mass gives finite work without an LLL test |
+23. **Pegden expected-work bound**
+
+    Lean: [Pegden.randomInitETLog_le_sum](PPGraphMoserTardosPegden.lean).
+
+    Pegden's independent-subset budget on each closed neighborhood gives random-initialized
+    **E[T_LOG] ≤ Σ x(α)**
+
+24. **Shearer expected-work bound**
+
+    Lean: [Shearer.randomInitETLog_le_sum_stableBudget](PPGraphShearerExpectation.lean).
+
+    Probability upper bounds satisfying strict Shearer positivity give **E[T_LOG] ≤ Σ
+    q_{α}/q_∅**
+
+25. **Component-local Shearer budget**
+
+    Lean: [Shearer.randomInitExpectedComponentCount_le_budget](PPGraphShearerBDDExpectation.lean).
+
+    Strict Shearer on one full dependency component bounds its expected resampling count,
+    without certifying the other components
+
+26. **He–Li–Sun expected work for admissible policies**
+
+    Lean: [HLS.Policy.randomized_expectedWork_le_sum_stableBudget](PPGraphHLSPolicyExpectation.lean).
+
+    Positive event probabilities, matching-compatible intersection lower bounds and strict
+    Shearer at **p⁻ = p − δ²/17** bound expected work by the singleton Shearer budgets, for
+    jointly measurable admissible schedules with independent auxiliary randomness
+
+27. **He–Li–Sun slack bound**
+
+    Lean: [HLS.Policy.randomized_expectedWork_le_card_div_slack](PPGraphHLSPolicyExpectation.lean).
+
+    Under the same policy/overlap assumptions, ε > 0 and strict Shearer at **(1+ε)p⁻** give
+    **E[T] ≤ card(ι)/ε**
+
+28. **He–Li–Sun almost-sure repair**
+
+    Lean: [HLS.Policy.randomized_ae_exists_good](PPGraphHLSPolicyExpectation.lean).
+
+    Under the HLS policy criterion, a good state is reached almost surely under the
+    seed/table product law; termination is a conclusion
+
+29. **Conditional additive drift**
+
+    Lean: [RepairDrift.ConditionalCertificate.expectedActiveCount_le](PPGraphAdditiveDrift.lean).
+
+    A nonnegative integrable adapted potential with conditional decrease δ > 0 on active
+    steps gives **E[active steps] ≤ E[V₀]/δ**
+
+30. **Full-resampling expected work**
+
+    Lean: [RepairDrift.fullResampling_expected_work_eq](PPGraphMoserTardosFullResampling.lean).
+
+    If every event resamples all variables, random-initialized **E[T_LOG] = b/(1−b)** in
+    extended nonnegative reals, with b = Pr[bad]; positive good-state mass gives finite work
+    without an LLL test
+
 
 Here `x` denotes a resampling budget, and `q_{α}/q_∅` denotes the singleton
 Shearer coefficient ratio. A component-work bound does not assert scheduling
@@ -196,15 +356,55 @@ fairness or eventual repair of that component.
 
 ### Exact finite models, stopping bounds and reduction
 
-| # | Name | File | Statement |
-|---|------|------|-----------|
-| 31 | `FinitePotential.synthesize_iff_accessible` | [FinitePotential](PPGraphFinitePotential.lean) | For a fixed finite stochastic kernel with absorbing good states, checked potential synthesis succeeds **iff every state has a positive-mass path to good** |
-| 32 | `FiniteResampling.ETLog_eq_potential` | [FinitePotentialExpectationMT](PPGraphFinitePotentialExpectationMT.lean) | In a valid finite MT model with global positive-mass accessibility, fixed-start **E[T_LOG] equals the exact rational potential** |
-| 33 | `FiniteResampling.randomInitETLog_eq_potential_sum` | [FinitePotentialExpectationMT](PPGraphFinitePotentialExpectationMT.lean) | Under the same accessibility hypothesis, slot-zero initialization gives **E[T_LOG] = Σₛ productMass(Q,s) · potential(s)** |
-| 34 | `FiniteResampling.TLog_timeout_eq_survival` | [FinitePotentialTailMT](PPGraphFinitePotentialTailMT.lean) | A valid finite MT model and fixed start give **Pr[T_LOG > N] = survival(N,s₀)**, the exact rational recurrence, without a termination premise |
-| 35 | `FiniteResampling.TLog_timeout_checkedTable_blocks_le` | [FinitePotentialTailMT](PPGraphFinitePotentialTailMT.lean) | An accepted survival table with every H-step survival value ≤ b and b ≥ 0 gives **Pr[T_LOG > kH] ≤ bᵏ**, with geometric decay when b < 1 and H > 0 |
-| 36 | `FiniteResampling.ETLog_checkedClosedBad_eq_top` | [FinitePotentialTailMT](PPGraphFinitePotentialTailMT.lean) | An accepted closed-bad-set certificate containing the fixed start gives **E[T_LOG] = ∞** for that kernel/policy |
-| 37 | `FiniteLumpingUpdate.hitCount_projection` | [FiniteLumpingUpdate](PPGraphFiniteLumpingUpdate.lean) | Commuting updates and preserved good tests give pointwise equality of concrete/reduced stopped counts on the same input stream; concrete state may be infinite |
+31. **Exact finite potential synthesis**
+
+    Lean: [FinitePotential.synthesize_iff_accessible](PPGraphFinitePotential.lean).
+
+    For a fixed finite stochastic kernel with absorbing good states, checked potential
+    synthesis succeeds **iff every state has a positive-mass path to good**
+
+32. **Fixed-start exact expectation**
+
+    Lean: [FiniteResampling.ETLog_eq_potential](PPGraphFinitePotentialExpectationMT.lean).
+
+    In a valid finite MT model with global positive-mass accessibility, fixed-start
+    **E[T_LOG] equals the exact rational potential**
+
+33. **Random-start exact expectation**
+
+    Lean: [FiniteResampling.randomInitETLog_eq_potential_sum](PPGraphFinitePotentialExpectationMT.lean).
+
+    Under the same accessibility hypothesis, slot-zero initialization gives **E[T_LOG] = Σₛ
+    productMass(Q,s) · potential(s)**
+
+34. **Exact stopping probability**
+
+    Lean: [FiniteResampling.TLog_timeout_eq_survival](PPGraphFinitePotentialTailMT.lean).
+
+    A valid finite MT model and fixed start give **Pr[T_LOG > N] = survival(N,s₀)**, the
+    exact rational recurrence, without a termination premise
+
+35. **Checked timeout bounds**
+
+    Lean: [FiniteResampling.TLog_timeout_checkedTable_blocks_le](PPGraphFinitePotentialTailMT.lean).
+
+    An accepted survival table with every H-step survival value ≤ b and b ≥ 0 gives
+    **Pr[T_LOG > kH] ≤ bᵏ**, with geometric decay when b < 1 and H > 0
+
+36. **Closed bad set and infinite expected work**
+
+    Lean: [FiniteResampling.ETLog_checkedClosedBad_eq_top](PPGraphFinitePotentialTailMT.lean).
+
+    An accepted closed-bad-set certificate containing the fixed start gives **E[T_LOG] = ∞**
+    for that kernel/policy
+
+37. **Exact stopped-count reduction**
+
+    Lean: [FiniteLumpingUpdate.hitCount_projection](PPGraphFiniteLumpingUpdate.lean).
+
+    Commuting updates and preserved good tests give pointwise equality of concrete/reduced
+    stopped counts on the same input stream; concrete state may be infinite
+
 
 The finite MT rows use the declared finite variables/domains, normalized rational
 marginals and first-violated-event process. Reduction transfers laws and checked
@@ -214,36 +414,146 @@ repair policy.
 
 ### Feasibility, refutation and decision limits
 
-| # | Name | File | Statement |
-|---|------|------|-----------|
-| 38 | `RepairFeasibility.solve_isWitness_iff` | [CertifiedDecision](PPGraphCertifiedDecision.lean) | Decidable tests and an enumeration covering all admissible states give a witness **iff the obligations are satisfiable**; the other branch carries a refutation |
-| 39 | `RepairFeasibility.repairByFiniteAbstraction_spec` | [FiniteAbstractionRepair](PPGraphFiniteAbstractionRepair.lean) | A supplied executable exact finite abstraction gives a concrete repair trace or checked invariant refutation; the repaired flag is true **iff a concrete good state is reachable** |
-| 40 | `RepairFeasibility.minimalCore_exists` | [UnsatisfiableCore](PPGraphUnsatisfiableCore.lean) | Every finite infeasible obligation family contains a minimal infeasible subfamily |
-| 41 | `RepairFeasibility.minimalCore_iff_minimalCorrectionHittingSet` | [CorrectionDuality](PPGraphCorrectionDuality.lean) | For K ⊆ B, K is a minimal infeasible core **iff it is an inclusion-minimal hitting set of B's minimal correction sets** |
-| 42 | `RepairFeasibility.farkasCheck_noReachableGood` | [FarkasCertificate](PPGraphFarkasCertificate.lean) | An accepted rational Farkas certificate and a sound linear model for good states imply **no reachable good state exists** |
-| 43 | `RepairFeasibility.ComputabilityLimit.no_total_repairability_decider` | [RepairUndecidability](PPGraphRepairUndecidability.lean) | **No computable total repairability test** exists uniformly for the halting-encoding infinite graph family, despite decidable state tests |
+38. **Finite witness decision**
+
+    Lean: [RepairFeasibility.solve_isWitness_iff](PPGraphCertifiedDecision.lean).
+
+    Decidable tests and an enumeration covering all admissible states give a witness **iff
+    the obligations are satisfiable**; the other branch carries a refutation
+
+39. **Repair through exact finite abstraction**
+
+    Lean: [RepairFeasibility.repairByFiniteAbstraction_spec](PPGraphFiniteAbstractionRepair.lean).
+
+    A supplied executable exact finite abstraction gives a concrete repair trace or checked
+    invariant refutation; the repaired flag is true **iff a concrete good state is
+    reachable**
+
+40. **Minimal infeasible core**
+
+    Lean: [RepairFeasibility.minimalCore_exists](PPGraphUnsatisfiableCore.lean).
+
+    Every finite infeasible obligation family contains a minimal infeasible subfamily
+
+41. **Core/correction duality**
+
+    Lean: [RepairFeasibility.minimalCore_iff_minimalCorrectionHittingSet](PPGraphCorrectionDuality.lean).
+
+    For K ⊆ B, K is a minimal infeasible core **iff it is an inclusion-minimal hitting set of
+    B's minimal correction sets**
+
+42. **Farkas reachability refutation**
+
+    Lean: [RepairFeasibility.farkasCheck_noReachableGood](PPGraphFarkasCertificate.lean).
+
+    An accepted rational Farkas certificate and a sound linear model for good states imply
+    **no reachable good state exists**
+
+43. **Limit of uniform repairability decisions**
+
+    Lean: [RepairFeasibility.ComputabilityLimit.no_total_repairability_decider](PPGraphRepairUndecidability.lean).
+
+    **No computable total repairability test** exists uniformly for the halting-encoding
+    infinite graph family, despite decidable state tests
+
 
 Exact abstraction requires its proved local realization obligations and an
 exhaustive abstract enumeration. Correction sets remove obligations from the
 chosen family. Failure of a sufficient probabilistic criterion alone remains
 distinct from an impossibility certificate.
 
+
 ## Theory Layers
 
-1. **Abstract framework**: Certificate families over any PartialOrder
-2. **Master theorem**: Monotonicity of full certification
-3. **Canonical characterization**: Satisfying set = principal upper set
-4. **PPG bridge**: Specification graph is proof-preserving
-5. **Blocking certificates**: Diagnostic layer (why certification stops)
-6. **Relaxation vs Repair**: Formal distinction with canonical bounds
-7. **Lattice operators**: Meet/join, inf-closure, compositional specs
-8. **Quotient structure**: PartialOrder on quotient, LinearOrder separating
-9. **Hierarchical selection**: Family of lenses, finest equiv, CertFamily instance
-10. **Concrete instance**: Threshold with Lattice, self-certifying canonical
-11. **Self-assessment**: Failure containment, contamination impossibility, assessment trichotomy, repair operator (S→V→S with spec fixed), monotone recovery via proof obligations
-12. **Assessment bridge**: Parametric certification as instance of self-assessment. Complete cycle: canonical → blocking → repair → strict growth → blocking cleared → canonical frontier advances
-13. **Blocking dependency decomposition and Local Lemma**: the blocking set decomposes by shared variable; the General Lovász Local Lemma gives a sufficient condition for the existence of a repair of a coupled component, division-free proof, positive probability of a good state
-14. **Constructive repair (Moser-Tardos)**: when a component is repairable, resampling reaches a good state; resample operator, witness tree, injectivity, algebraic convergence bound (now formalized here, in both this Lean development and the PVS one)
+The layers below group the current development by purpose. The
+[module inventory](THEORY_INDEX.md) gives the complete file-level view.
+
+### Certification, structure and assessment
+
+1. **Certification and canonical levels**: Ordered certificate families,
+   monotonicity, and the principal-upper-set characterization under the declared
+   canonicality and closure hypotheses.
+
+2. **Graph and refinement structure**: Proof-preserving graphs, morphisms,
+   embeddings, quotients, simulations, refinement relations, and specification
+   evolution.
+
+3. **Specification composition and selection**: Lattice operations, certification
+   quotients, separating families, hierarchical lenses, and threshold instances.
+
+4. **Assessment and repair**: Failure containment, blocking diagnostics, repair
+   versus relaxation, and the cycle from blocking through repair to canonical
+   frontier advancement under the repair obligations.
+
+5. **Optimal-transport certificates**: Complementary slackness, zero-duality-gap
+   certificates, Monge structure, and strict uniqueness under the declared
+   feasibility and strictness assumptions.
+
+### Dependency and probabilistic repair
+
+6. **Dependency decomposition**: Shared-variable components, disjoint footprints,
+   repair non-interference, cost decomposition, matrix/Laplacian
+   characterizations, and localization of resampling trajectories.
+
+7. **Local Lemma existence criteria**: General and lopsided LLL, plus the
+   geometric boundary lemma (Lemma 10) from the variable-version development.
+
+8. **Moser–Tardos execution and witnesses**: Measurable table-driven trajectories,
+   witness checks, injective encodings, occurrence counting, expected resampling
+   bounds, and almost-sure termination under the stated budget hypotheses.
+
+9. **Repair reachability bridge**: A good target supplies an existential
+   Moser–Tardos repair path through a constant table; resampling reachability
+   instantiates the abstract repair relation. Probabilistic termination is a
+   separate result with its own hypotheses.
+
+10. **Shearer and Pegden bounds**: Strict Shearer positivity, stable-sequence
+    budgets and slack bounds; Pegden's independent-subset witness-tree criterion.
+
+11. **Component expected work**: Exact decomposition of resampling counts and
+    component-local Shearer budgets. A counted component can be bounded without
+    certifying the others; this does not assert fairness or component completion.
+
+12. **Intersection-sensitive policies**: He–Li–Sun overlap discounts,
+    witness-DAG bounds, expected work, and almost-sure termination for measurable
+    admissible schedules, including history-dependent rules and independent
+    auxiliary randomization, under the stated probability/intersection hypotheses.
+
+13. **Drift and full resampling**: Conditional additive-drift certificates for
+    expected steps and modeled costs; exact geometric tails and expectation when
+    every event resamples all variables. Positive good-state mass gives finite
+    expected work in the full-resampling case without an LLL test.
+
+### Exact stochastic models and stopping bounds
+
+14. **Finite stochastic models and potentials**: Rational transition kernels,
+    finite Moser–Tardos laws, checked drift witnesses, exact potential synthesis,
+    and expected hitting-time identities under their kernel hypotheses.
+
+15. **Stopping tails and closed bad classes**: Exact finite survival recurrences,
+    checked geometric block bounds, and kernel-specific certificates of infinite
+    expected work. These are stochastic model results, not hardware deadlines.
+
+16. **Exact stochastic reduction**: Lumping and commuting-update projections
+    preserve stopped counts, expectations, and tails under their model hypotheses;
+    the update-level concrete state space need not be finite.
+
+### Feasibility, refutation and decision limits
+
+17. **Feasibility and refutation**: Positive witnesses, infeasibility
+    certificates, minimal cores, correction-set duality, rational Farkas
+    certificates, invariant reachability refutations, and finite decision
+    procedures. Correction sets relax obligations; repair changes the state.
+
+18. **Constructive finite abstraction**: A supplied exact finite abstraction
+    with exhaustive enumeration and proved executable realization produces a
+    concrete repair trace or a checked reachability refutation. The abstraction
+    itself is not automatically discovered.
+
+19. **Limits of general decision procedures**: Undecidability of uniform
+    repairability testing for the halting-encoding infinite-model family. This
+    limits general automation; it is not a no-repair certificate for each
+    individual infinite instance.
 
 ## Related
 
