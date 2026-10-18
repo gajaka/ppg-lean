@@ -62,7 +62,7 @@ theorem measurable_historyRun (P : MTProcess S ι) (R : HistoryRule P) :
       letI : MeasurableSpace ι := ⊤
       exact measurable_initialStateFromLog.prodMk
         (measurable_const.prodMk
-          ((measurable_pi_lambda _ (fun _ => measurable_initialStateFromLog)).prodMk measurable_const))
+          ((Measurable.of_eval (fun _ => measurable_initialStateFromLog)).prodMk measurable_const))
   | t + 1 => by
       letI : MeasurableSpace ι := ⊤
       have ih := measurable_historyRun P R t

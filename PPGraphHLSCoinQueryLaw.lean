@@ -59,7 +59,7 @@ theorem map_coinAndFourRead {X Y Z : Type} [Fintype X] [Fintype Y] [Fintype Z]
         exact Prod.ext hfst (Sum.inl.inj hsnd)
   have hquery : MeasurePreserving (fun η : LogSpace A => fun k => atIdx η (v k) (n k))
       (logMeasure A) (Measure.pi μ) :=
-    ⟨measurable_pi_lambda _ (fun _ => measurable_pi_apply _), map_tableQuery v n hqinj⟩
+    ⟨Measurable.of_eval (fun _ => measurable_pi_apply _), map_tableQuery v n hqinj⟩
   have hsplit := measurePreserving_sumPiEquivProdPi μ
   have hcoin := measurePreserving_funUnique fairOrientation Unit
   have hfour := measurePreserving_splitFour (S := S) vX vY vZ

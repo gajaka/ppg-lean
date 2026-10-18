@@ -87,7 +87,7 @@ theorem measurable_uses (P : MTProcess S ι) (σ : Schedule P) (t : ℕ) (v : V)
     Measurable (fun ω => uses P (σ.select ω) t v) := by
   letI : MeasurableSpace ι := ⊤
   let history : LogSpace S → (Fin (t + 1) → ι) := fun ω k => σ.select ω k.val
-  have hh : Measurable history := measurable_pi_lambda _ (fun k => σ.measurable_select k.val)
+  have hh : Measurable history := Measurable.of_eval (fun k => σ.measurable_select k.val)
   let decode : (Fin (t + 1) → ι) → ℕ := fun a =>
     uses P (fun k => a ⟨min k t, by omega⟩) t v
   have hd : Measurable decode := measurable_of_countable decode

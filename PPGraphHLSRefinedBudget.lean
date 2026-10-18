@@ -74,7 +74,9 @@ theorem tsum_refinedWeight_le_decorated (O : OverlapBounds G p)
             (expansionFamilyMap O.matching α F).2.val := by
       rw [← ENNReal.tsum_sigma]
       exact tsum_congr (fun F => (expansionFamilyMap_weight O.matching α _ _ F).symm)
-    _ ≤ _ := ENNReal.tsum_comp_le_tsum_of_injective (expansionFamilyMap_injective O.matching α) _
+    _ ≤ _ := ENNReal.tsum_comp_le_tsum_of_injective (expansionFamilyMap_injective O.matching α)
+      (fun C => decorationWeight (fun i => ENNReal.ofReal (O.splitUp i))
+        (fun i => ENNReal.ofReal (O.splitDown i)) C.1.val C.2.val)
 
 /-- Weighted expansion supplies the smaller p^- budget, without a runtime premise. -/
 theorem tsum_refinedWeight_le_stableBudget (O : OverlapBounds G p)

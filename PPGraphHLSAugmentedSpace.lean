@@ -41,11 +41,11 @@ def auxiliaryCoins {S : VarSpaces V} (η : LogSpace (augmentedSpaces (ι := ι) 
 
 theorem measurable_originalTable (S : VarSpaces V) :
     Measurable (originalTable (S := S) (ι := ι)) :=
-  measurable_pi_lambda _ (fun _ => measurable_pi_apply _)
+  Measurable.of_eval (fun _ => measurable_pi_apply _)
 
 theorem measurable_auxiliaryCoins (S : VarSpaces V) :
     Measurable (auxiliaryCoins (S := S) (ι := ι)) :=
-  measurable_pi_lambda _ (fun _ => measurable_pi_apply _)
+  Measurable.of_eval (fun _ => measurable_pi_apply _)
 
 theorem map_originalTable (S : VarSpaces V) :
     (logMeasure (augmentedSpaces (ι := ι) S)).map originalTable = logMeasure S := by

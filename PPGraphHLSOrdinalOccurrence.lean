@@ -27,7 +27,7 @@ theorem measurable_earlierLabelCount (P : MTProcess S ι)
     Measurable (fun ω : LogSpace S => earlierLabelCount (realSchedule P ω) t) := by
   letI : MeasurableSpace ι := ⊤
   let history : LogSpace S → (Fin (t + 1) → ι) := fun ω k => realSchedule P ω k.val
-  have hhistory : Measurable history := measurable_pi_lambda _ (fun k =>
+  have hhistory : Measurable history := Measurable.of_eval (fun k =>
     measurable_realC_of_measurable_init P hbad initialStateFromLog measurable_initialStateFromLog k.val)
   let decode : (Fin (t + 1) → ι) → ℕ := fun a =>
     earlierLabelCount (fun k => a ⟨min k t, by omega⟩) t

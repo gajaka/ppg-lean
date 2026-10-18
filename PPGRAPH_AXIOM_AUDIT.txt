@@ -1,7 +1,7 @@
-PPGraph whole-library axiom audit - 2026-10-08
+PPGraph whole-library axiom audit — 2026-10-18
 
 PASS: 1824 explicitly declared theorems in 191 Lake roots.
-Also audited: 1483 generated theorem constants and all remaining project declarations, 4897 declarations in total.
+Also audited: 1487 generated theorem constants and all remaining project declarations, 4893 declarations in total.
 Every explicitly declared theorem has an explicit #check.
 Module ownership comes from the imported Lean environment.
 Every project declaration is inspected with a temporary #print axioms command.
@@ -158,7 +158,7 @@ Source hashes and per-declaration details: PPGRAPH_AXIOM_AUDIT.json
 'FiniteDrift.conditionalCertificate.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteDrift.conditional_next_value' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteDrift.conditionsDecidable' depends on axioms: [propext, Classical.choice, Quot.sound]
-'FiniteDrift.conditionsDecidable._aux_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteDrift.conditionsDecidable._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteDrift.delta_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteDrift.expectedActiveCount_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteDrift.expectedActiveCount_lt_top' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -216,7 +216,7 @@ Source hashes and per-declaration details: PPGRAPH_AXIOM_AUDIT.json
 'FiniteLumping.checkedTable_timeout_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteLumping.closedBad_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteLumping.compatibleDecidable' depends on axioms: [propext, Classical.choice, Quot.sound]
-'FiniteLumping.compatibleDecidable._aux_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteLumping.compatibleDecidable._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteLumping.equations_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteLumping.expectedHitCount_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteLumping.hitCount_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -284,7 +284,7 @@ Source hashes and per-declaration details: PPGRAPH_AXIOM_AUDIT.json
 'FinitePotential.checked_accessible' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.checked_witness_iff_accessible' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.closedBadDecidable' depends on axioms: [propext, Classical.choice, Quot.sound]
-'FinitePotential.closedBadDecidable._aux_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FinitePotential.closedBadDecidable._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.closedBad_not_accessible' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.closedBad_not_reachesGood' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.closedBad_path' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -356,7 +356,7 @@ Source hashes and per-declaration details: PPGRAPH_AXIOM_AUDIT.json
 'FinitePotential.survival.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.survival.match_1' does not depend on any axioms
 'FinitePotential.survivalTableDecidable' depends on axioms: [propext, Classical.choice, Quot.sound]
-'FinitePotential.survivalTableDecidable._aux_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FinitePotential.survivalTableDecidable._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.survivalTable_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.survivalTable_exact._proof_1_1' depends on axioms: [propext, Quot.sound]
 'FinitePotential.survivalTable_exact._proof_1_2' depends on axioms: [propext, Quot.sound]
@@ -554,7 +554,7 @@ Source hashes and per-declaration details: PPGRAPH_AXIOM_AUDIT.json
 'FiniteResampling.table_hitCount_eq_TLog._simp_1_1' depends on axioms: [propext]
 'FiniteResampling.table_timeout_eq_survival' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteResampling.validDecidable' depends on axioms: [propext, Classical.choice, Quot.sound]
-'FiniteResampling.validDecidable._aux_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteResampling.validDecidable._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteResampling.varSpaces' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteResampling.varSpaces._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteTable.InitialLocal' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -953,7 +953,6 @@ Source hashes and per-declaration details: PPGRAPH_AXIOM_AUDIT.json
 'HLS.ExpansionChoice.ofNat_ctorIdx' does not depend on any axioms
 'HLS.ExpansionChoice.rec' does not depend on any axioms
 'HLS.ExpansionChoice.recOn' does not depend on any axioms
-'HLS.ExpansionChoice.toCtorIdx' does not depend on any axioms
 'HLS.ExpansionChoice.up' does not depend on any axioms
 'HLS.ExpansionChoice.up.elim' does not depend on any axioms
 'HLS.ExpansionChoice.up.sizeOf_spec' does not depend on any axioms
@@ -1005,7 +1004,6 @@ Source hashes and per-declaration details: PPGRAPH_AXIOM_AUDIT.json
 'HLS.OrientationCoin.ofNat_ctorIdx' does not depend on any axioms
 'HLS.OrientationCoin.rec' does not depend on any axioms
 'HLS.OrientationCoin.recOn' does not depend on any axioms
-'HLS.OrientationCoin.toCtorIdx' does not depend on any axioms
 'HLS.OverlapBounds' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.OverlapBounds._sizeOf_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.OverlapBounds._sizeOf_inst' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2329,8 +2327,7 @@ Source hashes and per-declaration details: PPGRAPH_AXIOM_AUDIT.json
 'Pegden.TernaryExample.process.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.TernaryExample.spaceMeasurableSingleton' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.TernaryExample.spaces' depends on axioms: [propext, Classical.choice, Quot.sound]
-'Pegden.TernaryExample.spaces._proof_1' depends on axioms: [propext]
-'Pegden.TernaryExample.spaces._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pegden.TernaryExample.spaces._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.TernaryExample.strictly_extends_product_criterion' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.ae_randomInit_exists_good' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.canonicalizeFuel_mem_treesUpTo' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2865,7 +2862,6 @@ Source hashes and per-declaration details: PPGRAPH_AXIOM_AUDIT.json
 'RepairFeasibility.RepairRegion.ofNat_ctorIdx' does not depend on any axioms
 'RepairFeasibility.RepairRegion.rec' does not depend on any axioms
 'RepairFeasibility.RepairRegion.recOn' does not depend on any axioms
-'RepairFeasibility.RepairRegion.toCtorIdx' does not depend on any axioms
 'RepairFeasibility.Satisfiable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.Satisfiable.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.StepSimulation' does not depend on any axioms

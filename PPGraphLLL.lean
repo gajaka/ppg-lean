@@ -97,7 +97,7 @@ theorem prod_one_sub_pos (x : C → Real) (S : Finset C)
 theorem prod_one_sub_le_one (x : C → Real) (S : Finset C)
     (h_bound : ∀ c ∈ S, 0 ≤ x c ∧ x c < 1) :
     ∏ j ∈ S, (1 - x j) ≤ 1 := by
-  apply Finset.prod_le_one
+  apply Finset.prod_le_one₀
   · intro j hj
     have := (h_bound j hj).2
     linarith
@@ -298,7 +298,7 @@ theorem S2_indep_side (vars : CertVars C V) (B S : Finset C) (i : C)
 theorem prod_mono_S1 (x : LLLAssignment C) (vars : CertVars C V) (B S : Finset C) (i : C)
     (h_bound : ∀ c ∈ B, 0 ≤ x c ∧ x c < 1) :
     ∏ j ∈ neighbors vars B i, (1 - x j) ≤ ∏ j ∈ S1_of vars B S i, (1 - x j) := by
-  apply Finset.prod_le_prod_of_subset_of_le_one (S1_subset_neighbors vars B S i)
+  apply Finset.prod_le_prod_of_subset_of_le_one₀ (S1_subset_neighbors vars B S i)
   · intro k hk
     have hk_B : k ∈ B := (Finset.mem_filter.mp hk).1
     linarith [(h_bound k hk_B).1, (h_bound k hk_B).2]

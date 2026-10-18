@@ -5,6 +5,58 @@ contains **191 modules of generic PPG theory**. The LUCES controller motivated t
 work; concrete LUCES/nfer models, firmware, binary-memory models and measured
 datasets are developed separately.
 
+## Build and kernel verification
+
+The library builds with **Lean 4.35.0** and **Mathlib v4.35.0**. The toolchain
+is pinned in `lean-toolchain`, and dependency revisions are pinned in
+`lake-manifest.json`.
+
+```sh
+lake build
+```
+
+Following the [Lean 4.35.0 announcement](https://leodemoura.github.io/blog/2026-10-15-lean-now-ships-with-verified-kernels/),
+build, export and recheck the project with Lean's kernel and all bundled external
+checkers, allowing only the standard axioms:
+
+```sh
+lake check --paranoid
+```
+
+The built-in sandbox currently requires Linux. On macOS, run the same kernel
+checks without sandbox isolation:
+
+```sh
+lake check --paranoid --inadvisably-no-sandbox
+```
+
+If the bundled `nanoda` aborts with `stack overflow`, the full paranoid check
+has not passed. The bundled version, 0.4.19, also has a reported
+[performance problem on Lean 4.35 exports](https://github.com/ammkrn/nanoda_lib/issues/44),
+addressed by [upstream fix #45](https://github.com/ammkrn/nanoda_lib/pull/45).
+A separate recheck can use upstream nanoda 0.4.24, revision
+`f67473ba5f9397266f89c7852082c9c914b5d219`, which includes that fix.
+Its worker stack is fixed at 16 MiB; the
+[Lean Kernel Arena workaround](https://arena.lean-lang.org/round/2026-09/checker/nanoda/)
+rebuilds the checker with 256 MiB per worker for deeply nested terms.
+
+Recorded verification on macOS, 2026-10-18:
+
+| Check | Result |
+|-------|--------|
+| `lake build` | Passed, 3,917 jobs. |
+| `python3 tools/audit_ppgraph.py` | Passed: 191 modules, 1,824 explicit theorems and all 4,893 project declarations; only the standard axiom dependencies. |
+| Bundled Lean default, Lean paranoid, lean4lean, con-leche and con-ron | Each accepted the project export. |
+| Bundled nanoda 0.4.19 | Aborted with stack overflow, exit 134; the combined `lake check --paranoid` command returned 1. |
+| Separate upstream nanoda 0.4.24 at the revision above, 256 MiB per worker | Accepted the same export: 448,700 declarations, no typechecker errors, exit 0 in 95.6 seconds. |
+
+The separate nanoda run also reported `Unable to print axioms` after typechecking:
+axiom printing was enabled without an output destination. This was an output
+configuration error; the checker enforced the allowlist of `propext`,
+`Classical.choice` and `Quot.sound`. The project axiom audit was also rerun on
+Lean 4.35.0; its updated reports are `PPGRAPH_AXIOM_AUDIT.txt` and
+`PPGRAPH_AXIOM_AUDIT.json`.
+
 ## Motivation
 
 ### The system

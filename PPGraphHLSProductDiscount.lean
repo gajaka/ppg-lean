@@ -53,7 +53,7 @@ theorem selected_discount_le (p : ι → ℝ) (O : OverlapBounds G p)
       ∏ u ∈ arcNodes (matchingArcs O.matching D), (1 - O.discount u.1) := by
   rw [prod_nodes_by_label _ (fun i => 1 - 2 * O.discount i),
     prod_nodes_by_label _ (fun i => 1 - O.discount i)]
-  apply Finset.prod_le_prod
+  apply Finset.prod_le_prod₀
   · intro i _
     have hc := O.discount_le hp i
     exact pow_nonneg (by linarith) _

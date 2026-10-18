@@ -560,8 +560,10 @@ namespace TernaryExample
 noncomputable def spaces : VarSpaces Unit where
   space _ := Fin 3
   measSpace _ := inferInstance
-  measure _ := (PMF.uniformOfFintype (Fin 3)).toMeasure
-  isProb _ := inferInstance
+  measure _ := Measure.uniformOfFinset (Finset.univ : Finset (Fin 3))
+  isProb _ := ⟨by
+    norm_num [Measure.uniformOfFinset, Measure.finsetSum_apply]
+    exact ENNReal.mul_inv_cancel (by norm_num) (by simp)⟩
 
 instance spaceMeasurableSingleton (v : Unit) : MeasurableSingletonClass (spaces.space v) := by
   change MeasurableSingletonClass (Fin 3)
@@ -587,9 +589,9 @@ theorem bad_probability (i : Fin 2) :
         spaces.measure () ({(i.castLE (by decide) : spaces.space ())}) :=
       h.measure_preimage (measurableSet_singleton _)
     _ = (1 / 3 : ℝ≥0∞) := by
-      change (PMF.uniformOfFintype (Fin 3)).toMeasure {(i.castLE (by decide) : Fin 3)} = _
-      rw [PMF.toMeasure_apply_singleton _ _ (measurableSet_singleton _)]
-      norm_num [PMF.uniformOfFintype_apply]
+      change Measure.uniformOfFinset (Finset.univ : Finset (Fin 3))
+        {(i.castLE (by decide) : Fin 3)} = _
+      norm_num [Measure.uniformOfFinset_apply_singleton]
 
 theorem all_neighbor (i j : Fin 2) : neighbor process i j := by
   simp [neighbor, process]

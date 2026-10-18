@@ -118,7 +118,7 @@ theorem nextDraw_map (F : MTState S → Finset V)
     (n : ℕ) :
     (logMeasure S).map (nextDraw F init n) = productLaw S := by
   haveI : IsProbabilityMeasure ((logMeasure S).map (statePrefix F init n)) :=
-    (logMeasure S).isProbabilityMeasure_map (measurable_prefix F init hi n).aemeasurable
+    inferInstance
   have h := congrArg (fun μ : Measure (Path S n × MTState S) => μ.map Prod.snd)
     (prefix_nextDraw_joint_law F init hi hl n)
   rw [Measure.map_map measurable_snd

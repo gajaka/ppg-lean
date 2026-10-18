@@ -1,6 +1,6 @@
 {
-  "date_utc": "2026-10-08",
-  "toolchain": "leanprover/lean4:v4.33.0-rc1",
+  "date_utc": "2026-10-18",
+  "toolchain": "leanprover/lean4:v4.35.0",
   "full_build_passed": true,
   "kernel_checked_library": true,
   "axiom_audit_passed": true,
@@ -13,8 +13,8 @@
   "project_owned_axioms": 0,
   "module_count": 191,
   "explicit_theorem_count": 1824,
-  "generated_theorem_count": 1483,
-  "environment_declaration_count": 4897,
+  "generated_theorem_count": 1487,
+  "environment_declaration_count": 4893,
   "source_sha256": {
     "PPGraph.lean": "60b28269ca98639a0d1904c489719daaab1d6847cc8bfd32f440e1e7d511da5e",
     "PPGraphAdditiveDrift.lean": "205ee3e423018b5af77b667c579fb53677692612943eead6a9c18fa584aef58d",
@@ -53,14 +53,14 @@
     "PPGraphFinitePotentialTailMT.lean": "6e1ed4178b842c5e669192ca2bf8f977fbcebeaba1b891e546a265944183dc2d",
     "PPGraphFiniteResampling.lean": "6695c01d41981f0e7bd53c9ce60716dc58e5d6492b9d733295438cbd05871757",
     "PPGraphFiniteTable.lean": "7db39eb4dded0d14ae5468287d790c917427d5c7aea22c8599eb2b2d4da5af95",
-    "PPGraphFiniteTableLaw.lean": "fbce998ec074661efe6082f74d44d0dc93fd32214b92398a2d794fe4d2220683",
+    "PPGraphFiniteTableLaw.lean": "ad9525eafdebed50603a5e9718c3eedfaa35f4d52727c89f018c6e52d280303f",
     "PPGraphFiniteUpdate.lean": "7e6d8277bc24b3e4bcd713b0ab0dbeb01d99b52a387e5ab50a35e06b57f9d6cc",
     "PPGraphFiniteUpdateIID.lean": "a21bff2364b762783d66b78f596e8ac00584f658601129e9ff01eab936fbbc9f",
     "PPGraphHLSAugmentedCoordinates.lean": "f28fdeb36fda375ca997c576b30bc9aa9d4f561c5b1cad25c4e947727d79b59a",
     "PPGraphHLSAugmentedDependence.lean": "344df8b22152a7abf6c8ed1870ebfd6720865d0ee15d6e932853ebc05616f251",
     "PPGraphHLSAugmentedExistence.lean": "ff664960325e19ddb27a5f274a4b70a72b7f8cfb35742bad58f0def12ee909a6",
     "PPGraphHLSAugmentedPair.lean": "3619c75633cbf2c65bed52f06dc74fc4ef6733330ae7c9e91c87bd4de509b9ac",
-    "PPGraphHLSAugmentedSpace.lean": "cb39ced1af0102e8858415075dca39bcc3602ac8899a86688ceb7d89049048e4",
+    "PPGraphHLSAugmentedSpace.lean": "b879cd60b3dd383c5fb24fa0238a84bdffc42c85244d33cec18d23c25db16e55",
     "PPGraphHLSBlockAssembly.lean": "e4a1385aa859c00b1b45f05da83c6d647786cd8ab886a366512ddf746339c0e1",
     "PPGraphHLSBlockIntersection.lean": "8b7685be352a21d5b2ecca25f464f5ee046b854e709f22866a5d680e3712705c",
     "PPGraphHLSBlockQueries.lean": "ecb608db1f86602861ffc435dc772fd17f5c729395070491e8180a9e87b55f1f",
@@ -68,7 +68,7 @@
     "PPGraphHLSChoiceRecovery.lean": "61b6d5b97acef8624b76d2e7135b6b94135895662c911c141af1bf07517d8c51",
     "PPGraphHLSChoiceSum.lean": "1fcdb1728d09ef2b98707e9141b12c0faf64fa275d57fa5c5458ec02b1cdf9e7",
     "PPGraphHLSCliqueRanks.lean": "1f9402d5c658377392d6fc2ac7dd69b9c51b0bb2c334f19999d5a6ee7bf755a3",
-    "PPGraphHLSCoinQueryLaw.lean": "4a56e582464ef5e01b5ed092d45449a32da16d086d563cf104ecf1327cba5316",
+    "PPGraphHLSCoinQueryLaw.lean": "8b1784f21382dbaf9f838bedea5a58f71997c31072e8bbcbaa2fb09fd5a078aa",
     "PPGraphHLSCoinSaving.lean": "41fa85b1dbebe9ef4be10998f5e355519eb78c5880db7a3dec557a45bfa3c39c",
     "PPGraphHLSColoredExpansion.lean": "e75ce418581adfd20f8dae754bc72015d8b33c72f3f89148ed508a4d0d7c040b",
     "PPGraphHLSDecisionBridge.lean": "55561e7fda7dd32acadfd972059184b72da9da7e836a7418a808b1a4869822d3",
@@ -92,7 +92,7 @@
     "PPGraphHLSNormalizationReversal.lean": "65e39801b489125774211fd7aa6492bd99d4acdba29cbcc31282280ca49cdea4",
     "PPGraphHLSOrderedDAG.lean": "e6880c9befb99a80ef1c1c711db9489e45b3bedfafdef0d31fc7f321cdfa4a5f",
     "PPGraphHLSOrderedReversal.lean": "8356ec4b948f8202953c189e8e52b942d68a74a7e03874d909763092ff3173f5",
-    "PPGraphHLSOrdinalOccurrence.lean": "3c2459e3caa7b2e4e36d0c2c25885352cf62ff79b12f605fb653d1b7a0bdbffa",
+    "PPGraphHLSOrdinalOccurrence.lean": "39ca2fba1949e82149b594691f6d8271fc02c5fe046072f40993d36fcfff2d25",
     "PPGraphHLSOrientationScore.lean": "42bda8720f145220980e592607be9550c484e5d346398a164ae723073dabdc40",
     "PPGraphHLSOriginRecovery.lean": "58a3292e8a8fb167a8e88367fb8e63bc4e8095cac5faddf30449c5897de275fe",
     "PPGraphHLSOriginalIso.lean": "c98b6b55096269d43a4b0b220bf619135ddd9a4188c16e3d253fb0728701f6a2",
@@ -100,15 +100,15 @@
     "PPGraphHLSPairProbability.lean": "ad75c07a3462df5d1cc3a19de8bf0dcb7a99560b8a7bd14c845560806fcbcb84",
     "PPGraphHLSParameters.lean": "c7d284bf88b6a7814a1dcfa5e44e12a92690de025d4b2695dd01e7b4332bd99f",
     "PPGraphHLSParitySelection.lean": "7313146f9c8433bfa7413e8e70fea075c50f5a18002c3576d78b7c067c322d14",
-    "PPGraphHLSPolicyCounting.lean": "ef0d0a312d9c0c550a0fb71b66f1c14e01e56085a3cae6165f930069b2e9a245",
+    "PPGraphHLSPolicyCounting.lean": "fac5a5346dc0d715338ae0fe91e24fe381f298a516c1788fbf87ab5f366e3944",
     "PPGraphHLSPolicyDAG.lean": "00b898e6f2debf02cc9ab75b355a8bccb2f7b2cf7cc33df3cf0713081bf6541a",
     "PPGraphHLSPolicyExpectation.lean": "55a79ce658b66384d727d85bbbacade5b274b14bbcd612038a7cf6a7f486ed53",
     "PPGraphHLSPrefixCheck.lean": "08b96d968db67a50fe48a3bf1c2597afc3291c75b43ba34c0048564f3eb31ce1",
-    "PPGraphHLSProductDiscount.lean": "e9cd71f64d7aaea147c0ffb1cedc5525d0ae256e774792f13acdfe6dbae0e417",
-    "PPGraphHLSQueryLaw.lean": "ffcbc42219e2822b767fa8dc7f28aeb110966553c39bb6faa79d9f956f9d75fe",
+    "PPGraphHLSProductDiscount.lean": "8daccc98fa2a1e185fc8f6667a9a39529d83ce26aaef3a3d193fe3b0f9349a64",
+    "PPGraphHLSQueryLaw.lean": "b79fa39d91f94ed5165ead3aa7b646a138cbdd134de7e637ae4a239bd9bd39ee",
     "PPGraphHLSRealDAG.lean": "9e41f4c335f673005956b49196d80d83cb455ebf1e73184fe765e1f6dd1c5964",
     "PPGraphHLSRealDAGCounts.lean": "c6e93b1fc53a5bb498c1704da87f0bfa3c124a34ccb837baa1219fd58fe2d39c",
-    "PPGraphHLSRefinedBudget.lean": "c09d5970b706191492b30fa30a23ad7a772a23dbb4d832bf1ad7fbf467af3b69",
+    "PPGraphHLSRefinedBudget.lean": "5e03b03957ce1b1774b5cf0423bd1e928c07e4c9cb429bb729376853f109cedd",
     "PPGraphHLSRefinedProbability.lean": "ebfccd15de49b10ab7750328901ac373a18cf561827e6c663ca8bddcb307d197",
     "PPGraphHLSRelativeCoins.lean": "f057e054843fe0ab2a092e3ccee457947e59d755695e2c3417aacb5698afc375",
     "PPGraphHLSRepairBridge.lean": "db1342c02b5b581f0178c2762bf27027c381c0d311b4df4db2db4c9504e3d83c",
@@ -126,7 +126,7 @@
     "PPGraphHLSWitnessLayers.lean": "4a927157a32f7e7f791dcb1abec1e9ac3655a751f9397fb8f8a017510fa2fa47",
     "PPGraphInfeasibility.lean": "a8744caf5ac8ba43a76f03a340a79d3509a50eb5be7aba30ccedbcfa3aa74a6b",
     "PPGraphInfeasibilityCounting.lean": "d7bdd7bb2d23b1eb139292bc51999617458dc31da41df7f33b623e412353cece",
-    "PPGraphLLL.lean": "a6431bff6d7412724b24fd60151bbe89c5727b0c035ff56142c5bdc5e88bb746",
+    "PPGraphLLL.lean": "d1265a9410612ed29479ddd05b52c704a94a7261a5ddb47fb3b2c0f1684ae4e1",
     "PPGraphLopsidedLLL.lean": "1eb50235b7d4f710a93c8f7640ec4c5f5c27c77d1e1e4b8af677981bba179a45",
     "PPGraphMeta.lean": "bfcc8d79b5451f51967ebfb10b8e71b05d775627f1cdc7cd22d85bf4ee880d7a",
     "PPGraphMoserTardos.lean": "5eaf59f70120e3b5a75f16fb521d1e97f2943ae70d4a3fda879bdf8d4c8ac194",
@@ -147,7 +147,7 @@
     "PPGraphMoserTardosExpectation.lean": "f3b0f023c93018aa5bf152ce7b6173decf7b17b8301d2472a64c731f2789d9e1",
     "PPGraphMoserTardosFullResampling.lean": "5c44f2a447542f8073284d5db2d2db367ff9a4ebf493eaa96bd6657cf8275b5d",
     "PPGraphMoserTardosGrowing.lean": "0cabefdb5cf9fb09d683ae49411789b39592cfb94b90e06831e63f8ac89b6688",
-    "PPGraphMoserTardosHistoryPolicy.lean": "76b05e709370f358f49cd7368554366e971f9feccb18a45b52eda48f1b7cc1ad",
+    "PPGraphMoserTardosHistoryPolicy.lean": "a68b883f6d3c1524215ea310717c01fb99844c8b85b8056b89a3abbdfa48ea75",
     "PPGraphMoserTardosInfeasibility.lean": "02c5c1f85bb76c889333cb27ee60e159bb597e50e40de08251a8b56a956922cb",
     "PPGraphMoserTardosInjectivity.lean": "371ea19a4c6681aa8c1b62dd3e4b21f0bc1df617e848d5787da6712c704d7b45",
     "PPGraphMoserTardosInjectivityBridge.lean": "104f486625220666596d2d43ca95e1973b643558514bd14d7c3af80773617a67",
@@ -159,8 +159,8 @@
     "PPGraphMoserTardosOccurrenceExpectation.lean": "f97f0a8fb5beefa926b88059f54d4ffd92b8e3974a59a002960bb6957950a3aa",
     "PPGraphMoserTardosOccurrenceProbability.lean": "edb36d7293a65dbccbe85cea203a4f763952a1cb6109b7e763e74644d6a53a4e",
     "PPGraphMoserTardosPastIndependence.lean": "a120c699fde230112288c787a3f860ff3b339fa736dacdf0e7098ed7a8c39dd9",
-    "PPGraphMoserTardosPegden.lean": "20ff92fd1d6df62ae8482647be01711daed0f56da7941bddf9b1820f3e31171a",
-    "PPGraphMoserTardosPolicy.lean": "ab72b169d6ef6da8d6c6b2a7e4a249a90f0da2695329ca993a12228a2685de11",
+    "PPGraphMoserTardosPegden.lean": "438975883676d873c223a4a269ea279909771031974e5726e56598bdb0c128cb",
+    "PPGraphMoserTardosPolicy.lean": "34219c93bf86d7bfb425edbe435930f017b9f3a8ef4db416281083df8ac5769e",
     "PPGraphMoserTardosProbability.lean": "a8ce60e33df9ff739e3738707afb249c2e91f6b98bc31a3202eb2355ef79b510",
     "PPGraphMoserTardosProbabilityGeneral.lean": "40cc20faf48842526ac02a2c30d89d6cffc0907a0a5dbe0f423bc6fb217c9932",
     "PPGraphMoserTardosProcess.lean": "88be395afb7ff686b49f203cea36c8e6ead9c90b4be8e3130436311cd2162e68",
@@ -207,14 +207,14 @@
     "PPGraphShearerWitness.lean": "4efa8db471146bbbd6683b3aef8bb847bf18a71feea0d7864470216a77829e3f",
     "PPGraphUnsatisfiableCore.lean": "07bc76c258dcc0ff67b12a851bbd9ddfc31693f68d4741ca9867fa14fe88008e",
     "PPGraphVariableLLL.lean": "183718a0499a28c0e9419d3ccba8ffe794c14855d2f6240d84d133eb56fa02a8",
-    "lakefile.lean": "9835786663403328f9e3be1291ddc142982855778d5b42d828f8deff00c86417",
-    "lean-toolchain": "62c2d9c0fc1ec4c67e151c11eff41ca004ef38e179cf9476c230406e6defedef",
-    "lake-manifest.json": "c6d641ac377012ebe4ebce6bdf671455c76557546e85e21ccc0eda7f6c191f00"
+    "lakefile.lean": "b41c6901d4adfc970846078592e0e03e12da9ef4de9c7169c906adb6d81ba78b",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lake-manifest.json": "69bd64ee24bd0360be6279ab7737e7b384b13db846fb9bfe5d0026f8debd4e72"
   },
   "audit_tool_sha256": "5af1eb2449fe07b9a2ce27c1c4c462b0e6744ce88d4fe4478bd70d80917eed5a",
-  "full_build_log_sha256": "6ebab82bb20dad8e02c18c5a610e6b34b0cfac284f8163c992f4acde4671d340",
-  "inventory_log_sha256": "3952572e379cc56eb8b1492f480377e063eb3fd4622c28b0ded5f8bf52fd990b",
-  "axiom_log_sha256": "c3e31661f84d3771a7a38ee2f675dd3a3edbede24d339971381d8226a89facfa",
+  "full_build_log_sha256": "a5e62bacbc1de111e312b7bebae2ecd4ce1ae6c822e2b045b0aef78f3d6cddba",
+  "inventory_log_sha256": "979dd5ac436118cb860e2f75ec1d5a72ca21930471e9799889c5cf952e1ada03",
+  "axiom_log_sha256": "53658203dda310fa23718496fc1290897002df7931d463399bfa13b6bd6c7794",
   "modules": {
     "PPGraph": {
       "explicit_theorems": [
@@ -1044,7 +1044,7 @@
         "HLS.coin_averaged_intersection_saving",
         "HLS.coin_averaged_saving_le_discounts"
       ],
-      "environment_declaration_count": 42
+      "environment_declaration_count": 41
     },
     "PPGraphHLSColoredExpansion": {
       "explicit_theorems": [
@@ -1091,7 +1091,7 @@
         "HLS.encoded_equality_recovers_choices",
         "HLS.decoded_length_eq_original"
       ],
-      "environment_declaration_count": 102
+      "environment_declaration_count": 101
     },
     "PPGraphHLSExpansionFamily": {
       "explicit_theorems": [
@@ -2252,7 +2252,7 @@
         "Pegden.TernaryExample.expected_work_le_two",
         "Pegden.TernaryExample.strictly_extends_product_criterion"
       ],
-      "environment_declaration_count": 118
+      "environment_declaration_count": 117
     },
     "PPGraphMoserTardosPolicy": {
       "explicit_theorems": [
@@ -2639,7 +2639,7 @@
         "RepairFeasibility.classify_impossible_iff",
         "RepairFeasibility.classify_certified_sound"
       ],
-      "environment_declaration_count": 47
+      "environment_declaration_count": 46
     },
     "PPGraphRepairUndecidability": {
       "explicit_theorems": [
@@ -4071,9 +4071,9 @@
         "propext"
       ]
     },
-    "FiniteDrift.conditionsDecidable._aux_1": {
+    "FiniteDrift.conditionsDecidable._proof_1": {
       "module": "PPGraphFiniteDrift",
-      "kind": "definition",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
         "Classical.choice",
@@ -4637,9 +4637,9 @@
         "propext"
       ]
     },
-    "FiniteLumping.compatibleDecidable._aux_1": {
+    "FiniteLumping.compatibleDecidable._proof_1": {
       "module": "PPGraphFiniteLumping",
-      "kind": "definition",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
         "Classical.choice",
@@ -5295,9 +5295,9 @@
         "propext"
       ]
     },
-    "FinitePotential.closedBadDecidable._aux_1": {
+    "FinitePotential.closedBadDecidable._proof_1": {
       "module": "PPGraphFinitePotentialRefutation",
-      "kind": "definition",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
         "Classical.choice",
@@ -6008,9 +6008,9 @@
         "propext"
       ]
     },
-    "FinitePotential.survivalTableDecidable._aux_1": {
+    "FinitePotential.survivalTableDecidable._proof_1": {
       "module": "PPGraphFinitePotentialTailCertificate",
-      "kind": "definition",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
         "Classical.choice",
@@ -7853,9 +7853,9 @@
         "propext"
       ]
     },
-    "FiniteResampling.validDecidable._aux_1": {
+    "FiniteResampling.validDecidable._proof_1": {
       "module": "PPGraphFiniteResampling",
-      "kind": "definition",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
         "Classical.choice",
@@ -11335,12 +11335,6 @@
       "explicit_theorem": false,
       "axioms": []
     },
-    "HLS.ExpansionChoice.toCtorIdx": {
-      "module": "PPGraphHLSExpansionDecoder",
-      "kind": "definition",
-      "explicit_theorem": false,
-      "axioms": []
-    },
     "HLS.ExpansionChoice.up": {
       "module": "PPGraphHLSExpansionDecoder",
       "kind": "constructor",
@@ -11676,12 +11670,6 @@
       "axioms": []
     },
     "HLS.OrientationCoin.recOn": {
-      "module": "PPGraphHLSCoinSaving",
-      "kind": "definition",
-      "explicit_theorem": false,
-      "axioms": []
-    },
-    "HLS.OrientationCoin.toCtorIdx": {
       "module": "PPGraphHLSCoinSaving",
       "kind": "definition",
       "explicit_theorem": false,
@@ -23901,14 +23889,6 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
-        "propext"
-      ]
-    },
-    "Pegden.TernaryExample.spaces._proof_2": {
-      "module": "PPGraphMoserTardosPegden",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
         "Classical.choice",
         "Quot.sound",
         "propext"
@@ -28200,12 +28180,6 @@
       "axioms": []
     },
     "RepairFeasibility.RepairRegion.recOn": {
-      "module": "PPGraphRepairDecision",
-      "kind": "definition",
-      "explicit_theorem": false,
-      "axioms": []
-    },
-    "RepairFeasibility.RepairRegion.toCtorIdx": {
       "module": "PPGraphRepairDecision",
       "kind": "definition",
       "explicit_theorem": false,

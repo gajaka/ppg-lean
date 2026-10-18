@@ -83,7 +83,7 @@ theorem measurable_readFour {X Y Z : Type} [Fintype X] [Fintype Y] [Fintype Z]
     (nX : X → ℕ) (nY₁ nY₂ : Y → ℕ) (nZ : Z → ℕ) :
     Measurable (readFour (S := S) vX vY vZ nX nY₁ nY₂ nZ) := by
   exact (measurePreserving_splitFour (S := S) vX vY vZ).measurable.comp
-    (measurable_pi_lambda _ (fun k => measurable_pi_apply _))
+    (Measurable.of_eval (fun k => measurable_pi_apply _))
 
 theorem map_readFour {X Y Z : Type} [Fintype X] [Fintype Y] [Fintype Z]
     (vX : X → V) (vY : Y → V) (vZ : Z → V)
