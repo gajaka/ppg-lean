@@ -54,8 +54,22 @@ The separate nanoda run also reported `Unable to print axioms` after typecheckin
 axiom printing was enabled without an output destination. This was an output
 configuration error; the checker enforced the allowlist of `propext`,
 `Classical.choice` and `Quot.sound`. The project axiom audit was also rerun on
-Lean 4.35.0; its updated reports are `PPGRAPH_AXIOM_AUDIT.txt` and
-`PPGRAPH_AXIOM_AUDIT.json`.
+Lean 4.35.0; its updated reports are `reports/PPGRAPH_AXIOM_AUDIT.txt` and
+`reports/PPGRAPH_AXIOM_AUDIT.json`.
+
+Directory reorganization verification on macOS, 2026-10-25:
+
+| Check | Result |
+| --- | --- |
+| Fresh `lake build` | Passed, 3,919 jobs: 191 theory modules and two import facades. |
+| Whole-library axiom audit | Passed: 1,824 explicit theorems/lemmas and all 4,893 project declarations; only the standard axiom dependencies. |
+| Imported API comparison | Conserved all 4,755 public and 138 private declarations, including types, declaration kinds, flags and axiom dependencies. |
+
+The API comparison applies the exact module mapping only in private-name prefixes
+and documented compiler hygiene contexts within binder and universe names,
+preserving user identifiers and numeric uniqueness/scope counters. See the
+[migration note](docs/MODULE_MIGRATION.md). The external-checker results above
+remain the historical 2026-10-18 record.
 
 ## Motivation
 
@@ -212,7 +226,7 @@ stronger certification. The individual checks can give different results on the
 same log. In the published `boot334` example, structural checks pass while the
 spectral-direction check detects a reversal (`cos = −0.74`). A single verdict
 would hide that distinction. The
-[certificate-runner report](https://github.com/gajaka/luces-pvs-theories/blob/main/CERT_RUNNER_RESULTS.md)
+[certificate-runner report](https://github.com/gajaka/luces-pvs-theories/blob/main/docs/CERT_RUNNER_RESULTS.md)
 contains the concrete results. Different checks use different aspects of the
 measurements; shared data does not make them probabilistically independent.
 
@@ -220,83 +234,117 @@ The library has **1,824 explicitly declared theorems and lemmas**, with an expli
 `#check` for each. The diagram below shows how certification, dependency
 analysis, repair, finite decisions and work bounds fit together.
 
-The [module inventory](THEORY_INDEX.md) lists all 191 modules. Run
+The [module inventory](docs/THEORY_INDEX.md) lists all 191 modules. Run
 `python3 tools/audit_ppgraph.py` to rebuild and inspect the axiom dependencies of
 every project declaration, including generated theorem constants. Results and
-source hashes are recorded in `PPGRAPH_AXIOM_AUDIT.txt` and
-`PPGRAPH_AXIOM_AUDIT.json`.
+source hashes are recorded in `reports/PPGRAPH_AXIOM_AUDIT.txt` and
+`reports/PPGRAPH_AXIOM_AUDIT.json`.
 
-[![PPG theory: certification, blocking, probabilistic repair, drift, finite decisions, work and tail bounds, abstraction and undecidability.](ppg-theory.png)](ppg-theory.png)
+[![PPG theory: certification, blocking, probabilistic repair, drift, finite decisions, work and tail bounds, abstraction and undecidability.](assets/ppg-theory.png)](assets/ppg-theory.png)
 
-## Files
+## Library layout
 
-The table lists the original modules. [THEORY_INDEX.md](THEORY_INDEX.md) contains
-the full inventory, including the later probabilistic and decision results.
+The 191 theory modules are grouped by mathematical subject under `PPGraph/`.
+Import a specific module to use one part of the library, or import
+`PPGraph.All` for the complete development. `import PPGraph` remains a small
+entry point for the core graph theory.
+
+| Directory | Scope |
+| --- | --- |
+| `PPGraph/Core/` | Graphs, categorical structure, refinement relations and basic repair |
+| `PPGraph/Certification/` | Ordered certificates, canonical levels, quotients, selection and self-assessment |
+| `PPGraph/Dependency/` | Blocking Dependency Decomposition, component footprints, cost and matrix views |
+| `PPGraph/LLL/` | General, lopsided and variable Lovász Local Lemmas |
+| `PPGraph/MoserTardos/` | Process, witness trees, probability laws and expected-work bounds |
+| `PPGraph/Shearer/` | Shearer polynomials, stable sequences and work budgets |
+| `PPGraph/HLS/` | He–Li–Sun witness DAGs, encoding, probability laws and work bounds |
+| `PPGraph/Drift/` | Generic conditional additive drift |
+| `PPGraph/Finite/` | Finite rational stochastic models, checked potentials, updates, tails and lumping |
+| `PPGraph/Decision/` | Feasibility, refutations, exact finite decisions, abstraction and undecidability |
+| `PPGraph/Optimization/` | Complementary slackness and optimal-transport certificates |
+| `PPGraph/Integration/` | Results connecting different mathematical families |
+
+`MoserTardos` has `Process`, `Witness`, `Probability`, `Counting` and `Bounds` subdirectories;
+`HLS` has `DAG`, `Encoding`, `Probability` and `Bounds` subdirectories. These
+folders record mathematical ownership. Cross-family results can import more
+than one family, as shown in the [full module inventory](docs/THEORY_INDEX.md).
+BDD means Blocking Dependency Decomposition. MT witness trees, Shearer stable
+sequences and HLS witness DAGs retain their separate representations.
+
+The [module migration table](docs/MODULE_MIGRATION.md) maps every former flat
+module name to its current import. Public declaration names, theorem statements and
+proof bodies are preserved by this directory reorganization.
+
+## Selected modules
+
+The table introduces the original theory and Moser–Tardos development at
+their current paths. The [full inventory](docs/THEORY_INDEX.md) also includes
+the later probabilistic and decision results.
 
 | File | Theorems | Scope |
 |------|----------|-------|
-| `PPGraph.lean` | 22 | Core PPG framework: validity, walks, paths, evolution, monotonicity, connectivity, separation, deterministic traversal, violation detection, certificate chains |
-| `PPGraphCategorical.lean` | 10 | Categorical structure: morphisms, embeddings, quotients, refinement, simulation, composition |
-| `PPGraphMeta.lean` | 10 | Meta-PPG: graphs over refinement relations, backward compatibility, upgrade chains, spec versioning |
-| `PPGraphRepair.lean` | 8 | Repair semantics: isolation reversal, route bypass, locality, convergence |
-| `PPGraphRR.lean` | 9 | Refinement relations: port of NASA pvslib sets_aux@rr_rel (rel_extension, RR, g/f-consistency, PPGConfig bridge) |
-| `PPGraphParametric.lean` | 24 | Parametric certification: master refinement, canonical levels, lattice operators, PPG bridge, repair bounds, threshold instance |
-| `PPGraphParametricQuotient.lean` | 26 | Quotient structure: cert_equiv, induced PartialOrder, CertInfClosed meet, LinearOrder separating |
-| `PPGraphBlocking.lean` | 7 | Blocking certificates: diagnostic layer, canonical has empty blocking, stricter has nonempty |
-| `PPGraphQuotientBridge.lean` | 5 | Surjective specification projection: an edge maps to a quotient edge or collapses within a class; certification is well-defined on classes |
-| `PPGraphSelection.lean` | 23 | Hierarchical representative selection: pullback equiv, finest equiv, CertFamily instance via OrderDual Finset, pp_quotient bridge |
-| `PPGraphComplementarySlackness.lean` | 5 | LP duality for optimal transport: pointwise CS, Monge structure, strict uniqueness, zero duality gap certificate |
-| `PPGraphSelfAssessment.lean` | 12 | Failure containment, contamination impossibility, assessment trichotomy, monotone recovery (state-based, spec fixed), three evolution modes |
-| `PPGraphAssessmentBridge.lean` | 8 | Bridge: self-assessment ↔ parametric certification. Complete repair cycle: strict growth + blocking cleared + canonical frontier advances |
-| `PPGraphProbabilistic.lean` | 6 | Blocking dependency decomposition: dependency graph, LLL feasibility, pair infeasibility (quadratic discriminant), repair classification |
-| `PPGraphLLL.lean` | 30 | General Lovász Local Lemma (Alon-Spencer 5.1.1): key inductive bound, denominator telescope, good-event lower bound, positive probability, good state exists |
-| `PPGraphMoserTardos.lean` | 3 | Product probability space and resample operator |
-| `PPGraphMoserTardosProcess.lean` | 2 | The resample-until-fixed algorithm as a process |
-| `PPGraphMoserTardosWitness.lean` | 5 | Dependency graph and witness tree data structure |
-| `PPGraphMoserTardosGrowing.lean` | 8 | Address-indexed growing tree, backward construction of the witness tree from a log |
-| `PPGraphMoserTardosInjectivity.lean` | 14 | Injectivity of the witness-tree encoding: distinct resampling occurrences give distinct trees |
-| `PPGraphMoserTardosWeight.lean` | 3 | Tree weight, the combinatorial quantity used in the convergence bound |
-| `PPGraphMoserTardosConvergence.lean` | 2 | Algebraic core of the convergence bound (Alon-Spencer 5.7.3): tree weight bounded by the LLL weights |
-| `PPGraphLopsidedLLL.lean` | 6 | Lopsided LLL (Erdős-Spencer / Harris): strict generalization of the General LLL via the lopsidependence inequality |
-| `PPGraphVariableLLL.lean` | 29 | Variable-version LLL (He et al., FOCS 2017), Lemma 10: geometric GLLL reformulation, cylinder growth, boundary-point existence |
-| `PPGraphBDD.lean` | 13 | Blocking dependency decomposition: components, disjoint footprints, repair non-interference (single and all-components) |
-| `PPGraphBDDCost.lean` | 5 | Cost-valued non-interference: the optimal cost over a blocking set splits over disjoint components |
-| `PPGraphBDDMatrix.lean` | 3 | Incidence/Gram-matrix view of dependence: dependent iff positive Gram entry |
-| `PPGraphBDDLaplacian.lean` | 9 | Laplacian view: component count equals the Laplacian nullspace dimension |
-| `PPGraphBDDCount.lean` | 6 | Component count equals the number of safe, independently repairable parallel units |
-| `PPGraphBDDMoserTardos.lean` | 2 | Dynamic non-interference: the whole MT process confined to one component never changes another component |
-| `PPGraphMoserTardosLogSpace.lean` | 1 | The C[v,t] coin-flip sample space via Measure.infinitePi (Ionescu-Tulcea) |
-| `PPGraphMoserTardosRandomTrajectory.lean` | 10 | Measurable random trajectory from the log space; a concrete measurable resample policy |
-| `PPGraphMoserTardosPastIndependence.lean` | 2 | The resample decision at time t depends only on log coordinates before t |
-| `PPGraphMoserTardosCorrespondence.lean` | 9 | Lemma 2.1(ii): a witness tree from a genuine real trajectory passes its own τ-check |
-| `PPGraphMoserTardosCheckOrder.lean` | 14 | Lemma 2.1(i) properness: equal-depth vertices have disjoint footprints |
-| `PPGraphMoserTardosCheck.lean` | 1 | localCount and the decreasing-depth deterministic τ-check |
-| `PPGraphMoserTardosCheckBirth.lean` | 22 | Birth step/time of tree vertices; injectivity support |
-| `PPGraphMoserTardosCheckShape.lean` | 8 | τ-check depends only on the canonical shape |
-| `PPGraphMoserTardosCheckInvariance.lean` | 5 | localCount/checkState/τ-check are shape-invariant (address-free counting) |
-| `PPGraphMoserTardosProbability.lean` | 15 | Theorem 5.7.2: Pr[τ-check passes] factors as a product over vertices; reusable infinitePi independence lemmas |
-| `PPGraphMoserTardosProbabilityGeneral.lean` | 6 | 5.7.2 for any SameDepthIndependent growing tree, not only τ_C |
-| `PPGraphMoserTardosWeightSum.lean` | 16 | Σ p[T] over proper trees of depth ≤ D equals the mtWeight recursion |
-| `PPGraphMoserTardosRealTree.lean` | 13 | GrowingTree → WTree bridge: real trees embed as well-formed proper WTrees |
-| `PPGraphMoserTardosCanonical.lean` | 15 | Canonicalization: real tree is weight-equal to a canonical member of the enumeration |
-| `PPGraphMoserTardosWTreeToGrowingTree.lean` | 11 | Direct WTree → GrowingTree embedding; same-depth independence transfers |
-| `PPGraphMoserTardosWTreeCountable.lean` | 1 | Countable (WTree ι), by stratification on tree size |
-| `PPGraphMoserTardosCheckBridge.lean` | 2 | Address-to-shape τ-check bridge for τ_C-built trees |
-| `PPGraphMoserTardosToGrowingTreeCheckBridge.lean` | 6 | Address-to-shape τ-check bridge for toGrowingTree, no τ_C roundtrip |
-| `PPGraphMoserTardosLabelsAtDepthBridge.lean` | 5 | Labels-at-depth transfer between tree representations |
-| `PPGraphMoserTardosInjectivityBridge.lean` | 7 | Distinct occurrence times give distinct canonical trees; weight preserved through conversion |
-| `PPGraphMoserTardosExpectation.lean` | 4 | T_LOG as a countable sum of indicators; E[T_LOG] = Σ Pr[still running] |
-| `PPGraphMoserTardosResamplingCount.lean` | 14 | Decompose the stopped log by resampled event: T_LOG = Σ_α N_α; N_α = distinct canonical witnesses |
-| `PPGraphMoserTardosRandomInitialization.lean` | 3 | Initial state from log slot 0, with measurability |
-| `PPGraphMoserTardosRandomInitExpectation.lean` | 14 | Expectation decomposition for the random-initialization law |
-| `PPGraphMoserTardosOccurrence.lean` | 7 | Witness occurrence events and their measurability |
-| `PPGraphMoserTardosOccurrenceCounting.lean` | 3 | Count of distinct witnesses, canonical family |
-| `PPGraphMoserTardosOccurrenceProbability.lean` | 4 | Pr[witness U occurs] ≤ weight(U) via the 5.7.2 product bound |
-| `PPGraphMoserTardosWitnessFamily.lean` | 6 | Canonical enumeration of the witness family rooted at a label |
-| `PPGraphMoserTardosOccurrenceExpectation.lean` | 7 | The final bound: E[T_LOG] ≤ Σ x(α); finite budgets give finite expectation |
-| `PPGraphMoserTardosConstantLog.lean` | 9 | Reach a good state from any initial state via the constant log |
-| `PPGraphMoserTardosTermination.lean` | 7 | E[T_LOG] < ∞ ⟹ almost-sure termination ⟹ a good state exists (measure-one, not Classical.choose) |
-| `PPGraphMoserTardosRepairBridge.lean` | 8 | Moser-Tardos reachability instantiates the abstract proof-preserving repair relation |
+| `PPGraph/Core/Graph.lean` | 22 | Core PPG framework: validity, walks, paths, evolution, monotonicity, connectivity, separation, deterministic traversal, violation detection, certificate chains |
+| `PPGraph/Core/Categorical.lean` | 10 | Categorical structure: morphisms, embeddings, quotients, refinement, simulation, composition |
+| `PPGraph/Core/Meta.lean` | 10 | Meta-PPG: graphs over refinement relations, backward compatibility, upgrade chains, spec versioning |
+| `PPGraph/Core/Repair.lean` | 8 | Repair semantics: isolation reversal, route bypass, locality, convergence |
+| `PPGraph/Core/RR.lean` | 9 | Refinement relations: port of NASA pvslib sets_aux@rr_rel (rel_extension, RR, g/f-consistency, PPGConfig bridge) |
+| `PPGraph/Certification/Parametric.lean` | 24 | Parametric certification: master refinement, canonical levels, lattice operators, PPG bridge, repair bounds, threshold instance |
+| `PPGraph/Certification/ParametricQuotient.lean` | 26 | Quotient structure: cert_equiv, induced PartialOrder, CertInfClosed meet, LinearOrder separating |
+| `PPGraph/Certification/Blocking.lean` | 7 | Blocking certificates: diagnostic layer, canonical has empty blocking, stricter has nonempty |
+| `PPGraph/Certification/QuotientBridge.lean` | 5 | Surjective specification projection: an edge maps to a quotient edge or collapses within a class; certification is well-defined on classes |
+| `PPGraph/Certification/Selection.lean` | 23 | Hierarchical representative selection: pullback equiv, finest equiv, CertFamily instance via OrderDual Finset, pp_quotient bridge |
+| `PPGraph/Optimization/ComplementarySlackness.lean` | 5 | LP duality for optimal transport: pointwise CS, Monge structure, strict uniqueness, zero duality gap certificate |
+| `PPGraph/Certification/SelfAssessment.lean` | 12 | Failure containment, contamination impossibility, assessment trichotomy, monotone recovery (state-based, spec fixed), three evolution modes |
+| `PPGraph/Certification/AssessmentBridge.lean` | 8 | Bridge: self-assessment ↔ parametric certification. Complete repair cycle: strict growth + blocking cleared + canonical frontier advances |
+| `PPGraph/Dependency/Probabilistic.lean` | 6 | Blocking dependency decomposition: dependency graph, LLL feasibility, pair infeasibility (quadratic discriminant), repair classification |
+| `PPGraph/LLL/General.lean` | 30 | General Lovász Local Lemma (Alon-Spencer 5.1.1): key inductive bound, denominator telescope, good-event lower bound, positive probability, good state exists |
+| `PPGraph/MoserTardos/Process/Basic.lean` | 3 | Product probability space and resample operator |
+| `PPGraph/MoserTardos/Process/Process.lean` | 2 | The resample-until-fixed algorithm as a process |
+| `PPGraph/MoserTardos/Witness/Witness.lean` | 5 | Dependency graph and witness tree data structure |
+| `PPGraph/MoserTardos/Witness/Growing.lean` | 8 | Address-indexed growing tree, backward construction of the witness tree from a log |
+| `PPGraph/MoserTardos/Witness/Injectivity.lean` | 14 | Injectivity of the witness-tree encoding: distinct resampling occurrences give distinct trees |
+| `PPGraph/MoserTardos/Witness/Weight.lean` | 3 | Tree weight, the combinatorial quantity used in the convergence bound |
+| `PPGraph/MoserTardos/Bounds/Convergence.lean` | 2 | Algebraic core of the convergence bound (Alon-Spencer 5.7.3): tree weight bounded by the LLL weights |
+| `PPGraph/LLL/Lopsided.lean` | 6 | Lopsided LLL (Erdős-Spencer / Harris): strict generalization of the General LLL via the lopsidependence inequality |
+| `PPGraph/LLL/Variable.lean` | 29 | Variable-version LLL (He et al., FOCS 2017), Lemma 10: geometric GLLL reformulation, cylinder growth, boundary-point existence |
+| `PPGraph/Dependency/Decomposition.lean` | 13 | Blocking dependency decomposition: components, disjoint footprints, repair non-interference (single and all-components) |
+| `PPGraph/Dependency/Cost.lean` | 5 | Cost-valued non-interference: the optimal cost over a blocking set splits over disjoint components |
+| `PPGraph/Dependency/Matrix.lean` | 3 | Incidence/Gram-matrix view of dependence: dependent iff positive Gram entry |
+| `PPGraph/Dependency/Laplacian.lean` | 9 | Laplacian view: component count equals the Laplacian nullspace dimension |
+| `PPGraph/Dependency/Count.lean` | 6 | Component count equals the number of safe, independently repairable parallel units |
+| `PPGraph/Integration/DependencyMoserTardos.lean` | 2 | Dynamic non-interference: the whole MT process confined to one component never changes another component |
+| `PPGraph/MoserTardos/Process/LogSpace.lean` | 1 | The C[v,t] coin-flip sample space via Measure.infinitePi (Ionescu-Tulcea) |
+| `PPGraph/MoserTardos/Process/RandomTrajectory.lean` | 10 | Measurable random trajectory from the log space; a concrete measurable resample policy |
+| `PPGraph/MoserTardos/Probability/PastIndependence.lean` | 2 | The resample decision at time t depends only on log coordinates before t |
+| `PPGraph/MoserTardos/Witness/Correspondence.lean` | 9 | Lemma 2.1(ii): a witness tree from a genuine real trajectory passes its own τ-check |
+| `PPGraph/MoserTardos/Witness/CheckOrder.lean` | 14 | Lemma 2.1(i) properness: equal-depth vertices have disjoint footprints |
+| `PPGraph/MoserTardos/Witness/Check.lean` | 1 | localCount and the decreasing-depth deterministic τ-check |
+| `PPGraph/MoserTardos/Witness/CheckBirth.lean` | 22 | Birth step/time of tree vertices; injectivity support |
+| `PPGraph/MoserTardos/Witness/CheckShape.lean` | 8 | τ-check depends only on the canonical shape |
+| `PPGraph/MoserTardos/Witness/CheckInvariance.lean` | 5 | localCount/checkState/τ-check are shape-invariant (address-free counting) |
+| `PPGraph/MoserTardos/Probability/Probability.lean` | 15 | Theorem 5.7.2: Pr[τ-check passes] factors as a product over vertices; reusable infinitePi independence lemmas |
+| `PPGraph/MoserTardos/Probability/ProbabilityGeneral.lean` | 6 | 5.7.2 for any SameDepthIndependent growing tree, not only τ_C |
+| `PPGraph/MoserTardos/Bounds/WeightSum.lean` | 16 | Σ p[T] over proper trees of depth ≤ D equals the mtWeight recursion |
+| `PPGraph/MoserTardos/Witness/RealTree.lean` | 13 | GrowingTree → WTree bridge: real trees embed as well-formed proper WTrees |
+| `PPGraph/MoserTardos/Witness/Canonical.lean` | 15 | Canonicalization: real tree is weight-equal to a canonical member of the enumeration |
+| `PPGraph/MoserTardos/Witness/WTreeToGrowingTree.lean` | 11 | Direct WTree → GrowingTree embedding; same-depth independence transfers |
+| `PPGraph/MoserTardos/Witness/WTreeCountable.lean` | 1 | Countable (WTree ι), by stratification on tree size |
+| `PPGraph/MoserTardos/Witness/CheckBridge.lean` | 2 | Address-to-shape τ-check bridge for τ_C-built trees |
+| `PPGraph/MoserTardos/Witness/ToGrowingTreeCheckBridge.lean` | 6 | Address-to-shape τ-check bridge for toGrowingTree, no τ_C roundtrip |
+| `PPGraph/MoserTardos/Witness/LabelsAtDepthBridge.lean` | 5 | Labels-at-depth transfer between tree representations |
+| `PPGraph/MoserTardos/Witness/InjectivityBridge.lean` | 7 | Distinct occurrence times give distinct canonical trees; weight preserved through conversion |
+| `PPGraph/MoserTardos/Bounds/Expectation.lean` | 4 | T_LOG as a countable sum of indicators; E[T_LOG] = Σ Pr[still running] |
+| `PPGraph/MoserTardos/Counting/ResamplingCount.lean` | 14 | Decompose the stopped log by resampled event: T_LOG = Σ_α N_α; N_α = distinct canonical witnesses |
+| `PPGraph/MoserTardos/Process/RandomInitialization.lean` | 3 | Initial state from log slot 0, with measurability |
+| `PPGraph/MoserTardos/Probability/RandomInitExpectation.lean` | 14 | Expectation decomposition for the random-initialization law |
+| `PPGraph/MoserTardos/Witness/Occurrence.lean` | 7 | Witness occurrence events and their measurability |
+| `PPGraph/MoserTardos/Counting/OccurrenceCounting.lean` | 3 | Count of distinct witnesses, canonical family |
+| `PPGraph/MoserTardos/Probability/OccurrenceProbability.lean` | 4 | Pr[witness U occurs] ≤ weight(U) via the 5.7.2 product bound |
+| `PPGraph/MoserTardos/Witness/WitnessFamily.lean` | 6 | Canonical enumeration of the witness family rooted at a label |
+| `PPGraph/MoserTardos/Bounds/OccurrenceExpectation.lean` | 7 | The final bound: E[T_LOG] ≤ Σ x(α); finite budgets give finite expectation |
+| `PPGraph/MoserTardos/Bounds/ConstantLog.lean` | 9 | Reach a good state from any initial state via the constant log |
+| `PPGraph/MoserTardos/Bounds/Termination.lean` | 7 | E[T_LOG] < ∞ ⟹ almost-sure termination ⟹ a good state exists (measure-one, not Classical.choose) |
+| `PPGraph/Integration/MoserTardosRepair.lean` | 8 | Moser-Tardos reachability instantiates the abstract proof-preserving repair relation |
 
 ## Central Theorems
 
@@ -310,135 +358,135 @@ Each theorem name links to its Lean source file.
 
 1. **Master refinement**
 
-    Lean: [master_refinement](PPGraphParametric.lean).
+    Lean: [master_refinement](PPGraph/Certification/Parametric.lean).
 
     θ₁ ≤ θ₂ ∧ Cert(d,θ₁) → Cert(d,θ₂)
 
 2. **Canonical characterization**
 
-    Lean: [certified_iff_above_canonical](PPGraphParametric.lean).
+    Lean: [certified_iff_above_canonical](PPGraph/Certification/Parametric.lean).
 
     Cert(d,θ) ↔ θ_c ≤ θ (principal upper set)
 
 3. **Certified subgraph validity**
 
-    Lean: [certified_subgraph_pp_valid](PPGraphParametric.lean).
+    Lean: [certified_subgraph_pp_valid](PPGraph/Certification/Parametric.lean).
 
     Certified subgraph is pp_valid
 
 4. **Canonical bound after repair**
 
-    Lean: [repair_raises_canonical](PPGraphParametric.lean).
+    Lean: [repair_raises_canonical](PPGraph/Certification/Parametric.lean).
 
     After repair, canonical ≤ target
 
 5. **Canonical existence**
 
-    Lean: [canonical_spec_is_canonical](PPGraphParametric.lean).
+    Lean: [canonical_spec_is_canonical](PPGraph/Certification/Parametric.lean).
 
     In a complete lattice, a nonempty certified set closed under infima of nonempty
     subsets has a canonical level
 
 6. **Lower canonical bound**
 
-    Lean: [no_repair_below_canonical](PPGraphParametric.lean).
+    Lean: [no_repair_below_canonical](PPGraph/Certification/Parametric.lean).
 
     For a fixed datum, no level outside the canonical upper set is certified
 
 7. **Canonical blocking set**
 
-    Lean: [canonical_blocking_empty](PPGraphBlocking.lean).
+    Lean: [canonical_blocking_empty](PPGraph/Certification/Blocking.lean).
 
     At canonical level, blocking set is empty
 
 8. **Separating certificate classes**
 
-    Lean: [separating_equiv_eq](PPGraphParametricQuotient.lean).
+    Lean: [separating_equiv_eq](PPGraph/Certification/ParametricQuotient.lean).
 
     In a linear order with a separating certificate family, cert_equiv implies equality
 
 9. **Hierarchical selection**
 
-    Lean: [lens_master_refinement](PPGraphSelection.lean).
+    Lean: [lens_master_refinement](PPGraph/Certification/Selection.lean).
 
     Master refinement applied to the OrderDual Finset certificate family
 
 10. **Quotient projection**
 
-    Lean: [proj_is_pp_quotient](PPGraphSelection.lean).
+    Lean: [proj_is_pp_quotient](PPGraph/Certification/Selection.lean).
 
     With pp_valid and edges separating classes, the finest-equivalence projection is
     surjective and preserves graph edges
 
 11. **Pointwise complementary slackness**
 
-    Lean: [cs_pointwise](PPGraphComplementarySlackness.lean).
+    Lean: [cs_pointwise](PPGraph/Optimization/ComplementarySlackness.lean).
 
     dual_feasible ∧ P(i,j)>0 ∧ P·slack=0 → u(i)+v(j)=C(i,j)
 
 12. **Strict Monge uniqueness**
 
-    Lean: [monge_cs_strict_unique](PPGraphComplementarySlackness.lean).
+    Lean: [monge_cs_strict_unique](PPGraph/Optimization/ComplementarySlackness.lean).
 
     Monge + CS + strict → unique tight entry per row
 
 13. **General Local Lemma existence**
 
-    Lean: [lll_good_state_exists](PPGraphLLL.lean).
+    Lean: [lll_good_state_exists](PPGraph/LLL/General.lean).
 
     General LLL (Alon-Spencer 5.1.1): a state avoiding all bad events exists
 
 14. **Lopsided generalization**
 
-    Lean: [independence_implies_lopsidependence](PPGraphLopsidedLLL.lean).
+    Lean: [independence_implies_lopsidependence](PPGraph/LLL/Lopsided.lean).
 
     Lopsided LLL subsumes the General LLL (equality ⟹ the ≤ hypothesis)
 
 15. **Component repair non-interference**
 
-    Lean: [repair_noninterference](PPGraphBDD.lean).
+    Lean: [repair_noninterference](PPGraph/Dependency/Decomposition.lean).
 
     A repair confined to one component cannot change any obligation in another
 
 16. **Localized Moser–Tardos trajectories**
 
-    Lean: [mt_trajectory_localizes](PPGraphBDDMoserTardos.lean).
+    Lean: [mt_trajectory_localizes](PPGraph/Integration/DependencyMoserTardos.lean).
 
     The whole MT process in one component never changes another component, at any step
 
 17. **Real-trajectory witness check**
 
-    Lean: [τCheck_holds_of_real_trajectory](PPGraphMoserTardosCorrespondence.lean).
+    Lean: [τCheck_holds_of_real_trajectory](PPGraph/MoserTardos/Witness/Correspondence.lean).
 
     Lemma 2.1(ii): a genuine real trajectory passes its own witness-tree check
 
 18. **Witness-check probability factorization**
 
-    Lean: [logMeasure_τCheck_eq_prod_p](PPGraphMoserTardosProbability.lean).
+    Lean: [logMeasure_τCheck_eq_prod_p](PPGraph/MoserTardos/Probability/Probability.lean).
 
     Theorem 5.7.2: Pr[τ-check passes] = ∏ p(label) over the tree vertices
 
 19. **Algebraic Moser–Tardos budget**
 
-    Lean: [sum_mtWeight_le](PPGraphMoserTardosConvergence.lean).
+    Lean: [sum_mtWeight_le](PPGraph/MoserTardos/Bounds/Convergence.lean).
 
     Σ_α w(D,α) ≤ Σ_α x(α) (algebraic MT budget bound)
 
 20. **Moser–Tardos expected work**
 
-    Lean: [randomInitETLog_le_sum](PPGraphMoserTardosOccurrenceExpectation.lean).
+    Lean: [randomInitETLog_le_sum](PPGraph/MoserTardos/Bounds/OccurrenceExpectation.lean).
 
     **E[T_LOG] ≤ Σ_α x(α)**: the Moser-Tardos expected-work bound, no termination assumption
 
 21. **Finite expected resampling work**
 
-    Lean: [randomInitETLog_lt_top](PPGraphMoserTardosOccurrenceExpectation.lean).
+    Lean: [randomInitETLog_lt_top](PPGraph/MoserTardos/Bounds/OccurrenceExpectation.lean).
 
     Finite MT budgets ⟹ finite expected work (E[T_LOG] < ∞)
 
 22. **Moser–Tardos repair bridge**
 
-    Lean: [mtRepairGraph_globally_repairable](PPGraphMoserTardosRepairBridge.lean).
+    Lean: [mtRepairGraph_globally_repairable](PPGraph/Integration/MoserTardosRepair.lean).
 
     Under the bridge hypotheses, Moser–Tardos reachability satisfies the abstract
     proof-preserving repair relation
@@ -448,28 +496,28 @@ Each theorem name links to its Lean source file.
 
 23. **Pegden expected-work bound**
 
-    Lean: [Pegden.randomInitETLog_le_sum](PPGraphMoserTardosPegden.lean).
+    Lean: [Pegden.randomInitETLog_le_sum](PPGraph/MoserTardos/Bounds/Pegden.lean).
 
     Pegden's independent-subset budget on each closed neighborhood gives random-initialized
     **E[T_LOG] ≤ Σ x(α)**
 
 24. **Shearer expected-work bound**
 
-    Lean: [Shearer.randomInitETLog_le_sum_stableBudget](PPGraphShearerExpectation.lean).
+    Lean: [Shearer.randomInitETLog_le_sum_stableBudget](PPGraph/Shearer/Expectation.lean).
 
     Probability upper bounds satisfying strict Shearer positivity give **E[T_LOG] ≤ Σ
     q_{α}/q_∅**
 
 25. **Component-local Shearer budget**
 
-    Lean: [Shearer.randomInitExpectedComponentCount_le_budget](PPGraphShearerBDDExpectation.lean).
+    Lean: [Shearer.randomInitExpectedComponentCount_le_budget](PPGraph/Shearer/BDDExpectation.lean).
 
     Strict Shearer on one full dependency component bounds its expected resampling count,
     without certifying the other components
 
 26. **He–Li–Sun expected work for admissible policies**
 
-    Lean: [HLS.Policy.randomized_expectedWork_le_sum_stableBudget](PPGraphHLSPolicyExpectation.lean).
+    Lean: [HLS.Policy.randomized_expectedWork_le_sum_stableBudget](PPGraph/Integration/Policy/HLSExpectation.lean).
 
     Positive event probabilities, matching-compatible intersection lower bounds and strict
     Shearer at **p⁻ = p − δ²/17** bound expected work by the singleton Shearer budgets, for
@@ -477,21 +525,21 @@ Each theorem name links to its Lean source file.
 
 27. **He–Li–Sun slack bound**
 
-    Lean: [HLS.Policy.randomized_expectedWork_le_card_div_slack](PPGraphHLSPolicyExpectation.lean).
+    Lean: [HLS.Policy.randomized_expectedWork_le_card_div_slack](PPGraph/Integration/Policy/HLSExpectation.lean).
 
     Under the same policy/overlap assumptions, ε > 0 and strict Shearer at **(1+ε)p⁻** give
     **E[T] ≤ card(ι)/ε**
 
 28. **He–Li–Sun almost-sure repair**
 
-    Lean: [HLS.Policy.randomized_ae_exists_good](PPGraphHLSPolicyExpectation.lean).
+    Lean: [HLS.Policy.randomized_ae_exists_good](PPGraph/Integration/Policy/HLSExpectation.lean).
 
     Under the HLS policy criterion, a good state is reached almost surely under the
     seed/table product law; termination is a conclusion
 
 29. **Conditional additive drift**
 
-    Lean: [RepairDrift.ConditionalCertificate.expectedActiveCount_le](PPGraphAdditiveDrift.lean).
+    Lean: [RepairDrift.ConditionalCertificate.expectedActiveCount_le](PPGraph/Drift/Additive.lean).
 
     A nonnegative integrable adapted potential with conditional decrease δ > 0 on active
     steps and conditional nonincrease on inactive steps gives
@@ -499,7 +547,7 @@ Each theorem name links to its Lean source file.
 
 30. **Full-resampling expected work**
 
-    Lean: [RepairDrift.fullResampling_expected_work_eq](PPGraphMoserTardosFullResampling.lean).
+    Lean: [RepairDrift.fullResampling_expected_work_eq](PPGraph/MoserTardos/Process/FullResampling.lean).
 
     If every event resamples all variables, random-initialized **E[T_LOG] = b/(1−b)** in
     extended nonnegative reals, with b = Pr[bad]; positive good-state mass gives finite work
@@ -514,49 +562,49 @@ fairness or eventual repair of that component.
 
 31. **Exact finite potential synthesis**
 
-    Lean: [FinitePotential.synthesize_iff_accessible](PPGraphFinitePotential.lean).
+    Lean: [FinitePotential.synthesize_iff_accessible](PPGraph/Finite/Potential/Basic.lean).
 
     For a fixed finite stochastic kernel with absorbing good states, checked potential
     synthesis succeeds **iff every state has a positive-mass path to good**
 
 32. **Fixed-start exact expectation**
 
-    Lean: [FiniteResampling.ETLog_eq_potential](PPGraphFinitePotentialExpectationMT.lean).
+    Lean: [FiniteResampling.ETLog_eq_potential](PPGraph/Integration/FinitePotentialExpectationMT.lean).
 
     In a valid finite MT model with global positive-mass accessibility, fixed-start
     **E[T_LOG] equals the exact rational potential**
 
 33. **Random-start exact expectation**
 
-    Lean: [FiniteResampling.randomInitETLog_eq_potential_sum](PPGraphFinitePotentialExpectationMT.lean).
+    Lean: [FiniteResampling.randomInitETLog_eq_potential_sum](PPGraph/Integration/FinitePotentialExpectationMT.lean).
 
     Under the same accessibility hypothesis, slot-zero initialization gives **E[T_LOG] = Σₛ
     productMass(Q,s) · potential(s)**
 
 34. **Exact stopping probability**
 
-    Lean: [FiniteResampling.TLog_timeout_eq_survival](PPGraphFinitePotentialTailMT.lean).
+    Lean: [FiniteResampling.TLog_timeout_eq_survival](PPGraph/Integration/FinitePotentialTailMT.lean).
 
     A valid finite MT model and fixed start give **Pr[T_LOG > N] = survival(N,s₀)**, the
     exact rational recurrence, without a termination premise
 
 35. **Checked timeout bounds**
 
-    Lean: [FiniteResampling.TLog_timeout_checkedTable_blocks_le](PPGraphFinitePotentialTailMT.lean).
+    Lean: [FiniteResampling.TLog_timeout_checkedTable_blocks_le](PPGraph/Integration/FinitePotentialTailMT.lean).
 
     An accepted survival table with every H-step survival value ≤ b and b ≥ 0 gives
     **Pr[T_LOG > kH] ≤ bᵏ**, with geometric decay when b < 1 and H > 0
 
 36. **Closed bad set and infinite expected work**
 
-    Lean: [FiniteResampling.ETLog_checkedClosedBad_eq_top](PPGraphFinitePotentialTailMT.lean).
+    Lean: [FiniteResampling.ETLog_checkedClosedBad_eq_top](PPGraph/Integration/FinitePotentialTailMT.lean).
 
     An accepted closed-bad-set certificate containing the fixed start gives **E[T_LOG] = ∞**
     for that kernel/policy
 
 37. **Exact stopped-count reduction**
 
-    Lean: [FiniteLumpingUpdate.hitCount_projection](PPGraphFiniteLumpingUpdate.lean).
+    Lean: [FiniteLumpingUpdate.hitCount_projection](PPGraph/Finite/Lumping/Update.lean).
 
     Commuting updates and preserved good tests give pointwise equality of concrete/reduced
     stopped counts on the same input stream; concrete state may be infinite
@@ -572,14 +620,14 @@ repair policy.
 
 38. **Finite witness decision**
 
-    Lean: [RepairFeasibility.solve_isWitness_iff](PPGraphCertifiedDecision.lean).
+    Lean: [RepairFeasibility.solve_isWitness_iff](PPGraph/Decision/CertifiedDecision.lean).
 
     Decidable tests and an enumeration covering all admissible states give a witness **iff
     the obligations are satisfiable**; the other branch carries a refutation
 
 39. **Repair through exact finite abstraction**
 
-    Lean: [RepairFeasibility.repairByFiniteAbstraction_spec](PPGraphFiniteAbstractionRepair.lean).
+    Lean: [RepairFeasibility.repairByFiniteAbstraction_spec](PPGraph/Integration/AbstractionRepair.lean).
 
     A supplied executable exact finite abstraction gives a concrete repair trace or checked
     invariant refutation; the repaired flag is true **iff a concrete good state is
@@ -587,27 +635,27 @@ repair policy.
 
 40. **Minimal infeasible core**
 
-    Lean: [RepairFeasibility.minimalCore_exists](PPGraphUnsatisfiableCore.lean).
+    Lean: [RepairFeasibility.minimalCore_exists](PPGraph/Decision/UnsatisfiableCore.lean).
 
     Every finite infeasible obligation family contains a minimal infeasible subfamily
 
 41. **Core/correction duality**
 
-    Lean: [RepairFeasibility.minimalCore_iff_minimalCorrectionHittingSet](PPGraphCorrectionDuality.lean).
+    Lean: [RepairFeasibility.minimalCore_iff_minimalCorrectionHittingSet](PPGraph/Decision/CorrectionDuality.lean).
 
     For K ⊆ B, K is a minimal infeasible core **iff it is an inclusion-minimal hitting set of
     B's minimal correction sets**
 
 42. **Farkas reachability refutation**
 
-    Lean: [RepairFeasibility.farkasCheck_noReachableGood](PPGraphFarkasCertificate.lean).
+    Lean: [RepairFeasibility.farkasCheck_noReachableGood](PPGraph/Decision/FarkasCertificate.lean).
 
     An accepted rational Farkas certificate and a sound linear model for good states imply
     **no reachable good state exists**
 
 43. **Limit of uniform repairability decisions**
 
-    Lean: [RepairFeasibility.ComputabilityLimit.no_total_repairability_decider](PPGraphRepairUndecidability.lean).
+    Lean: [RepairFeasibility.ComputabilityLimit.no_total_repairability_decider](PPGraph/Decision/Undecidability.lean).
 
     **No computable total repairability test** exists uniformly for the halting-encoding
     infinite graph family, despite decidable state tests
@@ -622,7 +670,7 @@ distinct from an impossibility certificate.
 ## Theory Layers
 
 These groups describe what each part of the library does. The
-[module inventory](THEORY_INDEX.md) lists the individual files.
+[module inventory](docs/THEORY_INDEX.md) lists the individual files.
 
 ### Certification, structure and assessment
 
@@ -731,31 +779,31 @@ of the source result that it formalizes.
 - **General LLL and resampling**: Alon and Spencer, *The Probabilistic Method*,
   4th ed., Wiley 2016, Lemma 5.1.1 and §5.7; Moser and Tardos,
   [*A constructive proof of the general Lovász Local Lemma*](https://arxiv.org/abs/0903.0544v3).
-  [PPGraphLLL.lean](PPGraphLLL.lean) proves the General LLL using unconditional
+  [PPGraph/LLL/General.lean](PPGraph/LLL/General.lean) proves the General LLL using unconditional
   measures, avoiding division by conditioning probabilities.
   The Moser–Tardos files cover the product resampling table, measurable
   trajectories, witness trees, injectivity, check probabilities and occurrence
-  counting. [PPGraphMoserTardosOccurrenceExpectation.lean](PPGraphMoserTardosOccurrenceExpectation.lean)
+  counting. [PPGraph/MoserTardos/Bounds/OccurrenceExpectation.lean](PPGraph/MoserTardos/Bounds/OccurrenceExpectation.lean)
   proves E[T_LOG] ≤ Σ x(α) in the library's resampling-budget parametrization;
-  [PPGraphMoserTardosTermination.lean](PPGraphMoserTardosTermination.lean)
+  [PPGraph/MoserTardos/Bounds/Termination.lean](PPGraph/MoserTardos/Bounds/Termination.lean)
   derives almost-sure termination from finite expectation.
 
 - **Lopsided LLL**: The Erdős–Spencer criterion, as recalled by Harris in
   [*Lopsidependency in the Moser-Tardos framework: Beyond the Lopsided Lovász Local Lemma*](https://arxiv.org/abs/1610.02420v4),
-  §1.2. [PPGraphLopsidedLLL.lean](PPGraphLopsidedLLL.lean) weakens independence
+  §1.2. [PPGraph/LLL/Lopsided.lean](PPGraph/LLL/Lopsided.lean) weakens independence
   to the stated lopsidependence inequality. Harris's stronger orderability
   criterion is outside this formalization.
 
 - **Variable-version geometry**: He, Li, Liu, Wang and Xia,
   [*Variable Version Lovász Local Lemma: Beyond Shearer's Bound*](https://arxiv.org/abs/1709.05143v1),
-  §3, Lemma 10. [PPGraphVariableLLL.lean](PPGraphVariableLLL.lean) formalizes
+  §3, Lemma 10. [PPGraph/LLL/Variable.lean](PPGraph/LLL/Variable.lean) formalizes
   the geometric boundary lemma and the cylinder-growth argument it needs;
   it does not claim the paper's full necessary-and-sufficient characterization.
 
 ### Stronger probabilistic bounds
 
 - **Pegden**: [*An extension of the Moser-Tardos algorithmic local lemma*](https://arxiv.org/abs/1102.2853v2),
-  Theorem 1.4. [PPGraphMoserTardosPegden.lean](PPGraphMoserTardosPegden.lean)
+  Theorem 1.4. [PPGraph/MoserTardos/Bounds/Pegden.lean](PPGraph/MoserTardos/Bounds/Pegden.lean)
   replaces the original product budget by a sum over independent subsets of
   each closed neighborhood. With product-table initialization, the process
   satisfies E[T_LOG] ≤ Σ x(α) under this criterion, without assuming termination.
@@ -763,15 +811,15 @@ of the source result that it formalizes.
 - **Shearer**: Harvey and Vondrák,
   [*Short proofs for generalizations of the Lovász Local Lemma: Shearer's condition and cluster expansion*](https://arxiv.org/abs/1711.06797v1),
   §2. The existence and probability lower-bound proofs in
-  [PPGraphShearer.lean](PPGraphShearer.lean) follow this presentation, using
+  [PPGraph/Shearer/Basic.lean](PPGraph/Shearer/Basic.lean) follow this presentation, using
   strict positivity.
   The expected-work result is the Kolipaka–Szegedy bound, presented in
   [Vondrák's 2018 Lecture 8](https://theory.stanford.edu/~jvondrak/MATH233A-2018/Math233-lec08.pdf),
   Lemma 8.1 and Theorem 8.8. Stable-family identities also follow Harvey and
   Vondrák's [resampling-oracles paper](https://arxiv.org/abs/1504.02044v3), §5.
-  [PPGraphShearerExpectation.lean](PPGraphShearerExpectation.lean) proves
+  [PPGraph/Shearer/Expectation.lean](PPGraph/Shearer/Expectation.lean) proves
   E[T_LOG] ≤ Σ q_{α}/q_∅, with further bounds using slack and
-  [individual component budgets](PPGraphShearerBDDExpectation.lean). Bounding
+  [individual component budgets](PPGraph/Shearer/BDDExpectation.lean). Bounding
   a component's resampling count does not guarantee that the schedule eventually
   serves or repairs it.
 
@@ -780,7 +828,7 @@ of the source result that it formalizes.
   probabilities. Lower bounds δ on intersections along a matching give
   p⁻ = p − δ²/17. Strict Shearer at p⁻ yields finite expected work; at
   (1+ε)p⁻, with ε > 0, the bound is m/ε for m bad events.
-  [PPGraphHLSPolicyExpectation.lean](PPGraphHLSPolicyExpectation.lean) covers
+  [PPGraph/Integration/Policy/HLSExpectation.lean](PPGraph/Integration/Policy/HLSExpectation.lean) covers
   arbitrary measurable admissible schedules, including history-dependent rules
   and independent auxiliary randomization, under the stated probability,
   intersection and measurability hypotheses. Initialization uses slot zero of
@@ -790,13 +838,13 @@ of the source result that it formalizes.
 
 - **Additive drift**: Lengler, [*Drift Analysis*](https://arxiv.org/abs/1712.00964v2),
   Theorem 1, provides the background for
-  [PPGraphAdditiveDrift.lean](PPGraphAdditiveDrift.lean). The formalization uses
+  [PPGraph/Drift/Additive.lean](PPGraph/Drift/Additive.lean). The formalization uses
   a nonnegative integrable adapted potential whose conditional expectation
   decreases by at least δ > 0 on active steps and does not increase on inactive
   steps, giving E[active steps] ≤ E[V₀]/δ. Its
-  [Moser–Tardos instance](PPGraphMoserTardosDrift.lean) uses the existing
+  [Moser–Tardos instance](PPGraph/MoserTardos/Bounds/Drift.lean) uses the existing
   first-violated-event policy. Modeled costs are bounded separately; when every
-  event resamples all variables, [full resampling](PPGraphMoserTardosFullResampling.lean)
+  event resamples all variables, [full resampling](PPGraph/MoserTardos/Process/FullResampling.lean)
   gives exact geometric tails and the product-table random-initialization mean
   E[T_LOG] = b/(1−b) in extended nonnegative reals, where b is the initial
   bad-state probability.
@@ -806,34 +854,34 @@ of the source result that it formalizes.
   §7.1.1 and Exercise 7.25; Levin and Peres,
   [*Markov Chains and Mixing Times*, 2nd ed.](https://pages.uoregon.edu/dlevin/MARKOV/mcmt2e.pdf),
   Exercise 10.22 and the uniform-block argument in the proof of Lemma 1.13.
-  [PPGraphFinitePotential.lean](PPGraphFinitePotential.lean) synthesizes checked
+  [PPGraph/Finite/Potential/Basic.lean](PPGraph/Finite/Potential/Basic.lean) synthesizes checked
   rational potentials through first-step hitting-time equations. The
-  [MT expectation bridge](PPGraphFinitePotentialExpectationMT.lean) gives exact
-  fixed-start and random-start means; the [tail bridge](PPGraphFinitePotentialTailMT.lean)
+  [MT expectation bridge](PPGraph/Integration/FinitePotentialExpectationMT.lean) gives exact
+  fixed-start and random-start means; the [tail bridge](PPGraph/Integration/FinitePotentialTailMT.lean)
   gives exact survival probabilities, checked geometric block bounds and
   closed-bad-set certificates for the specified kernel and start.
 
 - **Exact reduction**: Levin and Peres, §2.3.1, Lemma 2.5 and equation (2.10).
-  [PPGraphFiniteLumping.lean](PPGraphFiniteLumping.lean) uses the local
+  [PPGraph/Finite/Lumping/Basic.lean](PPGraph/Finite/Lumping/Basic.lean) uses the local
   transition-fiber mass identity and preservation of the good-state test.
-  [PPGraphFiniteLumpingUpdate.lean](PPGraphFiniteLumpingUpdate.lean) derives
+  [PPGraph/Finite/Lumping/Update.lean](PPGraph/Finite/Lumping/Update.lean) derives
   reduction from commuting updates and a shared input law, allowing an infinite
   concrete state space. A reachability abstraction alone does not justify
   transferring expectations or tails.
 
 ### Reachability, refutation and decision limits
 
-The [finite decision](PPGraphCertifiedDecision.lean) and
-[exact-abstraction repair](PPGraphFiniteAbstractionRepair.lean) layers return
+The [finite decision](PPGraph/Decision/CertifiedDecision.lean) and
+[exact-abstraction repair](PPGraph/Integration/AbstractionRepair.lean) layers return
 positive witnesses or checked refutations under their declared enumeration,
 forward simulation, executable step realization and good-state equivalence
 obligations. These procedures use exhaustive finite search. Constructing an
-exact abstraction is a separate task. [Minimal cores](PPGraphUnsatisfiableCore.lean) and
-[correction-set duality](PPGraphCorrectionDuality.lean) describe infeasible
-obligation families, while [invariant refutations](PPGraphReachabilityRefutation.lean)
+exact abstraction is a separate task. [Minimal cores](PPGraph/Decision/UnsatisfiableCore.lean) and
+[correction-set duality](PPGraph/Decision/CorrectionDuality.lean) describe infeasible
+obligation families, while [invariant refutations](PPGraph/Decision/ReachabilityRefutation.lean)
 exclude good states along the declared repair relation.
 
-For linear models, [PPGraphFarkasCertificate.lean](PPGraphFarkasCertificate.lean)
+For linear models, [PPGraph/Decision/FarkasCertificate.lean](PPGraph/Decision/FarkasCertificate.lean)
 proves soundness of accepted rational infeasibility certificates, following the
 certificate direction of Dlask and Werner,
 [*Bounding Linear Programs by Constraint Propagation: Application to Max-SAT*](https://cmp.felk.cvut.cz/~dlaskto2/papers/Dlask-Werner-CP2020a.pdf),
@@ -841,10 +889,10 @@ certificate direction of Dlask and Werner,
 one for every infeasible model. The infinite-model decision limit reuses the
 computability apparatus described by Carneiro in
 [*Formalizing computability theory via partial recursive functions*](https://arxiv.org/abs/1810.08380v3),
-§§5.2–5.3. [PPGraphRepairUndecidability.lean](PPGraphRepairUndecidability.lean)
+§§5.2–5.3. [PPGraph/Decision/Undecidability.lean](PPGraph/Decision/Undecidability.lean)
 constructs the repair-family reduction to the halting problem.
 
-[PPGraphMoserTardosRepairBridge.lean](PPGraphMoserTardosRepairBridge.lean)
+[PPGraph/Integration/MoserTardosRepair.lean](PPGraph/Integration/MoserTardosRepair.lean)
 connects resampling reachability to abstract repair. A good target gives an
 existence witness; almost-sure termination and expected work require the
 probability-law hypotheses of their respective theorems. Refuting a repair

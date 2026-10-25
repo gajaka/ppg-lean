@@ -7,7 +7,7 @@ tool, not a proof oracle. Library files retain #check, never #print axioms.
 """
 
 import argparse
-from collections import Counter, defaultdict
+from collections import defaultdict
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -28,6 +28,66 @@ CHECK = re.compile(rf"^[ \t]*#check[ \t]+@?({IDENTIFIER})", re.M)
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def module_name(path, root):
+    return ".".join(path.relative_to(root).with_suffix("").parts)
+
+
+def load_module_map(root=ROOT):
+    manifest = json.loads((root / "tools/module-map.json").read_text())
+    if manifest.get("schema_version") != 1:
+        raise AssertionError("unsupported module-map schema")
+    canonical, facades = {}, {}
+    paths, old_paths = set(), set()
+    for key, destination in (("canonical_modules", canonical), ("facades", facades)):
+        rows = manifest.get(key)
+        if not isinstance(rows, list) or not rows:
+            raise AssertionError(f"empty/invalid module-map {key}")
+        for row in rows:
+            relative = Path(row["path"])
+            if (relative.is_absolute() or ".." in relative.parts
+                    or relative.as_posix() != row["path"]
+                    or relative.suffix != ".lean"):
+                raise AssertionError(f"invalid module-map path: {row['path']}")
+            path = root / relative
+            module = row["module"]
+            if module != module_name(path, root):
+                raise AssertionError(f"module/path mismatch: {module}: {relative}")
+            if module != "PPGraph" and not module.startswith("PPGraph."):
+                raise AssertionError(f"non-project module: {module}")
+            if path in paths or module in canonical or module in facades:
+                raise AssertionError(f"duplicate module-map entry: {module}: {relative}")
+            if key == "canonical_modules":
+                old_path = row["old_path"]
+                if old_path in old_paths:
+                    raise AssertionError(f"duplicate old module path: {old_path}")
+                old_paths.add(old_path)
+            paths.add(path)
+            destination[module] = path
+    discovered = set(root.glob("PPGraph*.lean")) | set((root / "PPGraph").rglob("*.lean"))
+    if discovered != paths:
+        missing = sorted(str(p.relative_to(root)) for p in paths - discovered)
+        unknown = sorted(str(p.relative_to(root)) for p in discovered - paths)
+        raise AssertionError(f"module-map/source mismatch: missing={missing}, unknown={unknown}")
+    return canonical, facades
+
+
+def validate_lake_configuration(root=ROOT):
+    code = code_only((root / "lakefile.lean").read_text())
+    match = re.search(r"\blean_lib\s+PPGraph\s+where\b(.*)", code, re.S)
+    if not match:
+        raise AssertionError("missing PPGraph Lake library")
+    library = match.group(1)
+    if not re.search(r"\broots\s*:=\s*#\[\s*`PPGraph\s*\]", library):
+        raise AssertionError("Lake roots must select PPGraph")
+    if not re.search(r"\bglobs\s*:=\s*#\[\s*\.andSubmodules\s+`PPGraph\s*\]", library):
+        raise AssertionError("Lake globs must recursively build PPGraph and its submodules")
+
+
+def inspect_library_sources(canonical, facades):
+    for module, path in {**canonical, **facades}.items():
+        inspect_source(path.read_text(), module)
 
 
 def code_only(source):
@@ -183,7 +243,7 @@ run_cmd do
 def lean_harness(lake, modules, body, log):
     with tempfile.TemporaryDirectory(prefix="ppg-whole-audit-") as directory:
         path = Path(directory) / "Audit.lean"
-        path.write_text("\n".join("import " + p.stem for p in modules) + "\n" + body)
+        path.write_text("\n".join("import " + module for module in modules) + "\n" + body)
         with log.open("w") as output:
             result = subprocess.run([str(lake), "env", "lean", str(path)], cwd=ROOT,
                                     text=True, stdout=output, stderr=subprocess.STDOUT)
@@ -192,18 +252,20 @@ def lean_harness(lake, modules, body, log):
     return log.read_text()
 
 
-def inventory_from_output(output, modules):
+def inventory_from_output(output, modules, facades=()):
     entries = defaultdict(list)
-    expected = {p.stem for p in modules}
+    expected, facade_names = set(modules), set(facades)
     rows = re.findall(r"^PPG_INVENTORY\|([^|]+)\|([^|]+)\|([^|]+)\|(\d+)$",
                       output, re.M)
     if not rows:
         raise AssertionError("empty Lean declaration inventory")
     for module, name, kind, line in rows:
-        if module not in expected:
+        if module not in expected | facade_names:
             raise AssertionError(f"unexpected project module: {module}")
         if kind == "axiom":
             raise AssertionError(f"project-owned axiom: {name}")
+        if module in facade_names:
+            raise AssertionError(f"import-only facade owns a declaration: {module}: {name}")
         entries[module].append({"name": name, "kind": kind, "line": int(line)})
     if set(entries) != expected:
         raise AssertionError(f"missing modules in inventory: {expected - set(entries)}")
@@ -246,11 +308,11 @@ def main():
     parser.add_argument("--add-missing-checks", action="store_true",
                         help="Append fully qualified #check commands, then rebuild.")
     args = parser.parse_args()
-    modules = sorted(ROOT.glob("PPGraph*.lean"))
-    root_names = re.findall(r"`(PPGraph\w*)", (ROOT / "lakefile.lean").read_text())
-    if Counter(root_names) != Counter(p.stem for p in modules):
-        raise AssertionError("Lake roots and current PPGraph library files differ")
-    for path in modules + sorted((ROOT / "tools").glob("*.lean")):
+    canonical, facades = load_module_map()
+    validate_lake_configuration()
+    modules = sorted({**canonical, **facades})
+    inspect_library_sources(canonical, facades)
+    for path in sorted((ROOT / "tools").glob("*.lean")):
         inspect_source(path.read_text(), path.name)
     toolchain = (ROOT / "lean-toolchain").read_text().strip()
     directory = toolchain.replace("/", "--").replace(":", "---")
@@ -260,13 +322,13 @@ def main():
     build(lake, logs["build"])
     print("Discovering declarations from Lean module ownership...", flush=True)
     inventory = inventory_from_output(
-        lean_harness(lake, modules, INVENTORY_BODY, logs["inventory"]), modules)
+        lean_harness(lake, modules, INVENTORY_BODY, logs["inventory"]), canonical, facades)
     explicit = {}
     missing = {}
-    for path in modules:
+    for module, path in canonical.items():
         declarations, checks = inspect_source(path.read_text(), path.name)
-        names, absent = missing_checks(declarations, checks, inventory[path.stem])
-        explicit[path.stem] = names
+        names, absent = missing_checks(declarations, checks, inventory[module])
+        explicit[module] = names
         if absent:
             missing[path] = absent
     if missing:
@@ -281,15 +343,15 @@ def main():
               flush=True)
         build(lake, logs["build"])
         inventory = inventory_from_output(
-            lean_harness(lake, modules, INVENTORY_BODY, logs["inventory"]), modules)
-        for path in modules:
+            lean_harness(lake, modules, INVENTORY_BODY, logs["inventory"]), canonical, facades)
+        for module, path in canonical.items():
             declarations, checks = inspect_source(path.read_text(), path.name)
-            names, absent = missing_checks(declarations, checks, inventory[path.stem])
+            names, absent = missing_checks(declarations, checks, inventory[module])
             if absent:
                 raise AssertionError(f"remaining missing checks: {path}: {absent}")
-            explicit[path.stem] = names
-    source_paths = modules + [ROOT / name for name in
-                             ("lakefile.lean", "lean-toolchain", "lake-manifest.json")]
+            explicit[module] = names
+    source_paths = list(canonical.values()) + list(facades.values()) + [ROOT / name for name in
+                    ("tools/module-map.json", "lakefile.lean", "lean-toolchain", "lake-manifest.json")]
     source_hashes = {str(p.relative_to(ROOT)): digest(p) for p in source_paths}
     all_entries = {entry["name"]: {"module": module, **entry}
                    for module, entries in inventory.items() for entry in entries}
@@ -306,7 +368,8 @@ def main():
     date = datetime.now(timezone.utc).date().isoformat()
     summary = (
         f"PPGraph whole-library axiom audit — {date}\n\n"
-        f"PASS: {count} explicitly declared theorems in {len(modules)} Lake roots.\n"
+        f"PASS: {count} explicitly declared theorems in {len(canonical)} canonical modules.\n"
+        f"Also built and scanned: {len(facades)} import-only facades.\n"
         f"Also audited: {generated} generated theorem constants and all remaining "
         f"project declarations, {len(all_entries)} declarations in total.\n"
         "Every explicitly declared theorem has an explicit #check.\n"
@@ -315,18 +378,20 @@ def main():
         "Allowed dependencies: any subset of {propext, Classical.choice, Quot.sound}.\n"
         "No project-owned axioms, sorry/admit, native_decide, bv_decide, or unsafe/extern overrides.\n"
         "Full Lake build passed before inspection; source hashes checked afterward.\n"
-        "Scope: the current PPGraph library roots, not .changes archival copies or Mathlib's "
+        "Scope: the canonical PPGraph modules and declared facades in tools/module-map.json, "
+        "not .changes archival copies or Mathlib's "
         "own declarations. Transitive dependencies on imported proofs ARE checked.\n"
         "This audit does not prove paper fidelity, C compiler preservation, native hardware "
         "execution, acquisition, or optical response.\n"
         "Reproduce: python3 tools/audit_ppgraph.py\n"
-        "Source hashes and per-declaration details: PPGRAPH_AXIOM_AUDIT.json\n\n")
+        "Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json\n\n")
     report = {
         "date_utc": date, "toolchain": toolchain,
         "full_build_passed": True, "kernel_checked_library": True,
         "axiom_audit_passed": True, "every_explicit_theorem_has_check": True,
         "allowed_dependencies": sorted(ALLOWED), "project_owned_axioms": 0,
-        "module_count": len(modules), "explicit_theorem_count": count,
+        "module_count": len(canonical), "facade_count": len(facades),
+        "facades": sorted(facades), "explicit_theorem_count": count,
         "generated_theorem_count": generated,
         "environment_declaration_count": len(all_entries),
         "source_sha256": source_hashes,
@@ -345,11 +410,13 @@ def main():
         "fidelity_to_papers_proved_by_audit": False,
         "native_hardware_or_compiler_correctness_proved_by_audit": False,
     }
-    (ROOT / "PPGRAPH_AXIOM_AUDIT.txt").write_text(summary + raw)
-    (ROOT / "PPGRAPH_AXIOM_AUDIT.json").write_text(json.dumps(report, indent=2) + "\n")
+    reports = ROOT / "reports"
+    reports.mkdir(exist_ok=True)
+    (reports / "PPGRAPH_AXIOM_AUDIT.txt").write_text(summary + raw)
+    (reports / "PPGRAPH_AXIOM_AUDIT.json").write_text(json.dumps(report, indent=2) + "\n")
     print(summary.split("\n\n")[1].split("\n")[0], flush=True)
     print(f"All {len(all_entries)} declaration dependencies allowed.", flush=True)
-    print("Reports: PPGRAPH_AXIOM_AUDIT.txt, PPGRAPH_AXIOM_AUDIT.json", flush=True)
+    print("Reports: reports/PPGRAPH_AXIOM_AUDIT.txt, reports/PPGRAPH_AXIOM_AUDIT.json", flush=True)
 
 
 if __name__ == "__main__":
