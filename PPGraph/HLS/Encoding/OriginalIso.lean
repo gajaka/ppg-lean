@@ -1,6 +1,10 @@
 /- The colored expanded graph determines the original canonical DAG. -/
-import PPGraph.HLS.Encoding.ColoredExpansion
-import PPGraph.HLS.Encoding.NodeIso
+module
+
+public import PPGraph.HLS.Encoding.ColoredExpansion
+public import PPGraph.HLS.Encoding.NodeIso
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -48,7 +52,7 @@ theorem originalIsoMap_spec (M : DependencyMatching G)
     expansionName M E hE d (originalIsoMap M D E hD hE c d u, false) =
       expansionName M D hD c (u, false) := by
   have h := original_name_exists_of_colored_eq M D E hD hE c d hc hd heq u hu
-  simp only [originalIsoMap, dif_pos h]
+  simp only [originalIsoMap, dite_eq_left h]
   exact h.choose_spec
 
 noncomputable def originalIso_of_colored_eq (M : DependencyMatching G)

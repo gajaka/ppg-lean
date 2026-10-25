@@ -18,9 +18,13 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.Dependency.Decomposition
-import PPGraph.Dependency.Laplacian
-import Mathlib.Logic.Relation
+module
+
+public import PPGraph.Dependency.Decomposition
+public import PPGraph.Dependency.Laplacian
+public import Mathlib.Logic.Relation
+
+@[expose] public section
 
 open Relation
 open scoped Classical

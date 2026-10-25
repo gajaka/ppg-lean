@@ -3,7 +3,11 @@
   Completeness requires a proved enumeration covering every admissible state.
   Exhausting a partial sample alone is not an impossibility certificate.
 -/
-import PPGraph.Decision.Infeasibility
+module
+
+public import PPGraph.Decision.Infeasibility
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

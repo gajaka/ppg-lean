@@ -7,11 +7,15 @@
   a pp_quotient in the sense of PPGraphCategorical.
 -/
 
-import Mathlib.Tactic
-import PPGraph.Core.Graph
-import PPGraph.Certification.Parametric
-import PPGraph.Certification.ParametricQuotient
-import PPGraph.Core.Categorical
+module
+
+public import Mathlib.Tactic
+public import PPGraph.Core.Graph
+public import PPGraph.Certification.Parametric
+public import PPGraph.Certification.ParametricQuotient
+public import PPGraph.Core.Categorical
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 

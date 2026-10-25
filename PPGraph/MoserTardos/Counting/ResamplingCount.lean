@@ -20,12 +20,16 @@
   log-dependent initial state still needs its own measurability bridge.
 -/
 
-import PPGraph.MoserTardos.Bounds.Expectation
-import PPGraph.MoserTardos.Witness.InjectivityBridge
-import Mathlib.Algebra.BigOperators.Ring.Finset
-import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
-import Mathlib.MeasureTheory.Integral.Lebesgue.Add
-import Mathlib.MeasureTheory.Constructions.Polish.Basic
+module
+
+public import PPGraph.MoserTardos.Bounds.Expectation
+public import PPGraph.MoserTardos.Witness.InjectivityBridge
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Add
+public import Mathlib.MeasureTheory.Constructions.Polish.Basic
+
+@[expose] public section
 
 open MeasureTheory Classical
 open scoped ENNReal
@@ -41,7 +45,7 @@ def resamplingEvent (P : MTProcess S ι) (ω0 : MTState S) (α : ι) (s : ℕ) :
 theorem measurableSet_realC_eq (P : MTProcess S ι)
     (hbad : ∀ i, MeasurableSet (P.bad i)) (ω0 : MTState S) (α : ι) (s : ℕ) :
     MeasurableSet {ω : LogSpace S | realC P ω0 ω s = α} := by
-  letI : MeasurableSpace ι := ⊤
+  let : MeasurableSpace ι := ⊤
   have hmeas : Measurable (fun ω : LogSpace S => realC P ω0 ω s) :=
     (measurable_pickFirstViolated P hbad).comp (measurable_randStep P hbad ω0 s).1
   exact hmeas (measurableSet_singleton α)

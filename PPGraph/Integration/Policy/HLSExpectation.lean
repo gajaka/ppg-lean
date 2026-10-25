@@ -9,9 +9,13 @@
   Source: https://arxiv.org/abs/2111.06527, Theorem 1.6,
   Algorithm 1/footnote 2, and Sections 3.1--3.3.
 -/
-import PPGraph.HLS.Probability.RefinedProbability
-import PPGraph.Integration.Policy.HLSCounting
-import PPGraph.Integration.Policy.History
+module
+
+public import PPGraph.HLS.Probability.RefinedProbability
+public import PPGraph.Integration.Policy.HLSCounting
+public import PPGraph.Integration.Policy.History
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -29,7 +33,7 @@ variable {V : Type} [DecidableEq V] [Fintype V] {S : VarSpaces V}
 
 theorem eventProbability_le_one (P : MTProcess S ι) (p : ι → ℝ)
     (hprob : ∀ i, (Measure.pi (fun a => S.measure a)).real (P.bad i) = p i) : ∀ i, p i ≤ 1 := by
-  haveI : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
+  have : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
   intro i
   rw [← hprob i]
   exact measureReal_le_one

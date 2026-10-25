@@ -7,8 +7,12 @@
   it cancels from the stable-sequence budget. Strict Shearer positivity
   supplies this nonvanishing condition for every BDD component cut.
 -/
-import PPGraph.Shearer.Stable
-import PPGraph.Shearer.BDD
+module
+
+public import PPGraph.Shearer.Stable
+public import PPGraph.Shearer.BDD
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

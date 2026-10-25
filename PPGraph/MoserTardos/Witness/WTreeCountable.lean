@@ -24,9 +24,13 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.MoserTardos.Witness.Witness
-import Mathlib.Tactic
-import Mathlib.Logic.Equiv.List
+module
+
+public import PPGraph.MoserTardos.Witness.Witness
+public import Mathlib.Tactic
+public import Mathlib.Logic.Equiv.List
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false

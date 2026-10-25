@@ -13,10 +13,14 @@
   they do not identify a physical controller's transition law.
 -/
 
-import PPGraph.Finite.Drift.Basic
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-import Mathlib.Data.Finset.Max
-import Mathlib.Logic.Relation
+module
+
+public import PPGraph.Finite.Drift.Basic
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.Data.Finset.Max
+public import Mathlib.Logic.Relation
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 

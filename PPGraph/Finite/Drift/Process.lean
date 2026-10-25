@@ -12,7 +12,11 @@
   or a physical controller remains a separate model-specific obligation.
 -/
 
-import PPGraph.Finite.Drift.Basic
+module
+
+public import PPGraph.Finite.Drift.Basic
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 

@@ -5,9 +5,13 @@
   He--Li--Sun, arXiv:2111.06527, Definitions 2.1--2.4.
   https://arxiv.org/abs/2111.06527
 -/
-import PPGraph.HLS.Encoding.Reversal
-import Mathlib.Combinatorics.SimpleGraph.Basic
-import Mathlib.Logic.Equiv.List
+module
+
+public import PPGraph.HLS.Encoding.Reversal
+public import Mathlib.Combinatorics.SimpleGraph.Basic
+public import Mathlib.Logic.Equiv.List
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

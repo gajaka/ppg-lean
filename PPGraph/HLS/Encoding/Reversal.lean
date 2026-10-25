@@ -5,8 +5,12 @@
   acyclicity exactly when this alternate path does not exist.
   https://arxiv.org/abs/2111.06527
 -/
-import Mathlib.Logic.Relation
-import Mathlib.Tactic
+module
+
+public import Mathlib.Logic.Relation
+public import Mathlib.Tactic
+
+@[expose] public section
 
 set_option autoImplicit false
 

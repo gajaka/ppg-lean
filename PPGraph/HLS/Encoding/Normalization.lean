@@ -3,7 +3,11 @@
   name is its predecessor rank in that label's complete chain. The
   construction preserves arcs, paths, properness and label weights.
 -/
-import PPGraph.HLS.Encoding.LabelRanks
+module
+
+public import PPGraph.HLS.Encoding.LabelRanks
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -46,14 +50,14 @@ theorem sourceNode_of_mem_normalize (D : HLS.WitnessDAG ι) (x : WNode ι)
     (hx : x ∈ D.normalize.nodes) :
     D.sourceNode x ∈ D.nodes ∧ D.canonicalName (D.sourceNode x) = x := by
   have h := (normalize_node_iff D x).mp hx
-  simp only [sourceNode, dif_pos h]
+  simp only [sourceNode, dite_eq_left h]
   exact h.choose_spec
 
 theorem sourceNode_name (G : SimpleGraph ι) (D : HLS.WitnessDAG ι)
     (hD : D.Valid G) (u : WNode ι) (hu : u ∈ D.nodes) :
     D.sourceNode (D.canonicalName u) = u := by
   have h : ∃ w ∈ D.nodes, D.canonicalName w = D.canonicalName u := ⟨u, hu, rfl⟩
-  simp only [sourceNode, dif_pos h]
+  simp only [sourceNode, dite_eq_left h]
   exact canonicalName_injective G D hD h.choose_spec.1 hu h.choose_spec.2
 
 theorem normalize_edge_backward (G : SimpleGraph ι) (D : HLS.WitnessDAG ι)

@@ -9,7 +9,11 @@
   complexity by stating theorems pointwise where possible.
 -/
 
-import Mathlib.Tactic
+module
+
+public import Mathlib.Tactic
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 

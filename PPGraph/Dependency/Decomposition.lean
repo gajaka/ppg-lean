@@ -45,9 +45,13 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import Mathlib.Logic.Relation
-import PPGraph.Dependency.Probabilistic
+module
+
+public import Mathlib.Tactic
+public import Mathlib.Logic.Relation
+public import PPGraph.Dependency.Probabilistic
+
+@[expose] public section
 
 open Relation
 open scoped Classical

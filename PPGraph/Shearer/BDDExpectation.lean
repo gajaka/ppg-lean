@@ -13,9 +13,13 @@
   The measured cost is resampling work, not elapsed scheduling time.
 -/
 
-import PPGraph.Dependency.Partition
-import PPGraph.Shearer.BDDBudget
-import PPGraph.Shearer.ComponentOccurrence
+module
+
+public import PPGraph.Dependency.Partition
+public import PPGraph.Shearer.BDDBudget
+public import PPGraph.Shearer.ComponentOccurrence
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option backward.isDefEq.respectTransparency false

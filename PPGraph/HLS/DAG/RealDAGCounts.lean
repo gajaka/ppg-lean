@@ -3,7 +3,11 @@
   Consequently, two different occurrences of one label produce different
   canonical witness DAGs. No termination assumption is needed.
 -/
-import PPGraph.HLS.DAG.RealDAG
+module
+
+public import PPGraph.HLS.DAG.RealDAG
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

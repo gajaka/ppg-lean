@@ -22,8 +22,12 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.MoserTardos.Witness.Correspondence
-import Mathlib.MeasureTheory.Constructions.Polish.Basic
+module
+
+public import PPGraph.MoserTardos.Witness.Correspondence
+public import Mathlib.MeasureTheory.Constructions.Polish.Basic
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -59,7 +63,7 @@ theorem measurableSet_violatedAt {S : VarSpaces V} {ι : Type} [Fintype ι] [Dec
       exact hmem
   rw [heq]
   refine MeasurableSet.iUnion (fun i => MeasurableSet.inter ?_ ?_)
-  · letI : MeasurableSpace ι := ⊤
+  · let : MeasurableSpace ι := ⊤
     have hmeas : Measurable (fun ω : LogSpace S => realC P ω0 ω s) :=
       (measurable_pickFirstViolated P hbad).comp (measurable_randStep P hbad ω0 s).1
     exact hmeas (measurableSet_singleton i)

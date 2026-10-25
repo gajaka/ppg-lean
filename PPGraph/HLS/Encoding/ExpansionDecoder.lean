@@ -5,8 +5,12 @@
   up-colored originals are irrelevant. The graph-to-token bridge is
   developed separately; no graph injectivity is assumed here.
 -/
-import PPGraph.HLS.DAG.PairKeys
-import Mathlib.Tactic.DeriveFintype
+module
+
+public import PPGraph.HLS.DAG.PairKeys
+public import Mathlib.Tactic.DeriveFintype
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option backward.isDefEq.respectTransparency false

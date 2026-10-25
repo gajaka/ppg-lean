@@ -11,7 +11,11 @@
   the specific initialization required by the slot-zero hypothesis.
 -/
 
-import PPGraph.MoserTardos.Process.RandomTrajectory
+module
+
+public import PPGraph.MoserTardos.Process.RandomTrajectory
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedVariables false
@@ -49,7 +53,7 @@ theorem measurable_randStep_of_measurable_init {S : VarSpaces V} {ι : Type}
       obtain ⟨ihState, ihCount⟩ := measurable_randStep_of_measurable_init P hbad init hinit t
       have hdraw : Measurable (fun ω : LogSpace S =>
           drawFrom ω (fun v => (randStep P (init ω) ω t).2 v + 1)) := by
-        apply measurable_pi_lambda
+        apply Measurable.of_eval
         intro v
         exact measurable_eval_bounded v (t + 1) (fun ω => (randStep P (init ω) ω t).2 v + 1)
           ((ihCount v).add_const 1)
@@ -85,7 +89,7 @@ theorem measurable_randStep_of_measurable_init {S : VarSpaces V} {ι : Type}
       have hcount : ∀ v,
           Measurable (fun ω : LogSpace S => (randStep P (init ω) ω (t + 1)).2 v) := by
         intro v
-        letI : MeasurableSpace ι := ⊤
+        let : MeasurableSpace ι := ⊤
         have hpickComp : Measurable (fun ω : LogSpace S =>
             pickFirstViolated P (randStep P (init ω) ω t).1) :=
           hpick.comp ihState

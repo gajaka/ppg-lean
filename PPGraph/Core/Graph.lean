@@ -5,7 +5,11 @@
   Paths represented as Fin-indexed sequences (matching PVS prewalk).
 -/
 
-import Mathlib.Tactic
+module
+
+public import Mathlib.Tactic
+
+@[expose] public section
 
 -- ═══════════════════════════════════════════════════════════════════
 -- Section 1: Graph Structure

@@ -35,9 +35,13 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import PPGraph.MoserTardos.Process.RandomTrajectory
-import PPGraph.MoserTardos.Witness.Injectivity
+module
+
+public import Mathlib.Tactic
+public import PPGraph.MoserTardos.Process.RandomTrajectory
+public import PPGraph.MoserTardos.Witness.Injectivity
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -65,8 +69,8 @@ theorem pickFromList_spec {S : VarSpaces V} {ι : Type} (P : MTProcess S ι)
       rintro ⟨j, hj, hjbad⟩
       simp only [pickFromList]
       by_cases h : ω' ∈ P.bad i
-      · rw [if_pos h]; exact h
-      · rw [if_neg h]
+      · rw [ite_eq_left h]; exact h
+      · rw [ite_eq_right h]
         apply ih
         refine ⟨j, ?_, hjbad⟩
         rcases List.mem_cons.mp hj with hje | hje

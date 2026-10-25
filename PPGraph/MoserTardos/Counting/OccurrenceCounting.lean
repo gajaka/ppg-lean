@@ -13,7 +13,11 @@
   assumption. Trees which never occur contribute zero.
 -/
 
-import PPGraph.MoserTardos.Witness.Occurrence
+module
+
+public import PPGraph.MoserTardos.Witness.Occurrence
+
+@[expose] public section
 
 open MeasureTheory Classical
 open scoped ENNReal

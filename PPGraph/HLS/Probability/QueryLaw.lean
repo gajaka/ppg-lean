@@ -3,8 +3,12 @@
   coordinate product law. Private/shared query blocks can therefore be
   read as four independent random variables in Proposition 3.3.
 -/
-import PPGraph.HLS.Encoding.TableCheck
-import Mathlib.Probability.Independence.InfinitePi
+module
+
+public import PPGraph.HLS.Encoding.TableCheck
+public import Mathlib.Probability.Independence.InfinitePi
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -20,7 +24,7 @@ theorem map_tableQuery {κ : Type} [Fintype κ] (v : κ → V) (n : κ → ℕ)
     (hinj : Function.Injective (fun k => (n k, v k))) :
     (logMeasure S).map (fun ω k => atIdx ω (v k) (n k)) =
       Measure.pi (fun k => S.measure (v k)) := by
-  haveI : ∀ a, IsProbabilityMeasure (μCoin S a) := fun a => S.isProb a.2
+  have : ∀ a, IsProbabilityMeasure (μCoin S a) := fun a => S.isProb a.2
   calc
     _ = Measure.infinitePi (fun k => μCoin S (n k, v k)) :=
       Measure.map_infinitePi_infinitePi_of_inj (P := μCoin S)
@@ -65,7 +69,7 @@ theorem measurePreserving_splitFour {X Y Z : Type} [Fintype X] [Fintype Y] [Fint
         (Measure.pi (fun z => S.measure (vZ z)))).prod
         ((Measure.pi (fun y => S.measure (vY y))).prod
           (Measure.pi (fun y => S.measure (vY y))))) := by
-  haveI : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
+  have : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
   let μ := fun k : FourIndex X Y Z => S.measure (fourVariable vX vY vZ k)
   have houter := measurePreserving_sumPiEquivProdPi μ
   have hleft := measurePreserving_sumPiEquivProdPi (fun k : X ⊕ Z => μ (.inl k))
@@ -97,7 +101,7 @@ theorem map_readFour {X Y Z : Type} [Fintype X] [Fintype Y] [Fintype Z]
           (Measure.pi (fun y => S.measure (vY y))))) := by
   have hm : Measurable (fun ω : LogSpace S => fun k : FourIndex X Y Z =>
       atIdx ω (fourVariable vX vY vZ k) (fourSlot nX nY₁ nY₂ nZ k)) := by
-    apply measurable_pi_lambda
+    apply Measurable.of_eval
     intro k
     exact measurable_pi_apply _
   have hsplit := measurePreserving_splitFour (S := S) vX vY vZ

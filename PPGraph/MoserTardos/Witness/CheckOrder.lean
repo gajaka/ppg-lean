@@ -33,7 +33,11 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.MoserTardos.Witness.Growing
+module
+
+public import PPGraph.MoserTardos.Witness.Growing
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -71,7 +75,7 @@ theorem newAttachAddr_mem_attachAt_dom {S : VarSpaces V} {ι : Type}
     (P : MTProcess S ι) (T : GrowingTree ι) (a : ι) (h : (T.candidates P a).Nonempty) :
     newAttachAddr P T a h ∈ (T.attachAt P a).dom := by
   unfold GrowingTree.attachAt
-  rw [dif_pos h]
+  rw [dite_eq_left h]
   unfold GrowingTree.attachChild newAttachAddr
   exact Finset.mem_insert_self _ _
 
@@ -79,7 +83,7 @@ theorem attachAt_lab_new_addr {S : VarSpaces V} {ι : Type}
     (P : MTProcess S ι) (T : GrowingTree ι) (a : ι) (h : (T.candidates P a).Nonempty) :
     (T.attachAt P a).lab (newAttachAddr P T a h) = a := by
   unfold GrowingTree.attachAt
-  rw [dif_pos h]
+  rw [dite_eq_left h]
   unfold GrowingTree.attachChild newAttachAddr
   simp
 
@@ -125,7 +129,7 @@ theorem attachAt_dom_eq_insert {S : VarSpaces V} {ι : Type}
     (P : MTProcess S ι) (T : GrowingTree ι) (a : ι) (h : (T.candidates P a).Nonempty) :
     (T.attachAt P a).dom = insert (newAttachAddr P T a h) T.dom := by
   unfold GrowingTree.attachAt
-  rw [dif_pos h]
+  rw [dite_eq_left h]
   rfl
 
 /-- Labels of OLD addresses are unchanged by an attachment - the other
@@ -139,10 +143,10 @@ theorem attachAt_lab_old {S : VarSpaces V} {ι : Type}
     (T.attachAt P a).lab w = T.lab w := by
   unfold newAttachAddr at hw
   unfold GrowingTree.attachAt
-  rw [dif_pos h]
+  rw [dite_eq_left h]
   unfold GrowingTree.attachChild
   simp only
-  rw [if_neg hw]
+  rw [ite_eq_right hw]
 
 -- -------------------------------------------------------------------
 -- Threading the single-step fact through the REAL τC(t) construction
@@ -156,10 +160,10 @@ theorem dom_subset_attachAt {S : VarSpaces V} {ι : Type}
     T.dom ⊆ (T.attachAt P a).dom := by
   unfold GrowingTree.attachAt
   by_cases h : (T.candidates P a).Nonempty
-  · rw [dif_pos h]
+  · rw [dite_eq_left h]
     unfold GrowingTree.attachChild
     exact Finset.subset_insert _ _
-  · rw [dif_neg h]
+  · rw [dite_eq_right h]
 
 theorem dom_subset_τBuild_succ {S : VarSpaces V} {ι : Type}
     (P : MTProcess S ι) (C : ℕ → ι) (t : ℕ) (n : ℕ) :
@@ -269,7 +273,7 @@ theorem τBuild_sameDepthIndependent {S : VarSpaces V} {ι : Type}
         · rw [attachAt_lab_old P _ _ h u (fun he => newAttachAddr_not_mem P _ _ h (he ▸ hu)),
               attachAt_lab_old P _ _ h v (fun he => newAttachAddr_not_mem P _ _ h (he ▸ hv))]
           exact ih u v hu hv hlen huv
-      · rwa [GrowingTree.attachAt, dif_neg h]
+      · rwa [GrowingTree.attachAt, dite_eq_right h]
 
 -- -------------------------------------------------------------------
 -- Verification

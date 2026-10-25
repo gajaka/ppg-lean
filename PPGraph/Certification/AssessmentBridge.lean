@@ -24,10 +24,14 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import PPGraph.Certification.Parametric
-import PPGraph.Certification.Blocking
-import PPGraph.Certification.SelfAssessment
+module
+
+public import Mathlib.Tactic
+public import PPGraph.Certification.Parametric
+public import PPGraph.Certification.Blocking
+public import PPGraph.Certification.SelfAssessment
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false

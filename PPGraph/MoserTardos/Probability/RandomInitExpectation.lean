@@ -16,8 +16,12 @@
   It does not yet prove the occurrence-probability or final MT bound.
 -/
 
-import PPGraph.MoserTardos.Process.RandomInitialization
-import PPGraph.MoserTardos.Counting.ResamplingCount
+module
+
+public import PPGraph.MoserTardos.Process.RandomInitialization
+public import PPGraph.MoserTardos.Counting.ResamplingCount
+
+@[expose] public section
 
 open MeasureTheory Classical
 open scoped ENNReal
@@ -32,7 +36,7 @@ theorem measurable_realC_of_measurable_init (P : MTProcess S ι)
     (init : LogSpace S → MTState S) (hinit : Measurable init) (s : ℕ) :
     letI : MeasurableSpace ι := ⊤
     Measurable (fun ω : LogSpace S => realC P (init ω) ω s) := by
-  letI : MeasurableSpace ι := ⊤
+  let : MeasurableSpace ι := ⊤
   exact (measurable_pickFirstViolated P hbad).comp
     (measurable_randStep_of_measurable_init P hbad init hinit s).1
 
@@ -55,7 +59,7 @@ theorem measurableSet_violatedAt_of_measurable_init (P : MTProcess S ι)
       exact hmem
   rw [heq]
   refine MeasurableSet.iUnion (fun i => MeasurableSet.inter ?_ ?_)
-  · letI : MeasurableSpace ι := ⊤
+  · let : MeasurableSpace ι := ⊤
     exact (measurable_realC_of_measurable_init P hbad init hinit s)
       (measurableSet_singleton i)
   · exact (measurable_randStep_of_measurable_init P hbad init hinit s).1 (hbad i)
@@ -96,7 +100,7 @@ theorem measurableSet_randomInitResamplingEvent (P : MTProcess S ι)
     MeasurableSet (randomInitResamplingEvent P α s) := by
   have hlabel : MeasurableSet {ω : LogSpace S |
       realC P (initialStateFromLog ω) ω s = α} := by
-    letI : MeasurableSpace ι := ⊤
+    let : MeasurableSpace ι := ⊤
     exact (measurable_realC_of_measurable_init P hbad initialStateFromLog
       measurable_initialStateFromLog s) (measurableSet_singleton α)
   exact (measurableSet_randomInitRunningEvent P hbad (s + 1)).inter hlabel

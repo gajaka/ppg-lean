@@ -8,9 +8,13 @@
   unselected coordinates may query the same unused entry more than once.
 -/
 
-import PPGraph.Finite.Resampling.Table
-import PPGraph.MoserTardos.Probability.Probability
-import Mathlib.Probability.ConditionalExpectation
+module
+
+public import PPGraph.Finite.Resampling.Table
+public import PPGraph.MoserTardos.Probability.Probability
+public import Mathlib.Probability.ConditionalExpectation
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 set_option backward.isDefEq.respectTransparency false
@@ -29,13 +33,13 @@ noncomputable def productLaw (S : VarSpaces V) : Measure (MTState S) :=
   Measure.pi (fun v => S.measure v)
 
 instance productLaw_probability (S : VarSpaces V) : IsProbabilityMeasure (productLaw S) := by
-  haveI : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
+  have : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
   exact (inferInstance : IsProbabilityMeasure
     (Measure.pi (fun v => S.measure v) : Measure (∀ v, S.space v)))
 
 theorem measurable_fixedDraw (c : V → ℕ) :
     Measurable (fun ω : LogSpace S => drawFrom ω c) := by
-  apply measurable_pi_lambda
+  apply Measurable.of_eval
   intro v
   exact measurable_pi_apply (c v, v)
 
@@ -103,7 +107,7 @@ theorem prefix_nextDraw_joint_law (F : MTState S → Finset V)
     (n : ℕ) :
     (logMeasure S).map (fun ω => (statePrefix F init n ω, nextDraw F init n ω)) =
       ((logMeasure S).map (statePrefix F init n)).prod (productLaw S) := by
-  haveI : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
+  have : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
   apply Measure.ext_of_singleton
   intro ⟨p, a⟩
   rw [Measure.map_apply ((measurable_prefix F init hi n).prodMk
@@ -117,7 +121,7 @@ theorem nextDraw_map (F : MTState S → Finset V)
     (init : LogSpace S → MTState S) (hi : Measurable init) (hl : InitialLocal init)
     (n : ℕ) :
     (logMeasure S).map (nextDraw F init n) = productLaw S := by
-  haveI : IsProbabilityMeasure ((logMeasure S).map (statePrefix F init n)) :=
+  have : IsProbabilityMeasure ((logMeasure S).map (statePrefix F init n)) :=
     inferInstance
   have h := congrArg (fun μ : Measure (Path S n × MTState S) => μ.map Prod.snd)
     (prefix_nextDraw_joint_law F init hi hl n)

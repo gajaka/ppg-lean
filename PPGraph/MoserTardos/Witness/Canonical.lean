@@ -23,7 +23,11 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.MoserTardos.Bounds.WeightSum
+module
+
+public import PPGraph.MoserTardos.Bounds.WeightSum
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -86,7 +90,7 @@ theorem WTree.eq_of_mem_children_label_eq (t : WTree ι) (hp : t.Proper)
   | mk i cs =>
     unfold WTree.Proper at hp
     by_contra hne
-    haveI hsymm : Std.Symm (fun a b : WTree ι => a.label ≠ b.label) := ⟨fun _ _ h => h.symm⟩
+    have hsymm : Std.Symm (fun a b : WTree ι => a.label ≠ b.label) := ⟨fun _ _ h => h.symm⟩
     exact (hp.1.forall h1 h2 hne) hlab
 
 theorem WTree.childOf_eq_self_of_mem (t : WTree ι) (hp : t.Proper) (c : WTree ι)

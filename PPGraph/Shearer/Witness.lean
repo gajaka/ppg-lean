@@ -3,9 +3,13 @@
   sequence. Same-depth independence makes each layer an independent set;
   parent-child compatibility gives the closed-neighborhood transition.
 -/
-import PPGraph.Shearer.Stable
-import PPGraph.Shearer.BDD
-import PPGraph.MoserTardos.Witness.LabelsAtDepthBridge
+module
+
+public import PPGraph.Shearer.Stable
+public import PPGraph.Shearer.BDD
+public import PPGraph.MoserTardos.Witness.LabelsAtDepthBridge
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

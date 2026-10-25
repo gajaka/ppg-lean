@@ -12,9 +12,13 @@
   with the existing per-variable-counter MT trajectory is not asserted.
 -/
 
-import PPGraph.Finite.Update.Basic
-import Mathlib.Probability.Independence.InfinitePi
-import Mathlib.Probability.ConditionalExpectation
+module
+
+public import PPGraph.Finite.Update.Basic
+public import Mathlib.Probability.Independence.InfinitePi
+public import Mathlib.Probability.ConditionalExpectation
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 

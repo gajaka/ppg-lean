@@ -6,8 +6,12 @@
   A frame freezes every variable outside the entire selected obligation family.
   Arbitrary additional admissibility constraints need their own decomposition.
 -/
-import PPGraph.Dependency.Partition
-import PPGraph.Decision.UnsatisfiableCore
+module
+
+public import PPGraph.Dependency.Partition
+public import PPGraph.Decision.UnsatisfiableCore
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -32,7 +36,7 @@ theorem variableOwner_eq_component (vars : CertVars C V) (B : Finset C)
   have hd := Classical.choose_spec h
   have hs : SameComponent vars B c (Classical.choose h) :=
     Relation.EqvGen.rel _ _ ⟨hc, hd.1, ⟨v, Finset.mem_inter.mpr ⟨hv, hd.2⟩⟩⟩
-  simp only [variableOwner, dif_pos h]
+  simp only [variableOwner, dite_eq_left h]
   exact (compOf_eq_of_sameComponent vars B c (Classical.choose h) hs).symm
 
 noncomputable def componentSolution (sat : C → (V → α) → Prop)
@@ -47,7 +51,7 @@ theorem componentSolution_spec (sat : C → (V → α) → Prop) (base : V → �
   have he : ∃ z, ∀ c ∈ K, sat c z := by
     obtain ⟨z, _, hz⟩ := h
     exact ⟨z, hz⟩
-  simpa only [componentSolution, dif_pos he] using Classical.choose_spec he
+  simpa only [componentSolution, dite_eq_left he] using Classical.choose_spec he
 
 noncomputable def assembleComponents (vars : CertVars C V) (B : Finset C)
     (sat : C → (V → α) → Prop) (base : V → α) (v : V) : α := by
@@ -61,7 +65,7 @@ theorem assemble_agrees_on_obligation (vars : CertVars C V) (B : Finset C)
       componentSolution sat base (compOf vars B c) v := by
   classical
   intro v hv
-  simp only [assembleComponents, if_pos (show InFamilyFootprint vars B v from ⟨c, hc, hv⟩),
+  simp only [assembleComponents, ite_eq_left (show InFamilyFootprint vars B v from ⟨c, hc, hv⟩),
     variableOwner_eq_component vars B c hc v hv]
 
 theorem assemble_satisfies (vars : CertVars C V) (B : Finset C)
@@ -80,7 +84,7 @@ theorem assemble_preserves_frame (vars : CertVars C V) (B : Finset C)
     FrameAllowed vars B base (assembleComponents vars B sat base) := by
   classical
   intro v hv
-  simp only [assembleComponents, if_neg hv]
+  simp only [assembleComponents, ite_eq_right hv]
 
 theorem frame_satisfiable_iff_components (vars : CertVars C V) (B : Finset C)
     (sat : C → (V → α) → Prop) (hloc : Local vars sat) (base : V → α) :

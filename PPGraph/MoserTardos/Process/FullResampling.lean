@@ -15,9 +15,13 @@
   No numerical example or additional axiom is introduced.
 -/
 
-import PPGraph.MoserTardos.Bounds.Drift
-import PPGraph.MoserTardos.Probability.Probability
-import Mathlib.Analysis.SpecificLimits.Basic
+module
+
+public import PPGraph.MoserTardos.Bounds.Drift
+public import PPGraph.MoserTardos.Probability.Probability
+public import Mathlib.Analysis.SpecificLimits.Basic
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 
@@ -40,7 +44,7 @@ noncomputable def mtGoodProbability (P : MTProcess S ι) : ℝ≥0∞ :=
 theorem mtGoodProbability_add_bad (P : MTProcess S ι)
     (hbad : ∀ i, MeasurableSet (P.bad i)) :
     mtGoodProbability P + mtBadProbability P = 1 := by
-  haveI : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
+  have : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
   have hg : MeasurableSet (mtGoodSet P) := measurableSet_MTGood P hbad
   simpa only [mtGoodProbability, mtBadProbability, measure_univ] using
     (measure_add_measure_compl (μ := Measure.pi (fun v => S.measure v))
@@ -49,7 +53,7 @@ theorem mtGoodProbability_add_bad (P : MTProcess S ι)
 theorem one_sub_mtBadProbability (P : MTProcess S ι)
     (hbad : ∀ i, MeasurableSet (P.bad i)) :
     1 - mtBadProbability P = mtGoodProbability P := by
-  haveI : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
+  have : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
   have hg : MeasurableSet (mtGoodSet P) := measurableSet_MTGood P hbad
   symm
   simpa only [mtGoodProbability, mtBadProbability, compl_compl, measure_univ]
@@ -65,7 +69,7 @@ theorem fullResampling_count (P : MTProcess S ι)
   | succ n ih =>
     change (if v ∈ P.footprint (pickFirstViolated P (randStep P ω0 ω n).1)
       then (randStep P ω0 ω n).2 v + 1 else (randStep P ω0 ω n).2 v) = n + 1
-    simp only [hfull, Finset.mem_univ, if_true, ih]
+    simp only [hfull, Finset.mem_univ, ite_true, ih]
 
 theorem fullResampling_randTraj_randomInit (P : MTProcess S ι)
     (hfull : ∀ i, P.footprint i = Finset.univ)
@@ -79,7 +83,7 @@ theorem fullResampling_randTraj_randomInit (P : MTProcess S ι)
       (randStep P (initialStateFromLog ω) ω n).1))
       (randStep P (initialStateFromLog ω) ω n).1
       (drawFrom ω (fun w => (randStep P (initialStateFromLog ω) ω n).2 w + 1)) v = _
-    simp only [hfull, resample, Finset.mem_univ, if_true, drawFrom, atIdx]
+    simp only [hfull, resample, Finset.mem_univ, ite_true, drawFrom, atIdx]
     rw [fullResampling_count P hfull (initialStateFromLog ω) ω n v]
     rfl
 
@@ -162,7 +166,7 @@ theorem fullResampling_expected_work_lt_top (P : MTProcess S ι)
     (hbad : ∀ i, MeasurableSet (P.bad i))
     (hfull : ∀ i, P.footprint i = Finset.univ)
     (hgood : 0 < mtGoodProbability P) : randomInitETLog P < ⊤ := by
-  haveI : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
+  have : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
   rw [fullResampling_expected_work_eq P hbad hfull, one_sub_mtBadProbability P hbad]
   simpa only [ENNReal.div_eq_inv_mul, mul_comm] using
     (ENNReal.div_lt_top (x := mtBadProbability P) (measure_ne_top _ _) hgood.ne')
@@ -180,7 +184,7 @@ theorem mtGoodProbability_ge_box (P : MTProcess S ι)
     (box : ∀ v, Set (S.space v)) (_hmeas : ∀ v, MeasurableSet (box v))
     (hsafe : ∀ s : MTState S, (∀ v, s v ∈ box v) → MTGood P s) :
     (∏ v, S.measure v (box v)) ≤ mtGoodProbability P := by
-  haveI : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
+  have : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
   have hsubset : Set.pi Set.univ box ⊆ mtGoodSet P := by
     intro s hs
     exact hsafe s (fun v => hs v (Set.mem_univ v))
@@ -204,7 +208,7 @@ theorem fullResampling_expected_work_le_of_box (P : MTProcess S ι)
     (box : ∀ v, Set (S.space v)) (hmeas : ∀ v, MeasurableSet (box v))
     (hsafe : ∀ s : MTState S, (∀ v, s v ∈ box v) → MTGood P s) :
     randomInitETLog P ≤ (∏ v, S.measure v (box v))⁻¹ := by
-  haveI : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
+  have : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
   rw [fullResampling_expected_work_eq P hbad hfull, one_sub_mtBadProbability P hbad]
   calc
     mtBadProbability P * (mtGoodProbability P)⁻¹ ≤ 1 * (mtGoodProbability P)⁻¹ :=

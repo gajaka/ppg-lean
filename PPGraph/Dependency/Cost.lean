@@ -41,7 +41,11 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.Dependency.Decomposition
+module
+
+public import PPGraph.Dependency.Decomposition
+
+@[expose] public section
 
 open scoped Classical
 

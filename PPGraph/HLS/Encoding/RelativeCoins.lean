@@ -1,6 +1,10 @@
 /- Pair-keyed fair coins and their relative orientation at either endpoint. -/
-import PPGraph.HLS.Probability.AugmentedSpace
-import PPGraph.HLS.DAG.PairKeys
+module
+
+public import PPGraph.HLS.Probability.AugmentedSpace
+public import PPGraph.HLS.DAG.PairKeys
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -29,7 +33,7 @@ noncomputable def pairLeader (K : Finset ι) : ι :=
   if h : K.Nonempty then h.choose else Classical.choice inferInstance
 
 theorem pairLeader_mem (K : Finset ι) (h : K.Nonempty) : pairLeader K ∈ K := by
-  simp only [pairLeader, dif_pos h]
+  simp only [pairLeader, dite_eq_left h]
   exact h.choose_spec
 
 noncomputable def relativeCoin (M : DependencyMatching G) (i : ι) (c : OrientationCoin) : OrientationCoin :=

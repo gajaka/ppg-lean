@@ -7,8 +7,12 @@
   before integration and without a termination assumption.
 -/
 
-import PPGraph.Shearer.LayerProfile
-import PPGraph.MoserTardos.Witness.Occurrence
+module
+
+public import PPGraph.Shearer.LayerProfile
+public import PPGraph.MoserTardos.Witness.Occurrence
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -31,12 +35,12 @@ theorem measurable_randomInitSequence (P : MTProcess S ι)
     (hbad : ∀ i, MeasurableSet (P.bad i)) (s : ℕ) :
     letI : MeasurableSpace (List (Finset ι)) := ⊤
     Measurable (fun ω : LogSpace S => randomInitSequence P ω s) := by
-  letI : MeasurableSpace ι := ⊤
-  letI : MeasurableSpace (List (Finset ι)) := ⊤
+  let : MeasurableSpace ι := ⊤
+  let : MeasurableSpace (List (Finset ι)) := ⊤
   let history : LogSpace S → (Fin (s + 2) → ι) :=
     fun ω k => shiftedC P (initialStateFromLog ω) ω k.val
   have hhistory : Measurable history := by
-    apply measurable_pi_lambda
+    apply Measurable.of_eval
     intro k
     exact measurable_realC_of_measurable_init P hbad initialStateFromLog
       measurable_initialStateFromLog (k.val - 1)
@@ -59,7 +63,7 @@ theorem measurable_randomInitSequence (P : MTProcess S ι)
 theorem measurableSet_randomInitSequence_eq (P : MTProcess S ι)
     (hbad : ∀ i, MeasurableSet (P.bad i)) (s : ℕ) (L : List (Finset ι)) :
     MeasurableSet {ω : LogSpace S | randomInitSequence P ω s = L} := by
-  letI : MeasurableSpace (List (Finset ι)) := ⊤
+  let : MeasurableSpace (List (Finset ι)) := ⊤
   exact (measurable_randomInitSequence P hbad s) (measurableSet_singleton L)
 
 /-- A stable sequence occurs at an active resampling of its root event. -/

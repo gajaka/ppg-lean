@@ -11,9 +11,13 @@
   bound under Shearer's criterion, or preservation of a separate certified core.
 -/
 
-import PPGraph.Shearer.Basic
-import PPGraph.Integration.MoserTardosRepair
-import PPGraph.MoserTardos.Probability.Probability
+module
+
+public import PPGraph.Shearer.Basic
+public import PPGraph.Integration.MoserTardosRepair
+public import PPGraph.MoserTardos.Probability.Probability
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -48,7 +52,7 @@ under the product law on MT states, for any chosen finite event set. -/
 theorem mt_lll_independence (P : MTProcess S ι)
     (hbad : ∀ i, MeasurableSet (P.bad i)) (B : Finset ι) :
     lll_independence P.bad (Measure.pi (fun v => S.measure v)) P.footprint B := by
-  haveI : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
+  have : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
   intro c _ J hJ
   have hdisj : Disjoint (P.footprint c) (J.biUnion P.footprint) := by
     apply Finset.disjoint_left.mpr
@@ -79,8 +83,8 @@ theorem mt_good_event_lower_bound (P : MTProcess S ι)
     (hcriterion : StrictCriterion (dependencyGraph P.footprint) p Finset.univ) :
     polynomial (dependencyGraph P.footprint) p Finset.univ ≤
       (Measure.pi (fun v => S.measure v) {z | MTGood P z}).toReal := by
-  haveI : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
-  haveI : IsProbabilityMeasure (Measure.pi (fun v => S.measure v) : Measure (MTState S)) :=
+  have : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
+  have : IsProbabilityMeasure (Measure.pi (fun v => S.measure v) : Measure (MTState S)) :=
     Measure.pi.instIsProbabilityMeasure _
   have hindep := mt_lll_independence P hbad Finset.univ
   have hlop := independence_implies_lopsidependence P.bad
@@ -98,8 +102,8 @@ theorem exists_MTGood (P : MTProcess S ι)
     (hp : ∀ i, event_prob P.bad (Measure.pi (fun v => S.measure v)) i ≤ p i)
     (hcriterion : StrictCriterion (dependencyGraph P.footprint) p Finset.univ) :
     ∃ z : MTState S, MTGood P z := by
-  haveI : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
-  haveI : IsProbabilityMeasure (Measure.pi (fun v => S.measure v) : Measure (MTState S)) :=
+  have : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
+  have : IsProbabilityMeasure (Measure.pi (fun v => S.measure v) : Measure (MTState S)) :=
     Measure.pi.instIsProbabilityMeasure _
   have h := ppg_good_state_exists P.bad (Measure.pi (fun v => S.measure v))
     P.footprint p Finset.univ hbad (mt_lll_independence P hbad Finset.univ)

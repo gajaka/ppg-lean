@@ -2,8 +2,12 @@
   Predecessor ranks in a clique of labels. For a matching pair this is
   the auxiliary-table index lambda in He--Li--Sun, Section 3.1.
 -/
-import PPGraph.HLS.Encoding.Normalization
-import PPGraph.HLS.DAG.Matching
+module
+
+public import PPGraph.HLS.Encoding.Normalization
+public import PPGraph.HLS.DAG.Matching
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

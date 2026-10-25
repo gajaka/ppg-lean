@@ -4,7 +4,11 @@
   by reversal. Private entries and all other nodes are unchanged.
   Source: He--Li--Sun, arXiv:2111.06527, proof of Lemma 3.4.
 -/
-import PPGraph.HLS.Encoding.TableCheck
+module
+
+public import PPGraph.HLS.Encoding.TableCheck
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -79,7 +83,7 @@ theorem priorReaders_reverse_source (P : MTProcess S ι) (D : HLS.WitnessDAG ι)
   have hv := (hD.supported u v huv).2
   ext z
   by_cases ha : a ∈ P.footprint v.1
-  · simp only [ha, if_true, Finset.mem_insert, priorReaders, Finset.mem_filter,
+  · simp only [ha, ite_true, Finset.mem_insert, priorReaders, Finset.mem_filter,
       reverse_edge_iff, reverseArc, addArc, eraseArc]
     simp only [reverse]
     constructor
@@ -89,7 +93,7 @@ theorem priorReaders_reverse_source (P : MTProcess S ι) (D : HLS.WitnessDAG ι)
     · rintro (rfl | ⟨hz, h, hza⟩)
       · exact ⟨hv, Or.inr ⟨rfl, trivial⟩, ha⟩
       · exact ⟨hz, Or.inl ⟨h, by simp [hne]⟩, hza⟩
-  · simp only [ha, if_false, priorReaders, Finset.mem_filter,
+  · simp only [ha, ite_false, priorReaders, Finset.mem_filter,
       reverse_edge_iff, reverseArc, addArc, eraseArc]
     simp only [reverse]
     constructor
@@ -134,7 +138,7 @@ theorem localIndex_reverse_source_shared (P : MTProcess S ι) (D : HLS.WitnessDA
   have hvnot : v ∉ priorReaders P D u a := by
     intro h
     exact hD.acyclic.asymm _ u v huv (Finset.mem_filter.mp h).2.1
-  rw [localIndex, priorReaders_reverse_source P D hD u v huv a, if_pos hv,
+  rw [localIndex, priorReaders_reverse_source P D hD u v huv a, ite_eq_left hv,
     Finset.card_insert_of_notMem hvnot]
   exact (localIndex_reversible_consecutive P D hD u v huv hrev a hu hv).symm
 

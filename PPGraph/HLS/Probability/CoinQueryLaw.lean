@@ -1,5 +1,9 @@
 /- A queried auxiliary coin is independent of four queried data blocks. -/
-import PPGraph.HLS.Probability.AugmentedSpace
+module
+
+public import PPGraph.HLS.Probability.AugmentedSpace
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -33,7 +37,7 @@ theorem map_coinAndFourRead {X Y Z : Type} [Fintype X] [Fintype Y] [Fintype Z]
     Sum.elim (fun _ => Sum.inr K) (fun k => Sum.inl (fourVariable vX vY vZ k))
   let n : Unit ⊕ FourIndex X Y Z → ℕ := Sum.elim (fun _ => r) (fourSlot nX nY₁ nY₂ nZ)
   let μ := fun k => A.measure (v k)
-  haveI : ∀ k, IsProbabilityMeasure (μ k) := fun k => A.isProb (v k)
+  have : ∀ k, IsProbabilityMeasure (μ k) := fun k => A.isProb (v k)
   have hqinj : Function.Injective (fun k => (n k, v k)) := by
     intro a b h
     cases a with
@@ -63,7 +67,7 @@ theorem map_coinAndFourRead {X Y Z : Type} [Fintype X] [Fintype Y] [Fintype Z]
   have hsplit := measurePreserving_sumPiEquivProdPi μ
   have hcoin := measurePreserving_funUnique fairOrientation Unit
   have hfour := measurePreserving_splitFour (S := S) vX vY vZ
-  haveI : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
+  have : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
   have hread := ((hcoin.prod hfour).comp hsplit).comp hquery
   exact hread.map_eq
 

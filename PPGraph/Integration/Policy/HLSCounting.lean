@@ -1,7 +1,11 @@
 /- Stopped-log counting and termination for arbitrary admissible schedules.
    All count and expectation identities are proved before finiteness. -/
-import PPGraph.Integration.Policy.HLSDAG
-import PPGraph.HLS.Probability.RootUnion
+module
+
+public import PPGraph.Integration.Policy.HLSDAG
+public import PPGraph.HLS.Probability.RootUnion
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -21,7 +25,7 @@ def resamplingEvent (P : MTProcess S ι) (σ : Schedule P) (α : ι) (t : ℕ) :
 theorem measurableSet_resamplingEvent (P : MTProcess S ι) (σ : Schedule P)
     (hbad : ∀ i, MeasurableSet (P.bad i)) (α : ι) (t : ℕ) :
     MeasurableSet (resamplingEvent P σ α t) := by
-  letI : MeasurableSpace ι := ⊤
+  let : MeasurableSpace ι := ⊤
   exact (measurableSet_running P σ hbad (t + 1)).inter
     ((σ.measurable_select t) (measurableSet_singleton α))
 
@@ -42,7 +46,7 @@ theorem measurable_count (P : MTProcess S ι) (σ : Schedule P)
 theorem measurable_earlierLabelCount (P : MTProcess S ι) (σ : Schedule P)
     (_hbad : ∀ i, MeasurableSet (P.bad i)) (t : ℕ) :
     Measurable (fun ω : LogSpace S => earlierLabelCount (σ.select ω) t) := by
-  letI : MeasurableSpace ι := ⊤
+  let : MeasurableSpace ι := ⊤
   let history : LogSpace S → (Fin (t + 1) → ι) := fun ω k => σ.select ω k.val
   have hhistory : Measurable history := Measurable.of_eval (fun k =>
     σ.measurable_select k.val)
@@ -166,7 +170,7 @@ theorem tLog_le_of_good (P : MTProcess S ι) (C : ℕ → ι) (ω : LogSpace S) 
   have hzero : ∀ s ∉ Finset.range T,
       (if Running P C ω (s + 1) then (1 : ℝ≥0∞) else 0) = 0 := by
     intro s hs
-    rw [if_neg (hstop s (Nat.le_of_not_gt (by simpa only [Finset.mem_range] using hs)))]
+    rw [ite_eq_right (hstop s (Nat.le_of_not_gt (by simpa only [Finset.mem_range] using hs)))]
   unfold tLog
   rw [tsum_eq_sum hzero]
   calc
@@ -185,7 +189,7 @@ theorem tLog_lt_top_iff_exists_good (P : MTProcess S ι) (C : ℕ → ι) (ω : 
     have hrun : ∀ n, Running P C ω n := fun n t ht => hC t (fun h => hn ⟨t, h⟩)
     have hinf : tLog P C ω = ⊤ := by
       unfold tLog
-      simp_rw [if_pos (hrun _)]
+      simp_rw [ite_eq_left (hrun _)]
       exact ENNReal.tsum_const_eq_top_of_ne_zero one_ne_zero
     exact hf.ne hinf
   · rintro ⟨T, hT⟩

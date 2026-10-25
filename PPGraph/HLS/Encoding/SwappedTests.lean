@@ -3,7 +3,11 @@
   variables exchanged. Certificate locality justifies comparing only
   variables in the endpoint's own footprint.
 -/
-import PPGraph.HLS.Encoding.PrefixCheck
+module
+
+public import PPGraph.HLS.Encoding.PrefixCheck
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -27,10 +31,10 @@ theorem reverse_source_test_eq_swap (P : MTProcess S ι) (D : HLS.WitnessDAG ι)
   apply P.dep u.1
   intro a ha
   by_cases hav : a ∈ P.footprint v.1
-  · simp only [swapShared, Finset.mem_inter, ha, hav, and_self, if_true,
+  · simp only [swapShared, Finset.mem_inter, ha, hav, and_self, ite_true,
       tableState, readAt]
     rw [localIndex_reverse_source_shared P D hD u v huv hrev a ha hav]
-  · simp only [swapShared, Finset.mem_inter, ha, hav, and_false, if_false,
+  · simp only [swapShared, Finset.mem_inter, ha, hav, and_false, ite_false,
       tableState, readAt]
     rw [localIndex_reverse_source_private P D hD u v huv a hav]
 
@@ -42,10 +46,10 @@ theorem reverse_target_test_eq_swap (P : MTProcess S ι) (D : HLS.WitnessDAG ι)
   apply P.dep v.1
   intro a ha
   by_cases hau : a ∈ P.footprint u.1
-  · simp only [swapShared, Finset.mem_inter, ha, hau, and_self, if_true,
+  · simp only [swapShared, Finset.mem_inter, ha, hau, and_self, ite_true,
       tableState, readAt]
     rw [localIndex_reverse_target_shared P D hD u v huv hrev a hau ha]
-  · simp only [swapShared, Finset.mem_inter, ha, hau, false_and, if_false,
+  · simp only [swapShared, Finset.mem_inter, ha, hau, false_and, ite_false,
       tableState, readAt]
     rw [localIndex_reverse_target_private P D hD u v huv a hau]
 

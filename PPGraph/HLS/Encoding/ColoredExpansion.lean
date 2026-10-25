@@ -1,6 +1,10 @@
 /- Canonical colored expansion and intrinsic recovery of inserted vertices. -/
-import PPGraph.HLS.Encoding.OriginRecovery
-import PPGraph.HLS.Encoding.NormalizationReversal
+module
+
+public import PPGraph.HLS.Encoding.OriginRecovery
+public import PPGraph.HLS.Encoding.NormalizationReversal
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

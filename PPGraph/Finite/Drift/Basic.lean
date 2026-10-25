@@ -12,9 +12,13 @@
   means that this witness fails; it is not an infeasibility certificate.
 -/
 
-import PPGraph.Drift.Additive
-import Mathlib.Probability.ProbabilityMassFunction.Constructions
-import Mathlib.Probability.ProbabilityMassFunction.Integrals
+module
+
+public import PPGraph.Drift.Additive
+public import Mathlib.Probability.ProbabilityMassFunction.Constructions
+public import Mathlib.Probability.ProbabilityMassFunction.Integrals
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 

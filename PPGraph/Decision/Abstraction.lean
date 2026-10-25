@@ -13,8 +13,12 @@
   and preservation/reflection of the good-state predicate. Reachability and
   decision completeness are conclusions, not fields of the abstraction.
 -/
-import PPGraph.Decision.ReachabilityRefutation
-import Mathlib.Data.Finset.Lattice.Fold
+module
+
+public import PPGraph.Decision.ReachabilityRefutation
+public import Mathlib.Data.Finset.Lattice.Fold
+
+@[expose] public section
 
 set_option autoImplicit false
 

@@ -6,8 +6,12 @@
   No concrete target is extracted using Classical.choose.
   Enumeration is exhaustive, not a polynomial-time algorithm.
 -/
-import PPGraph.Decision.Abstraction
-import Mathlib.Data.Nat.Find
+module
+
+public import PPGraph.Decision.Abstraction
+public import Mathlib.Data.Nat.Find
+
+@[expose] public section
 
 set_option autoImplicit false
 

@@ -8,10 +8,14 @@
   via pp_quotient from PPGraphCategorical.
 -/
 
-import Mathlib.Tactic
-import PPGraph.Core.Graph
-import PPGraph.Certification.Parametric
-import PPGraph.Core.Categorical
+module
+
+public import Mathlib.Tactic
+public import PPGraph.Core.Graph
+public import PPGraph.Certification.Parametric
+public import PPGraph.Core.Categorical
+
+@[expose] public section
 
 variable {Θ : Type} [PartialOrder Θ]
 variable {D : Type}

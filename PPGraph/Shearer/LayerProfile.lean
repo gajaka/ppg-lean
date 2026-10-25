@@ -3,8 +3,12 @@
   occurrence counts and weights needed in the stable-sequence argument.
   The labels at any fixed depth are distinct by SameDepthIndependent.
 -/
-import PPGraph.Shearer.Witness
-import Mathlib.Data.List.GetD
+module
+
+public import PPGraph.Shearer.Witness
+public import Mathlib.Data.List.GetD
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

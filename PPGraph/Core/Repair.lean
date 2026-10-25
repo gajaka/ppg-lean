@@ -10,8 +10,12 @@
   Imports PPGraph.lean for core definitions (Graph, pp_edge, pp_valid).
 -/
 
-import Mathlib.Tactic
-import PPGraph.Core.Graph
+module
+
+public import Mathlib.Tactic
+public import PPGraph.Core.Graph
+
+@[expose] public section
 
 variable {V : Type}
 

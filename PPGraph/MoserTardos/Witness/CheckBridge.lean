@@ -18,9 +18,13 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.MoserTardos.Witness.CheckShape
-import PPGraph.MoserTardos.Witness.RealTree
-import PPGraph.MoserTardos.Witness.Check
+module
+
+public import PPGraph.MoserTardos.Witness.CheckShape
+public import PPGraph.MoserTardos.Witness.RealTree
+public import PPGraph.MoserTardos.Witness.Check
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false

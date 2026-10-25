@@ -23,10 +23,14 @@
   while no budgets satisfy the old product criterion.
 -/
 
-import PPGraph.MoserTardos.Bounds.OccurrenceExpectation
-import PPGraph.MoserTardos.Witness.LabelsAtDepthBridge
-import PPGraph.Integration.MoserTardosRepair
-import Mathlib.Probability.Distributions.Uniform
+module
+
+public import PPGraph.MoserTardos.Bounds.OccurrenceExpectation
+public import PPGraph.MoserTardos.Witness.LabelsAtDepthBridge
+public import PPGraph.Integration.MoserTardosRepair
+public import Mathlib.Probability.Distributions.Uniform
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -85,7 +89,7 @@ theorem polynomial_mono (P : MTProcess S ι) (x y : ι → ℝ≥0)
     polynomial P x α ≤ polynomial P y α := by
   apply Finset.sum_le_sum
   intro T _
-  exact Finset.prod_le_prod' (fun b _ => hxy b)
+  exact Finset.prod_le_prod (fun b _ => hxy b)
 
 theorem one_le_polynomial (P : MTProcess S ι) (x : ι → ℝ≥0) (α : ι) :
     1 ≤ polynomial P x α := by
@@ -234,7 +238,7 @@ theorem sum_treesUpTo_weight_le (P : MTProcess S ι) (p : ι → ℝ≥0) :
         _ = p α * ∏ b ∈ T, ∑ t ∈ treesUpTo P D b, t.weight p := by
           rw [Finset.prod_sum]
         _ ≤ p α * ∏ b ∈ T, weight P p D b :=
-          mul_le_mul_of_nonneg_left (Finset.prod_le_prod' (fun b _ => ih b)) zero_le
+          mul_le_mul_of_nonneg_left (Finset.prod_le_prod (fun b _ => ih b)) zero_le
     calc
       _ ≤ ∑ T ∈ independentSubsets P α, p α * ∏ b ∈ T, weight P p D b :=
         Finset.sum_le_sum hinner
@@ -582,7 +586,7 @@ theorem bad_measurable (i : Fin 2) : MeasurableSet (process.bad i) := by
 
 theorem bad_probability (i : Fin 2) :
     Measure.pi (fun v => spaces.measure v) (process.bad i) = (1 / 3 : ℝ≥0∞) := by
-  haveI : ∀ v, IsProbabilityMeasure (spaces.measure v) := spaces.isProb
+  have : ∀ v, IsProbabilityMeasure (spaces.measure v) := spaces.isProb
   have h := measurePreserving_eval (μ := fun v => spaces.measure v) ()
   calc
     Measure.pi (fun v => spaces.measure v) (process.bad i) =

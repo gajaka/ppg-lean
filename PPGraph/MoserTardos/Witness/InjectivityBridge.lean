@@ -15,9 +15,13 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.MoserTardos.Witness.RealTree
-import PPGraph.MoserTardos.Witness.Canonical
-import PPGraph.MoserTardos.Witness.Injectivity
+module
+
+public import PPGraph.MoserTardos.Witness.RealTree
+public import PPGraph.MoserTardos.Witness.Canonical
+public import PPGraph.MoserTardos.Witness.Injectivity
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -86,7 +90,7 @@ theorem GrowingTree.toWTreeFuel_countLabel {ι : Type} [DecidableEq ι] (T : Gro
     intro v hv hb
     show (if T.lab v = A then 1 else 0) = (T.dom.filter (fun w => v <+: w ∧ T.lab w = A)).card
     by_cases hlabv : T.lab v = A
-    · rw [if_pos hlabv]
+    · rw [ite_eq_left hlabv]
       have hset : T.dom.filter (fun w => v <+: w ∧ T.lab w = A) = {v} := by
         apply Finset.ext
         intro w
@@ -99,7 +103,7 @@ theorem GrowingTree.toWTreeFuel_countLabel {ι : Type} [DecidableEq ι] (T : Gro
           rw [heq]
           exact ⟨hv, List.prefix_refl v, hlabv⟩
       rw [hset, Finset.card_singleton]
-    · rw [if_neg hlabv]
+    · rw [ite_eq_right hlabv]
       have hset : T.dom.filter (fun w => v <+: w ∧ T.lab w = A) = ∅ := by
         rw [Finset.filter_eq_empty_iff]
         intro w hwdom hcond
@@ -142,7 +146,7 @@ theorem GrowingTree.toWTreeFuel_countLabel {ι : Type} [DecidableEq ι] (T : Gro
         · left
           subst heq
           by_cases hlabv : T.lab w = A
-          · rw [if_pos hlabv]; exact Finset.mem_singleton_self w
+          · rw [ite_eq_left hlabv]; exact Finset.mem_singleton_self w
           · exact absurd hlab hlabv
         · right
           obtain ⟨t, ht⟩ := hpre
@@ -158,11 +162,11 @@ theorem GrowingTree.toWTreeFuel_countLabel {ι : Type} [DecidableEq ι] (T : Gro
           exact ⟨GrowingTree.Valid.prefix_mem T hV w hwdom (v ++ [k]) ⟨t', hkey⟩, k, rfl⟩
       · rintro (h | ⟨u, hu, hwdom, hpre, hlab⟩)
         · by_cases hlabv : T.lab v = A
-          · rw [if_pos hlabv] at h
+          · rw [ite_eq_left hlabv] at h
             have hwv : w = v := Finset.mem_singleton.mp h
             subst hwv
             exact ⟨hv, List.prefix_refl w, hlabv⟩
-          · rw [if_neg hlabv] at h
+          · rw [ite_eq_right hlabv] at h
             exact absurd h (Finset.notMem_empty w)
         · rw [hchildren_def, Finset.mem_filter] at hu
           obtain ⟨_, k, huk⟩ := hu
@@ -197,20 +201,20 @@ theorem GrowingTree.toWTreeFuel_countLabel {ι : Type} [DecidableEq ι] (T : Gro
       rw [hchildren_def, Finset.mem_filter] at hu
       obtain ⟨_, k, huk⟩ := hu
       by_cases hlabv : T.lab v = A
-      · rw [if_pos hlabv] at hw1
+      · rw [ite_eq_left hlabv] at hw1
         have hwv : w = v := Finset.mem_singleton.mp hw1
         have hulew : u.length ≤ w.length := hw2'.2.1.length_le
         have hulen : u.length = v.length + 1 := by rw [huk]; simp
         have hwvlen : w.length = v.length := by rw [hwv]
         omega
-      · rw [if_neg hlabv] at hw1
+      · rw [ite_eq_right hlabv] at hw1
         exact absurd hw1 (Finset.notMem_empty w)
     rw [hunioncard, Finset.card_biUnion hdisjoint]
     have hif : (if T.lab v = A then ({v} : Finset (List ℕ)) else ∅).card
         = if T.lab v = A then 1 else 0 := by
       by_cases hlabv : T.lab v = A
-      · rw [if_pos hlabv, if_pos hlabv, Finset.card_singleton]
-      · rw [if_neg hlabv, if_neg hlabv, Finset.card_empty]
+      · rw [ite_eq_left hlabv, ite_eq_left hlabv, Finset.card_singleton]
+      · rw [ite_eq_right hlabv, ite_eq_right hlabv, Finset.card_empty]
     rw [hif]
     congr 1
     rw [hchildren_def]

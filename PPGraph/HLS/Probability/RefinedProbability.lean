@@ -1,6 +1,10 @@
 /- HLS Lemma 3.4: the whole-DAG probability is bounded by its refined weight. -/
-import PPGraph.HLS.Probability.UnitChecks
-import PPGraph.HLS.Bounds.ProductDiscount
+module
+
+public import PPGraph.HLS.Probability.UnitChecks
+public import PPGraph.HLS.Bounds.ProductDiscount
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -19,7 +23,7 @@ theorem measure_originalTable_tableEvent_eq (P : MTProcess S ι) (D : HLS.Witnes
     logMeasure (augmentedSpaces (ι := ι) S)
       ((originalTable (S := S) (ι := ι)) ⁻¹' tableEvent P D u) =
       ENNReal.ofReal ((Measure.pi (fun a => S.measure a)).real (P.bad u.1)) := by
-  haveI : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
+  have : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
   calc
     _ = logMeasure S (tableEvent P D u) :=
       (Measure.map_apply (μ := logMeasure (augmentedSpaces (ι := ι) S))
@@ -82,7 +86,7 @@ theorem logMeasure_unitCheck_le_refinedWeight (P : MTProcess S ι)
     _ ≤ (∏ u ∈ D.nodes \ arcNodes (selectedArcs O.matching D), ENNReal.ofReal (p u.1)) *
         ∏ e ∈ selectedArcs O.matching D,
           ENNReal.ofReal (p e.1.1 * p e.2.1 * (1 - 2 * O.discount e.1.1) * (1 - 2 * O.discount e.2.1)) := by
-      exact mul_le_mul' le_rfl (Finset.prod_le_prod' (fun e he =>
+      exact mul_le_mul' le_rfl (Finset.prod_le_prod (fun e he =>
         measure_augmentedPairCheck_le_discount P hbad p hprob hp O hInt D hD e he))
     _ = ENNReal.ofReal
         ((∏ u ∈ D.nodes \ arcNodes (selectedArcs O.matching D), p u.1) *

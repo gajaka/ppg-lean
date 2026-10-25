@@ -17,9 +17,13 @@
   existing stopped-log bridge.
 -/
 
-import PPGraph.Shearer.SequenceProbability
-import PPGraph.MoserTardos.Bounds.Termination
-import PPGraph.LLL.General
+module
+
+public import PPGraph.Shearer.SequenceProbability
+public import PPGraph.MoserTardos.Bounds.Termination
+public import PPGraph.LLL.General
+
+@[expose] public section
 
 set_option autoImplicit false
 -- MTState and CertVars are aliases of the Pi state and footprint families.
@@ -86,8 +90,8 @@ theorem event_prob_bounds [Fintype V] (P : MTProcess S ι) (p : ι → ℝ)
     (hp : ∀ i, event_prob P.bad (Measure.pi (fun v => S.measure v)) i ≤ p i) :
     (∀ i, 0 ≤ p i) ∧
       ∀ i, Measure.pi (fun v => S.measure v) (P.bad i) ≤ ENNReal.ofReal (p i) := by
-  haveI : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
-  haveI : IsProbabilityMeasure (Measure.pi (fun v => S.measure v) : Measure (MTState S)) :=
+  have : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
+  have : IsProbabilityMeasure (Measure.pi (fun v => S.measure v) : Measure (MTState S)) :=
     Measure.pi.instIsProbabilityMeasure _
   have hn (i : ι) : 0 ≤ p i := ENNReal.toReal_nonneg.trans (hp i)
   refine ⟨hn, fun i => ?_⟩

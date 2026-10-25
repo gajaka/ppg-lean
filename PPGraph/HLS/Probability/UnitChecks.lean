@@ -1,5 +1,9 @@
 /- Independent single-node and selected-pair units of an augmented DAG check. -/
-import PPGraph.HLS.Probability.AugmentedDependence
+module
+
+public import PPGraph.HLS.Probability.AugmentedDependence
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -94,7 +98,7 @@ theorem logMeasure_unitCheck_eq_prod (P : MTProcess S ι)
     (hD : D.Valid (Shearer.dependencyGraph P.footprint)) (hbad : ∀ i, MeasurableSet (P.bad i)) :
     logMeasure (augmentedSpaces S) (unitCheck P M D) =
       ∏ U ∈ checkUnits P M D, logMeasure (augmentedSpaces S) (unitEvent P M D U) := by
-  haveI : ∀ q, IsProbabilityMeasure (μCoin (augmentedSpaces (ι := ι) S) q) :=
+  have : ∀ q, IsProbabilityMeasure (μCoin (augmentedSpaces (ι := ι) S) q) :=
     fun q => (augmentedSpaces S).isProb q.2
   exact infinitePi_iInter_eq_prod_of_dependsOn (μCoin (augmentedSpaces S)) (checkUnits P M D)
     (unitCoordinates P M D) (unitEvent P M D) (unitCoordinates_pairwiseDisjoint P M D hD)

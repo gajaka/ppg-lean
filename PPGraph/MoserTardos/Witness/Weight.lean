@@ -24,9 +24,13 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import Mathlib.Data.NNReal.Basic
-import PPGraph.MoserTardos.Witness.Witness
+module
+
+public import Mathlib.Tactic
+public import Mathlib.Basic.NNReal.Basic
+public import PPGraph.MoserTardos.Witness.Witness
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -56,7 +60,7 @@ theorem WTree.weight_mono {ι : Type} {p q : ι → ℝ≥0} (h : ∀ i, p i ≤
   | mk i cs => by
     rw [WTree.weight_children, WTree.weight_children]
     exact mul_le_mul (h i)
-      (List.prod_le_prod' (fun c _ => WTree.weight_mono h c))
+      (List.prod_le_prod (fun c _ => WTree.weight_mono h c))
       zero_le zero_le
 
 #check @WTree.weight

@@ -5,8 +5,12 @@
   already proved deletion identity and finite coordinate updates.
   https://arxiv.org/abs/2111.06527
 -/
-import PPGraph.Shearer.Stable
-import Mathlib.Tactic
+module
+
+public import PPGraph.Shearer.Stable
+public import Mathlib.Tactic
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -90,7 +94,7 @@ theorem strictCriterion_mono_weights (G : SimpleGraph ι) (p q : ι → ℝ)
       intro haB
       simpa [ha] using hle a haB
   exact (strictCriterion_congr G (fun i => if i ∈ B then p i else q i) p B
-    (fun i hi => if_pos hi)).mp (hchange B)
+    (fun i hi => ite_eq_left hi)).mp (hchange B)
 
 theorem coefficient_singleton (G : SimpleGraph ι) (p : ι → ℝ)
     (B : Finset ι) (a : ι) (ha : a ∈ B) :

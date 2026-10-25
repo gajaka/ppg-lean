@@ -12,8 +12,12 @@
   particular potential remains a model-specific obligation.
 -/
 
-import PPGraph.Drift.Additive
-import PPGraph.Integration.MoserTardosRepair
+module
+
+public import PPGraph.Drift.Additive
+public import PPGraph.Integration.MoserTardosRepair
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 

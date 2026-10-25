@@ -1,6 +1,10 @@
 /- The reversible inserted arcs and persistence of original alternate paths. -/
-import PPGraph.HLS.DAG.ExpansionGraph
-import PPGraph.HLS.Encoding.OrderedReversal
+module
+
+public import PPGraph.HLS.DAG.ExpansionGraph
+public import PPGraph.HLS.Encoding.OrderedReversal
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

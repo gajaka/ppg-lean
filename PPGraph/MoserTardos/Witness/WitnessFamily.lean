@@ -11,10 +11,14 @@
   the full canonical-family sum without assuming convergence first.
 -/
 
-import PPGraph.MoserTardos.Bounds.WeightSum
-import PPGraph.MoserTardos.Bounds.Convergence
-import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
-import Mathlib.Data.ENNReal.BigOperators
+module
+
+public import PPGraph.MoserTardos.Bounds.WeightSum
+public import PPGraph.MoserTardos.Bounds.Convergence
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+public import Mathlib.Basic.ENNReal.BigOperators
+
+@[expose] public section
 
 open Classical
 open scoped NNReal ENNReal

@@ -18,11 +18,15 @@
   not the full lower-bounded or lexicographic ranking theorem.
 -/
 
-import Mathlib.MeasureTheory.Function.ConditionalExpectation.Basic
-import Mathlib.MeasureTheory.Integral.Bochner.Set
-import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
-import Mathlib.Probability.Process.Filtration
-import Mathlib.Tactic
+module
+
+public import Mathlib.MeasureTheory.Function.ConditionalExpectation.Basic
+public import Mathlib.MeasureTheory.Integral.Bochner.Set
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+public import Mathlib.Probability.Process.Filtration
+public import Mathlib.Tactic
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 

@@ -3,8 +3,12 @@
   induced graph on original vertices is exactly the original DAG.
   He--Li--Sun, Definition 3.11 and Appendix C, Lemma C.1.
 -/
-import PPGraph.HLS.DAG.ExpansionVertices
-import PPGraph.HLS.Encoding.Normalization
+module
+
+public import PPGraph.HLS.DAG.ExpansionVertices
+public import PPGraph.HLS.Encoding.Normalization
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -42,7 +46,7 @@ theorem rawExpansion_original_edge_iff (M : DependencyMatching G) (D : HLS.Witne
   unfold rawExpansion expansionEmbed
   rw [OrderedDAG.edge_embed G _ _ _ _ (fun _ _ _ _ h => expansionEmbed_injective M h)
     _ _ (expandedNode_original D choice u hu) (expandedNode_original D choice v hv)]
-  simp only [expandedBefore, expandedLabel, Bool.false_eq_true, if_false,
+  simp only [expandedBefore, expandedLabel, Bool.false_eq_true, ite_false,
     and_false, false_and, or_false]
   constructor
   · rintro ⟨hbefore, hdep⟩

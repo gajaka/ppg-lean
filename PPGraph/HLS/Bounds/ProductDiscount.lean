@@ -1,5 +1,9 @@
 /- The disjoint selected-pair product and the half-cover discount. -/
-import PPGraph.HLS.Bounds.RefinedBudget
+module
+
+public import PPGraph.HLS.Bounds.RefinedBudget
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

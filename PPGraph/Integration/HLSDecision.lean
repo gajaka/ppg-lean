@@ -4,9 +4,13 @@
   HLSCertified bundles only its actual probability/intersection hypotheses;
   repairability and the runtime bound are conclusions, never certificate fields.
 -/
-import PPGraph.Integration.HLSRepair
-import PPGraph.Integration.MoserTardosInfeasibility
-import PPGraph.Decision.RepairDecision
+module
+
+public import PPGraph.Integration.HLSRepair
+public import PPGraph.Integration.MoserTardosInfeasibility
+public import PPGraph.Decision.RepairDecision
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

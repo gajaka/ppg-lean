@@ -19,8 +19,12 @@
   implementation correctness.
 -/
 
-import Mathlib.Tactic
-import PPGraph.Core.Graph
+module
+
+public import Mathlib.Tactic
+public import PPGraph.Core.Graph
+
+@[expose] public section
 
 -- ═══════════════════════════════════════════════════════════════════
 -- Section 1: Refinement Configuration (Node Type)

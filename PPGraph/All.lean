@@ -1,193 +1,195 @@
-import PPGraph.Certification.AssessmentBridge
-import PPGraph.Certification.Blocking
-import PPGraph.Certification.EquivBridge
-import PPGraph.Certification.Parametric
-import PPGraph.Certification.ParametricQuotient
-import PPGraph.Certification.QuotientBridge
-import PPGraph.Certification.Selection
-import PPGraph.Certification.SelfAssessment
-import PPGraph.Core.Categorical
-import PPGraph.Core.Graph
-import PPGraph.Core.Meta
-import PPGraph.Core.RR
-import PPGraph.Core.Repair
-import PPGraph.Decision.Abstraction
-import PPGraph.Decision.CertifiedDecision
-import PPGraph.Decision.CorrectionDuality
-import PPGraph.Decision.FarkasCertificate
-import PPGraph.Decision.FiniteCore
-import PPGraph.Decision.FiniteFeasibility
-import PPGraph.Decision.Infeasibility
-import PPGraph.Decision.InfeasibilityCounting
-import PPGraph.Decision.ReachabilityRefutation
-import PPGraph.Decision.RepairDecision
-import PPGraph.Decision.Undecidability
-import PPGraph.Decision.UnsatisfiableCore
-import PPGraph.Dependency.Cost
-import PPGraph.Dependency.Count
-import PPGraph.Dependency.Decomposition
-import PPGraph.Dependency.Laplacian
-import PPGraph.Dependency.Matrix
-import PPGraph.Dependency.Partition
-import PPGraph.Dependency.Probabilistic
-import PPGraph.Drift.Additive
-import PPGraph.Finite.Drift.Basic
-import PPGraph.Finite.Drift.Process
-import PPGraph.Finite.Lumping.Basic
-import PPGraph.Finite.Lumping.Update
-import PPGraph.Finite.Potential.Basic
-import PPGraph.Finite.Potential.Expectation
-import PPGraph.Finite.Potential.Refutation
-import PPGraph.Finite.Potential.Tail
-import PPGraph.Finite.Potential.TailCertificate
-import PPGraph.Finite.Resampling.Basic
-import PPGraph.Finite.Resampling.Table
-import PPGraph.Finite.Resampling.TableLaw
-import PPGraph.Finite.Update.Basic
-import PPGraph.Finite.Update.IID
-import PPGraph.HLS.Bounds.AugmentedExistence
-import PPGraph.HLS.Bounds.ChoiceSum
-import PPGraph.HLS.Bounds.CoinSaving
-import PPGraph.HLS.Bounds.DecoratedBudget
-import PPGraph.HLS.Bounds.ExpansionWeight
-import PPGraph.HLS.Bounds.Expectation
-import PPGraph.HLS.Bounds.OrdinalOccurrence
-import PPGraph.HLS.Bounds.ProductDiscount
-import PPGraph.HLS.Bounds.RefinedBudget
-import PPGraph.HLS.Bounds.WitnessBudget
-import PPGraph.HLS.DAG.CliqueRanks
-import PPGraph.HLS.DAG.ExpansionGraph
-import PPGraph.HLS.DAG.ExpansionVertices
-import PPGraph.HLS.DAG.FiniteDAG
-import PPGraph.HLS.DAG.Matching
-import PPGraph.HLS.DAG.MatchingArcUniqueness
-import PPGraph.HLS.DAG.MatchingSelection
-import PPGraph.HLS.DAG.OrderedDAG
-import PPGraph.HLS.DAG.OrientationScore
-import PPGraph.HLS.DAG.PairKeys
-import PPGraph.HLS.DAG.ParitySelection
-import PPGraph.HLS.DAG.RealDAG
-import PPGraph.HLS.DAG.RealDAGCounts
-import PPGraph.HLS.DAG.TimeDAG
-import PPGraph.HLS.DAG.TopologicalOrder
-import PPGraph.HLS.DAG.WitnessDAG
-import PPGraph.HLS.DAG.WitnessLayers
-import PPGraph.HLS.Encoding.CanonicalEncoding
-import PPGraph.HLS.Encoding.ChoiceRecovery
-import PPGraph.HLS.Encoding.ColoredExpansion
-import PPGraph.HLS.Encoding.ExpansionDecoder
-import PPGraph.HLS.Encoding.ExpansionFamily
-import PPGraph.HLS.Encoding.ExpansionReversibility
-import PPGraph.HLS.Encoding.LabelRanks
-import PPGraph.HLS.Encoding.NodeIso
-import PPGraph.HLS.Encoding.Normalization
-import PPGraph.HLS.Encoding.NormalizationCheck
-import PPGraph.HLS.Encoding.NormalizationReversal
-import PPGraph.HLS.Encoding.OrderedReversal
-import PPGraph.HLS.Encoding.OriginRecovery
-import PPGraph.HLS.Encoding.OriginalIso
-import PPGraph.HLS.Encoding.PrefixCheck
-import PPGraph.HLS.Encoding.RelativeCoins
-import PPGraph.HLS.Encoding.Reversal
-import PPGraph.HLS.Encoding.ReversalSlots
-import PPGraph.HLS.Encoding.StableEncoding
-import PPGraph.HLS.Encoding.SwappedTests
-import PPGraph.HLS.Encoding.TableCheck
-import PPGraph.HLS.Parameters
-import PPGraph.HLS.Probability.AugmentedCoordinates
-import PPGraph.HLS.Probability.AugmentedDependence
-import PPGraph.HLS.Probability.AugmentedPair
-import PPGraph.HLS.Probability.AugmentedSpace
-import PPGraph.HLS.Probability.BlockAssembly
-import PPGraph.HLS.Probability.BlockIntersection
-import PPGraph.HLS.Probability.BlockQueries
-import PPGraph.HLS.Probability.CoinQueryLaw
-import PPGraph.HLS.Probability.FootprintBlocks
-import PPGraph.HLS.Probability.PairProbability
-import PPGraph.HLS.Probability.QueryLaw
-import PPGraph.HLS.Probability.RefinedProbability
-import PPGraph.HLS.Probability.RootUnion
-import PPGraph.HLS.Probability.UnitChecks
-import PPGraph.Integration.AbstractionRepair
-import PPGraph.Integration.DependencyInfeasibility
-import PPGraph.Integration.DependencyMoserTardos
-import PPGraph.Integration.FiniteMTDrift
-import PPGraph.Integration.FinitePotentialExpectationMT
-import PPGraph.Integration.FinitePotentialMT
-import PPGraph.Integration.FinitePotentialTailMT
-import PPGraph.Integration.HLSDecision
-import PPGraph.Integration.HLSRepair
-import PPGraph.Integration.MoserTardosDriftRegion
-import PPGraph.Integration.MoserTardosInfeasibility
-import PPGraph.Integration.MoserTardosRepair
-import PPGraph.Integration.Policy.HLSCounting
-import PPGraph.Integration.Policy.HLSDAG
-import PPGraph.Integration.Policy.HLSExpectation
-import PPGraph.Integration.Policy.History
-import PPGraph.Integration.Policy.MoserTardos
-import PPGraph.LLL.General
-import PPGraph.LLL.Lopsided
-import PPGraph.LLL.Variable
-import PPGraph.MoserTardos.Bounds.ConstantLog
-import PPGraph.MoserTardos.Bounds.Convergence
-import PPGraph.MoserTardos.Bounds.Drift
-import PPGraph.MoserTardos.Bounds.DriftCost
-import PPGraph.MoserTardos.Bounds.Expectation
-import PPGraph.MoserTardos.Bounds.OccurrenceExpectation
-import PPGraph.MoserTardos.Bounds.Pegden
-import PPGraph.MoserTardos.Bounds.Termination
-import PPGraph.MoserTardos.Bounds.WeightSum
-import PPGraph.MoserTardos.Counting.Counting
-import PPGraph.MoserTardos.Counting.OccurrenceCounting
-import PPGraph.MoserTardos.Counting.ResamplingCount
-import PPGraph.MoserTardos.Probability.Intersection
-import PPGraph.MoserTardos.Probability.OccurrenceProbability
-import PPGraph.MoserTardos.Probability.PastIndependence
-import PPGraph.MoserTardos.Probability.Probability
-import PPGraph.MoserTardos.Probability.ProbabilityGeneral
-import PPGraph.MoserTardos.Probability.RandomInitExpectation
-import PPGraph.MoserTardos.Process.Basic
-import PPGraph.MoserTardos.Process.FullResampling
-import PPGraph.MoserTardos.Process.LogSpace
-import PPGraph.MoserTardos.Process.Process
-import PPGraph.MoserTardos.Process.RandomInitialization
-import PPGraph.MoserTardos.Process.RandomTrajectory
-import PPGraph.MoserTardos.Witness.Canonical
-import PPGraph.MoserTardos.Witness.Check
-import PPGraph.MoserTardos.Witness.CheckBirth
-import PPGraph.MoserTardos.Witness.CheckBridge
-import PPGraph.MoserTardos.Witness.CheckInvariance
-import PPGraph.MoserTardos.Witness.CheckOrder
-import PPGraph.MoserTardos.Witness.CheckShape
-import PPGraph.MoserTardos.Witness.Correspondence
-import PPGraph.MoserTardos.Witness.Growing
-import PPGraph.MoserTardos.Witness.Injectivity
-import PPGraph.MoserTardos.Witness.InjectivityBridge
-import PPGraph.MoserTardos.Witness.LabelsAtDepthBridge
-import PPGraph.MoserTardos.Witness.Occurrence
-import PPGraph.MoserTardos.Witness.RealTree
-import PPGraph.MoserTardos.Witness.ToGrowingTreeCheckBridge
-import PPGraph.MoserTardos.Witness.WTreeCountable
-import PPGraph.MoserTardos.Witness.WTreeToGrowingTree
-import PPGraph.MoserTardos.Witness.Weight
-import PPGraph.MoserTardos.Witness.Witness
-import PPGraph.MoserTardos.Witness.WitnessFamily
-import PPGraph.Optimization.ComplementarySlackness
-import PPGraph.Shearer.BDD
-import PPGraph.Shearer.BDDBudget
-import PPGraph.Shearer.BDDExpectation
-import PPGraph.Shearer.Basic
-import PPGraph.Shearer.ComponentOccurrence
-import PPGraph.Shearer.Expectation
-import PPGraph.Shearer.Induction
-import PPGraph.Shearer.LayerProfile
-import PPGraph.Shearer.MT
-import PPGraph.Shearer.Occurrence
-import PPGraph.Shearer.Polynomial
-import PPGraph.Shearer.SequenceProbability
-import PPGraph.Shearer.Slack
-import PPGraph.Shearer.SlackExpectation
-import PPGraph.Shearer.Stable
-import PPGraph.Shearer.Witness
+module
+
+public import PPGraph.Certification.AssessmentBridge
+public import PPGraph.Certification.Blocking
+public import PPGraph.Certification.EquivBridge
+public import PPGraph.Certification.Parametric
+public import PPGraph.Certification.ParametricQuotient
+public import PPGraph.Certification.QuotientBridge
+public import PPGraph.Certification.Selection
+public import PPGraph.Certification.SelfAssessment
+public import PPGraph.Core.Categorical
+public import PPGraph.Core.Graph
+public import PPGraph.Core.Meta
+public import PPGraph.Core.RR
+public import PPGraph.Core.Repair
+public import PPGraph.Decision.Abstraction
+public import PPGraph.Decision.CertifiedDecision
+public import PPGraph.Decision.CorrectionDuality
+public import PPGraph.Decision.FarkasCertificate
+public import PPGraph.Decision.FiniteCore
+public import PPGraph.Decision.FiniteFeasibility
+public import PPGraph.Decision.Infeasibility
+public import PPGraph.Decision.InfeasibilityCounting
+public import PPGraph.Decision.ReachabilityRefutation
+public import PPGraph.Decision.RepairDecision
+public import PPGraph.Decision.Undecidability
+public import PPGraph.Decision.UnsatisfiableCore
+public import PPGraph.Dependency.Cost
+public import PPGraph.Dependency.Count
+public import PPGraph.Dependency.Decomposition
+public import PPGraph.Dependency.Laplacian
+public import PPGraph.Dependency.Matrix
+public import PPGraph.Dependency.Partition
+public import PPGraph.Dependency.Probabilistic
+public import PPGraph.Drift.Additive
+public import PPGraph.Finite.Drift.Basic
+public import PPGraph.Finite.Drift.Process
+public import PPGraph.Finite.Lumping.Basic
+public import PPGraph.Finite.Lumping.Update
+public import PPGraph.Finite.Potential.Basic
+public import PPGraph.Finite.Potential.Expectation
+public import PPGraph.Finite.Potential.Refutation
+public import PPGraph.Finite.Potential.Tail
+public import PPGraph.Finite.Potential.TailCertificate
+public import PPGraph.Finite.Resampling.Basic
+public import PPGraph.Finite.Resampling.Table
+public import PPGraph.Finite.Resampling.TableLaw
+public import PPGraph.Finite.Update.Basic
+public import PPGraph.Finite.Update.IID
+public import PPGraph.HLS.Bounds.AugmentedExistence
+public import PPGraph.HLS.Bounds.ChoiceSum
+public import PPGraph.HLS.Bounds.CoinSaving
+public import PPGraph.HLS.Bounds.DecoratedBudget
+public import PPGraph.HLS.Bounds.ExpansionWeight
+public import PPGraph.HLS.Bounds.Expectation
+public import PPGraph.HLS.Bounds.OrdinalOccurrence
+public import PPGraph.HLS.Bounds.ProductDiscount
+public import PPGraph.HLS.Bounds.RefinedBudget
+public import PPGraph.HLS.Bounds.WitnessBudget
+public import PPGraph.HLS.DAG.CliqueRanks
+public import PPGraph.HLS.DAG.ExpansionGraph
+public import PPGraph.HLS.DAG.ExpansionVertices
+public import PPGraph.HLS.DAG.FiniteDAG
+public import PPGraph.HLS.DAG.Matching
+public import PPGraph.HLS.DAG.MatchingArcUniqueness
+public import PPGraph.HLS.DAG.MatchingSelection
+public import PPGraph.HLS.DAG.OrderedDAG
+public import PPGraph.HLS.DAG.OrientationScore
+public import PPGraph.HLS.DAG.PairKeys
+public import PPGraph.HLS.DAG.ParitySelection
+public import PPGraph.HLS.DAG.RealDAG
+public import PPGraph.HLS.DAG.RealDAGCounts
+public import PPGraph.HLS.DAG.TimeDAG
+public import PPGraph.HLS.DAG.TopologicalOrder
+public import PPGraph.HLS.DAG.WitnessDAG
+public import PPGraph.HLS.DAG.WitnessLayers
+public import PPGraph.HLS.Encoding.CanonicalEncoding
+public import PPGraph.HLS.Encoding.ChoiceRecovery
+public import PPGraph.HLS.Encoding.ColoredExpansion
+public import PPGraph.HLS.Encoding.ExpansionDecoder
+public import PPGraph.HLS.Encoding.ExpansionFamily
+public import PPGraph.HLS.Encoding.ExpansionReversibility
+public import PPGraph.HLS.Encoding.LabelRanks
+public import PPGraph.HLS.Encoding.NodeIso
+public import PPGraph.HLS.Encoding.Normalization
+public import PPGraph.HLS.Encoding.NormalizationCheck
+public import PPGraph.HLS.Encoding.NormalizationReversal
+public import PPGraph.HLS.Encoding.OrderedReversal
+public import PPGraph.HLS.Encoding.OriginRecovery
+public import PPGraph.HLS.Encoding.OriginalIso
+public import PPGraph.HLS.Encoding.PrefixCheck
+public import PPGraph.HLS.Encoding.RelativeCoins
+public import PPGraph.HLS.Encoding.Reversal
+public import PPGraph.HLS.Encoding.ReversalSlots
+public import PPGraph.HLS.Encoding.StableEncoding
+public import PPGraph.HLS.Encoding.SwappedTests
+public import PPGraph.HLS.Encoding.TableCheck
+public import PPGraph.HLS.Parameters
+public import PPGraph.HLS.Probability.AugmentedCoordinates
+public import PPGraph.HLS.Probability.AugmentedDependence
+public import PPGraph.HLS.Probability.AugmentedPair
+public import PPGraph.HLS.Probability.AugmentedSpace
+public import PPGraph.HLS.Probability.BlockAssembly
+public import PPGraph.HLS.Probability.BlockIntersection
+public import PPGraph.HLS.Probability.BlockQueries
+public import PPGraph.HLS.Probability.CoinQueryLaw
+public import PPGraph.HLS.Probability.FootprintBlocks
+public import PPGraph.HLS.Probability.PairProbability
+public import PPGraph.HLS.Probability.QueryLaw
+public import PPGraph.HLS.Probability.RefinedProbability
+public import PPGraph.HLS.Probability.RootUnion
+public import PPGraph.HLS.Probability.UnitChecks
+public import PPGraph.Integration.AbstractionRepair
+public import PPGraph.Integration.DependencyInfeasibility
+public import PPGraph.Integration.DependencyMoserTardos
+public import PPGraph.Integration.FiniteMTDrift
+public import PPGraph.Integration.FinitePotentialExpectationMT
+public import PPGraph.Integration.FinitePotentialMT
+public import PPGraph.Integration.FinitePotentialTailMT
+public import PPGraph.Integration.HLSDecision
+public import PPGraph.Integration.HLSRepair
+public import PPGraph.Integration.MoserTardosDriftRegion
+public import PPGraph.Integration.MoserTardosInfeasibility
+public import PPGraph.Integration.MoserTardosRepair
+public import PPGraph.Integration.Policy.HLSCounting
+public import PPGraph.Integration.Policy.HLSDAG
+public import PPGraph.Integration.Policy.HLSExpectation
+public import PPGraph.Integration.Policy.History
+public import PPGraph.Integration.Policy.MoserTardos
+public import PPGraph.LLL.General
+public import PPGraph.LLL.Lopsided
+public import PPGraph.LLL.Variable
+public import PPGraph.MoserTardos.Bounds.ConstantLog
+public import PPGraph.MoserTardos.Bounds.Convergence
+public import PPGraph.MoserTardos.Bounds.Drift
+public import PPGraph.MoserTardos.Bounds.DriftCost
+public import PPGraph.MoserTardos.Bounds.Expectation
+public import PPGraph.MoserTardos.Bounds.OccurrenceExpectation
+public import PPGraph.MoserTardos.Bounds.Pegden
+public import PPGraph.MoserTardos.Bounds.Termination
+public import PPGraph.MoserTardos.Bounds.WeightSum
+public import PPGraph.MoserTardos.Counting.Counting
+public import PPGraph.MoserTardos.Counting.OccurrenceCounting
+public import PPGraph.MoserTardos.Counting.ResamplingCount
+public import PPGraph.MoserTardos.Probability.Intersection
+public import PPGraph.MoserTardos.Probability.OccurrenceProbability
+public import PPGraph.MoserTardos.Probability.PastIndependence
+public import PPGraph.MoserTardos.Probability.Probability
+public import PPGraph.MoserTardos.Probability.ProbabilityGeneral
+public import PPGraph.MoserTardos.Probability.RandomInitExpectation
+public import PPGraph.MoserTardos.Process.Basic
+public import PPGraph.MoserTardos.Process.FullResampling
+public import PPGraph.MoserTardos.Process.LogSpace
+public import PPGraph.MoserTardos.Process.Process
+public import PPGraph.MoserTardos.Process.RandomInitialization
+public import PPGraph.MoserTardos.Process.RandomTrajectory
+public import PPGraph.MoserTardos.Witness.Canonical
+public import PPGraph.MoserTardos.Witness.Check
+public import PPGraph.MoserTardos.Witness.CheckBirth
+public import PPGraph.MoserTardos.Witness.CheckBridge
+public import PPGraph.MoserTardos.Witness.CheckInvariance
+public import PPGraph.MoserTardos.Witness.CheckOrder
+public import PPGraph.MoserTardos.Witness.CheckShape
+public import PPGraph.MoserTardos.Witness.Correspondence
+public import PPGraph.MoserTardos.Witness.Growing
+public import PPGraph.MoserTardos.Witness.Injectivity
+public import PPGraph.MoserTardos.Witness.InjectivityBridge
+public import PPGraph.MoserTardos.Witness.LabelsAtDepthBridge
+public import PPGraph.MoserTardos.Witness.Occurrence
+public import PPGraph.MoserTardos.Witness.RealTree
+public import PPGraph.MoserTardos.Witness.ToGrowingTreeCheckBridge
+public import PPGraph.MoserTardos.Witness.WTreeCountable
+public import PPGraph.MoserTardos.Witness.WTreeToGrowingTree
+public import PPGraph.MoserTardos.Witness.Weight
+public import PPGraph.MoserTardos.Witness.Witness
+public import PPGraph.MoserTardos.Witness.WitnessFamily
+public import PPGraph.Optimization.ComplementarySlackness
+public import PPGraph.Shearer.BDD
+public import PPGraph.Shearer.BDDBudget
+public import PPGraph.Shearer.BDDExpectation
+public import PPGraph.Shearer.Basic
+public import PPGraph.Shearer.ComponentOccurrence
+public import PPGraph.Shearer.Expectation
+public import PPGraph.Shearer.Induction
+public import PPGraph.Shearer.LayerProfile
+public import PPGraph.Shearer.MT
+public import PPGraph.Shearer.Occurrence
+public import PPGraph.Shearer.Polynomial
+public import PPGraph.Shearer.SequenceProbability
+public import PPGraph.Shearer.Slack
+public import PPGraph.Shearer.SlackExpectation
+public import PPGraph.Shearer.Stable
+public import PPGraph.Shearer.Witness
 
 /-! Complete generic PPG library. Individual modules can be imported separately. -/

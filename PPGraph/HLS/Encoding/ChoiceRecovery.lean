@@ -1,6 +1,10 @@
 /- Recover each of the four local choices from the colored expanded DAG. -/
-import PPGraph.HLS.Encoding.OriginalIso
-import PPGraph.HLS.DAG.MatchingArcUniqueness
+module
+
+public import PPGraph.HLS.Encoding.OriginalIso
+public import PPGraph.HLS.DAG.MatchingArcUniqueness
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

@@ -9,8 +9,12 @@
   is used. These statements count resamplings, not physical elapsed time.
 -/
 
-import PPGraph.Finite.Potential.Expectation
-import PPGraph.Integration.FinitePotentialMT
+module
+
+public import PPGraph.Finite.Potential.Expectation
+public import PPGraph.Integration.FinitePotentialMT
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 set_option backward.isDefEq.respectTransparency false

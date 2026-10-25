@@ -15,9 +15,13 @@
   at the empty set and the recurrences imply the required positive lower bound.
 -/
 
-import Mathlib.Tactic
-import Mathlib.Data.Real.Basic
-import Mathlib.Data.Finset.Card
+module
+
+public import Mathlib.Tactic
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Data.Finset.Card
+
+@[expose] public section
 
 set_option autoImplicit false
 

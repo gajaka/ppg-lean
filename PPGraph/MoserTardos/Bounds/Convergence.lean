@@ -53,9 +53,13 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import Mathlib.Data.NNReal.Basic
-import PPGraph.MoserTardos.Witness.Weight
+module
+
+public import Mathlib.Tactic
+public import Mathlib.Basic.NNReal.Basic
+public import PPGraph.MoserTardos.Witness.Weight
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -118,7 +122,7 @@ theorem mtWeight_le {S : VarSpaces V} {ι : Type} [Fintype ι] [DecidableEq ι]
         = p α * ∏ β ∈ plusNeighbors P α, (1 + mtWeight P p D β) := rfl
       _ ≤ p α * ∏ β ∈ plusNeighbors P α, (1 + x β) := by
           apply mul_le_mul_of_nonneg_left _ zero_le
-          apply Finset.prod_le_prod'
+          apply Finset.prod_le_prod
           intro β _
           gcongr
           exact ih β

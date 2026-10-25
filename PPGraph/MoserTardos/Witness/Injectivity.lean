@@ -24,8 +24,12 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import PPGraph.MoserTardos.Witness.Growing
+module
+
+public import Mathlib.Tactic
+public import PPGraph.MoserTardos.Witness.Growing
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -138,7 +142,7 @@ theorem GrowingTree.attachChild_countLabel_ne {ι : Type} [DecidableEq ι]
       · exfalso
         have hlab : (T.attachChild v a).lab w = A := hw'.2
         rw [heq] at hlab
-        simp only [GrowingTree.attachChild, if_true] at hlab
+        simp only [GrowingTree.attachChild, ite_true] at hlab
         exact hne hlab
       · apply Finset.mem_filter.mpr
         refine ⟨hmem, ?_⟩
@@ -146,7 +150,7 @@ theorem GrowingTree.attachChild_countLabel_ne {ι : Type} [DecidableEq ι]
           intro h; rw [h] at hmem; exact T.freshIndex_spec v hmem
         have hlab := hw'.2
         simp only [GrowingTree.attachChild] at hlab
-        rw [if_neg hnefresh] at hlab
+        rw [ite_eq_right hnefresh] at hlab
         exact hlab
     · intro hw
       have hw' := Finset.mem_filter.mp hw
@@ -155,7 +159,7 @@ theorem GrowingTree.attachChild_countLabel_ne {ι : Type} [DecidableEq ι]
       have hnefresh : w ≠ v ++ [T.freshIndex v] := by
         intro h; rw [h] at hw'; exact T.freshIndex_spec v hw'.1
       simp only [GrowingTree.attachChild]
-      rw [if_neg hnefresh]
+      rw [ite_eq_right hnefresh]
       exact hw'.2
   unfold countLabel
   rw [hset]
@@ -166,7 +170,7 @@ theorem GrowingTree.attachAt_countLabel_of_label {S : VarSpaces V} {ι : Type} [
     countLabel (T.attachAt P a) a = countLabel T a + 1 := by
   have hne : (T.candidates P a).Nonempty := candidates_nonempty_of_label P T a v hv hlab
   unfold GrowingTree.attachAt
-  rw [dif_pos hne]
+  rw [dite_eq_left hne]
   exact GrowingTree.attachChild_countLabel T _ a
 
 theorem GrowingTree.attachAt_countLabel_of_ne {S : VarSpaces V} {ι : Type} [DecidableEq ι]
@@ -211,12 +215,12 @@ theorem τBuild_root_and_count {S : VarSpaces V} {ι : Type} [DecidableEq ι]
       refine ⟨?_, ?_, ?_⟩
       · unfold GrowingTree.attachAt
         by_cases hne : ((τBuild P C t m).candidates P (C (t - 1 - m))).Nonempty
-        · rw [dif_pos hne]; exact GrowingTree.attachChild_preserves_root _ _ _ hroot
-        · rw [dif_neg hne]; exact hroot
+        · rw [dite_eq_left hne]; exact GrowingTree.attachChild_preserves_root _ _ _ hroot
+        · rw [dite_eq_right hne]; exact hroot
       · unfold GrowingTree.attachAt
         by_cases hne : ((τBuild P C t m).candidates P (C (t - 1 - m))).Nonempty
-        · rw [dif_pos hne, GrowingTree.attachChild_preserves_lab_root]; exact hlab
-        · rw [dif_neg hne]; exact hlab
+        · rw [dite_eq_left hne, GrowingTree.attachChild_preserves_lab_root]; exact hlab
+        · rw [dite_eq_right hne]; exact hlab
       · have hbridge : countLabel ((τBuild P C t m).attachAt P (C (t - 1 - m))) (C t) =
             countLabel ((τBuild P C t m).attachAt P (C (t - 1 - m))) (C (t - 1 - m)) := by
           rw [hA]
@@ -225,22 +229,22 @@ theorem τBuild_root_and_count {S : VarSpaces V} {ι : Type} [DecidableEq ι]
           intro hmem
           exact (stepsCovered_fresh hm) (Finset.mem_filter.mp hmem).1
         have hstep : stepsCovered t (m + 1) = insert (t - 1 - m) (stepsCovered t m) := rfl
-        rw [hstep, Finset.filter_insert, if_pos hA, Finset.card_insert_of_notMem hfresh]
+        rw [hstep, Finset.filter_insert, ite_eq_left hA, Finset.card_insert_of_notMem hfresh]
         omega
     · have hkey := GrowingTree.attachAt_countLabel_of_ne P (τBuild P C t m)
         (C (t - 1 - m)) (C t) hA
       refine ⟨?_, ?_, ?_⟩
       · unfold GrowingTree.attachAt
         by_cases hne : ((τBuild P C t m).candidates P (C (t - 1 - m))).Nonempty
-        · rw [dif_pos hne]; exact GrowingTree.attachChild_preserves_root _ _ _ hroot
-        · rw [dif_neg hne]; exact hroot
+        · rw [dite_eq_left hne]; exact GrowingTree.attachChild_preserves_root _ _ _ hroot
+        · rw [dite_eq_right hne]; exact hroot
       · unfold GrowingTree.attachAt
         by_cases hne : ((τBuild P C t m).candidates P (C (t - 1 - m))).Nonempty
-        · rw [dif_pos hne, GrowingTree.attachChild_preserves_lab_root]; exact hlab
-        · rw [dif_neg hne]; exact hlab
+        · rw [dite_eq_left hne, GrowingTree.attachChild_preserves_lab_root]; exact hlab
+        · rw [dite_eq_right hne]; exact hlab
       · rw [hkey, hcount]
         have hstep : stepsCovered t (m + 1) = insert (t - 1 - m) (stepsCovered t m) := rfl
-        rw [hstep, Finset.filter_insert, if_neg hA]
+        rw [hstep, Finset.filter_insert, ite_eq_right hA]
 
 -- -------------------------------------------------------------------
 -- Injectivity: distinct occurrence-times of the same event give

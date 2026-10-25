@@ -5,7 +5,11 @@
   A correction set removes specification obligations. It is a relaxation,
   not a state repair with the original specification held fixed.
 -/
-import PPGraph.Decision.Infeasibility
+module
+
+public import PPGraph.Decision.Infeasibility
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

@@ -12,9 +12,13 @@
   bound. All identities connecting the two are proved here.
 -/
 
-import PPGraph.Shearer.Polynomial
-import Mathlib.Tactic
-import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+module
+
+public import PPGraph.Shearer.Polynomial
+public import Mathlib.Tactic
+public import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -68,7 +72,7 @@ theorem outside_empty (G : SimpleGraph ι) (B : Finset ι) : outside G B ∅ = B
 @[simp]
 theorem coefficient_empty (G : SimpleGraph ι) (p : ι → ℝ) (B : Finset ι) :
     coefficient G p B ∅ = polynomial G p B := by
-  simp only [coefficient, Finset.empty_subset, if_true, Finset.sdiff_empty,
+  simp only [coefficient, Finset.empty_subset, ite_true, Finset.sdiff_empty,
     Finset.empty_union, polynomial, Finset.sum_filter, setWeight]
   apply Finset.sum_congr rfl
   intro K _
@@ -105,7 +109,7 @@ theorem coefficient_insert_split (G : SimpleGraph ι) (p : ι → ℝ)
     simp only [Finset.mem_sdiff, Finset.mem_insert]
     aesop
   have hafresh : a ∉ B \ J := fun h => ha (Finset.mem_sdiff.mp h).1
-  simp only [coefficient, if_pos hJ, if_pos hJa, if_pos hJB, hdiff1, hdiff2]
+  simp only [coefficient, ite_eq_left hJ, ite_eq_left hJa, ite_eq_left hJB, hdiff1, hdiff2]
   rw [Finset.sum_powerset_insert hafresh]
   have hcancel :
       (∑ K ∈ (B \ J).powerset,
@@ -181,7 +185,7 @@ the avoidance polynomial outside its closed neighborhood. -/
 theorem coefficient_factor (G : SimpleGraph ι) (p : ι → ℝ) (B J : Finset ι)
     (hJB : J ⊆ B) (hJ : Independent G J) :
     coefficient G p B J = (∏ j ∈ J, p j) * polynomial G p (outside G B J) := by
-  rw [coefficient, if_pos hJB]
+  rw [coefficient, ite_eq_left hJB]
   have hfiltered :
       (∑ K ∈ (B \ J).powerset, (-1 : ℝ) ^ K.card * setWeight G p (J ∪ K)) =
       ∑ K ∈ (B \ J).powerset.filter (fun K => Independent G (J ∪ K)),

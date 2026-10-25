@@ -1,6 +1,10 @@
 /- Exact weight preservation for the four-choice colored expansion. -/
-import PPGraph.HLS.Encoding.ExpansionFamily
-import Mathlib.Algebra.BigOperators.Ring.Finset
+module
+
+public import PPGraph.HLS.Encoding.ExpansionFamily
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

@@ -3,10 +3,14 @@
   their own table check on every genuine active prefix. Random
   initialization is the same slot-zero law used by randomInitETLog.
 -/
-import PPGraph.HLS.DAG.TimeDAG
-import PPGraph.HLS.Encoding.PrefixCheck
-import PPGraph.HLS.Bounds.WitnessBudget
-import PPGraph.MoserTardos.Probability.RandomInitExpectation
+module
+
+public import PPGraph.HLS.DAG.TimeDAG
+public import PPGraph.HLS.Encoding.PrefixCheck
+public import PPGraph.HLS.Bounds.WitnessBudget
+public import PPGraph.MoserTardos.Probability.RandomInitExpectation
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

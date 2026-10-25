@@ -18,8 +18,12 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.Dependency.Probabilistic
-import Mathlib.Data.Matrix.Basic
+module
+
+public import PPGraph.Dependency.Probabilistic
+public import Mathlib.Data.Matrix.Basic
+
+@[expose] public section
 
 open scoped Classical Matrix
 

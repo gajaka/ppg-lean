@@ -1,6 +1,10 @@
 /- Finite enumeration of canonical witness DAGs with bounded node count. -/
-import PPGraph.HLS.Encoding.Normalization
-import Mathlib.Data.Finset.Max
+module
+
+public import PPGraph.HLS.Encoding.Normalization
+public import Mathlib.Data.Finset.Max
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

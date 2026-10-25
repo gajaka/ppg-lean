@@ -1,5 +1,9 @@
 /- Label-preserving finite DAG isomorphisms and canonical names. -/
-import PPGraph.HLS.Encoding.Normalization
+module
+
+public import PPGraph.HLS.Encoding.Normalization
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

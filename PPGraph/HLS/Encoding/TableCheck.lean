@@ -6,9 +6,13 @@
   probability factors. Intersection-sensitive augmentation is separate.
   Source: He--Li--Sun, arXiv:2111.06527, Section 3.1.
 -/
-import PPGraph.HLS.DAG.WitnessDAG
-import PPGraph.Shearer.BDD
-import PPGraph.MoserTardos.Probability.Probability
+module
+
+public import PPGraph.HLS.DAG.WitnessDAG
+public import PPGraph.Shearer.BDD
+public import PPGraph.MoserTardos.Probability.Probability
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -138,7 +142,7 @@ theorem logMeasure_tableCheck_eq_prod [Fintype V] (P : MTProcess S ι)
     (hbad : ∀ i, MeasurableSet (P.bad i)) :
     logMeasure S (tableCheck P D) =
       ∏ u ∈ D.nodes, Measure.pi (fun a => S.measure a) (P.bad u.1) := by
-  haveI : ∀ a, IsProbabilityMeasure (μCoin S a) := fun a => S.isProb a.2
+  have : ∀ a, IsProbabilityMeasure (μCoin S a) := fun a => S.isProb a.2
   have hd : (↑D.nodes : Set (WNode ι)).PairwiseDisjoint (tableCoordinates P D) :=
     fun u hu v hv hne => tableCoordinates_disjoint P D hD u v hu hv hne
   calc

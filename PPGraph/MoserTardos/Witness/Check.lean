@@ -27,8 +27,12 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.MoserTardos.Witness.CheckOrder
-import PPGraph.MoserTardos.Process.RandomTrajectory
+module
+
+public import PPGraph.MoserTardos.Witness.CheckOrder
+public import PPGraph.MoserTardos.Process.RandomTrajectory
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false

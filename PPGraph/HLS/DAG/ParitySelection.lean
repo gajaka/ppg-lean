@@ -4,7 +4,11 @@
   at least half the arcs. This proves the selection estimate behind
   He--Li--Sun Proposition 3.2 without assuming a maximal matching bound.
 -/
-import PPGraph.HLS.DAG.CliqueRanks
+module
+
+public import PPGraph.HLS.DAG.CliqueRanks
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

@@ -35,8 +35,12 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import PPGraph.LLL.General
+module
+
+public import Mathlib.Tactic
+public import PPGraph.LLL.General
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false

@@ -4,7 +4,11 @@
   impossible instances. For finite decidable models exact counting separates
   them, independently of a supplied sufficient probabilistic criterion.
 -/
-import PPGraph.Decision.FiniteFeasibility
+module
+
+public import PPGraph.Decision.FiniteFeasibility
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

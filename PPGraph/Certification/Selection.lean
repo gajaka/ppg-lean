@@ -9,9 +9,13 @@
   Key: ∼* = ⋂ᵢ ∼ᵢ. Element canonical w.r.t. ∼* survives all views.
 -/
 
-import Mathlib.Tactic
-import PPGraph.Core.Graph
-import PPGraph.Certification.Parametric
+module
+
+public import Mathlib.Tactic
+public import PPGraph.Core.Graph
+public import PPGraph.Certification.Parametric
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 

@@ -17,8 +17,12 @@
   it does not turn the chosen target into an executable solver.
 -/
 
-import PPGraph.Core.Repair
-import PPGraph.MoserTardos.Bounds.ConstantLog
+module
+
+public import PPGraph.Core.Repair
+public import PPGraph.MoserTardos.Bounds.ConstantLog
+
+@[expose] public section
 
 open MeasureTheory Classical
 open scoped NNReal ENNReal

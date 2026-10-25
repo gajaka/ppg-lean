@@ -4,7 +4,11 @@
   explicit input obligation; a sample cannot be substituted for it.
   Proof fields erase at execution, while state witnesses remain available.
 -/
-import PPGraph.Decision.RepairDecision
+module
+
+public import PPGraph.Decision.RepairDecision
+
+@[expose] public section
 
 set_option autoImplicit false
 

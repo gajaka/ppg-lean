@@ -19,9 +19,13 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.MoserTardos.Bounds.WeightSum
-import PPGraph.MoserTardos.Witness.CheckBirth
-import PPGraph.MoserTardos.Witness.CheckOrder
+module
+
+public import PPGraph.MoserTardos.Bounds.WeightSum
+public import PPGraph.MoserTardos.Witness.CheckBirth
+public import PPGraph.MoserTardos.Witness.CheckOrder
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false

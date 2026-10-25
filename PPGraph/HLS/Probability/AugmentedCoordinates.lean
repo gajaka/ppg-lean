@@ -1,7 +1,11 @@
 /- Disjoint data and auxiliary-coin coordinate blocks for HLS Lemma 3.4. -/
-import PPGraph.HLS.Probability.AugmentedSpace
-import PPGraph.HLS.DAG.MatchingSelection
-import PPGraph.HLS.Encoding.TableCheck
+module
+
+public import PPGraph.HLS.Probability.AugmentedSpace
+public import PPGraph.HLS.DAG.MatchingSelection
+public import PPGraph.HLS.Encoding.TableCheck
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

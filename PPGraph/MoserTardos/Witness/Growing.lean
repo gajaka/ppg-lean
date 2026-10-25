@@ -15,8 +15,12 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import PPGraph.MoserTardos.Witness.Witness
+module
+
+public import Mathlib.Tactic
+public import PPGraph.MoserTardos.Witness.Witness
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false

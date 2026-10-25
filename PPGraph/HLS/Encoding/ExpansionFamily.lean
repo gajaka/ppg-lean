@@ -1,6 +1,10 @@
 /- An injective map from legal four-choice expansions to colored proper DAGs. -/
-import PPGraph.HLS.Encoding.ChoiceRecovery
-import PPGraph.HLS.Bounds.DecoratedBudget
+module
+
+public import PPGraph.HLS.Encoding.ChoiceRecovery
+public import PPGraph.HLS.Bounds.DecoratedBudget
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -18,7 +22,7 @@ noncomputable def extendChoice (D : HLS.WitnessDAG ι)
 
 theorem extendChoice_mem (D : HLS.WitnessDAG ι) (c : ↥D.nodes → ExpansionChoice)
     (u : WNode ι) (hu : u ∈ D.nodes) : extendChoice D c u = c ⟨u, hu⟩ := by
-  simp only [extendChoice, dif_pos hu]
+  simp only [extendChoice, dite_eq_left hu]
 
 abbrev LegalChoices (M : DependencyMatching G) (D : HLS.WitnessDAG ι) :=
   {c : ↥D.nodes → ExpansionChoice // LegalExpansion M D (extendChoice D c)}
@@ -69,7 +73,7 @@ theorem expansionFamilyMap_injective (M : DependencyMatching G) (α : ι) :
   have hcd : c = d := by
     funext u
     have h := choices_eq_of_colored_eq M D D hD.1 hE.1 hD.2.1 hE.2.1 _ _ hc hd hcolored u.val u.property
-    simpa only [extendChoice, dif_pos u.property] using h
+    simpa only [extendChoice, dite_eq_left u.property] using h
   subst d
   rfl
 

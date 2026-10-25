@@ -8,14 +8,25 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import Mathlib.Probability.ConditionalProbability
-import Mathlib.MeasureTheory.Measure.MeasureSpace
-import Mathlib.Data.Finset.Basic
-import Mathlib.Data.Finset.Prod
-import Mathlib.Data.Real.Basic
-import Mathlib.Topology.Algebra.Order.LiminfLimsup
-import PPGraph.Dependency.Probabilistic
+module
+
+public import Mathlib.Tactic
+public import Mathlib.Probability.ConditionalProbability
+public import Mathlib.MeasureTheory.Measure.Basic
+public import Mathlib.MeasureTheory.Measure.CompleteLattice
+public import Mathlib.MeasureTheory.Measure.Continuity
+public import Mathlib.MeasureTheory.Measure.Filter
+public import Mathlib.MeasureTheory.Measure.Interval
+public import Mathlib.MeasureTheory.Measure.Module
+public import Mathlib.MeasureTheory.Measure.OuterMeasure
+public import Mathlib.MeasureTheory.Measure.Sum
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Data.Finset.Prod
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Topology.Algebra.Order.LiminfLimsup
+public import PPGraph.Dependency.Probabilistic
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false

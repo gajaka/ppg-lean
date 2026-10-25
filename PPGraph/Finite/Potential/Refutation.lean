@@ -8,7 +8,11 @@
   No external reachability computation is trusted by the checker.
 -/
 
-import PPGraph.Finite.Potential.Basic
+module
+
+public import PPGraph.Finite.Potential.Basic
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 

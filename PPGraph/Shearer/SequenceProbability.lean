@@ -12,9 +12,13 @@
   sequence class without summing over tree shapes or assuming their injectivity.
 -/
 
-import PPGraph.MoserTardos.Probability.ProbabilityGeneral
-import PPGraph.MoserTardos.Probability.OccurrenceProbability
-import PPGraph.Shearer.Occurrence
+module
+
+public import PPGraph.MoserTardos.Probability.ProbabilityGeneral
+public import PPGraph.MoserTardos.Probability.OccurrenceProbability
+public import PPGraph.Shearer.Occurrence
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -212,7 +216,7 @@ theorem logMeasure_sequenceOccurrence_le_sequenceWeight [Fintype V]
         logMeasure_τCheck_eq_prod_p_of_τC P hbad C (srep + 1)
       _ ≤ ∏ w ∈ (τC P C (srep + 1)).dom,
           ENNReal.ofReal (p ((τC P C (srep + 1)).lab w)) :=
-        Finset.prod_le_prod' (fun w _ => hp ((τC P C (srep + 1)).lab w))
+        Finset.prod_le_prod (fun w _ => hp ((τC P C (srep + 1)).lab w))
       _ = ENNReal.ofReal (sequenceWeight p L) := by
         rw [← ENNReal.ofReal_prod_of_nonneg (fun w _ =>
           hp_nonneg ((τC P C (srep + 1)).lab w)), ← hweight]

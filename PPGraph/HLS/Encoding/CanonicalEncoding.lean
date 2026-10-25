@@ -4,7 +4,11 @@
   same label in higher layers. Thus summing by layer sequences introduces
   no multiplicities from node names or topological enumerations.
 -/
-import PPGraph.HLS.Encoding.StableEncoding
+module
+
+public import PPGraph.HLS.Encoding.StableEncoding
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

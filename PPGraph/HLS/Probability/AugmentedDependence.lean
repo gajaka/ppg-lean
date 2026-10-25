@@ -1,6 +1,10 @@
 /- Local dependence of the augmented checks on their disjoint coordinate blocks. -/
-import PPGraph.HLS.Probability.AugmentedPair
-import PPGraph.HLS.Probability.AugmentedCoordinates
+module
+
+public import PPGraph.HLS.Probability.AugmentedPair
+public import PPGraph.HLS.Probability.AugmentedCoordinates
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

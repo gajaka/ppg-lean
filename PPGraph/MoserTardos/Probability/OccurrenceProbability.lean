@@ -10,11 +10,15 @@
   theorem; it does not vary with the sample being integrated.
 -/
 
-import PPGraph.MoserTardos.Witness.Occurrence
-import PPGraph.MoserTardos.Witness.CheckBridge
-import PPGraph.MoserTardos.Witness.CheckShape
-import PPGraph.MoserTardos.Probability.ProbabilityGeneral
-import Mathlib.Data.ENNReal.BigOperators
+module
+
+public import PPGraph.MoserTardos.Witness.Occurrence
+public import PPGraph.MoserTardos.Witness.CheckBridge
+public import PPGraph.MoserTardos.Witness.CheckShape
+public import PPGraph.MoserTardos.Probability.ProbabilityGeneral
+public import Mathlib.Basic.ENNReal.BigOperators
+
+@[expose] public section
 
 set_option autoImplicit false
 
@@ -118,7 +122,7 @@ theorem logMeasure_witnessOccurrence_le_weight [Fintype V]
         logMeasure_τCheck_eq_prod_p_of_τC P hbad C (srep + 1)
       _ ≤ ∏ w ∈ (τC P C (srep + 1)).dom,
           (p ((τC P C (srep + 1)).lab w) : ℝ≥0∞) :=
-        Finset.prod_le_prod' (fun w _ => hp ((τC P C (srep + 1)).lab w))
+        Finset.prod_le_prod (fun w _ => hp ((τC P C (srep + 1)).lab w))
       _ = (U.weight p : ℝ≥0∞) := by
         rw [← ENNReal.ofNNReal_finsetProd, ← hweight]
   · rw [Set.not_nonempty_iff_eq_empty.mp hocc, measure_empty]

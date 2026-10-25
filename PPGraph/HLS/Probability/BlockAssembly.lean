@@ -1,5 +1,9 @@
 /- Product laws for assembling assignments on disjoint variable blocks. -/
-import PPGraph.HLS.Probability.QueryLaw
+module
+
+public import PPGraph.HLS.Probability.QueryLaw
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -17,7 +21,7 @@ noncomputable def blockMeasure (S : VarSpaces V) (F : Finset V) : Measure (Block
   Measure.pi (fun a : F => S.measure a.val)
 
 instance (F : Finset V) : IsProbabilityMeasure (blockMeasure S F) := by
-  haveI : ∀ a : F, IsProbabilityMeasure (S.measure a.val) := fun a => S.isProb a.val
+  have : ∀ a : F, IsProbabilityMeasure (S.measure a.val) := fun a => S.isProb a.val
   unfold blockMeasure
   infer_instance
 
@@ -29,14 +33,14 @@ noncomputable def joinBlocks (F H : Finset V) (hd : Disjoint F H)
 
 theorem measurable_joinBlocks (F H : Finset V) (hd : Disjoint F H) :
     Measurable (joinBlocks (S := S) F H hd) := by
-  haveI : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
+  have : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
   exact (measurable_extendDefault (fun a => S.measure a) (F ∪ H)).comp
     (MeasurableEquiv.piFinsetUnion S.space hd).measurable
 
 theorem joinBlocks_left (F H : Finset V) (hd : Disjoint F H)
     (xy : BlockState S F × BlockState S H) (a : V) (ha : a ∈ F) :
     joinBlocks F H hd xy a = xy.1 ⟨a, ha⟩ := by
-  haveI : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
+  have : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
   dsimp only [joinBlocks]
   have hU := Finset.mem_union_left H ha
   have h := congrFun (extendDefault_restrict (fun a => S.measure a) (F ∪ H)
@@ -48,7 +52,7 @@ theorem joinBlocks_left (F H : Finset V) (hd : Disjoint F H)
 theorem joinBlocks_right (F H : Finset V) (hd : Disjoint F H)
     (xy : BlockState S F × BlockState S H) (a : V) (ha : a ∈ H) :
     joinBlocks F H hd xy a = xy.2 ⟨a, ha⟩ := by
-  haveI : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
+  have : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
   dsimp only [joinBlocks]
   have hU := Finset.mem_union_right F ha
   have h := congrFun (extendDefault_restrict (fun a => S.measure a) (F ∪ H)
@@ -62,7 +66,7 @@ theorem measure_joinBlocks_preimage [Fintype V] (F H : Finset V) (hd : Disjoint 
     (hdep : ∀ σ τ : MTState S, (∀ a ∈ F ∪ H, σ a = τ a) → (σ ∈ A ↔ τ ∈ A)) :
     ((blockMeasure S F).prod (blockMeasure S H)) (joinBlocks F H hd ⁻¹' A) =
       Measure.pi (fun a => S.measure a) A := by
-  haveI : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
+  have : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
   have hmp := measurePreserving_piFinsetUnion hd (fun a => S.measure a)
   have hExt : MeasurableSet (extendDefault (fun a => S.measure a) (F ∪ H) ⁻¹' A) :=
     hA.preimage (measurable_extendDefault (fun a => S.measure a) _)
@@ -112,7 +116,7 @@ theorem measure_joinThree_preimage [Fintype V] (F H Z : Finset V) (hFZ : Disjoin
     (hdep : ∀ σ τ : MTState S, (∀ a ∈ (F ∪ Z) ∪ H, σ a = τ a) → (σ ∈ A ↔ τ ∈ A)) :
     (((blockMeasure S F).prod (blockMeasure S Z)).prod (blockMeasure S H))
       (joinThree F H Z hFZ hUZ ⁻¹' A) = Measure.pi (fun a => S.measure a) A := by
-  haveI : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
+  have : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
   have hmp := (measurePreserving_piFinsetUnion hFZ (fun a => S.measure a)).prod
     (MeasurePreserving.id (blockMeasure S H))
   have hMeas := hA.preimage (measurable_joinBlocks (F ∪ Z) H hUZ)

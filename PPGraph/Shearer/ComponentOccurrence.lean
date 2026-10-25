@@ -11,7 +11,11 @@
   selector eventually services that component or that the global run terminates.
 -/
 
-import PPGraph.Shearer.Expectation
+module
+
+public import PPGraph.Shearer.Expectation
+
+@[expose] public section
 
 set_option autoImplicit false
 -- CertVars is the existing alias for a family of variable footprints.

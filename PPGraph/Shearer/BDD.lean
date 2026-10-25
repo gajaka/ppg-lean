@@ -3,8 +3,12 @@
   blocking dependency components. Consequently, strict positivity on
   every subset can be checked separately in each BDD component.
 -/
-import PPGraph.Shearer.Polynomial
-import PPGraph.Dependency.Decomposition
+module
+
+public import PPGraph.Shearer.Polynomial
+public import PPGraph.Dependency.Decomposition
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

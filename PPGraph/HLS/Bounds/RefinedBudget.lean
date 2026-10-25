@@ -3,7 +3,11 @@
   bounded by the ordinary Shearer budget at p^- = p - delta^2 / 17.
   The proof uses the injective colored expansion and finite choice sums.
 -/
-import PPGraph.HLS.Bounds.ChoiceSum
+module
+
+public import PPGraph.HLS.Bounds.ChoiceSum
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -33,19 +37,19 @@ theorem refinedWeight_le_choiceSum (O : OverlapBounds G p)
   rw [tsum_legalChoiceWeight_eq O.matching D hD]
   unfold refinedWeight
   rw [← Finset.prod_coe_sort]
-  apply Finset.prod_le_prod'
+  apply Finset.prod_le_prod
   intro u _
   unfold forcedUp
   by_cases hpart : u.val ∈ arcNodes (matchingArcs O.matching D)
-  · rw [if_pos hpart, if_pos (Or.inl hpart : forcedUp O.matching D u.val)]
+  · rw [ite_eq_left hpart, ite_eq_left (Or.inl hpart : forcedUp O.matching D u.val)]
     rfl
-  · rw [if_neg hpart]
+  · rw [ite_eq_right hpart]
     by_cases hm : O.matching.mate u.val.1 = u.val.1
-    · rw [if_pos (Or.inr hm : forcedUp O.matching D u.val)]
+    · rw [ite_eq_left (Or.inr hm : forcedUp O.matching D u.val)]
       exact le_of_eq (congrArg ENNReal.ofReal (prime_eq_unmatched O u.val.1 hm)).symm
     · have hforced : ¬ forcedUp O.matching D u.val := by
         intro h; exact h.elim hpart hm
-      rw [if_neg (not_or.mpr ⟨hpart, hm⟩)]
+      rw [ite_eq_right (not_or.mpr ⟨hpart, hm⟩)]
       have hup : ∀ i, 0 ≤ O.splitUp i := fun i => le_of_lt (O.prime_pos hp i)
       have hdn : ∀ i, 0 ≤ O.splitDown i := O.splitDown_nonneg hp hp1
       have hmulup := mul_nonneg (hdn u.val.1) (hup (O.matching.mate u.val.1))

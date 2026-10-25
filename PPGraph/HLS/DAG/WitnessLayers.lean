@@ -6,8 +6,12 @@
   Sources: He--Li--Sun, arXiv:2111.06527, Section 1.2.1 (footnote 4);
   Harvey--Vondrak, arXiv:1504.02044, Section 5.3.
 -/
-import PPGraph.HLS.DAG.WitnessDAG
-import PPGraph.Shearer.Stable
+module
+
+public import PPGraph.HLS.DAG.WitnessDAG
+public import PPGraph.Shearer.Stable
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

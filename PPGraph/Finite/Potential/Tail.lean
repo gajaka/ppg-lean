@@ -13,9 +13,13 @@
   not claims about physical time or deterministic hardware deadlines.
 -/
 
-import PPGraph.Finite.Potential.Expectation
-import PPGraph.Finite.Potential.Refutation
-import Mathlib.Analysis.SpecificLimits.Basic
+module
+
+public import PPGraph.Finite.Potential.Expectation
+public import PPGraph.Finite.Potential.Refutation
+public import Mathlib.Analysis.SpecificLimits.Basic
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 

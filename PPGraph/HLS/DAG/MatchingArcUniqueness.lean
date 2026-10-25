@@ -1,5 +1,9 @@
 /- A reversible matching arc has a unique matching successor. -/
-import PPGraph.HLS.DAG.PairKeys
+module
+
+public import PPGraph.HLS.DAG.PairKeys
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

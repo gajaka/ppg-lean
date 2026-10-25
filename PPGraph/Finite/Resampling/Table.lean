@@ -11,8 +11,12 @@
   arXiv:0903.0544v3, Section 2. The probability bridge is separate.
 -/
 
-import PPGraph.Finite.Resampling.Basic
-import PPGraph.MoserTardos.Process.RandomTrajectory
+module
+
+public import PPGraph.Finite.Resampling.Basic
+public import PPGraph.MoserTardos.Process.RandomTrajectory
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 
@@ -105,7 +109,7 @@ theorem measurable_run (F : MTState S → Finset V)
   | zero => exact ⟨hi, fun _ => measurable_const⟩
   | succ n ih =>
     have hd : Measurable (nextDraw F init n) := by
-      apply measurable_pi_lambda
+      apply Measurable.of_eval
       intro v
       exact measurable_eval_bounded v (n + 1) (fun ω => count F init n ω v + 1)
         ((ih.2 v).add_const 1) (fun ω => by have := count_le_time F init n ω v; omega)
@@ -124,7 +128,7 @@ theorem measurable_trajectory (F : MTState S → Finset V)
 theorem measurable_nextDraw (F : MTState S → Finset V)
     (init : LogSpace S → MTState S) (hi : Measurable init) (n : ℕ) :
     Measurable (nextDraw F init n) := by
-  apply measurable_pi_lambda
+  apply Measurable.of_eval
   intro v
   exact measurable_eval_bounded v (n + 1) (fun ω => count F init n ω v + 1)
     (((measurable_run F init hi n).2 v).add_const 1)
@@ -241,7 +245,7 @@ theorem mem_consumedBlock (c : V → ℕ) (j : ℕ) (v : V) :
 theorem measurable_prefix (F : MTState S → Finset V)
     (init : LogSpace S → MTState S) (hi : Measurable init) (n : ℕ) :
     Measurable (statePrefix F init n) := by
-  apply measurable_pi_lambda
+  apply Measurable.of_eval
   intro k
   exact measurable_trajectory F init hi k.val
 

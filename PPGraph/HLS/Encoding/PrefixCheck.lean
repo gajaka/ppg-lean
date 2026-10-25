@@ -4,7 +4,11 @@
   original tests makes the root prefix pass as well. This justifies
   the local obstruction used by the orientation-coin argument.
 -/
-import PPGraph.HLS.Encoding.ReversalSlots
+module
+
+public import PPGraph.HLS.Encoding.ReversalSlots
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

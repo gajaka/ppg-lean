@@ -13,8 +13,12 @@
   execution or of a physical controller.
 -/
 
-import PPGraph.Finite.Drift.Process
-import Mathlib.MeasureTheory.Function.ConditionalExpectation.PullOut
+module
+
+public import PPGraph.Finite.Drift.Process
+public import Mathlib.MeasureTheory.Function.ConditionalExpectation.PullOut
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 

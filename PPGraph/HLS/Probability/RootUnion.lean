@@ -1,6 +1,10 @@
 /- Ordinal occurrence unions, orientation augmentation, and unique-root counting. -/
-import PPGraph.HLS.Bounds.OrdinalOccurrence
-import PPGraph.HLS.Probability.UnitChecks
+module
+
+public import PPGraph.HLS.Bounds.OrdinalOccurrence
+public import PPGraph.HLS.Probability.UnitChecks
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

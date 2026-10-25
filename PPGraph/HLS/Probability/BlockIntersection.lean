@@ -3,8 +3,12 @@
   private/shared blocks; their intersection probability is the ordinary
   probability of both original events in a single assignment.
 -/
-import PPGraph.HLS.Probability.BlockAssembly
-import PPGraph.HLS.Bounds.CoinSaving
+module
+
+public import PPGraph.HLS.Probability.BlockAssembly
+public import PPGraph.HLS.Bounds.CoinSaving
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

@@ -1,7 +1,11 @@
 /- Vertices and topological order of the HLS four-choice graph expansion. -/
-import PPGraph.HLS.Encoding.ExpansionDecoder
-import PPGraph.HLS.DAG.TopologicalOrder
-import PPGraph.HLS.DAG.OrderedDAG
+module
+
+public import PPGraph.HLS.Encoding.ExpansionDecoder
+public import PPGraph.HLS.DAG.TopologicalOrder
+public import PPGraph.HLS.DAG.OrderedDAG
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

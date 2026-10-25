@@ -71,6 +71,22 @@ preserving user identifiers and numeric uniqueness/scope counters. See the
 [migration note](docs/MODULE_MIGRATION.md). The external-checker results above
 remain the historical 2026-10-18 record.
 
+Subsequent warning cleanup on macOS, 2026-10-25 passed a fresh 3,915-job
+`lake build` with zero warnings or errors. It replaced 161 deprecated API uses,
+58 `letI`/`haveI` bindings in proposition goals and 11 deprecated import shims, and
+added `module` headers to all 191 theory modules and two facades, without
+suppressing warnings. The current axiom audit covers all 4,896 project
+declarations, including generated helpers, and all 1,824 explicit theorems/lemmas
+retain their `#check` entries; dependencies remain within the standard axiom
+allowlist. The 4,893-declaration refactoring results above and the 2026-10-18
+external-checker results remain historical.
+
+The module system changes generated helper visibility and proof extraction;
+the current inventory therefore has three more helper theorems. Authored
+theorem names and statements, model definitions, structures and instances are
+preserved. The one authored type whose printed proof witness changed was
+checked for definitional equality by Lean's kernel.
+
 ## Motivation
 
 ### The system

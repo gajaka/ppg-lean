@@ -6,8 +6,12 @@
   Finite certificate checking is complete by enumerating finite invariant sets.
   Semantic completeness for arbitrary sets is not an effective synthesis algorithm.
 -/
-import PPGraph.Decision.Infeasibility
-import Mathlib.Logic.Relation
+module
+
+public import PPGraph.Decision.Infeasibility
+public import Mathlib.Logic.Relation
+
+@[expose] public section
 
 set_option autoImplicit false
 

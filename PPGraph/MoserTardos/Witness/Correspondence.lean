@@ -23,8 +23,12 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.MoserTardos.Witness.CheckBirth
-import PPGraph.MoserTardos.Process.RandomTrajectory
+module
+
+public import PPGraph.MoserTardos.Witness.CheckBirth
+public import PPGraph.MoserTardos.Process.RandomTrajectory
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -81,11 +85,11 @@ theorem pickFromList_notMem_bad_iff {S : VarSpaces V} {ι : Type} [DecidableEq �
   | cons i rest ih =>
       simp only [pickFromList]
       by_cases h : ω' ∈ P.bad i
-      · rw [if_pos h]
+      · rw [ite_eq_left h]
         constructor
         · intro hcontra; exact absurd h hcontra
         · rintro ⟨hall, _⟩; exact absurd h (hall i List.mem_cons_self)
-      · rw [if_neg h, ih]
+      · rw [ite_eq_right h, ih]
         constructor
         · rintro ⟨hrest, hdef⟩
           refine ⟨fun j hj => ?_, hdef⟩
@@ -152,9 +156,9 @@ theorem randStep_count_eq_filter_card {S : VarSpaces V} {ι : Type}
         ((Finset.range (s + 1)).filter (fun s' => v ∈ P.footprint (realC P ω0 ω s'))).card
       rw [← realC_def P ω0 ω s, Finset.range_add_one, Finset.filter_insert]
       by_cases h : v ∈ P.footprint (realC P ω0 ω s)
-      · rw [if_pos h, if_pos h,
+      · rw [ite_eq_left h, ite_eq_left h,
           Finset.card_insert_of_notMem (by simp), ih]
-      · rw [if_neg h, if_neg h, ih]
+      · rw [ite_eq_right h, ite_eq_right h, ih]
 
 -- -------------------------------------------------------------------
 -- shiftedC: `realC` re-indexed to match `τC`'s 1-indexed scanning
@@ -292,7 +296,7 @@ theorem randStep_state_eq_atIdx {S : VarSpaces V} {ι : Type}
               (randStep P ω0 ω n).1 (drawFrom ω (fun v => (randStep P ω0 ω n).2 v + 1)) v
             = atIdx ω v (if v ∈ P.footprint (pickFirstViolated P (randStep P ω0 ω n).1)
                           then (randStep P ω0 ω n).2 v + 1 else (randStep P ω0 ω n).2 v)
-        rw [if_pos hv,
+        rw [ite_eq_left hv,
           resample_agrees_on (P.footprint (pickFirstViolated P (randStep P ω0 ω n).1))
             (randStep P ω0 ω n).1 (drawFrom ω (fun v => (randStep P ω0 ω n).2 v + 1)) v hv]
         rfl
@@ -300,7 +304,7 @@ theorem randStep_state_eq_atIdx {S : VarSpaces V} {ι : Type}
               (randStep P ω0 ω n).1 (drawFrom ω (fun v => (randStep P ω0 ω n).2 v + 1)) v
             = atIdx ω v (if v ∈ P.footprint (pickFirstViolated P (randStep P ω0 ω n).1)
                           then (randStep P ω0 ω n).2 v + 1 else (randStep P ω0 ω n).2 v)
-        rw [if_neg hv,
+        rw [ite_eq_right hv,
           resample_fixes_outside (P.footprint (pickFirstViolated P (randStep P ω0 ω n).1))
             (randStep P ω0 ω n).1 (drawFrom ω (fun v => (randStep P ω0 ω n).2 v + 1)) v hv]
         exact ih

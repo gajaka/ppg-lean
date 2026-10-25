@@ -1,5 +1,9 @@
 /- Finite labeled DAGs obtained from a strict total order of their vertices. -/
-import PPGraph.HLS.DAG.WitnessDAG
+module
+
+public import PPGraph.HLS.DAG.WitnessDAG
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

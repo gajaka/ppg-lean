@@ -10,8 +10,12 @@
   is then a countable union over the active real times, including 0.
 -/
 
-import PPGraph.MoserTardos.Probability.RandomInitExpectation
-import PPGraph.MoserTardos.Witness.WTreeCountable
+module
+
+public import PPGraph.MoserTardos.Probability.RandomInitExpectation
+public import PPGraph.MoserTardos.Witness.WTreeCountable
+
+@[expose] public section
 
 open MeasureTheory Classical
 open scoped ENNReal
@@ -52,12 +56,12 @@ theorem measurable_randomInitWitness (P : MTProcess S ι)
     (hbad : ∀ i, MeasurableSet (P.bad i)) (s : ℕ) :
     letI : MeasurableSpace (WTree ι) := ⊤
     Measurable (fun ω : LogSpace S => randomInitWitness P ω s) := by
-  letI : MeasurableSpace ι := ⊤
-  letI : MeasurableSpace (WTree ι) := ⊤
+  let : MeasurableSpace ι := ⊤
+  let : MeasurableSpace (WTree ι) := ⊤
   let history : LogSpace S → (Fin (s + 2) → ι) :=
     fun ω k => shiftedC P (initialStateFromLog ω) ω k.val
   have hhistory : Measurable history := by
-    apply measurable_pi_lambda
+    apply Measurable.of_eval
     intro k
     exact measurable_realC_of_measurable_init P hbad initialStateFromLog
       measurable_initialStateFromLog (k.val - 1)
@@ -84,7 +88,7 @@ theorem measurable_randomInitWitness (P : MTProcess S ι)
 theorem measurableSet_randomInitWitness_eq (P : MTProcess S ι)
     (hbad : ∀ i, MeasurableSet (P.bad i)) (s : ℕ) (U : WTree ι) :
     MeasurableSet {ω : LogSpace S | randomInitWitness P ω s = U} := by
-  letI : MeasurableSpace (WTree ι) := ⊤
+  let : MeasurableSpace (WTree ι) := ⊤
   exact (measurable_randomInitWitness P hbad s) (measurableSet_singleton U)
 
 /-- A canonical shape occurs when it belongs to an active resampling

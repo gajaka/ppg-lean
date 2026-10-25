@@ -13,9 +13,13 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.MoserTardos.Witness.Growing
-import PPGraph.MoserTardos.Witness.Witness
-import PPGraph.MoserTardos.Witness.CheckOrder
+module
+
+public import PPGraph.MoserTardos.Witness.Growing
+public import PPGraph.MoserTardos.Witness.Witness
+public import PPGraph.MoserTardos.Witness.CheckOrder
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false

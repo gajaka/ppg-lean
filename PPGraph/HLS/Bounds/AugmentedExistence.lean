@@ -8,8 +8,12 @@
   either shrink the graph or strictly improve its score. Both contradict
   extremality. Thus this proof does not assume algorithm termination.
 -/
-import PPGraph.HLS.DAG.OrientationScore
-import PPGraph.HLS.Encoding.PrefixCheck
+module
+
+public import PPGraph.HLS.DAG.OrientationScore
+public import PPGraph.HLS.Encoding.PrefixCheck
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

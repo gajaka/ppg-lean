@@ -3,8 +3,12 @@
   with an up/down decoration of its nodes. Summing all decorations gives
   exactly the ordinary DAG weight at up+down, as in HLS Proposition 3.9.
 -/
-import PPGraph.HLS.Bounds.WitnessBudget
-import PPGraph.HLS.DAG.Matching
+module
+
+public import PPGraph.HLS.Bounds.WitnessBudget
+public import PPGraph.HLS.DAG.Matching
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

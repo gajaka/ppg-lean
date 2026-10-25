@@ -13,10 +13,14 @@
   termination premise is supplied. This concerns steps, not hardware time.
 -/
 
-import PPGraph.Finite.Potential.Basic
-import PPGraph.Finite.Drift.Process
-import Mathlib.MeasureTheory.Function.ConditionalExpectation.Indicator
-import Mathlib.MeasureTheory.Integral.DominatedConvergence
+module
+
+public import PPGraph.Finite.Potential.Basic
+public import PPGraph.Finite.Drift.Process
+public import Mathlib.MeasureTheory.Function.ConditionalExpectation.Indicator
+public import Mathlib.MeasureTheory.Integral.DominatedConvergence
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 

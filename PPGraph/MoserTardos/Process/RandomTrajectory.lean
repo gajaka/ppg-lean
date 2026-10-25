@@ -25,9 +25,13 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import PPGraph.MoserTardos.Process.LogSpace
-import PPGraph.MoserTardos.Process.Process
+module
+
+public import Mathlib.Tactic
+public import PPGraph.MoserTardos.Process.LogSpace
+public import PPGraph.MoserTardos.Process.Process
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -58,7 +62,7 @@ theorem measurable_pickFromList {S : VarSpaces V} {ι : Type}
     (P : MTProcess S ι) (hbad : ∀ i, MeasurableSet (P.bad i)) (default : ι) (l : List ι) :
     letI : MeasurableSpace ι := ⊤
     Measurable (pickFromList P default l) := by
-  letI : MeasurableSpace ι := ⊤
+  let : MeasurableSpace ι := ⊤
   induction l with
   | nil => exact measurable_const
   | cons i rest ih =>
@@ -79,8 +83,8 @@ theorem pickFromList_mem_or_default {S : VarSpaces V} {ι : Type} [DecidableEq �
   | cons i rest ih =>
       simp only [pickFromList]
       by_cases h : ω' ∈ P.bad i
-      · rw [if_pos h]; exact Or.inl List.mem_cons_self
-      · rw [if_neg h]
+      · rw [ite_eq_left h]; exact Or.inl List.mem_cons_self
+      · rw [ite_eq_right h]
         rcases ih with ih | ih
         · exact Or.inl (List.mem_cons_of_mem i ih)
         · exact Or.inr ih
@@ -110,11 +114,11 @@ theorem measurable_pickFirstViolated {S : VarSpaces V} {ι : Type} [Fintype ι] 
     no `Measurable.ite`-style hypothesis of its own. -/
 theorem measurable_resample_fixed {S : VarSpaces V} (F : Finset V) :
     Measurable (fun p : MTState S × MTState S => resample F p.1 p.2) := by
-  apply measurable_pi_lambda
+  apply Measurable.of_eval
   intro v
   by_cases hv : v ∈ F
-  · simp only [resample, if_pos hv]; fun_prop
-  · simp only [resample, if_neg hv]; fun_prop
+  · simp only [resample, ite_eq_left hv]; fun_prop
+  · simp only [resample, ite_eq_right hv]; fun_prop
 
 /-- Resample where the footprint tracks `P.footprint (pick_fn ω)`
     rather than a single fixed footprint: chain through a list `l` of
@@ -131,7 +135,7 @@ theorem measurable_resampleChain {S : VarSpaces V} {ι : Type} [DecidableEq ι]
     (P : MTProcess S ι) (pick_fn : MTState S → ι)
     (hpick : letI : MeasurableSpace ι := ⊤; Measurable pick_fn) (l : List ι) :
     Measurable (fun p : MTState S × MTState S => resampleChain P pick_fn l p.1 p.2) := by
-  letI : MeasurableSpace ι := ⊤
+  let : MeasurableSpace ι := ⊤
   induction l with
   | nil => exact measurable_fst
   | cons i rest ih =>
@@ -156,8 +160,8 @@ theorem resampleChain_eq_of_mem {S : VarSpaces V} {ι : Type} [DecidableEq ι]
       intro hmem
       simp only [resampleChain]
       by_cases heq : pick_fn ω = i
-      · rw [if_pos heq, heq]
-      · rw [if_neg heq]
+      · rw [ite_eq_left heq, heq]
+      · rw [ite_eq_right heq]
         apply ih
         rcases List.mem_cons.mp hmem with h | h
         · exact absurd h heq
@@ -289,7 +293,7 @@ theorem measurable_randStep {S : VarSpaces V} {ι : Type} [Fintype ι] [Decidabl
       obtain ⟨ihState, ihCount⟩ := measurable_randStep P hbad ω0 t
       have hdraw : Measurable (fun ω : LogSpace S =>
           drawFrom ω (fun v => (randStep P ω0 ω t).2 v + 1)) := by
-        apply measurable_pi_lambda
+        apply Measurable.of_eval
         intro v
         exact measurable_eval_bounded v (t + 1) (fun ω => (randStep P ω0 ω t).2 v + 1)
           ((ihCount v).add_const 1)
@@ -319,7 +323,7 @@ theorem measurable_randStep {S : VarSpaces V} {ι : Type} [Fintype ι] [Decidabl
         exact (funext heqState) ▸ hcomp
       have hcount : ∀ v, Measurable (fun ω : LogSpace S => (randStep P ω0 ω (t + 1)).2 v) := by
         intro v
-        letI : MeasurableSpace ι := ⊤
+        let : MeasurableSpace ι := ⊤
         have hpickComp : Measurable (fun ω : LogSpace S => pickFirstViolated P (randStep P ω0 ω t).1) :=
           hpick.comp ihState
         have hcond : MeasurableSet {ω : LogSpace S |

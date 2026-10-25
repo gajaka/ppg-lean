@@ -20,9 +20,13 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import PPGraph.Core.Graph
-import PPGraph.Core.Repair
+module
+
+public import Mathlib.Tactic
+public import PPGraph.Core.Graph
+public import PPGraph.Core.Repair
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false

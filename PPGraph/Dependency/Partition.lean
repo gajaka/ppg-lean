@@ -7,7 +7,11 @@
   counts, expectations, and real budgets alike.
 -/
 
-import PPGraph.Dependency.Decomposition
+module
+
+public import PPGraph.Dependency.Decomposition
+
+@[expose] public section
 
 set_option autoImplicit false
 

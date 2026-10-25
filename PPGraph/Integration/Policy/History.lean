@@ -8,7 +8,11 @@
   We prove the table-state correspondence and construct MTPolicy.Schedule;
   no trajectory correspondence or convergence is assumed by the policy.
 -/
-import PPGraph.Integration.Policy.MoserTardos
+module
+
+public import PPGraph.Integration.Policy.MoserTardos
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -59,12 +63,12 @@ theorem measurable_historyRun (P : MTProcess S ι) (R : HistoryRule P) :
     ∀ t, letI : MeasurableSpace ι := ⊤
       Measurable (fun ω : LogSpace S => historyRun P R ω t)
   | 0 => by
-      letI : MeasurableSpace ι := ⊤
+      let : MeasurableSpace ι := ⊤
       exact measurable_initialStateFromLog.prodMk
         (measurable_const.prodMk
           ((Measurable.of_eval (fun _ => measurable_initialStateFromLog)).prodMk measurable_const))
   | t + 1 => by
-      letI : MeasurableSpace ι := ⊤
+      let : MeasurableSpace ι := ⊤
       have ih := measurable_historyRun P R t
       have hs := measurable_fst.comp ih
       have hc := measurable_fst.comp (measurable_snd.comp ih)
@@ -82,13 +86,13 @@ theorem measurable_historyRun (P : MTProcess S ι) (R : HistoryRule P) :
       have hnext : Measurable (fun ω : LogSpace S =>
           resample (P.footprint (historySelect P R ω t)) (historyRun P R ω t).1
             (drawFrom ω (fun v => (historyRun P R ω t).2.1 v + 1))) := by
-        apply measurable_pi_lambda
+        apply Measurable.of_eval
         intro v
         exact Measurable.ite (hF v) (hdraw v) ((measurable_pi_apply v).comp hs)
       have hcnt : Measurable (fun ω : LogSpace S => fun v =>
           if v ∈ P.footprint (historySelect P R ω t)
           then (historyRun P R ω t).2.1 v + 1 else (historyRun P R ω t).2.1 v) := by
-        apply measurable_pi_lambda
+        apply Measurable.of_eval
         intro v
         exact Measurable.ite (hF v) (((measurable_pi_apply v).comp hc).add_const 1)
           ((measurable_pi_apply v).comp hc)
@@ -96,18 +100,18 @@ theorem measurable_historyRun (P : MTProcess S ι) (R : HistoryRule P) :
           resample (P.footprint (historySelect P R ω t)) (historyRun P R ω t).1
             (drawFrom ω (fun v => (historyRun P R ω t).2.1 v + 1))
           else (historyRun P R ω t).2.2.1 s) := by
-        apply measurable_pi_lambda
+        apply Measurable.of_eval
         intro s
         by_cases h : s = t + 1
-        · simp only [if_pos h]; exact hnext
-        · simp only [if_neg h]; exact (measurable_pi_apply s).comp hh
+        · simp only [ite_eq_left h]; exact hnext
+        · simp only [ite_eq_right h]; exact (measurable_pi_apply s).comp hh
       have hlabels : Measurable (fun ω : LogSpace S => fun s => if s = t then
           historySelect P R ω t else (historyRun P R ω t).2.2.2 s) := by
-        apply measurable_pi_lambda
+        apply Measurable.of_eval
         intro s
         by_cases h : s = t
-        · simp only [if_pos h]; exact hi
-        · simp only [if_neg h]; exact (measurable_pi_apply s).comp hl
+        · simp only [ite_eq_left h]; exact hi
+        · simp only [ite_eq_right h]; exact (measurable_pi_apply s).comp hl
       exact hnext.prodMk (hcnt.prodMk (hstates.prodMk hlabels))
 
 theorem historyCount_eq_uses (P : MTProcess S ι) (R : HistoryRule P) (ω : LogSpace S) :
@@ -151,8 +155,8 @@ theorem history_states_record (P : MTProcess S ι) (R : HistoryRule P) (ω : Log
       change (if s = t + 1 then (historyRun P R ω (t + 1)).1
         else (historyRun P R ω t).2.2.1 s) = _
       by_cases h : s = t + 1
-      · rw [if_pos h, h]; exact historyState_eq_state P R ω (t + 1)
-      · rw [if_neg h]; exact history_states_record P R ω t s (by omega)
+      · rw [ite_eq_left h, h]; exact historyState_eq_state P R ω (t + 1)
+      · rw [ite_eq_right h]; exact history_states_record P R ω t s (by omega)
 
 theorem history_labels_record (P : MTProcess S ι) (R : HistoryRule P) (ω : LogSpace S) :
     ∀ t s, s < t → (historyRun P R ω t).2.2.2 s = historySelect P R ω s
@@ -160,8 +164,8 @@ theorem history_labels_record (P : MTProcess S ι) (R : HistoryRule P) (ω : Log
   | t + 1, s, hs => by
       change (if s = t then historySelect P R ω t else (historyRun P R ω t).2.2.2 s) = _
       by_cases h : s = t
-      · rw [if_pos h, h]
-      · rw [if_neg h]; exact history_labels_record P R ω t s (by omega)
+      · rw [ite_eq_left h, h]
+      · rw [ite_eq_right h]; exact history_labels_record P R ω t s (by omega)
 
 theorem history_states_future_padding (P : MTProcess S ι) (R : HistoryRule P) (ω : LogSpace S) :
     ∀ t s, t < s → (historyRun P R ω t).2.2.1 s = initialStateFromLog ω
@@ -169,7 +173,7 @@ theorem history_states_future_padding (P : MTProcess S ι) (R : HistoryRule P) (
   | t + 1, s, hs => by
       change (if s = t + 1 then (historyRun P R ω (t + 1)).1
         else (historyRun P R ω t).2.2.1 s) = _
-      rw [if_neg (by omega)]
+      rw [ite_eq_right (by omega)]
       exact history_states_future_padding P R ω t s (by omega)
 
 theorem history_labels_future_padding (P : MTProcess S ι) (R : HistoryRule P) (ω : LogSpace S) :
@@ -177,7 +181,7 @@ theorem history_labels_future_padding (P : MTProcess S ι) (R : HistoryRule P) (
   | 0, s, hs => rfl
   | t + 1, s, hs => by
       change (if s = t then historySelect P R ω t else (historyRun P R ω t).2.2.2 s) = _
-      rw [if_neg (by omega)]
+      rw [ite_eq_right (by omega)]
       exact history_labels_future_padding P R ω t s (by omega)
 
 end MTPolicy

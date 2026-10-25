@@ -11,9 +11,13 @@
   supplies the random initial assignment, as in HLS Algorithm 1.
   Source: https://arxiv.org/abs/2111.06527, Algorithm 1 and footnote 2.
 -/
-import PPGraph.HLS.DAG.RealDAGCounts
-import PPGraph.MoserTardos.Bounds.Termination
-import PPGraph.MoserTardos.Counting.Counting
+module
+
+public import PPGraph.HLS.DAG.RealDAGCounts
+public import PPGraph.MoserTardos.Bounds.Termination
+public import PPGraph.MoserTardos.Counting.Counting
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -85,7 +89,7 @@ theorem uses_congr (P : MTProcess S ι) (C E : ℕ → ι) (t : ℕ) (v : V)
 
 theorem measurable_uses (P : MTProcess S ι) (σ : Schedule P) (t : ℕ) (v : V) :
     Measurable (fun ω => uses P (σ.select ω) t v) := by
-  letI : MeasurableSpace ι := ⊤
+  let : MeasurableSpace ι := ⊤
   let history : LogSpace S → (Fin (t + 1) → ι) := fun ω k => σ.select ω k.val
   have hh : Measurable history := Measurable.of_eval (fun k => σ.measurable_select k.val)
   let decode : (Fin (t + 1) → ι) → ℕ := fun a =>
@@ -102,7 +106,7 @@ theorem measurable_uses (P : MTProcess S ι) (σ : Schedule P) (t : ℕ) (v : V)
 
 theorem measurable_state (P : MTProcess S ι) (σ : Schedule P) (t : ℕ) :
     Measurable (fun ω => state P (σ.select ω) ω t) := by
-  apply measurable_pi_lambda
+  apply Measurable.of_eval
   intro v
   exact measurable_eval_bounded v t (fun ω => uses P (σ.select ω) t v)
     (measurable_uses P σ t v) (fun ω => uses_le P (σ.select ω) t v)
@@ -110,7 +114,7 @@ theorem measurable_state (P : MTProcess S ι) (σ : Schedule P) (t : ℕ) :
 theorem measurableSet_selected_bad (P : MTProcess S ι) (σ : Schedule P)
     (hbad : ∀ i, MeasurableSet (P.bad i)) (t : ℕ) :
     MeasurableSet {ω | state P (σ.select ω) ω t ∈ P.bad (σ.select ω t)} := by
-  letI : MeasurableSpace ι := ⊤
+  let : MeasurableSpace ι := ⊤
   have heq : {ω | state P (σ.select ω) ω t ∈ P.bad (σ.select ω t)} =
       ⋃ i : ι, ({ω | σ.select ω t = i} ∩ {ω | state P (σ.select ω) ω t ∈ P.bad i}) := by
     ext ω

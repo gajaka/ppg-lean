@@ -5,9 +5,13 @@
   This augments the proof sample space, not the resampling algorithm.
   https://arxiv.org/abs/2111.06527
 -/
-import PPGraph.MoserTardos.Probability.Intersection
-import PPGraph.HLS.Parameters
-import Mathlib.Probability.Distributions.Bernoulli
+module
+
+public import PPGraph.MoserTardos.Probability.Intersection
+public import PPGraph.HLS.Parameters
+public import Mathlib.Probability.Distributions.Bernoulli
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

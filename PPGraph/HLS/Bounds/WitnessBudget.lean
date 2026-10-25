@@ -4,8 +4,12 @@
   existing Shearer coefficient budget. No assumption about runtime or
   probabilistic occurrence is used in this combinatorial theorem.
 -/
-import PPGraph.HLS.Encoding.CanonicalEncoding
-import PPGraph.Shearer.Slack
+module
+
+public import PPGraph.HLS.Encoding.CanonicalEncoding
+public import PPGraph.Shearer.Slack
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

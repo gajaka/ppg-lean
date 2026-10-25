@@ -8,7 +8,11 @@
   about this particular table.
 -/
 
-import PPGraph.MoserTardos.Bounds.Termination
+module
+
+public import PPGraph.MoserTardos.Bounds.Termination
+
+@[expose] public section
 
 variable {V : Type} {S : VarSpaces V}
 
@@ -33,8 +37,8 @@ theorem resample_eq_target_of_eq [DecidableEq V] (F : Finset V)
     (s z : MTState S) (v : V) (hv : s v = z v) :
     resample F s z v = z v := by
   by_cases hF : v ∈ F
-  · simp only [resample, if_pos hF]
-  · simp only [resample, if_neg hF, hv]
+  · simp only [resample, ite_eq_left hF]
+  · simp only [resample, ite_eq_right hF, hv]
 
 theorem mtMismatch_resample_subset [Fintype V] [DecidableEq V]
     (F : Finset V) (s z : MTState S) :
@@ -67,7 +71,7 @@ theorem mtMismatch_resample_ssubset [Fintype V] [DecidableEq V] {ι : Type}
     rw [heq]
     exact (mem_mtMismatch s z v).mpr hvne
   exact ((mem_mtMismatch (resample (P.footprint i) s z) z v).mp hvnew)
-    (by simp only [resample, if_pos hvF])
+    (by simp only [resample, ite_eq_left hvF])
 
 section Trajectory
 

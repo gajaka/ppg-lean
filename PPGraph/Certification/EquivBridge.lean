@@ -14,10 +14,14 @@
   and show that its finest_equiv coincides with cert_equiv definitionally.
 -/
 
-import Mathlib.Tactic
-import PPGraph.Certification.Parametric
-import PPGraph.Certification.ParametricQuotient
-import PPGraph.Certification.Selection
+module
+
+public import Mathlib.Tactic
+public import PPGraph.Certification.Parametric
+public import PPGraph.Certification.ParametricQuotient
+public import PPGraph.Certification.Selection
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 

@@ -16,8 +16,12 @@
   relating the source update/input law to hardware remain separate work.
 -/
 
-import PPGraph.Finite.Lumping.Basic
-import PPGraph.Finite.Update.IID
+module
+
+public import PPGraph.Finite.Lumping.Basic
+public import PPGraph.Finite.Update.IID
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 

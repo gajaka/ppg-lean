@@ -1,5 +1,9 @@
 /- Unordered keys for the independent auxiliary coin tables. -/
-import PPGraph.HLS.DAG.CliqueRanks
+module
+
+public import PPGraph.HLS.DAG.CliqueRanks
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

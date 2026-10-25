@@ -13,7 +13,11 @@
   No method that always discovers a small projection is claimed.
 -/
 
-import PPGraph.Finite.Potential.TailCertificate
+module
+
+public import PPGraph.Finite.Potential.TailCertificate
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 

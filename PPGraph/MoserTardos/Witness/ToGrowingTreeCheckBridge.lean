@@ -35,10 +35,14 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.MoserTardos.Witness.WTreeToGrowingTree
-import PPGraph.MoserTardos.Witness.CheckInvariance
-import PPGraph.MoserTardos.Witness.CheckShape
-import PPGraph.MoserTardos.Witness.Check
+module
+
+public import PPGraph.MoserTardos.Witness.WTreeToGrowingTree
+public import PPGraph.MoserTardos.Witness.CheckInvariance
+public import PPGraph.MoserTardos.Witness.CheckShape
+public import PPGraph.MoserTardos.Witness.Check
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -89,15 +93,15 @@ theorem WTree.toGT_dom_footprintCountBeyondAt {ι : Type} {S : VarSpaces V} (P :
         · rintro ⟨hw | hw, hcond⟩
           · subst hw
             by_cases hc : d < pd + (0:ℕ) ∧ v ∈ P.footprint (WTree.toGT_lab (WTree.mk i cs) ([] : List ℕ))
-            · rw [if_pos hc]; exact Or.inl (Finset.mem_singleton_self _)
+            · rw [ite_eq_left hc]; exact Or.inl (Finset.mem_singleton_self _)
             · exact absurd hcond hc
           · exact Or.inr ⟨hw, hcond⟩
         · rintro (h | ⟨hw, hcond⟩)
           · by_cases hc : d < pd + (0:ℕ) ∧ v ∈ P.footprint (WTree.toGT_lab (WTree.mk i cs) ([] : List ℕ))
-            · rw [if_pos hc] at h
+            · rw [ite_eq_left hc] at h
               have hweq : w = [] := Finset.mem_singleton.mp h
               exact ⟨Or.inl hweq, hweq ▸ hc⟩
-            · rw [if_neg hc] at h
+            · rw [ite_eq_right hc] at h
               exact absurd h (Finset.notMem_empty w)
           · exact ⟨Or.inr hw, hcond⟩
       rw [hsplit]
@@ -109,11 +113,11 @@ theorem WTree.toGT_dom_footprintCountBeyondAt {ι : Type} {S : VarSpaces V} (P :
         rw [Finset.disjoint_left]
         intro w hw1 hw2
         by_cases hc : d < pd + (0:ℕ) ∧ v ∈ P.footprint (WTree.toGT_lab (WTree.mk i cs) ([] : List ℕ))
-        · rw [if_pos hc] at hw1
+        · rw [ite_eq_left hc] at hw1
           have hweq : w = [] := Finset.mem_singleton.mp hw1
           rw [Finset.mem_filter] at hw2
           exact hrootnotin (hweq ▸ hw2.1)
-        · rw [if_neg hc] at hw1
+        · rw [ite_eq_right hc] at hw1
           exact absurd hw1 (Finset.notMem_empty w)
       rw [Finset.card_union_of_disjoint hdisj]
       have hif : (if d < pd + (0:ℕ) ∧ v ∈ P.footprint (WTree.toGT_lab (WTree.mk i cs) ([] : List ℕ))
@@ -122,8 +126,8 @@ theorem WTree.toGT_dom_footprintCountBeyondAt {ι : Type} {S : VarSpaces V} (P :
         show (if d < pd + (0:ℕ) ∧ v ∈ P.footprint i then ({([] : List ℕ)} : Finset (List ℕ)) else ∅).card
             = if d < pd ∧ v ∈ P.footprint i then 1 else 0
         by_cases hc : d < pd ∧ v ∈ P.footprint i
-        · rw [if_pos (by simpa using hc), if_pos hc, Finset.card_singleton]
-        · rw [if_neg (by simpa using hc), if_neg hc, Finset.card_empty]
+        · rw [ite_eq_left (by simpa using hc), ite_eq_left hc, Finset.card_singleton]
+        · rw [ite_eq_right (by simpa using hc), ite_eq_right hc, Finset.card_empty]
       rw [hif]
       congr 1
       exact WTree.toGT_domChildren_footprintCountBeyondAt P v d pd (WTree.mk i cs) cs 0 rfl

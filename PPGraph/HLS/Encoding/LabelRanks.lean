@@ -4,8 +4,12 @@
   precisely the initial segment of natural numbers, so renaming introduces
   neither missing indices nor duplicate nodes.
 -/
-import PPGraph.HLS.Encoding.CanonicalEncoding
-import PPGraph.HLS.Encoding.TableCheck
+module
+
+public import PPGraph.HLS.Encoding.CanonicalEncoding
+public import PPGraph.HLS.Encoding.TableCheck
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

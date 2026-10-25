@@ -12,8 +12,12 @@
   is used. This establishes a model theorem, not a physical-controller law.
 -/
 
-import PPGraph.Finite.Resampling.TableLaw
-import PPGraph.MoserTardos.Bounds.Drift
+module
+
+public import PPGraph.Finite.Resampling.TableLaw
+public import PPGraph.MoserTardos.Bounds.Drift
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 set_option backward.isDefEq.respectTransparency false

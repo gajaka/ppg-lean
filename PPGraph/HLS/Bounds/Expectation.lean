@@ -6,9 +6,13 @@
   The expectation bound precedes, and implies, termination.
   Source: https://arxiv.org/abs/2111.06527, Sections 3.1--3.3.
 -/
-import PPGraph.HLS.Probability.RefinedProbability
-import PPGraph.HLS.Probability.RootUnion
-import PPGraph.MoserTardos.Bounds.Termination
+module
+
+public import PPGraph.HLS.Probability.RefinedProbability
+public import PPGraph.HLS.Probability.RootUnion
+public import PPGraph.MoserTardos.Bounds.Termination
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -26,7 +30,7 @@ variable {V : Type} [DecidableEq V] [Fintype V] {S : VarSpaces V}
 
 theorem eventProbability_le_one (P : MTProcess S ι) (p : ι → ℝ)
     (hprob : ∀ i, (Measure.pi (fun a => S.measure a)).real (P.bad i) = p i) : ∀ i, p i ≤ 1 := by
-  haveI : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
+  have : ∀ a, IsProbabilityMeasure (S.measure a) := S.isProb
   intro i
   rw [← hprob i]
   exact measureReal_le_one

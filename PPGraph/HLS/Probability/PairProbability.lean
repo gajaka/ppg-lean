@@ -3,8 +3,12 @@
   The fair coin belongs only to the analysis. Reversing a reversible arc
   exchanges the two shared samples and preserves the private samples.
 -/
-import PPGraph.HLS.Probability.BlockQueries
-import PPGraph.HLS.Encoding.SwappedTests
+module
+
+public import PPGraph.HLS.Probability.BlockQueries
+public import PPGraph.HLS.Encoding.SwappedTests
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

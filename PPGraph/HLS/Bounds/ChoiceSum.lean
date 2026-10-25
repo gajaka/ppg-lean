@@ -1,5 +1,9 @@
 /- Finite product-of-sums over the legal local expansion choices. -/
-import PPGraph.HLS.Bounds.ExpansionWeight
+module
+
+public import PPGraph.HLS.Bounds.ExpansionWeight
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -48,9 +52,9 @@ noncomputable def legalToIndependent (M : DependencyMatching G) (D : HLS.Witness
   intro h
   rcases h with h | h
   · have hc := c.property.1 u.val h
-    simpa only [extendChoice, dif_pos u.property] using hc
+    simpa only [extendChoice, dite_eq_left u.property] using hc
   · have hc := c.property.2 u.val u.property h
-    simpa only [extendChoice, dif_pos u.property] using hc
+    simpa only [extendChoice, dite_eq_left u.property] using hc
 
 noncomputable def independentChoicesEquiv (M : DependencyMatching G) (D : HLS.WitnessDAG ι)
     (hD : D.Valid G) : IndependentChoices M D ≃ LegalChoices M D where
@@ -67,16 +71,16 @@ theorem sum_localChoice (M : DependencyMatching G) (D : HLS.WitnessDAG ι)
           down u.val.1 * down (M.mate u.val.1) := by
   by_cases hf : forcedUp M D u.val
   · have heq : ∀ c : LocalChoice M D u, c.val = .up := fun c => c.property hf
-    haveI : Unique (LocalChoice M D u) :=
+    have : Unique (LocalChoice M D u) :=
       ⟨⟨⟨.up, fun _ => rfl⟩⟩, fun c => Subtype.ext (heq c)⟩
-    rw [if_pos hf, Fintype.sum_unique, heq default]
+    rw [ite_eq_left hf, Fintype.sum_unique, heq default]
     rfl
   · let e : LocalChoice M D u ≃ ExpansionChoice :=
       { toFun := Subtype.val
         invFun := fun c => ⟨c, fun h => False.elim (hf h)⟩
         left_inv := fun _ => rfl
         right_inv := fun _ => rfl }
-    rw [if_neg hf]
+    rw [ite_eq_right hf]
     calc
       _ = ∑ c : ExpansionChoice, choiceWeight M up down u.val.1 c :=
         e.sum_comp (fun c => choiceWeight M up down u.val.1 c)

@@ -9,8 +9,12 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import PPGraph.MoserTardos.Process.Basic
+module
+
+public import Mathlib.Tactic
+public import PPGraph.MoserTardos.Process.Basic
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false

@@ -14,9 +14,13 @@
   is subsequent work. All spaces below are arbitrary measurable spaces.
 -/
 
-import Mathlib.Probability.Moments.Variance
-import Mathlib.MeasureTheory.Measure.Prod
-import Mathlib.Tactic
+module
+
+public import Mathlib.Probability.Moments.Variance
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.Tactic
+
+@[expose] public section
 
 set_option autoImplicit false
 

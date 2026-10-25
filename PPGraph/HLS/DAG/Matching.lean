@@ -5,8 +5,12 @@
   premise. Source: He--Li--Sun, arXiv:2111.06527, Section 2.3.
   https://arxiv.org/abs/2111.06527
 -/
-import PPGraph.HLS.Parameters
-import Mathlib.Combinatorics.SimpleGraph.Basic
+module
+
+public import PPGraph.HLS.Parameters
+public import Mathlib.Combinatorics.SimpleGraph.Basic
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

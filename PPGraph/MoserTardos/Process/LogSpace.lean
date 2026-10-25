@@ -31,9 +31,13 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import Mathlib.Probability.ProductMeasure
-import PPGraph.MoserTardos.Process.Basic
+module
+
+public import Mathlib.Tactic
+public import Mathlib.Probability.ProductMeasure
+public import PPGraph.MoserTardos.Process.Basic
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -126,7 +130,7 @@ def freshState {S : VarSpaces V} (ω : LogSpace S) (t : ℕ) : MTState S :=
     computes is itself a measurable function of ω. -/
 theorem measurable_freshState {S : VarSpaces V} (t : ℕ) :
     Measurable (fun ω : LogSpace S => freshState ω t) := by
-  apply measurable_pi_lambda
+  apply Measurable.of_eval
   intro v
   exact measurable_pi_apply (t, v)
 

@@ -14,11 +14,15 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import Mathlib.Data.NNReal.Basic
-import PPGraph.MoserTardos.Witness.Witness
-import PPGraph.MoserTardos.Witness.Weight
-import PPGraph.MoserTardos.Bounds.Convergence
+module
+
+public import Mathlib.Tactic
+public import Mathlib.Basic.NNReal.Basic
+public import PPGraph.MoserTardos.Witness.Witness
+public import PPGraph.MoserTardos.Witness.Weight
+public import PPGraph.MoserTardos.Bounds.Convergence
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false

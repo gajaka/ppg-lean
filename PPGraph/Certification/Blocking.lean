@@ -10,8 +10,12 @@
     Blocking tells why it stops there.
 -/
 
-import Mathlib.Tactic
-import PPGraph.Certification.Parametric
+module
+
+public import Mathlib.Tactic
+public import PPGraph.Certification.Parametric
+
+@[expose] public section
 
 variable {Θ : Type} [PartialOrder Θ]
 variable {D : Type}

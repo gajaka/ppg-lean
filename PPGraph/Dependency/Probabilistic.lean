@@ -17,9 +17,13 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import Mathlib.Data.Finset.Basic
-import Mathlib.Data.Real.Basic
+module
+
+public import Mathlib.Tactic
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Basic.Real.Basic
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false

@@ -7,9 +7,13 @@
     instantiations. Stricter specs refine weaker ones.
 -/
 
-import Mathlib.Tactic
-import Mathlib.Order.Lattice
-import PPGraph.Core.Graph
+module
+
+public import Mathlib.Tactic
+public import Mathlib.Order.Lattice
+public import PPGraph.Core.Graph
+
+@[expose] public section
 
 -- ═══════════════════════════════════════════════════════════════════
 -- Section 1: Abstract Framework

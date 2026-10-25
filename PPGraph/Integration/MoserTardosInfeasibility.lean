@@ -5,9 +5,13 @@
   Consequently absence of a repair target is exactly global infeasibility.
   Restrictions on permitted logs or updates would define a different relation.
 -/
-import PPGraph.Integration.MoserTardosRepair
-import PPGraph.Decision.UnsatisfiableCore
-import PPGraph.Decision.FiniteFeasibility
+module
+
+public import PPGraph.Integration.MoserTardosRepair
+public import PPGraph.Decision.UnsatisfiableCore
+public import PPGraph.Decision.FiniteFeasibility
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

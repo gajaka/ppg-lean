@@ -1,5 +1,9 @@
 /- Private/shared event blocks and the intersection estimate for MT bad events. -/
-import PPGraph.HLS.Probability.BlockIntersection
+module
+
+public import PPGraph.HLS.Probability.BlockIntersection
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

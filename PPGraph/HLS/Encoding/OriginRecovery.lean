@@ -4,8 +4,12 @@
   an extra vertex has a reversible matching arc into a down-colored
   original vertex. Uniqueness follows by induction toward the sink.
 -/
-import PPGraph.HLS.Encoding.ExpansionReversibility
-import PPGraph.HLS.DAG.MatchingSelection
+module
+
+public import PPGraph.HLS.Encoding.ExpansionReversibility
+public import PPGraph.HLS.DAG.MatchingSelection
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

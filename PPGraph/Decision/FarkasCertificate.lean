@@ -5,7 +5,11 @@
   asserted here; existence/completeness of Farkas multipliers is not assumed.
   https://cmp.felk.cvut.cz/~dlaskto2/papers/Dlask-Werner-CP2020a.pdf
 -/
-import PPGraph.Decision.Infeasibility
+module
+
+public import PPGraph.Decision.Infeasibility
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

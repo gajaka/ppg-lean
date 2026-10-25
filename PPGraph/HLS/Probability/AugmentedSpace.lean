@@ -3,9 +3,13 @@
   Projecting to the original resampling table preserves its exact law
   and hence preserves the expectation of the existing MT algorithm.
 -/
-import PPGraph.HLS.Bounds.CoinSaving
-import PPGraph.HLS.Probability.QueryLaw
-import PPGraph.MoserTardos.Probability.RandomInitExpectation
+module
+
+public import PPGraph.HLS.Bounds.CoinSaving
+public import PPGraph.HLS.Probability.QueryLaw
+public import PPGraph.MoserTardos.Probability.RandomInitExpectation
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -49,7 +53,7 @@ theorem measurable_auxiliaryCoins (S : VarSpaces V) :
 
 theorem map_originalTable (S : VarSpaces V) :
     (logMeasure (augmentedSpaces (ι := ι) S)).map originalTable = logMeasure S := by
-  haveI : ∀ p, IsProbabilityMeasure (μCoin (augmentedSpaces (ι := ι) S) p) :=
+  have : ∀ p, IsProbabilityMeasure (μCoin (augmentedSpaces (ι := ι) S) p) :=
     fun p => (augmentedSpaces S).isProb p.2
   have hinj : Function.Injective (fun p : ℕ × V => (p.1, Sum.inl (α := V) (β := Finset ι) p.2)) := by
     intro p q h
@@ -63,7 +67,7 @@ theorem map_originalTable (S : VarSpaces V) :
 theorem map_auxiliaryCoins (S : VarSpaces V) :
     (logMeasure (augmentedSpaces (ι := ι) S)).map auxiliaryCoins =
       Measure.infinitePi (fun _ : Finset ι × ℕ => fairOrientation) := by
-  haveI : ∀ p, IsProbabilityMeasure (μCoin (augmentedSpaces (ι := ι) S) p) :=
+  have : ∀ p, IsProbabilityMeasure (μCoin (augmentedSpaces (ι := ι) S) p) :=
     fun p => (augmentedSpaces S).isProb p.2
   have hinj : Function.Injective (fun p : Finset ι × ℕ =>
       (p.2, Sum.inr (α := V) (β := Finset ι) p.1)) := by

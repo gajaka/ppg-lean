@@ -1,6 +1,10 @@
 /- Count resamplings by the ordinal occurrence of their event, without termination. -/
-import PPGraph.HLS.DAG.RealDAGCounts
-import PPGraph.MoserTardos.Witness.Occurrence
+module
+
+public import PPGraph.HLS.DAG.RealDAGCounts
+public import PPGraph.MoserTardos.Witness.Occurrence
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -25,7 +29,7 @@ theorem earlierLabelCount_congr (C E : ℕ → ι) (t : ℕ)
 theorem measurable_earlierLabelCount (P : MTProcess S ι)
     (hbad : ∀ i, MeasurableSet (P.bad i)) (t : ℕ) :
     Measurable (fun ω : LogSpace S => earlierLabelCount (realSchedule P ω) t) := by
-  letI : MeasurableSpace ι := ⊤
+  let : MeasurableSpace ι := ⊤
   let history : LogSpace S → (Fin (t + 1) → ι) := fun ω k => realSchedule P ω k.val
   have hhistory : Measurable history := Measurable.of_eval (fun k =>
     measurable_realC_of_measurable_init P hbad initialStateFromLog measurable_initialStateFromLog k.val)

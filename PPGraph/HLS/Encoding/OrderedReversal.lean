@@ -1,5 +1,9 @@
 /- Consecutive vertices in the construction order give reversible arcs. -/
-import PPGraph.HLS.DAG.OrderedDAG
+module
+
+public import PPGraph.HLS.DAG.OrderedDAG
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

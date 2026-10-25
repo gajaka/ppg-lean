@@ -3,7 +3,11 @@
   in chronological order. The construction is valid for every finite log.
   He--Li--Sun, Section 2.1 (the full witness DAG of an execution).
 -/
-import PPGraph.HLS.Encoding.NormalizationCheck
+module
+
+public import PPGraph.HLS.Encoding.NormalizationCheck
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

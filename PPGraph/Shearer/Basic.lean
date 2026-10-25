@@ -16,10 +16,14 @@
   not a proof that the particular event family has no good state.
 -/
 
-import PPGraph.Shearer.Polynomial
-import PPGraph.Shearer.Induction
-import PPGraph.LLL.Lopsided
-import PPGraph.Shearer.BDD
+module
+
+public import PPGraph.Shearer.Polynomial
+public import PPGraph.Shearer.Induction
+public import PPGraph.LLL.Lopsided
+public import PPGraph.Shearer.BDD
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

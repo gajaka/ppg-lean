@@ -1,8 +1,12 @@
 /- Actual augmented-table pair checks: measurability, law, and saving. -/
-import PPGraph.HLS.Probability.CoinQueryLaw
-import PPGraph.HLS.Encoding.RelativeCoins
-import PPGraph.HLS.Probability.PairProbability
-import PPGraph.HLS.Bounds.AugmentedExistence
+module
+
+public import PPGraph.HLS.Probability.CoinQueryLaw
+public import PPGraph.HLS.Encoding.RelativeCoins
+public import PPGraph.HLS.Probability.PairProbability
+public import PPGraph.HLS.Bounds.AugmentedExistence
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

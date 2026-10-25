@@ -17,8 +17,12 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.Dependency.Decomposition
-import Mathlib.Combinatorics.SimpleGraph.LapMatrix
+module
+
+public import PPGraph.Dependency.Decomposition
+public import Mathlib.Combinatorics.SimpleGraph.LapMatrix
+
+@[expose] public section
 
 open scoped Classical Matrix
 

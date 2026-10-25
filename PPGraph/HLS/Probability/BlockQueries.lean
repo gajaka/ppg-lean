@@ -1,6 +1,10 @@
 /- Disjoint private/shared table queries and their exact four-block law. -/
-import PPGraph.HLS.Probability.FootprintBlocks
-import PPGraph.HLS.Encoding.ReversalSlots
+module
+
+public import PPGraph.HLS.Probability.FootprintBlocks
+public import PPGraph.HLS.Encoding.ReversalSlots
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

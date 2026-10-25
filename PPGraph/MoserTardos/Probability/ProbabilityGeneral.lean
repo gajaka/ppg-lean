@@ -31,8 +31,12 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.MoserTardos.Witness.CheckBirth
-import PPGraph.MoserTardos.Probability.Probability
+module
+
+public import PPGraph.MoserTardos.Witness.CheckBirth
+public import PPGraph.MoserTardos.Probability.Probability
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false

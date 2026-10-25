@@ -8,8 +8,12 @@
   arbitrary fixed initial state.
 -/
 
-import PPGraph.MoserTardos.Bounds.OccurrenceExpectation
-import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+module
+
+public import PPGraph.MoserTardos.Bounds.OccurrenceExpectation
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Markov
+
+@[expose] public section
 
 open MeasureTheory Classical
 open scoped NNReal ENNReal

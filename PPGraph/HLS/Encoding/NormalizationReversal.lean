@@ -1,5 +1,9 @@
 /- Canonical renaming preserves reversibility and alternate paths. -/
-import PPGraph.HLS.Encoding.Normalization
+module
+
+public import PPGraph.HLS.Encoding.Normalization
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

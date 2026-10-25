@@ -5,8 +5,12 @@
   law, or hardware execution time is supplied as a premise or conclusion.
 -/
 
-import PPGraph.Finite.Potential.TailCertificate
-import PPGraph.Integration.FinitePotentialExpectationMT
+module
+
+public import PPGraph.Finite.Potential.TailCertificate
+public import PPGraph.Integration.FinitePotentialExpectationMT
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 set_option backward.isDefEq.respectTransparency false

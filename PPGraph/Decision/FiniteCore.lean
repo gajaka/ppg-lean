@@ -1,6 +1,10 @@
 /- Exact finite checking and enumeration of minimal conflict cores. -/
-import PPGraph.Decision.FiniteFeasibility
-import PPGraph.Decision.UnsatisfiableCore
+module
+
+public import PPGraph.Decision.FiniteFeasibility
+public import PPGraph.Decision.UnsatisfiableCore
+
+@[expose] public section
 
 set_option autoImplicit false
 

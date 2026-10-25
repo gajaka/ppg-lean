@@ -4,7 +4,11 @@
   of Constraints, JAR 40 (2008), Theorem 1(ii).
   These correction sets change the obligation family, not system states.
 -/
-import PPGraph.Decision.UnsatisfiableCore
+module
+
+public import PPGraph.Decision.UnsatisfiableCore
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

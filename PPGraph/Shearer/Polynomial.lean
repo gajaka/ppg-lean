@@ -5,13 +5,17 @@
   Shearer's condition and cluster expansion",
   arXiv:1711.06797. This file contains finite algebra only.
 -/
-import Mathlib.Combinatorics.SimpleGraph.Basic
-import Mathlib.Algebra.BigOperators.Group.Finset.Powerset
-import Mathlib.Algebra.BigOperators.Ring.Finset
-import Mathlib.Data.Finset.Basic
-import Mathlib.Data.Real.Basic
-import Mathlib.Tactic.Ring
-import Mathlib.Tactic.Tauto
+module
+
+public import Mathlib.Combinatorics.SimpleGraph.Basic
+public import Mathlib.Algebra.BigOperators.Group.Finset.Powerset
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Data.Finset.Basic
+public import Mathlib.Basic.Real.Basic
+public import Mathlib.Tactic.Ring
+public import Mathlib.Tactic.Tauto
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

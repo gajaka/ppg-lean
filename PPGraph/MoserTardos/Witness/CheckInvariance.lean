@@ -27,8 +27,12 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.MoserTardos.Witness.Check
-import PPGraph.MoserTardos.Witness.InjectivityBridge
+module
+
+public import PPGraph.MoserTardos.Witness.Check
+public import PPGraph.MoserTardos.Witness.InjectivityBridge
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -160,7 +164,7 @@ theorem GrowingTree.toWTreeFuel_footprintCountBeyondAt {S : VarSpaces V} {ι : T
     show (if threshold < x.length ∧ v ∈ P.footprint (T.lab x) then 1 else 0)
       = (T.dom.filter (fun w => x <+: w ∧ threshold < w.length ∧ v ∈ P.footprint (T.lab w))).card
     by_cases hcond : threshold < x.length ∧ v ∈ P.footprint (T.lab x)
-    · rw [if_pos hcond]
+    · rw [ite_eq_left hcond]
       have hset : T.dom.filter (fun w => x <+: w ∧ threshold < w.length ∧ v ∈ P.footprint (T.lab w)) = {x} := by
         apply Finset.ext
         intro w
@@ -173,7 +177,7 @@ theorem GrowingTree.toWTreeFuel_footprintCountBeyondAt {S : VarSpaces V} {ι : T
           rw [heq]
           exact ⟨hx, List.prefix_refl x, hcond⟩
       rw [hset, Finset.card_singleton]
-    · rw [if_neg hcond]
+    · rw [ite_eq_right hcond]
       have hset : T.dom.filter (fun w => x <+: w ∧ threshold < w.length ∧ v ∈ P.footprint (T.lab w)) = ∅ := by
         rw [Finset.filter_eq_empty_iff]
         intro w hwdom hc
@@ -220,7 +224,7 @@ theorem GrowingTree.toWTreeFuel_footprintCountBeyondAt {S : VarSpaces V} {ι : T
         · left
           subst heq
           by_cases hcond : threshold < w.length ∧ v ∈ P.footprint (T.lab w)
-          · rw [if_pos hcond]; exact Finset.mem_singleton_self w
+          · rw [ite_eq_left hcond]; exact Finset.mem_singleton_self w
           · exact absurd ⟨hlt, hfp⟩ hcond
         · right
           obtain ⟨t, ht⟩ := hpre
@@ -236,11 +240,11 @@ theorem GrowingTree.toWTreeFuel_footprintCountBeyondAt {S : VarSpaces V} {ι : T
           exact ⟨GrowingTree.Valid.prefix_mem T hV w hwdom (x ++ [k]) ⟨t', hkey⟩, k, rfl⟩
       · rintro (h | ⟨u, hu, hwdom, hpre, hlt, hfp⟩)
         · by_cases hcond : threshold < x.length ∧ v ∈ P.footprint (T.lab x)
-          · rw [if_pos hcond] at h
+          · rw [ite_eq_left hcond] at h
             have hwx : w = x := Finset.mem_singleton.mp h
             subst hwx
             exact ⟨hx, List.prefix_refl w, hcond.1, hcond.2⟩
-          · rw [if_neg hcond] at h
+          · rw [ite_eq_right hcond] at h
             exact absurd h (Finset.notMem_empty w)
         · rw [hchildren_def, Finset.mem_filter] at hu
           obtain ⟨_, k, huk⟩ := hu
@@ -275,20 +279,20 @@ theorem GrowingTree.toWTreeFuel_footprintCountBeyondAt {S : VarSpaces V} {ι : T
       rw [hchildren_def, Finset.mem_filter] at hu
       obtain ⟨_, k, huk⟩ := hu
       by_cases hcond : threshold < x.length ∧ v ∈ P.footprint (T.lab x)
-      · rw [if_pos hcond] at hw1
+      · rw [ite_eq_left hcond] at hw1
         have hwx : w = x := Finset.mem_singleton.mp hw1
         have hulew : u.length ≤ w.length := hw2'.2.1.length_le
         have hulen : u.length = x.length + 1 := by rw [huk]; simp
         have hwxlen : w.length = x.length := by rw [hwx]
         omega
-      · rw [if_neg hcond] at hw1
+      · rw [ite_eq_right hcond] at hw1
         exact absurd hw1 (Finset.notMem_empty w)
     rw [hunioncard, Finset.card_biUnion hdisjoint]
     have hif : (if threshold < x.length ∧ v ∈ P.footprint (T.lab x) then ({x} : Finset (List ℕ)) else ∅).card
         = if threshold < x.length ∧ v ∈ P.footprint (T.lab x) then 1 else 0 := by
       by_cases hcond : threshold < x.length ∧ v ∈ P.footprint (T.lab x)
-      · rw [if_pos hcond, if_pos hcond, Finset.card_singleton]
-      · rw [if_neg hcond, if_neg hcond, Finset.card_empty]
+      · rw [ite_eq_left hcond, ite_eq_left hcond, Finset.card_singleton]
+      · rw [ite_eq_right hcond, ite_eq_right hcond, Finset.card_empty]
     rw [hif]
     congr 1
     rw [hchildren_def]

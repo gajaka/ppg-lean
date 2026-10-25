@@ -1,6 +1,10 @@
 /- Canonical renaming preserves the resampling-table check, not only weights. -/
-import PPGraph.HLS.Encoding.Normalization
-import PPGraph.HLS.Encoding.TableCheck
+module
+
+public import PPGraph.HLS.Encoding.Normalization
+public import PPGraph.HLS.Encoding.TableCheck
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

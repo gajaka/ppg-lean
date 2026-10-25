@@ -1,6 +1,10 @@
 /- The intersection-sensitive convergence theorem supplies PPG repair witnesses. -/
-import PPGraph.HLS.Bounds.Expectation
-import PPGraph.Integration.MoserTardosRepair
+module
+
+public import PPGraph.HLS.Bounds.Expectation
+public import PPGraph.Integration.MoserTardosRepair
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

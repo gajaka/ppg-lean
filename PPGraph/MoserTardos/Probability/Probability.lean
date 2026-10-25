@@ -15,11 +15,15 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import Mathlib.Probability.ProductMeasure
-import PPGraph.MoserTardos.Witness.Check
-import PPGraph.MoserTardos.Witness.CheckBirth
-import PPGraph.MoserTardos.Process.LogSpace
+module
+
+public import Mathlib.Tactic
+public import Mathlib.Probability.ProductMeasure
+public import PPGraph.MoserTardos.Witness.Check
+public import PPGraph.MoserTardos.Witness.CheckBirth
+public import PPGraph.MoserTardos.Process.LogSpace
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -145,7 +149,7 @@ theorem restrict_updateFinset_of_disjoint {F1 F2 : Finset ι} (hdisj : Disjoint 
     F1.restrict (Function.updateFinset x F2 z) = F1.restrict x := by
   funext i
   simp only [Finset.restrict, Function.updateFinset]
-  rw [dif_neg (Finset.disjoint_left.mp hdisj i.2)]
+  rw [dite_eq_right (Finset.disjoint_left.mp hdisj i.2)]
 
 /-- The crux independence step: `infinitePi` splits multiplicatively
     over two sets depending on DISJOINT finite coordinate blocks. Built
@@ -183,13 +187,13 @@ theorem infinitePi_inter_eq_mul_of_dependsOn
     have key1 : ∀ i (hi : i ∈ F1), extendDefault μ (F1 ∪ F2) (MeasurableEquiv.piFinsetUnion X hdisj ⟨y, z⟩) i
         = extendDefault μ F1 y i := by
       intro i hi
-      simp only [extendDefault, Function.updateFinset, dif_pos hi, dif_pos (Finset.mem_union_left F2 hi)]
+      simp only [extendDefault, Function.updateFinset, dite_eq_left hi, dite_eq_left (Finset.mem_union_left F2 hi)]
       rw [hcoe]
       exact Equiv.piFinsetUnion_left X hdisj hi (Finset.mem_union_left F2 hi)
     have key2 : ∀ i (hi : i ∈ F2), extendDefault μ (F1 ∪ F2) (MeasurableEquiv.piFinsetUnion X hdisj ⟨y, z⟩) i
         = extendDefault μ F2 z i := by
       intro i hi
-      simp only [extendDefault, Function.updateFinset, dif_pos hi, dif_pos (Finset.mem_union_right F1 hi)]
+      simp only [extendDefault, Function.updateFinset, dite_eq_left hi, dite_eq_left (Finset.mem_union_right F1 hi)]
       rw [hcoe]
       exact Equiv.piFinsetUnion_right X hdisj hi (Finset.mem_union_right F1 hi)
     have hagreeA := fun i (hi : i ∈ F1) => (key1 i hi).symm
@@ -289,7 +293,7 @@ theorem measurableSet_checkState_event {S : VarSpaces V} {ι : Type} [Fintype ι
     (P : MTProcess S ι) (hbad : ∀ i, MeasurableSet (P.bad i)) (T : GrowingTree ι) (w : List ℕ) :
     MeasurableSet {ω : LogSpace S | checkState P T ω w ∈ P.bad (T.lab w)} := by
   have hmeas : Measurable (fun ω : LogSpace S => checkState P T ω w) := by
-    apply measurable_pi_lambda
+    apply Measurable.of_eval
     intro v
     exact measurable_pi_apply (localCount P T w v, v)
   exact hmeas (hbad (T.lab w))
@@ -340,7 +344,7 @@ def readAt {S : VarSpaces V} (n : V → ℕ) (ω : LogSpace S) : ∀ v, S.space 
 
 theorem measurable_readAt {S : VarSpaces V} (n : V → ℕ) :
     Measurable (readAt (S := S) n) := by
-  apply measurable_pi_lambda
+  apply Measurable.of_eval
   intro v
   exact measurable_pi_apply (n v, v)
 
@@ -351,7 +355,7 @@ theorem measurable_readAt {S : VarSpaces V} (n : V → ℕ) :
     be identified with the label's plain probability `p(label w)`. -/
 theorem logMeasure_map_readAt_eq_pi {S : VarSpaces V} [Fintype V] (n : V → ℕ) :
     (logMeasure S).map (readAt n) = Measure.pi (fun v => S.measure v) := by
-  haveI : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
+  have : ∀ v, IsProbabilityMeasure (S.measure v) := S.isProb
   have hinj : ∀ v1 ∈ (Finset.univ : Finset V), ∀ v2 ∈ (Finset.univ : Finset V),
       (n v1, v1) = (n v2, v2) → v1 = v2 :=
     fun v1 _ v2 _ h => (Prod.mk.injEq _ _ _ _).mp h |>.2

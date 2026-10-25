@@ -28,7 +28,11 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import PPGraph.MoserTardos.Witness.Check
+module
+
+public import PPGraph.MoserTardos.Witness.Check
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -119,7 +123,7 @@ theorem τBuild_lab_stable {S : VarSpaces V} {ι : Type}
               (fun he => newAttachAddr_not_mem P _ _ h (he ▸ hwk))]
         exact ih
       · have heq : (τBuild P C t k).attachAt P (C (t - 1 - k)) = τBuild P C t k := by
-          rw [GrowingTree.attachAt, dif_neg h]
+          rw [GrowingTree.attachAt, dite_eq_right h]
         rw [heq]
         exact ih
 
@@ -159,7 +163,7 @@ theorem birth_label {S : VarSpaces V} {ι : Type}
         by_contra hempty
         apply hnotmem
         have heq : (τBuild P C t m).attachAt P (C (t - 1 - m)) = τBuild P C t m := by
-          rw [GrowingTree.attachAt, dif_neg hempty]
+          rw [GrowingTree.attachAt, dite_eq_right hempty]
         have hmem' : w ∈ ((τBuild P C t m).attachAt P (C (t - 1 - m))).dom := hmem
         rw [heq] at hmem'
         exact hmem'
@@ -220,7 +224,7 @@ theorem birthStep_inj {S : VarSpaces V} {ι : Type}
       by_contra hempty
       apply hnotmem1
       have heqT : (τBuild P C t m).attachAt P (C (t - 1 - m)) = τBuild P C t m := by
-        rw [GrowingTree.attachAt, dif_neg hempty]
+        rw [GrowingTree.attachAt, dite_eq_right hempty]
       have hmem1' : w1 ∈ ((τBuild P C t m).attachAt P (C (t - 1 - m))).dom := hmem1
       rw [heqT] at hmem1'
       exact hmem1'
@@ -269,7 +273,7 @@ theorem candidates_nonempty_of_birthStep_eq_succ {S : VarSpaces V} {ι : Type}
   by_contra hempty
   apply hnotmem
   have heqT : (τBuild P C t m).attachAt P (C (t - 1 - m)) = τBuild P C t m := by
-    rw [GrowingTree.attachAt, dif_neg hempty]
+    rw [GrowingTree.attachAt, dite_eq_right hempty]
   have hmem' : w ∈ ((τBuild P C t m).attachAt P (C (t - 1 - m))).dom := hmem
   rw [heqT] at hmem'
   exact hmem'

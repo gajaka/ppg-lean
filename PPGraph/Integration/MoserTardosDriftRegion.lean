@@ -14,10 +14,14 @@
   that positive good-state mass alone suffices for arbitrary footprints.
 -/
 
-import PPGraph.MoserTardos.Process.FullResampling
-import PPGraph.Shearer.BDD
-import PPGraph.Shearer.Slack
-import PPGraph.HLS.DAG.Matching
+module
+
+public import PPGraph.MoserTardos.Process.FullResampling
+public import PPGraph.Shearer.BDD
+public import PPGraph.Shearer.Slack
+public import PPGraph.HLS.DAG.Matching
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 

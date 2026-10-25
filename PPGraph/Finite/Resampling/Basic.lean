@@ -13,9 +13,13 @@
   coordinate changes. Source: Moser--Tardos, arXiv:0903.0544v3, Algorithm 1.1.
 -/
 
-import PPGraph.Finite.Update.IID
-import PPGraph.MoserTardos.Process.Process
-import Mathlib.Algebra.BigOperators.Ring.Finset
+module
+
+public import PPGraph.Finite.Update.IID
+public import PPGraph.MoserTardos.Process.Process
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 
@@ -130,9 +134,9 @@ theorem coordinate_fiber_product (Q : Marginals D) (F : Finset V)
       intro hh
       exact heq (funext hh)
     obtain ⟨v, hv⟩ := not_forall.mp hnot
-    rw [if_neg heq]
+    rw [ite_eq_right heq]
     symm
-    exact Finset.prod_eq_zero (Finset.mem_univ v) (if_neg hv)
+    exact Finset.prod_eq_zero (Finset.mem_univ v) (ite_eq_right hv)
 
 /-- A closed form: unchanged outside the footprint; product law inside it. -/
 theorem kernel_eq_coordinate_product (Q : Marginals D) (h : Valid Q) (P : Policy D)

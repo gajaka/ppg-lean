@@ -4,7 +4,11 @@
   Cimatti--Griggio--Sebastiani, arXiv:1401.3878, Sections 2--3.
   An unsuccessful sufficient test is never used as a refutation.
 -/
-import PPGraph.Core.Repair
+module
+
+public import PPGraph.Core.Repair
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

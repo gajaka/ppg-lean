@@ -12,8 +12,12 @@
   No LLL/Shearer/HLS condition or externally supplied potential is used.
 -/
 
-import PPGraph.Finite.Potential.Basic
-import PPGraph.Integration.FiniteMTDrift
+module
+
+public import PPGraph.Finite.Potential.Basic
+public import PPGraph.Integration.FiniteMTDrift
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 set_option backward.isDefEq.respectTransparency false

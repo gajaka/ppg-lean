@@ -4,7 +4,11 @@
   external matrix exponentiation or floating-point probability is trusted.
 -/
 
-import PPGraph.Finite.Potential.Tail
+module
+
+public import PPGraph.Finite.Potential.Tail
+
+@[expose] public section
 
 set_option linter.unusedSectionVars false
 

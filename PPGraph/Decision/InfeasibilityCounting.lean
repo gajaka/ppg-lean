@@ -5,8 +5,12 @@
   All intersections are actual event intersections, not graph-only bounds.
   Zero mass implies emptiness only with explicitly positive atom weights.
 -/
-import PPGraph.Decision.FiniteFeasibility
-import Mathlib.Combinatorics.Enumerative.InclusionExclusion
+module
+
+public import PPGraph.Decision.FiniteFeasibility
+public import Mathlib.Combinatorics.Enumerative.InclusionExclusion
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

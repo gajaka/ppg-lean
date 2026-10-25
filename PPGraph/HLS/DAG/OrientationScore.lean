@@ -4,8 +4,12 @@
   this score. Powers of two express lexicographic preference along each
   matching-pair chain; they are not probability bounds.
 -/
-import PPGraph.HLS.DAG.PairKeys
-import PPGraph.HLS.DAG.FiniteDAG
+module
+
+public import PPGraph.HLS.DAG.PairKeys
+public import PPGraph.HLS.DAG.FiniteDAG
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
@@ -70,9 +74,9 @@ theorem orientationScore_reverse_strict (M : DependencyMatching G)
     have hvlt := cliqueRank_lt_card G D hD (M.pair u.1) v hv
     omega
   have holdU : preferenceTerm M Y N D u = 0 := by
-    simp only [preferenceTerm, hY, Ne.symm hl, if_false]
+    simp only [preferenceTerm, hY, Ne.symm hl, ite_false]
   have hnewV : preferenceTerm M Y N (D.reverse u v) v = 2 ^ (N - k) := by
-    simp only [preferenceTerm, hpair, ht, hY, if_true]
+    simp only [preferenceTerm, hpair, ht, hY, ite_true]
     rfl
   have holdV : preferenceTerm M Y N D v ≤ 2 ^ (N - (k + 1)) := by
     dsimp only [k]

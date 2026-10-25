@@ -15,9 +15,13 @@
   is concluded. No termination assumption is used in the argument.
 -/
 
-import PPGraph.MoserTardos.Counting.OccurrenceCounting
-import PPGraph.MoserTardos.Probability.OccurrenceProbability
-import PPGraph.MoserTardos.Witness.WitnessFamily
+module
+
+public import PPGraph.MoserTardos.Counting.OccurrenceCounting
+public import PPGraph.MoserTardos.Probability.OccurrenceProbability
+public import PPGraph.MoserTardos.Witness.WitnessFamily
+
+@[expose] public section
 
 open MeasureTheory Classical
 open scoped NNReal ENNReal

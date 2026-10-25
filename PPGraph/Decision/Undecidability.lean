@@ -9,8 +9,12 @@
   Thus the obstruction is not an uncomputable per-state specification.
   evaln's budget bounds intermediate values; it is not an exact step counter.
 -/
-import PPGraph.Decision.ReachabilityRefutation
-import Mathlib.Computability.Halting
+module
+
+public import PPGraph.Decision.ReachabilityRefutation
+public import Mathlib.Computability.Halting
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option backward.isDefEq.respectTransparency false

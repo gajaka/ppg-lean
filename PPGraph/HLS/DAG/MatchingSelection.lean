@@ -3,8 +3,12 @@
   nodes of every label (He--Li--Sun Proposition 3.2). The two parity
   choices for each pair are compared by arc count.
 -/
-import PPGraph.HLS.DAG.ParitySelection
-import PPGraph.HLS.DAG.PairKeys
+module
+
+public import PPGraph.HLS.DAG.ParitySelection
+public import PPGraph.HLS.DAG.PairKeys
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

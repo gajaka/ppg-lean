@@ -11,7 +11,11 @@
     https://ptolemy.berkeley.edu/books/leeseshia/
 -/
 
-import PPGraph.MoserTardos.Bounds.Drift
+module
+
+public import PPGraph.MoserTardos.Bounds.Drift
+
+@[expose] public section
 
 open MeasureTheory Classical
 open scoped NNReal ENNReal

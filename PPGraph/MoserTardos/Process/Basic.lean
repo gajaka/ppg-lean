@@ -9,11 +9,22 @@
   Author: Dragan Stosic, 2026.
 -/
 
-import Mathlib.Tactic
-import Mathlib.MeasureTheory.Measure.MeasureSpace
-import Mathlib.MeasureTheory.Constructions.Pi
-import PPGraph.Dependency.Probabilistic
-import PPGraph.LLL.General
+module
+
+public import Mathlib.Tactic
+public import Mathlib.MeasureTheory.Measure.Basic
+public import Mathlib.MeasureTheory.Measure.CompleteLattice
+public import Mathlib.MeasureTheory.Measure.Continuity
+public import Mathlib.MeasureTheory.Measure.Filter
+public import Mathlib.MeasureTheory.Measure.Interval
+public import Mathlib.MeasureTheory.Measure.Module
+public import Mathlib.MeasureTheory.Measure.OuterMeasure
+public import Mathlib.MeasureTheory.Measure.Sum
+public import Mathlib.MeasureTheory.Constructions.Pi
+public import PPGraph.Dependency.Probabilistic
+public import PPGraph.LLL.General
+
+@[expose] public section
 
 set_option linter.unusedVariables false
 set_option linter.unusedSectionVars false
@@ -63,7 +74,7 @@ theorem resample_preserves_disjoint {S : VarSpaces V} (A : Set (MTState S))
   apply h_dep
   intro v hv
   simp only [resample]
-  rw [if_neg]
+  rw [ite_eq_right]
   intro hvF
   exact (Finset.disjoint_left.mp h_disj hvF) hv
 
@@ -73,14 +84,14 @@ theorem resample_agrees_on {S : VarSpaces V} (F : Finset V) (ω ω' : MTState S)
     ∀ v ∈ F, resample F ω ω' v = ω' v := by
   intro v hv
   simp only [resample]
-  rw [if_pos hv]
+  rw [ite_eq_left hv]
 
 /-- resample leaves everything outside F exactly as ω had it. -/
 theorem resample_fixes_outside {S : VarSpaces V} (F : Finset V) (ω ω' : MTState S) :
     ∀ v ∉ F, resample F ω ω' v = ω v := by
   intro v hv
   simp only [resample]
-  rw [if_neg hv]
+  rw [ite_eq_right hv]
 
 -- -------------------------------------------------------------------
 -- Verification

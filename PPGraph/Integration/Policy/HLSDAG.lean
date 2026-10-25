@@ -1,7 +1,11 @@
 /- Witness DAG correspondence for arbitrary MT selection sequences.
    Every active prefix passes its table check; no first-event selector
    appears in this construction and no convergence is assumed. -/
-import PPGraph.Integration.Policy.MoserTardos
+module
+
+public import PPGraph.Integration.Policy.MoserTardos
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

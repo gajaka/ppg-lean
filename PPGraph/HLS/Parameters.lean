@@ -6,7 +6,11 @@
   The constants below belong to the general theorem. No concrete instance
   or numerical example is used. This file does not assert MT convergence.
 -/
-import Mathlib.Tactic
+module
+
+public import Mathlib.Tactic
+
+@[expose] public section
 
 set_option autoImplicit false
 

@@ -4,8 +4,12 @@
   intersection-sensitive process bound requires its separate DAG bridge.
   Source: He--Li--Sun, arXiv:2111.06527, Lemma 3.14.
 -/
-import PPGraph.Shearer.Slack
-import PPGraph.Shearer.Expectation
+module
+
+public import PPGraph.Shearer.Slack
+public import PPGraph.Shearer.Expectation
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false

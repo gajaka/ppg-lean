@@ -1,5 +1,9 @@
 /- A fixed total topological order for each finite witness DAG. -/
-import PPGraph.HLS.DAG.WitnessLayers
+module
+
+public import PPGraph.HLS.DAG.WitnessLayers
+
+@[expose] public section
 
 set_option autoImplicit false
 set_option linter.unusedSectionVars false
