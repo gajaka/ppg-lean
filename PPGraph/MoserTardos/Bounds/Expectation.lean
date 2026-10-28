@@ -118,15 +118,12 @@ noncomputable def ETLog {S : VarSpaces V} {ι : Type} [Fintype ι] [DecidableEq 
     at `t` -- linearity of expectation over T_LOG's indicator-sum
     definition, via `lintegral_tsum` swapping the integral and the
     countable sum, then `lintegral_indicator_const` collapsing each
-    term to a bare probability. This is Alon-Spencer's Theorem 5.7.1,
-    restated as a sum over TIME rather than a sum over witness TREES --
-    equivalent in content, since Theorem 5.7.2 (already proved,
-    `logMeasure_τCheck_eq_prod_p`, PPGraphMoserTardosProbability.lean)
-    plus the tree-enumeration machinery (PPGraphMoserTardosWeightSum.lean,
-    PPGraphMoserTardosRealTree.lean) is exactly what re-expresses
-    `logMeasure S {ω | RunningUntil P ω0 ω (t+1)}` in terms of the
-    mtWeight bound -- not attempted here, this file only builds the
-    expectation/integration side of that bridge. -/
+    term to a bare probability. This tail-sum identity is expectation
+    infrastructure for a fixed initial state, not the expected-work budget
+    theorem. The witness-tree probability and counting arguments are separate;
+    Bounds.OccurrenceExpectation assembles their budget bound for product-table
+    random initialization. No such budget bound for an arbitrary fixed start
+    is asserted by this identity. -/
 theorem ETLog_eq_tsum {S : VarSpaces V} {ι : Type} [Fintype ι] [DecidableEq ι] [Nonempty ι]
     (P : MTProcess S ι) (hbad : ∀ i, MeasurableSet (P.bad i)) (ω0 : MTState S) :
     ETLog P ω0 = ∑' t : ℕ, logMeasure S {ω : LogSpace S | RunningUntil P ω0 ω (t + 1)} := by

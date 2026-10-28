@@ -1,7 +1,7 @@
 # Proof-Preserving Graphs: Formal Certification, Self-Assessment, and Repair (Lean 4)
 
 This Lean 4 development studies graded certification, blocking and repair. It
-contains **191 modules of generic PPG theory**. The LUCES controller motivated the
+contains **192 modules of generic PPG theory**. The LUCES controller motivated the
 work; concrete LUCES/nfer models, firmware, binary-memory models and measured
 datasets are developed separately.
 
@@ -87,11 +87,15 @@ authored theorem names and statements, model definitions, structures and instanc
 The one authored type whose printed proof witness changed was
 checked for definitional equality by Lean's kernel.
 
-The theorem-scope cleanup on 2026-10-28 passed the full 3,915-job build with zero
+The first theorem-scope cleanup on 2026-10-28 passed the full 3,915-job build with zero
 warnings or errors. Its whole-library audit covers 1,824 explicit results and
 all 4,904 project declarations, with only the standard axiom dependencies.
 The [scope note](docs/THEOREM_SCOPE.md) records the removed placeholder,
 strengthened repair statements and renamed order-preservation helper.
+
+The subsequent structural-bridge update passed the full 3,916-job build and
+whole-library audit: 192 theory modules, 1,842 explicit results and all 4,953
+project declarations, with only the standard axiom dependencies.
 
 ## Motivation
 
@@ -183,6 +187,11 @@ graph; its connected components group checks that may affect one another. Under
 predicate locality, changes confined to one component's footprint leave the
 other components unchanged. This guarantee applies to the selected certificate
 family. Passing checks omitted from that family still need a preservation proof.
+The [certificate/dependency bridge](PPGraph/Integration/CertificationDependency.lean)
+indexes the actual certificate list and uses the full tracked family for footprints.
+At a fixed specification, checked component updates preserve every previously passing
+certificate and instantiate the state-repair `valid_repair` contract. A finite
+checked plan covering the initial blockers establishes full certification. Locality and each update's frame and post-check are explicit obligations.
 
 The repair layer requires a state change to restore the target while preserving
 prior certification. It also separates three claims: a repair path exists, a
@@ -192,9 +201,9 @@ work is bounded. Each claim needs its own evidence.
 The General and lopsided Lovász Local Lemmas give sufficient conditions for a
 positive probability of avoiding all bad events. In the product-variable model,
 Moser–Tardos resampling constructs a satisfying assignment by redrawing the
-variables of violated events. The library proves **E[T_LOG] ≤ Σ x(α)** under the
-stated resampling budgets. Here `x` bounds expected resamplings, rather than event
-probability; classical LLL parameters `q` give `x = q/(1−q)`. Finite expectation
+variables of violated events. For product-table random initialization, the library proves
+**E[T_LOG] ≤ Σ x(α)** under the stated resampling budgets. Here `x` bounds
+expected resamplings, rather than event probability; classical LLL parameters `q` give `x = q/(1−q)`. Finite expectation
 then implies almost-sure termination. The counting proof does not assume that the
 procedure terminates.
 
@@ -252,7 +261,7 @@ would hide that distinction. The
 contains the concrete results. Different checks use different aspects of the
 measurements; shared data does not make them probabilistically independent.
 
-The library has **1,824 explicitly declared theorems and lemmas**, with an explicit
+The library has **1,842 explicitly declared theorems and lemmas**, with an explicit
 `#check` for each. This inventory includes structural laws, projections and API
 helpers as well as the main mathematical results. The
 [theorem-scope note](docs/THEOREM_SCOPE.md) explains the local-state repair model
@@ -260,7 +269,7 @@ and the 2026-10-28 removal of a `True` placeholder. The diagram below shows how
 certification, dependency
 analysis, repair, finite decisions and work bounds fit together.
 
-The [module inventory](docs/THEORY_INDEX.md) lists all 191 modules. Run
+The [module inventory](docs/THEORY_INDEX.md) lists all 192 modules. Run
 `python3 tools/audit_ppgraph.py` to rebuild and inspect the axiom dependencies of
 every project declaration, including generated theorem constants. Results and
 source hashes are recorded in `reports/PPGRAPH_AXIOM_AUDIT.txt` and
@@ -270,7 +279,7 @@ source hashes are recorded in `reports/PPGRAPH_AXIOM_AUDIT.txt` and
 
 ## Library layout
 
-The 191 theory modules are grouped by mathematical subject under `PPGraph/`.
+The 192 theory modules are grouped by mathematical subject under `PPGraph/`.
 Import a specific module to use one part of the library, or import
 `PPGraph.All` for the complete development. `import PPGraph` remains a small
 entry point for the core graph theory.
@@ -311,18 +320,19 @@ the later probabilistic and decision results.
 |------|----------|-------|
 | `PPGraph/Core/Graph.lean` | 22 | Core PPG framework: validity, walks, paths, evolution, monotonicity, connectivity, separation, deterministic traversal, violation detection, certificate chains |
 | `PPGraph/Core/Categorical.lean` | 10 | Categorical structure: morphisms, embeddings, quotients, refinement, simulation, composition |
-| `PPGraph/Core/Meta.lean` | 10 | Meta-PPG: graphs over refinement relations, backward compatibility, upgrade chains, spec versioning |
+| `PPGraph/Core/Meta.lean` | 12 | Core-RR correspondence, compatibility constructed from base-relation inclusion, and upgrade laws |
 | `PPGraph/Core/Repair.lean` | 9 | Local value replacement under a fixed predicate: restoration, exact frame, healthy fixed points, no new isolation and unaffected active edges |
 | `PPGraph/Core/RR.lean` | 9 | Refinement relations: port of NASA pvslib sets_aux@rr_rel (rel_extension, RR, g/f-consistency, PPGConfig bridge) |
 | `PPGraph/Certification/Parametric.lean` | 24 | Parametric certification: master refinement, canonical levels, lattice operators, PPG bridge, repair bounds, threshold instance |
 | `PPGraph/Certification/ParametricQuotient.lean` | 25 | Quotient structure: cert_equiv, induced PartialOrder, CertInfClosed meet, LinearOrder separating |
 | `PPGraph/Certification/Blocking.lean` | 7 | Blocking certificates: diagnostic layer, canonical has empty blocking, stricter has nonempty |
-| `PPGraph/Certification/QuotientBridge.lean` | 5 | Surjective specification projection: an edge maps to a quotient edge or collapses within a class; certification is well-defined on classes |
-| `PPGraph/Certification/Selection.lean` | 23 | Hierarchical representative selection: pullback equiv, finest equiv, CertFamily instance via OrderDual Finset, pp_quotient bridge |
+| `PPGraph/Certification/QuotientBridge.lean` | 7 | General edge-or-collapse projection and an actual categorical quotient on certified subgraphs under noncollapse |
+| `PPGraph/Certification/Selection.lean` | 23 | Descended invariant/RR, quotient validity and categorical projection under explicit well-definedness and noncollapse |
 | `PPGraph/Optimization/ComplementarySlackness.lean` | 5 | Pointwise complementary slackness, entry-cost equality and uniqueness of the tight Monge entry |
-| `PPGraph/Certification/SelfAssessment.lean` | 12 | Failure containment, contamination impossibility, assessment trichotomy, monotone recovery (state-based, spec fixed), three evolution modes |
+| `PPGraph/Certification/SelfAssessment.lean` | 12 | Fixed-predicate graph extension laws and a state-repair contract requiring target restoration and certified-core preservation |
 | `PPGraph/Certification/AssessmentBridge.lean` | 8 | Bridge: self-assessment ↔ parametric certification. Complete repair cycle: strict growth + blocking cleared + canonical frontier advances |
-| `PPGraph/Dependency/Probabilistic.lean` | 6 | Blocking dependency decomposition: dependency graph, LLL feasibility, pair infeasibility (quadratic discriminant), repair classification |
+| `PPGraph/Integration/CertificationDependency.lean` | 10 | Actual family/blocker correspondence, full-family component preservation and checked finite repair plans |
+| `PPGraph/Dependency/Probabilistic.lean` | 6 | Dependency graph and numerical LLL budget feasibility; discriminant-based budget infeasibility does not imply semantic irreparability |
 | `PPGraph/LLL/General.lean` | 30 | General Lovász Local Lemma (Alon-Spencer 5.1.1): key inductive bound, denominator telescope, good-event lower bound, positive probability, good state exists |
 | `PPGraph/MoserTardos/Process/Basic.lean` | 3 | Product probability space and resample operator |
 | `PPGraph/MoserTardos/Process/Process.lean` | 2 | The resample-until-fixed algorithm as a process |
@@ -370,7 +380,7 @@ the later probabilistic and decision results.
 | `PPGraph/MoserTardos/Bounds/OccurrenceExpectation.lean` | 7 | The final bound: E[T_LOG] ≤ Σ x(α); finite budgets give finite expectation |
 | `PPGraph/MoserTardos/Bounds/ConstantLog.lean` | 9 | Reach a good state from any initial state via the constant log |
 | `PPGraph/MoserTardos/Bounds/Termination.lean` | 7 | E[T_LOG] < ∞ ⟹ almost-sure termination ⟹ a good state exists (measure-one, not Classical.choose) |
-| `PPGraph/Integration/MoserTardosRepair.lean` | 8 | Moser-Tardos reachability instantiates the abstract proof-preserving repair relation |
+| `PPGraph/Integration/MoserTardosRepair.lean` | 12 | Existential MT reachability and primitive-step-compatible directed repair paths |
 
 ## Central Theorems
 
@@ -478,7 +488,8 @@ Each theorem name links to its Lean source file.
 
     Lean: [mt_trajectory_localizes](PPGraph/Integration/DependencyMoserTardos.lean).
 
-    The whole MT process in one component never changes another component, at any step
+    For a log confined to one dependency component, every event in another component
+    of the selected family retains its violated/nonviolated status at every step.
 
 17. **Real-trajectory witness check**
 
@@ -502,20 +513,22 @@ Each theorem name links to its Lean source file.
 
     Lean: [randomInitETLog_le_sum](PPGraph/MoserTardos/Bounds/OccurrenceExpectation.lean).
 
-    **E[T_LOG] ≤ Σ_α x(α)**: the Moser-Tardos expected-work bound, no termination assumption
+    With product-table random initialization, **E[T_LOG] ≤ Σ_α x(α)**,
+    without assuming termination. Fixed-start bounds need their own hypotheses.
 
 21. **Finite expected resampling work**
 
     Lean: [randomInitETLog_lt_top](PPGraph/MoserTardos/Bounds/OccurrenceExpectation.lean).
 
-    Finite MT budgets ⟹ finite expected work (E[T_LOG] < ∞)
+    Finite MT budgets imply finite expected work for product-table random initialization.
 
 22. **Moser–Tardos repair bridge**
 
-    Lean: [mtRepairGraph_globally_repairable](PPGraph/Integration/MoserTardosRepair.lean).
+    Lean: [mtEdgeRepairGraph_globally_repairable](PPGraph/Integration/MoserTardosRepair.lean).
 
-    Under the bridge hypotheses, Moser–Tardos reachability satisfies the abstract
-    proof-preserving repair relation
+    Under the MT budgets and a primitive-step compatibility contract, a good target
+    is reachable by an actual finite path in the supplied directed edge relation.
+    Intermediate recovery states may be bad; this is not a certified PPG walk.
 
 
 ### Extended probabilistic repair and drift
@@ -810,7 +823,8 @@ of the source result that it formalizes.
   The Moser–Tardos files cover the product resampling table, measurable
   trajectories, witness trees, injectivity, check probabilities and occurrence
   counting. [PPGraph/MoserTardos/Bounds/OccurrenceExpectation.lean](PPGraph/MoserTardos/Bounds/OccurrenceExpectation.lean)
-  proves E[T_LOG] ≤ Σ x(α) in the library's resampling-budget parametrization;
+  proves E[T_LOG] ≤ Σ x(α) for product-table random initialization in the
+  library's resampling-budget parametrization;
   [PPGraph/MoserTardos/Bounds/Termination.lean](PPGraph/MoserTardos/Bounds/Termination.lean)
   derives almost-sure termination from finite expectation.
 

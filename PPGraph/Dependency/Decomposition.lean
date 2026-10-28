@@ -26,9 +26,9 @@
   Deliberately scoped as "non-interference", not "repair succeeds": this
   file proves that repairing one component never changes the evaluation of
   a certificate/obligation in a different component - it does NOT claim a
-  repair exists or succeeds (that remains the province of `locally_repairable`/
-  `coupled_obstruction` in PPGraphProbabilistic.lean, which is a genuinely
-  separate, harder question). Concretely, this is the formal counterpart of
+  repair exists or succeeds. Numerical LLL budget feasibility is a separate
+  sufficient-criterion layer; semantic repair existence additionally needs
+  its probability model and dependency hypotheses. This is the counterpart of
   the "hub" experiment (exp_b2 / `hub_conflict_demo` in exp_b1_structural_bdd.py):
   there, committing an instantiation that only respects one goal's own
   constraint broke a goal sharing its variable; here, the theorem says that

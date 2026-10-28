@@ -955,6 +955,11 @@
       "old_path": "PPGraphVariableLLL.lean",
       "path": "PPGraph/LLL/Variable.lean",
       "module": "PPGraph.LLL.Variable"
+    },
+    {
+      "old_path": "PPGraph/Integration/CertificationDependency.lean",
+      "path": "PPGraph/Integration/CertificationDependency.lean",
+      "module": "PPGraph.Integration.CertificationDependency"
     }
   ],
   "facades": [

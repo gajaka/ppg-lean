@@ -23,6 +23,7 @@ module
 
 public import Mathlib.Tactic
 public import PPGraph.Core.Graph
+public import PPGraph.Core.RR
 
 @[expose] public section
 
@@ -50,6 +51,23 @@ def rr_of {T : Type} (cfg : RefinementConfig T) (x y : T) : Prop :=
   (cfg.le.rel (cfg.g_con y) x ∧ cfg.le.rel (cfg.f_abs x) (cfg.f_abs x)) ∨
   (cfg.le.rel (cfg.g_con y) (cfg.g_con y) ∧ cfg.le.rel (cfg.f_abs x) y)
 
+/-- The meta relation and the core homogeneous RR coincide. The first meta
+    disjunct is absorbed by the core's second disjunct using the bundled
+    symmetry and reflexivity laws. -/
+theorem rr_of_iff_rr_rel_hom {T : Type} (cfg : RefinementConfig T) (x y : T) :
+    rr_of cfg x y ↔ rr_rel_hom cfg.le.rel cfg.f_abs cfg.g_con x y := by
+  unfold rr_of rr_rel_hom RR rel_extension
+  dsimp only
+  constructor
+  · rintro (h | h | h)
+    · exact Or.inr (Or.inl ⟨cfg.le.symm _ _ h, cfg.le.refl _⟩)
+    · exact Or.inr (Or.inl h)
+    · exact Or.inr (Or.inr h)
+  · rintro (h | h | h)
+    · exact Or.inl h.1
+    · exact Or.inr (Or.inl h)
+    · exact Or.inr (Or.inr h)
+
 -- ═══════════════════════════════════════════════════════════════════
 -- Section 2: Meta-Invariant (What makes a node "valid")
 -- ═══════════════════════════════════════════════════════════════════
@@ -74,6 +92,22 @@ def config_valid {T : Type} (cfg : RefinementConfig T) : Prop :=
 -- "Upgrading from spec v1 to spec v2 preserves all existing relations."
 def configs_compatible {T : Type} (cfg1 cfg2 : RefinementConfig T) : Prop :=
   ∀ x y : T, rr_of cfg1 x y → rr_of cfg2 x y
+
+/-- Keeping abstraction and concretization fixed while extending the underlying
+    equivalence preserves every old refinement pair. This constructs
+    compatibility from the base relation instead of assuming compatibility. -/
+theorem configs_compatible_of_rel_inclusion {T : Type}
+    (cfg1 cfg2 : RefinementConfig T)
+    (h_rel : ∀ x y, cfg1.le.rel x y → cfg2.le.rel x y)
+    (h_f : cfg1.f_abs = cfg2.f_abs) (h_g : cfg1.g_con = cfg2.g_con) :
+    configs_compatible cfg1 cfg2 := by
+  intro x y h
+  unfold rr_of at h ⊢
+  rw [h_f, h_g] at h
+  rcases h with h | h | h
+  · exact Or.inl (h_rel _ _ h)
+  · exact Or.inr (Or.inl ⟨h_rel _ _ h.1, h_rel _ _ h.2⟩)
+  · exact Or.inr (Or.inr ⟨h_rel _ _ h.1, h_rel _ _ h.2⟩)
 
 -- Meta pp-edge: both configs are valid AND compatible
 def meta_pp_edge {T : Type} (cfg1 cfg2 : RefinementConfig T) : Prop :=
@@ -188,6 +222,8 @@ theorem failure_propagates (cfg1 cfg2 : RefinementConfig T)
 -- ═══════════════════════════════════════════════════════════════════
 
 #check @compatible_refl
+#check @rr_of_iff_rr_rel_hom
+#check @configs_compatible_of_rel_inclusion
 #check @compatible_trans
 #check @meta_edge_preserves_relations
 #check @invalid_config_isolated

@@ -111,6 +111,7 @@ public import PPGraph.HLS.Probability.RefinedProbability
 public import PPGraph.HLS.Probability.RootUnion
 public import PPGraph.HLS.Probability.UnitChecks
 public import PPGraph.Integration.AbstractionRepair
+public import PPGraph.Integration.CertificationDependency
 public import PPGraph.Integration.DependencyInfeasibility
 public import PPGraph.Integration.DependencyMoserTardos
 public import PPGraph.Integration.FiniteMTDrift

@@ -13,6 +13,7 @@ module
 
 public import Mathlib.Tactic
 public import PPGraph.Core.Graph
+public import PPGraph.Core.Categorical
 public import PPGraph.Certification.Parametric
 
 @[expose] public section
@@ -274,15 +275,33 @@ def quotient_invariant (F : MorphFamily T U)
     FinestQuotient F → Prop :=
   Quotient.lift inv (fun u1 u2 h => propext (h_resp u1 u2 h))
 
-/-- If invariant is respected by finest_equiv and pp_valid holds
-    on representative level, it holds on quotient -/
-theorem finest_quotient_pp_valid (F : MorphFamily T U)
+/-- A relation respected in both arguments descends to the finest quotient.
+    The reverse implication uses symmetry of the finest equivalence. -/
+def quotient_rr (F : MorphFamily T U) (rr_rel : U → U → Prop)
+    (h_resp : ∀ u1 u1' u2 u2',
+      finest_equiv F u1 u1' → finest_equiv F u2 u2' →
+      rr_rel u1 u2 → rr_rel u1' u2')
+    (q1 q2 : FinestQuotient F) : Prop :=
+  Quotient.lift₂ rr_rel
+    (fun u1 u2 u1' u2' h1 h2 => propext
+      ⟨h_resp u1 u1' u2 u2' h1 h2,
+       h_resp u1' u1 u2' u2 (finest_equiv_symm F u1 u1' h1)
+         (finest_equiv_symm F u2 u2' h2)⟩) q1 q2
+
+/-- Quotient edge endpoints satisfy the descended invariant. -/
+theorem finest_quotient_invariant (F : MorphFamily T U)
     (G : Graph U) (rr_rel : U → U → Prop) (inv : U → Prop)
     (h_valid : pp_valid G rr_rel inv)
     (h_inv_resp : ∀ u1 u2, finest_equiv F u1 u2 → (inv u1 ↔ inv u2))
-    (u1 u2 : U) (h_edge : G.edges u1 u2) :
-    inv u1 ∧ inv u2 :=
-  ⟨(h_valid u1 u2 h_edge).2.1, (h_valid u1 u2 h_edge).2.2.1⟩
+    (q1 q2 : FinestQuotient F)
+    (h_edge : (finest_graph F G.edges).edges q1 q2) :
+    quotient_invariant F inv h_inv_resp q1 ∧
+      quotient_invariant F inv h_inv_resp q2 := by
+  obtain ⟨_, u1, u2, hq1, hq2, h_orig_edge⟩ := h_edge
+  subst q1
+  subst q2
+  exact ⟨(h_valid u1 u2 h_orig_edge).2.1,
+    (h_valid u1 u2 h_orig_edge).2.2.1⟩
 
 /-- Stronger: the quotient graph inherits full pp_valid.
     If the original graph is pp_valid and rr_rel + inv both respect
@@ -294,15 +313,15 @@ theorem finest_quotient_inherits_pp_valid (F : MorphFamily T U)
     (h_inv_resp : ∀ u1 u2, finest_equiv F u1 u2 → (inv u1 ↔ inv u2))
     (h_rr_resp : ∀ u1 u1' u2 u2',
       finest_equiv F u1 u1' → finest_equiv F u2 u2' →
-      rr_rel u1 u2 → rr_rel u1' u2')
-    (q1 q2 : FinestQuotient F)
-    (h_edge : (finest_graph F G.edges).edges q1 q2) :
-    ∃ u1 u2 : U,
-      Quotient.mk (finestSetoid F) u1 = q1 ∧
-      Quotient.mk (finestSetoid F) u2 = q2 ∧
-      pp_edge rr_rel inv u1 u2 := by
-  obtain ⟨_, u1, u2, hq1, hq2, h_orig_edge⟩ := h_edge
-  exact ⟨u1, u2, hq1, hq2, h_valid u1 u2 h_orig_edge⟩
+      rr_rel u1 u2 → rr_rel u1' u2') :
+    pp_valid (finest_graph F G.edges) (quotient_rr F rr_rel h_rr_resp)
+      (quotient_invariant F inv h_inv_resp) := by
+  intro q1 q2 h_edge
+  obtain ⟨hne, u1, u2, hq1, hq2, h_orig_edge⟩ := h_edge
+  subst q1
+  subst q2
+  have h_pp := h_valid u1 u2 h_orig_edge
+  exact ⟨hne, h_pp.2.1, h_pp.2.2.1, h_pp.2.2.2⟩
 
 /-- Selection preserves invariant: if canonical representative satisfies
     inv, all elements in its finest class also satisfy inv -/
@@ -338,7 +357,8 @@ theorem canonical_preserves_invariant (F : MorphFamily T U)
 #check @lens_propagates
 #check @finest_graph
 #check @quotient_invariant
-#check @finest_quotient_pp_valid
+#check @quotient_rr
+#check @finest_quotient_invariant
 #check @finest_quotient_inherits_pp_valid
 #check @canonical_preserves_invariant
 
@@ -369,38 +389,39 @@ theorem proj_preserves_edges_sep (F : MorphFamily T U) (G : Graph U)
     exact h_sep x y h_edge (Quotient.exact h_eq)
   · exact ⟨x, y, rfl, rfl, h_edge⟩
 
-/-- Under edges_separate_classes + pp_valid, projection is a pp_morphism -/
+/-- Noncollapsing edges and well-defined descended predicates give a genuine
+    categorical pp_morphism. Each supplied source pp-edge yields a target
+    pp-edge with the descended invariant and refinement relation. -/
 theorem proj_is_pp_morphism (F : MorphFamily T U)
     (G : Graph U) (rr_rel : U → U → Prop) (inv : U → Prop)
-    (h_valid : pp_valid G rr_rel inv)
     (h_sep : edges_separate_classes F G)
-    (h_inv_resp : ∀ u1 u2, finest_equiv F u1 u2 → (inv u1 ↔ inv u2)) :
-    (∀ x, G.vertices x → (finest_graph F G.edges).vertices
-      (Quotient.mk (finestSetoid F) x)) ∧
-    (∀ x y, G.edges x y → pp_edge rr_rel inv x y →
-      (finest_graph F G.edges).edges
-        (Quotient.mk (finestSetoid F) x)
-        (Quotient.mk (finestSetoid F) y)) := by
+    (h_inv_resp : ∀ u1 u2, finest_equiv F u1 u2 → (inv u1 ↔ inv u2))
+    (h_rr_resp : ∀ u1 u1' u2 u2',
+      finest_equiv F u1 u1' → finest_equiv F u2 u2' →
+      rr_rel u1 u2 → rr_rel u1' u2') :
+    pp_morphism (Quotient.mk (finestSetoid F)) G (finest_graph F G.edges)
+      rr_rel inv (quotient_rr F rr_rel h_rr_resp)
+      (quotient_invariant F inv h_inv_resp) := by
   constructor
   · intro _ _; exact trivial
-  · intro x y h_edge _
-    exact proj_preserves_edges_sep F G h_sep x y h_edge
+  · intro x y ⟨h_edge, h_pp⟩
+    have h_image := proj_preserves_edges_sep F G h_sep x y h_edge
+    exact ⟨h_image, h_image.1, h_pp.2.1, h_pp.2.2.1, h_pp.2.2.2⟩
 
 /-- The projection gives a pp_quotient in the sense of Categorical:
     surjective pp_morphism -/
 theorem proj_is_pp_quotient (F : MorphFamily T U)
     (G : Graph U) (rr_rel : U → U → Prop) (inv : U → Prop)
-    (h_valid : pp_valid G rr_rel inv)
-    (h_sep : edges_separate_classes F G) :
-    Function.Surjective (Quotient.mk (finestSetoid F)) ∧
-    (∀ x y, G.edges x y →
-      (finest_graph F G.edges).edges
-        (Quotient.mk (finestSetoid F) x)
-        (Quotient.mk (finestSetoid F) y)) := by
-  constructor
-  · exact proj_mk_surjective F
-  · intro x y h_edge
-    exact proj_preserves_edges_sep F G h_sep x y h_edge
+    (h_sep : edges_separate_classes F G)
+    (h_inv_resp : ∀ u1 u2, finest_equiv F u1 u2 → (inv u1 ↔ inv u2))
+    (h_rr_resp : ∀ u1 u1' u2 u2',
+      finest_equiv F u1 u1' → finest_equiv F u2 u2' →
+      rr_rel u1 u2 → rr_rel u1' u2') :
+    pp_quotient (Quotient.mk (finestSetoid F)) G (finest_graph F G.edges)
+      rr_rel inv (quotient_rr F rr_rel h_rr_resp)
+      (quotient_invariant F inv h_inv_resp) :=
+  ⟨proj_is_pp_morphism F G rr_rel inv h_sep h_inv_resp h_rr_resp,
+   proj_mk_surjective F⟩
 
 -- ═══════════════════════════════════════════════════════════════════
 -- Final Verification

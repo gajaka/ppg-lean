@@ -11,20 +11,20 @@
     "propext"
   ],
   "project_owned_axioms": 0,
-  "module_count": 191,
+  "module_count": 192,
   "facade_count": 2,
   "facades": [
     "PPGraph",
     "PPGraph.All"
   ],
-  "explicit_theorem_count": 1824,
-  "generated_theorem_count": 1495,
-  "environment_declaration_count": 4904,
+  "explicit_theorem_count": 1842,
+  "generated_theorem_count": 1502,
+  "environment_declaration_count": 4953,
   "source_sha256": {
     "PPGraph/Core/Graph.lean": "6e4d3ec172faa60aedb75a2c47451494e83284d38f37e560f86e319a0c295718",
     "PPGraph/Drift/Additive.lean": "d9e04c87dc3f806aea0e5a368ddc25dd18e768192a9c5e1d7a71f242e9957396",
     "PPGraph/Certification/AssessmentBridge.lean": "f6e7dcc6b3e0f77eaa0341722b8ac0fd61fe9ad7e532197284cc20a053404d81",
-    "PPGraph/Dependency/Decomposition.lean": "81a2d1817df5dae6de2dfaed2dec31b79fb8c9929b4e6ad2a54f2aa107793d2c",
+    "PPGraph/Dependency/Decomposition.lean": "209d90ab9fa7e4e00b5e4fc2e30d27a8c296e8eb6eb02365d30b0843da26eb48",
     "PPGraph/Dependency/Cost.lean": "9e130926674b2676773f4eadf072cada28e575eb399946935c34530ee645ab32",
     "PPGraph/Dependency/Count.lean": "14f98526bb03c7c143388655b332eecd1711fa50d004d8cdaa0fe6a037cf710a",
     "PPGraph/Integration/DependencyInfeasibility.lean": "6a4e14d01af144e567c52da9eb209d97c6d5209d9afc14a1feac842ebede91d8",
@@ -133,7 +133,7 @@
     "PPGraph/Decision/InfeasibilityCounting.lean": "1db8beecca5cbc463889c1f1a17e31991d02c8cbeed9e8cc76b7d25fc523fa35",
     "PPGraph/LLL/General.lean": "dcb84033d68ab0b86bf0e6c566ed262b4e22ecea06a09b1cf8f980d9b5a3e628",
     "PPGraph/LLL/Lopsided.lean": "dfbaa467fe2b26542df2bcba5341e9dd31208b9b61e751de59099e2db54d6e7d",
-    "PPGraph/Core/Meta.lean": "0a69055f2d4b3e1d539b9ca5587f8de6ba0739a43f53e4236ebbf0c69e62f5cd",
+    "PPGraph/Core/Meta.lean": "eed194f4725f98e32f7bd808a21645946b425e9ad63273d566c39c6d63f46462",
     "PPGraph/MoserTardos/Process/Basic.lean": "2bbe5b89a538dba8948f8be0e3939a498501b4703d5b96b54ebff8b048bcfb53",
     "PPGraph/MoserTardos/Witness/Canonical.lean": "e44113aad479231985df4ac7896519b16a333d6266496471c570006d683e5ca5",
     "PPGraph/MoserTardos/Witness/Check.lean": "f98006bf97ba09d8200be3f5b9d8029b148975e5f08f66e1d9207a01666cfd45",
@@ -149,7 +149,7 @@
     "PPGraph/MoserTardos/Bounds/Drift.lean": "81b6e4cf05173f316d6867613c616cc8b149bffff95de80f8fc30332e4e606b4",
     "PPGraph/MoserTardos/Bounds/DriftCost.lean": "35908e098696787c84376c50413a1d0be95da016cc00ca90fd099a9d36a843df",
     "PPGraph/Integration/MoserTardosDriftRegion.lean": "82a7a29c241098882737f8bbba2e64b2ff4bf85c69f5c3bb366dd859b50414e7",
-    "PPGraph/MoserTardos/Bounds/Expectation.lean": "6a23e0c6ed8c7b590cf3b175980f16fc3a9f231f9c96f4f02a20e37cedcd8844",
+    "PPGraph/MoserTardos/Bounds/Expectation.lean": "f63466f231dbe400f07bd716ca5ee225a4e97542d13e8dec11dc4bfbfe76e385",
     "PPGraph/MoserTardos/Process/FullResampling.lean": "a6158e4c029b2802db593ad5e3c86b953df4dfa8423314426762c1fb2af94239",
     "PPGraph/MoserTardos/Witness/Growing.lean": "f01138e41ab4a9385e714caf5d182dfed8855e3ded6afcc4c731561b0d857383",
     "PPGraph/Integration/Policy/History.lean": "997e67e413517283cefd171cee8967aa3e0c1c41022ba266a624eb07c1916aac",
@@ -173,7 +173,7 @@
     "PPGraph/MoserTardos/Process/RandomInitialization.lean": "bfcd394a0efd84f74fe4b1a7981cf1e645805f80474117ce30b6b41af544e802",
     "PPGraph/MoserTardos/Process/RandomTrajectory.lean": "6b6021b2f093e5c91123191f7e29aa06a34e873afc50057a24e7357c8dbfd742",
     "PPGraph/MoserTardos/Witness/RealTree.lean": "82451a298a077e5c5b09db98b7d67adab227206ef50fff9b84e955fadce2840f",
-    "PPGraph/Integration/MoserTardosRepair.lean": "1d6854332bfa54bbd271a80e751cf0891709c4836e64d8761dba720f2aeb5ce5",
+    "PPGraph/Integration/MoserTardosRepair.lean": "a99b802cc34934b9050f8529b98f38949b3352bfed208995d97fe05f640b7559",
     "PPGraph/MoserTardos/Counting/ResamplingCount.lean": "de65d1cdbd8c05ab5df4f2cbbfd3a4eb6cf47617b272da2569b773f0835a1d4d",
     "PPGraph/MoserTardos/Bounds/Termination.lean": "ab0b7802ef525d8663f4d96bebd385ba5c323c74bf59831e77109c8281ac0f91",
     "PPGraph/MoserTardos/Witness/ToGrowingTreeCheckBridge.lean": "831b10ead70754983c3dd3269af1df41116d697ab3ec3dd747979fb3087def92",
@@ -185,14 +185,14 @@
     "PPGraph/MoserTardos/Witness/WitnessFamily.lean": "e8ec0abe57be524e584316f654f999870cf0dc7e7fe41a2c22fe4f8c43b13ffe",
     "PPGraph/Certification/Parametric.lean": "24b4e7053eeb6d84ce027cfc6b51f352a2d9ee6355d6dc0289414964640cbaea",
     "PPGraph/Certification/ParametricQuotient.lean": "36ce8a8498deef6db620c7377d765939058eee7004f439d017f3ab690c212dca",
-    "PPGraph/Dependency/Probabilistic.lean": "8ae737cf31b2f2177c0d829bdf2882fcbb3473f9a9e0c781064b5c60079a64f3",
-    "PPGraph/Certification/QuotientBridge.lean": "3beedfab946ceb22af6a0e358e6379d9a392f0e742eece5ceabd5fab222cee0d",
+    "PPGraph/Dependency/Probabilistic.lean": "30a2a2f39929123f5de75d5208ac0a3168ad1699091ce0087a5c30ee18b0cf74",
+    "PPGraph/Certification/QuotientBridge.lean": "5624ecb230cf7ba52dedae3252a009f3f199b5f9d2483a6f813dc2c8c00f675c",
     "PPGraph/Core/RR.lean": "35ee5b8a953048f5b06594930241d3b506c92304ffe58ee006b2f33ce112fc2d",
     "PPGraph/Decision/ReachabilityRefutation.lean": "768cdf05dce0e20a16129ea39dfc56a3d1ac92deb9f79fd973e7e478a36e5e85",
     "PPGraph/Core/Repair.lean": "caba0ef56cce78cad3c77173e986cfdfc802629cd10020336fc11bbb2dde78d5",
     "PPGraph/Decision/RepairDecision.lean": "4f81c6f2cd63d5e04074fc1322a793f41babf663bc0c324980f971f69df1a8d1",
     "PPGraph/Decision/Undecidability.lean": "72d4663f3c6be5123c91caf7dc26d8accb8b9e81d233dfe8e5fecdbd39238dcf",
-    "PPGraph/Certification/Selection.lean": "20ec045145192554a778f07ed945b1468797c53869df14caf4ebb13805d11c77",
+    "PPGraph/Certification/Selection.lean": "79dbd06d394d452ff5abdba22fbaa6ff21f6b8b746471be04225fa3bac1ce487",
     "PPGraph/Certification/SelfAssessment.lean": "b1a65ec27b9175e85fc87c4e3c4a31d3985e016117b944c4f548e551951b2a1f",
     "PPGraph/Shearer/Basic.lean": "677f5753c2e83d76dc1a6215b059a5a6dc0502d74f80ab4bd22023a2d3161d1b",
     "PPGraph/Shearer/BDD.lean": "7fec8bdd838d30e5e763efc8da54dca470e8aae49a8905ac8f09008634ac0747",
@@ -212,17 +212,18 @@
     "PPGraph/Shearer/Witness.lean": "1236400cfe9425aeeeccc695a6703402b7270bf4010d416dd6772b2188acefbf",
     "PPGraph/Decision/UnsatisfiableCore.lean": "7abebec429626aa0143bf5a41bdf80c1f9fe64062248478119e86b6e9963780a",
     "PPGraph/LLL/Variable.lean": "c8772e34215fae9eff66898ca8533b0f554f1c8eceec97bbe36e834d5edf81d4",
+    "PPGraph/Integration/CertificationDependency.lean": "0de8f7564477c63c449650ad310d0f2315b2738809f83099b4efdf4002e39a11",
     "PPGraph.lean": "41760bb8a3187d98b8fdaaf2329d5296d753d161c6dbbdf979e98606908d3e96",
-    "PPGraph/All.lean": "609247cee640b6ad718b7fb5113365daff46f487f06f9feb87b73adc19648f35",
-    "tools/module-map.json": "68ff1dd2b926af9a497bbd6084c7b7db38e0af21f58a305a2463cd7504e6dbc2",
+    "PPGraph/All.lean": "1a3ceeeb7b7a0cbc5ba74154b64ca39fe6c5352f2524a61bf586bca1ac08fcb1",
+    "tools/module-map.json": "fc92e6969d8071e1637f631b7ee46928154df15845998b7465e3132d8dc170b8",
     "lakefile.lean": "38fc21914e2365b1948c01db24f709abe5dc0d3347b928fbf7f10f94bb026d5a",
     "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
     "lake-manifest.json": "69bd64ee24bd0360be6279ab7737e7b384b13db846fb9bfe5d0026f8debd4e72"
   },
   "audit_tool_sha256": "0a7849f6aa6d62f163e86f09292f3b4dd219db2b933d4b77143dc82c2cc99a75",
-  "full_build_log_sha256": "cf767436097f92b35a515d25640bd56a8c8e60732830c05842cb33c44cb515ec",
-  "inventory_log_sha256": "c9a516f95114eec92bdded4c6dc3731be35df3c9b6999e34384154c59b681665",
-  "axiom_log_sha256": "8493383c16dc13b0ae5584ebaf8deda0cf73f22c5e0d6a975bb4ec1cb7fa0387",
+  "full_build_log_sha256": "c966a38f1dcf4468af408944e3d85f19119b56df996ff253cd896df62aeac71b",
+  "inventory_log_sha256": "44d9b01554ce048412d921bd728cdc4f115d5a0dfc4d23f74d17dc3150a4eda5",
+  "axiom_log_sha256": "52b7adc3504ff7b98db7fc8e9ea61abbd57f0f59f01c383554dd7b7d20f83155",
   "modules": {
     "PPGraph.Core.Graph": {
       "explicit_theorems": [
@@ -1812,6 +1813,8 @@
     },
     "PPGraph.Core.Meta": {
       "explicit_theorems": [
+        "rr_of_iff_rr_rel_hom",
+        "configs_compatible_of_rel_inclusion",
         "compatible_refl",
         "compatible_trans",
         "meta_edge_preserves_relations",
@@ -1823,7 +1826,7 @@
         "backward_compatible",
         "failure_propagates"
       ],
-      "environment_declaration_count": 71
+      "environment_declaration_count": 73
     },
     "PPGraph.MoserTardos.Process.Basic": {
       "explicit_theorems": [
@@ -2388,9 +2391,13 @@
         "mtRepairGraph_globally_repairable_of_randomInitETLog_lt_top",
         "mtRepairGraph_globally_repairable",
         "mtRepairGraph_repair_possible",
-        "mtRepairGraph_repair_target_spec"
+        "mtRepairGraph_repair_target_spec",
+        "exists_edgeReach_good_of_good_target",
+        "mtEdgeRepairGraph_globally_repairable_of_good_target",
+        "mtEdgeRepairGraph_globally_repairable",
+        "mtResampleRepairGraph_globally_repairable"
       ],
-      "environment_declaration_count": 10
+      "environment_declaration_count": 19
     },
     "PPGraph.MoserTardos.Counting.ResamplingCount": {
       "explicit_theorems": [
@@ -2572,7 +2579,7 @@
         "shared_support_mem",
         "feasible_witness_exists",
         "negative_disc_infeasible",
-        "repairable_or_coupled"
+        "lll_budget_feasible_or_infeasible"
       ],
       "environment_declaration_count": 23
     },
@@ -2582,9 +2589,11 @@
         "proj_preserves_edges",
         "proj_surjective",
         "quotient_certified_iff",
-        "quotient_cert_propagates"
+        "quotient_cert_propagates",
+        "certified_quotient_pp_valid",
+        "certified_proj_is_pp_quotient"
       ],
-      "environment_declaration_count": 8
+      "environment_declaration_count": 16
     },
     "PPGraph.Core.RR": {
       "explicit_theorems": [
@@ -2686,7 +2695,7 @@
         "all_lenses_iff_finest",
         "lens_pred_refl",
         "lens_propagates",
-        "finest_quotient_pp_valid",
+        "finest_quotient_invariant",
         "finest_quotient_inherits_pp_valid",
         "canonical_preserves_invariant",
         "proj_mk_surjective",
@@ -2694,7 +2703,7 @@
         "proj_is_pp_morphism",
         "proj_is_pp_quotient"
       ],
-      "environment_declaration_count": 76
+      "environment_declaration_count": 79
     },
     "PPGraph.Certification.SelfAssessment": {
       "explicit_theorems": [
@@ -3002,6 +3011,21 @@
         "lll_variable_lemma10"
       ],
       "environment_declaration_count": 69
+    },
+    "PPGraph.Integration.CertificationDependency": {
+      "explicit_theorems": [
+        "CertificationDependency.fully_certified_iff_all",
+        "CertificationDependency.mem_failing",
+        "CertificationDependency.blocking_set_eq_image_failing",
+        "CertificationDependency.fully_certified_iff_failing_empty",
+        "CertificationDependency.component_repair_preserves",
+        "CertificationDependency.component_repair_valid_repair",
+        "CertificationDependency.component_repair_failing_subset",
+        "CertificationDependency.component_repair_strict_progress",
+        "CertificationDependency.component_repair_certifies",
+        "CertificationDependency.checked_plan_certifies"
+      ],
+      "environment_declaration_count": 27
     }
   },
   "declarations": {
@@ -3393,6 +3417,230 @@
     },
     "Certificate": {
       "module": "PPGraph.Certification.Parametric",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "CertificationDependency.ComponentChecked": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.FamilyLocal": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.Index": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "CertificationDependency.PlanChecked": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.PlanChecked._f": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.PlanChecked._sunfold": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.PlanChecked._unsafe_rec": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.blocking_set_eq_image_failing": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.checked_plan_certifies": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.component_repair_certifies": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.component_repair_failing_subset": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.component_repair_preserves": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.component_repair_strict_progress": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.component_repair_valid_repair": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.failing": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.failing.eq_1": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.fully_certified_iff_all": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "CertificationDependency.fully_certified_iff_failing_empty": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.holds": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "CertificationDependency.holds.eq_1": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "CertificationDependency.mem_failing": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertificationDependency.run": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "CertificationDependency.run._f": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "CertificationDependency.run._sunfold": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "CertificationDependency.run._unsafe_rec": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "CertificationDependency.run.match_1": {
+      "module": "PPGraph.Integration.CertificationDependency",
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": []
@@ -20488,6 +20736,16 @@
         "propext"
       ]
     },
+    "MTStepRespected": {
+      "module": "PPGraph.Integration.MoserTardosRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "MarginalA": {
       "module": "PPGraph.Optimization.ComplementarySlackness",
       "kind": "definition",
@@ -33055,6 +33313,34 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "_private.PPGraph.Certification.QuotientBridge.0.certified_proj_is_pp_quotient.match_1_1": {
+      "module": "PPGraph.Certification.QuotientBridge",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Certification.QuotientBridge.0.certified_quotient_graph.match_1": {
+      "module": "PPGraph.Certification.QuotientBridge",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Certification.QuotientBridge.0.certified_quotient_pp_valid.match_1_1": {
+      "module": "PPGraph.Certification.QuotientBridge",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Certification.Selection.0.proj_is_pp_morphism.match_1_1": {
+      "module": "PPGraph.Certification.Selection",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "_private.PPGraph.Certification.SelfAssessment.0.no_silent_redefinition.match_1_1": {
       "module": "PPGraph.Certification.SelfAssessment",
       "kind": "definition",
@@ -35495,6 +35781,16 @@
         "propext"
       ]
     },
+    "_private.PPGraph.Integration.CertificationDependency.0.CertificationDependency.fully_certified_iff_failing_empty._simp_1_1": {
+      "module": "PPGraph.Integration.CertificationDependency",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "_private.PPGraph.Integration.DependencyInfeasibility.0.RepairFeasibility.frame_infeasible_iff_component_infeasible._simp_1_1": {
       "module": "PPGraph.Integration.DependencyInfeasibility",
       "kind": "theorem",
@@ -35565,6 +35861,26 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Integration.MoserTardosRepair.0.exists_edgeReach_good_of_good_target._proof_1_1": {
+      "module": "PPGraph.Integration.MoserTardosRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Integration.MoserTardosRepair.0.exists_edgeReach_good_of_good_target._proof_1_2": {
+      "module": "PPGraph.Integration.MoserTardosRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
         "propext"
       ]
     },
@@ -40610,6 +40926,12 @@
       "explicit_theorem": true,
       "axioms": []
     },
+    "certified_edges_separate_classes": {
+      "module": "PPGraph.Certification.QuotientBridge",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "certified_either_implies_join_left": {
       "module": "PPGraph.Certification.Parametric",
       "kind": "theorem",
@@ -40645,6 +40967,40 @@
       "kind": "theorem",
       "explicit_theorem": true,
       "axioms": []
+    },
+    "certified_proj_is_pp_quotient": {
+      "module": "PPGraph.Certification.QuotientBridge",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "certified_quotient_graph": {
+      "module": "PPGraph.Certification.QuotientBridge",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "certified_quotient_graph._proof_3": {
+      "module": "PPGraph.Certification.QuotientBridge",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "certified_quotient_pp_valid": {
+      "module": "PPGraph.Certification.QuotientBridge",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "propext"
+      ]
     },
     "certified_subgraph": {
       "module": "PPGraph.Certification.Parametric",
@@ -40952,6 +41308,12 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "configs_compatible_of_rel_inclusion": {
+      "module": "PPGraph.Core.Meta",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
     "connectivity_resilience": {
       "module": "PPGraph.Core.Graph",
       "kind": "theorem",
@@ -41003,16 +41365,6 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "coupled_obstruction": {
-      "module": "PPGraph.Dependency.Probabilistic",
-      "kind": "definition",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -41411,6 +41763,16 @@
         "propext"
       ]
     },
+    "exists_edgeReach_good_of_good_target": {
+      "module": "PPGraph.Integration.MoserTardosRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "exists_fresh_index": {
       "module": "PPGraph.MoserTardos.Witness.Growing",
       "kind": "theorem",
@@ -41651,13 +42013,17 @@
       "module": "PPGraph.Certification.Selection",
       "kind": "theorem",
       "explicit_theorem": true,
-      "axioms": []
+      "axioms": [
+        "propext"
+      ]
     },
-    "finest_quotient_pp_valid": {
+    "finest_quotient_invariant": {
       "module": "PPGraph.Certification.Selection",
       "kind": "theorem",
       "explicit_theorem": true,
-      "axioms": []
+      "axioms": [
+        "propext"
+      ]
     },
     "finest_refines_each": {
       "module": "PPGraph.Certification.Selection",
@@ -42600,6 +42966,36 @@
         "propext"
       ]
     },
+    "lll_budget_feasible": {
+      "module": "PPGraph.Dependency.Probabilistic",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "lll_budget_feasible_or_infeasible": {
+      "module": "PPGraph.Dependency.Probabilistic",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "lll_budget_infeasible": {
+      "module": "PPGraph.Dependency.Probabilistic",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "lll_condition_at": {
       "module": "PPGraph.Dependency.Probabilistic",
       "kind": "definition",
@@ -42754,16 +43150,6 @@
       "module": "PPGraph.MoserTardos.Witness.CheckBirth",
       "kind": "theorem",
       "explicit_theorem": true,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "locally_repairable": {
-      "module": "PPGraph.Dependency.Probabilistic",
-      "kind": "definition",
-      "explicit_theorem": false,
       "axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -43428,6 +43814,36 @@
       "explicit_theorem": true,
       "axioms": []
     },
+    "mtEdgeRepairGraph": {
+      "module": "PPGraph.Integration.MoserTardosRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "mtEdgeRepairGraph_globally_repairable": {
+      "module": "PPGraph.Integration.MoserTardosRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "mtEdgeRepairGraph_globally_repairable_of_good_target": {
+      "module": "PPGraph.Integration.MoserTardosRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "mtMismatch": {
       "module": "PPGraph.MoserTardos.Bounds.ConstantLog",
       "kind": "definition",
@@ -43559,6 +43975,26 @@
       ]
     },
     "mtRepairGraph_repair_target_spec": {
+      "module": "PPGraph.Integration.MoserTardosRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "mtResampleEdge": {
+      "module": "PPGraph.Integration.MoserTardosRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "mtResampleRepairGraph_globally_repairable": {
       "module": "PPGraph.Integration.MoserTardosRepair",
       "kind": "theorem",
       "explicit_theorem": true,
@@ -44449,6 +44885,22 @@
       "kind": "theorem",
       "explicit_theorem": true,
       "axioms": []
+    },
+    "quotient_rr": {
+      "module": "PPGraph.Certification.Selection",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "quotient_rr._proof_1": {
+      "module": "PPGraph.Certification.Selection",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
     },
     "randC": {
       "module": "PPGraph.MoserTardos.Counting.Counting",
@@ -45342,16 +45794,6 @@
       "explicit_theorem": true,
       "axioms": []
     },
-    "repairable_or_coupled": {
-      "module": "PPGraph.Dependency.Probabilistic",
-      "kind": "theorem",
-      "explicit_theorem": true,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
     "resample": {
       "module": "PPGraph.MoserTardos.Process.Basic",
       "kind": "definition",
@@ -45678,6 +46120,12 @@
       "module": "PPGraph.Core.Meta",
       "kind": "definition",
       "explicit_theorem": false,
+      "axioms": []
+    },
+    "rr_of_iff_rr_rel_hom": {
+      "module": "PPGraph.Core.Meta",
+      "kind": "theorem",
+      "explicit_theorem": true,
       "axioms": []
     },
     "rr_rel_hom": {

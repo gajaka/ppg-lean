@@ -1,8 +1,8 @@
 PPGraph whole-library axiom audit — 2026-10-28
 
-PASS: 1824 explicitly declared theorems in 191 canonical modules.
+PASS: 1842 explicitly declared theorems in 192 canonical modules.
 Also built and scanned: 2 import-only facades.
-Also audited: 1495 generated theorem constants and all remaining project declarations, 4904 declarations in total.
+Also audited: 1502 generated theorem constants and all remaining project declarations, 4953 declarations in total.
 Every explicitly declared theorem has an explicit #check.
 Module ownership comes from the imported Lean environment.
 Every project declaration is inspected with a temporary #print axioms command.
@@ -69,6 +69,32 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'CertState.recOn' does not depend on any axioms
 'CertVars' depends on axioms: [propext, Quot.sound]
 'Certificate' does not depend on any axioms
+'CertificationDependency.ComponentChecked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.FamilyLocal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.Index' does not depend on any axioms
+'CertificationDependency.PlanChecked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.PlanChecked._f' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.PlanChecked._sunfold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.PlanChecked._unsafe_rec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.blocking_set_eq_image_failing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.checked_plan_certifies' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.component_repair_certifies' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.component_repair_failing_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.component_repair_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.component_repair_strict_progress' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.component_repair_valid_repair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.failing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.failing.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.fully_certified_iff_all' does not depend on any axioms
+'CertificationDependency.fully_certified_iff_failing_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.holds' does not depend on any axioms
+'CertificationDependency.holds.eq_1' does not depend on any axioms
+'CertificationDependency.mem_failing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertificationDependency.run' does not depend on any axioms
+'CertificationDependency.run._f' does not depend on any axioms
+'CertificationDependency.run._sunfold' does not depend on any axioms
+'CertificationDependency.run._unsafe_rec' does not depend on any axioms
+'CertificationDependency.run.match_1' does not depend on any axioms
 'ConformsWith' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CostMatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CoupledIn' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1931,6 +1957,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'MTProcess.recOn' depends on axioms: [propext, Classical.choice, Quot.sound]
 'MTState' depends on axioms: [propext, Classical.choice, Quot.sound]
 'MTState.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MTStepRespected' depends on axioms: [propext, Classical.choice, Quot.sound]
 'MarginalA' depends on axioms: [propext, Classical.choice, Quot.sound]
 'MarginalB' depends on axioms: [propext, Classical.choice, Quot.sound]
 'MeasurableEquiv.piFinsetUnion.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -3417,6 +3444,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.Certification.EquivBridge.0.cert_equiv_eq_finest.match_1_1' does not depend on any axioms
 '_private.PPGraph.Certification.Parametric.0.certified_subgraph.match_1' does not depend on any axioms
 '_private.PPGraph.Certification.Parametric.0.certified_subgraph_pp_valid.match_1_1' does not depend on any axioms
+'_private.PPGraph.Certification.QuotientBridge.0.certified_proj_is_pp_quotient.match_1_1' does not depend on any axioms
+'_private.PPGraph.Certification.QuotientBridge.0.certified_quotient_graph.match_1' depends on axioms: [propext]
+'_private.PPGraph.Certification.QuotientBridge.0.certified_quotient_pp_valid.match_1_1' depends on axioms: [propext]
+'_private.PPGraph.Certification.Selection.0.proj_is_pp_morphism.match_1_1' does not depend on any axioms
 '_private.PPGraph.Certification.SelfAssessment.0.no_silent_redefinition.match_1_1' does not depend on any axioms
 '_private.PPGraph.Core.Categorical.0.morphism_compose.match_1_1' does not depend on any axioms
 '_private.PPGraph.Core.Graph.0.invariant_violation_disjoint.match_1_1' does not depend on any axioms
@@ -4021,6 +4052,9 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.mem_boundedPaths_iff._simp_1_7' depends on axioms: [propext]
 '_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.mem_boundedPaths_iff._simp_1_8' depends on axioms: [propext]
 '_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.mem_boundedPaths_iff._simp_1_9' depends on axioms: [propext]
+'_private.PPGraph.Integration.CertificationDependency.0.CertificationDependency.fully_certified_iff_failing_empty._simp_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 '_private.PPGraph.Integration.DependencyInfeasibility.0.RepairFeasibility.frame_infeasible_iff_component_infeasible._simp_1_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -4038,6 +4072,12 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.FiniteMTDrift.0.FiniteResampling.table_hitCount_eq_TLog._simp_1_1' depends on axioms: [propext]
+'_private.PPGraph.Integration.MoserTardosRepair.0.exists_edgeReach_good_of_good_target._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Integration.MoserTardosRepair.0.exists_edgeReach_good_of_good_target._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 '_private.PPGraph.Integration.Policy.HLSCounting.0.MTPolicy.measurable_earlierLabelCount._proof_1_1' depends on axioms: [propext,
  Quot.sound]
 '_private.PPGraph.Integration.Policy.HLSCounting.0.MTPolicy.ordinalOccurrence_eq_iUnion._simp_1_2' depends on axioms: [propext]
@@ -5134,12 +5174,17 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'certificate_chain_sound' does not depend on any axioms
 'certification_propagates' does not depend on any axioms
 'certified_both_implies_meet' does not depend on any axioms
+'certified_edges_separate_classes' does not depend on any axioms
 'certified_either_implies_join_left' does not depend on any axioms
 'certified_either_implies_join_right' does not depend on any axioms
 'certified_excludes_isolated' does not depend on any axioms
 'certified_iff_above_canonical' does not depend on any axioms
 'certified_inf_closed'' does not depend on any axioms
 'certified_meet_implies_both' does not depend on any axioms
+'certified_proj_is_pp_quotient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'certified_quotient_graph' depends on axioms: [propext]
+'certified_quotient_graph._proof_3' depends on axioms: [propext]
+'certified_quotient_pp_valid' depends on axioms: [propext]
 'certified_subgraph' does not depend on any axioms
 'certified_subgraph._proof_3' does not depend on any axioms
 'certified_subgraph_pp_valid' does not depend on any axioms
@@ -5175,6 +5220,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'config_id_reduces' does not depend on any axioms
 'config_valid' does not depend on any axioms
 'configs_compatible' does not depend on any axioms
+'configs_compatible_of_rel_inclusion' does not depend on any axioms
 'connectivity_resilience' does not depend on any axioms
 'constantLog' depends on axioms: [propext, Classical.choice, Quot.sound]
 'contamination_impossible' does not depend on any axioms
@@ -5182,7 +5228,6 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'countLabel' depends on axioms: [propext, Quot.sound]
 'countLabel.congr_simp' depends on axioms: [propext, Quot.sound]
 'countLabel.eq_1' depends on axioms: [propext, Quot.sound]
-'coupled_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
 'cs_condition' depends on axioms: [propext, Classical.choice, Quot.sound]
 'cs_entry_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
 'cs_from_pointwise_tight' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -5226,6 +5271,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'exists_MTGood_of_randomInitETLog_lt_top' depends on axioms: [propext, Classical.choice, Quot.sound]
 'exists_birth_of_earlier_real_time' depends on axioms: [propext, Classical.choice, Quot.sound]
 'exists_cylinder_superset_measure_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'exists_edgeReach_good_of_good_target' depends on axioms: [propext, Classical.choice, Quot.sound]
 'exists_fresh_index' depends on axioms: [propext, Classical.choice, Quot.sound]
 'exists_good_randTraj_constantLog' depends on axioms: [propext, Classical.choice, Quot.sound]
 'exists_good_randTraj_constantLog_le_mismatch' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -5256,8 +5302,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'finest_equiv_trans' does not depend on any axioms
 'finest_graph' does not depend on any axioms
 'finest_is_coarsest_refinement' does not depend on any axioms
-'finest_quotient_inherits_pp_valid' does not depend on any axioms
-'finest_quotient_pp_valid' does not depend on any axioms
+'finest_quotient_inherits_pp_valid' depends on axioms: [propext]
+'finest_quotient_invariant' depends on axioms: [propext]
 'finest_refines_each' does not depend on any axioms
 'finest_to_cert_equiv' depends on axioms: [propext]
 'footprint_common_var_same_or_neighbor' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -5364,6 +5410,9 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'list_forall_map_iff_pointwise' depends on axioms: [propext, Quot.sound]
 'list_map_eq_iff_of_mem' depends on axioms: [propext, Quot.sound]
 'lll_base_case' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lll_budget_feasible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lll_budget_feasible_or_infeasible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'lll_budget_infeasible' depends on axioms: [propext, Classical.choice, Quot.sound]
 'lll_condition_at' depends on axioms: [propext, Classical.choice, Quot.sound]
 'lll_condition_localizes' depends on axioms: [propext, Classical.choice, Quot.sound]
 'lll_feasible' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -5380,7 +5429,6 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'localCount_ne_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
 'localCount_ne_of_ne_general' depends on axioms: [propext, Classical.choice, Quot.sound]
 'localCount_strict_anti' depends on axioms: [propext, Classical.choice, Quot.sound]
-'locally_repairable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'logMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
 'logMeasure_checkState_eq_pi' depends on axioms: [propext, Classical.choice, Quot.sound]
 'logMeasure_map_readAt_eq_pi' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -5450,6 +5498,9 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'monotone_cert' does not depend on any axioms
 'morphism_compose' does not depend on any axioms
 'morphism_preserves_pp_edges' does not depend on any axioms
+'mtEdgeRepairGraph' depends on axioms: [propext, Classical.choice, Quot.sound]
+'mtEdgeRepairGraph_globally_repairable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'mtEdgeRepairGraph_globally_repairable_of_good_target' depends on axioms: [propext, Classical.choice, Quot.sound]
 'mtMismatch' depends on axioms: [propext, Classical.choice, Quot.sound]
 'mtMismatch.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'mtMismatch_card_randTraj_constantLog_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -5464,6 +5515,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'mtRepairGraph_repair_possible' depends on axioms: [propext, Classical.choice, Quot.sound]
 'mtRepairGraph_repair_possible_of_good_target' depends on axioms: [propext, Classical.choice, Quot.sound]
 'mtRepairGraph_repair_target_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'mtResampleEdge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'mtResampleRepairGraph_globally_repairable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'mtTrajectory' depends on axioms: [propext, Classical.choice, Quot.sound]
 'mtTrajectory._f' depends on axioms: [propext, Classical.choice, Quot.sound]
 'mtTrajectory._sunfold' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -5569,6 +5622,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'quotient_invariant._proof_1' depends on axioms: [propext]
 'quotient_is_morphism' does not depend on any axioms
 'quotient_projection_surjective' does not depend on any axioms
+'quotient_rr' depends on axioms: [propext]
+'quotient_rr._proof_1' depends on axioms: [propext]
 'randC' depends on axioms: [propext, Classical.choice, Quot.sound]
 'randCount_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'randCount_le._f' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -5666,7 +5721,6 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'repair_target.congr_simp' depends on axioms: [Classical.choice]
 'repair_target_valid' depends on axioms: [Classical.choice]
 'repair_vs_relaxation' does not depend on any axioms
-'repairable_or_coupled' depends on axioms: [propext, Classical.choice, Quot.sound]
 'resample' depends on axioms: [propext, Classical.choice, Quot.sound]
 'resample.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'resampleChain' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -5701,6 +5755,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'route_bypass' does not depend on any axioms
 'route_repairable' does not depend on any axioms
 'rr_of' does not depend on any axioms
+'rr_of_iff_rr_rel_hom' does not depend on any axioms
 'rr_rel_hom' does not depend on any axioms
 'rr_rel_id' does not depend on any axioms
 'runningUntil_indicator_eq_sum_resamplingEvent' depends on axioms: [propext, Classical.choice, Quot.sound]

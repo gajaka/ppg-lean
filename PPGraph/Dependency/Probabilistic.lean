@@ -11,8 +11,8 @@
     Pr[A_i] ≤ x_i * ∏_{j in Γ(i)} (1 - x_j)  for all i
   then Pr[⋀ ¬A_i] > 0.
 
-  Negative discriminant proves no valid x assignment exists for a pair,
-  establishing genuine coupling (not a heuristic artifact).
+  A negative discriminant proves that no valid numerical LLL budget exists
+  for the pair. It does not prove that a satisfying state or repair is absent.
 
   Author: Dragan Stosic, 2026.
 -/
@@ -184,30 +184,29 @@ theorem negative_disc_infeasible (p1 p2 : Real)
 
 -- Section 5: Repair Classification
 
-/-- LLL feasible: a valid x assignment exists for this component. The
-    singleton {c3} is trivially locally_repairable - c3 is independent of
-    everyone, so neighbors vars B c3 = ∅ and any x(c3) ∈ (Pr[c3 fails], 1)
-    satisfies lll_condition_at with an empty product. -/
-def locally_repairable (p : C → Real) (vars : CertVars C V)
+/-- Numerical feasibility of the sufficient LLL budget conditions.
+    For a singleton with p(c) < 1 and nonnegative p(c), choosing
+    x(c) in [p(c),1) suffices. A probability model and its dependency
+    hypotheses are separate from this numerical predicate. -/
+def lll_budget_feasible (p : C → Real) (vars : CertVars C V)
     (component : Finset C) : Prop :=
   ∃ x : LLLAssignment C, lll_feasible p x vars component
 
-/-- LLL infeasible: no valid x assignment exists. Coupled obstruction. By
-    Section 4's numbers, {c1,c2} is a coupled_obstruction whenever
+/-- No assignment satisfies this sufficient LLL budget system. By
+    Section 4's numbers, {c1,c2} is lll_budget_infeasible whenever
     Pr[c1 fails] = Pr[c2 fails] = 0.5 - negative_disc_infeasible rules out
     every (x1,x2), so no LLL budget can certify that pair. -/
-def coupled_obstruction (p : C → Real) (vars : CertVars C V)
+def lll_budget_infeasible (p : C → Real) (vars : CertVars C V)
     (component : Finset C) : Prop :=
-  ¬ locally_repairable p vars component
+  ¬ lll_budget_feasible p vars component
 
-/-- Every component is one or the other (excluded middle, P ∨ ¬P): {c3} falls
-    on the locally_repairable side, {c1,c2} (with the Section 4 numbers) on
-    the coupled_obstruction side - this theorem just says every blocking
-    component must land in one camp or the other, with nothing in between. -/
-theorem repairable_or_coupled (p : C → Real) (vars : CertVars C V)
+/-- Classical exhaustiveness of numerical budget feasibility and its
+    negation. This gives neither a decision procedure nor a refutation
+    of semantic repairability when the sufficient criterion fails. -/
+theorem lll_budget_feasible_or_infeasible (p : C → Real) (vars : CertVars C V)
     (component : Finset C) :
-    locally_repairable p vars component ∨ coupled_obstruction p vars component := by
-  by_cases h : locally_repairable p vars component
+    lll_budget_feasible p vars component ∨ lll_budget_infeasible p vars component := by
+  by_cases h : lll_budget_feasible p vars component
   · exact Or.inl h
   · exact Or.inr h
 
@@ -217,4 +216,4 @@ theorem repairable_or_coupled (p : C → Real) (vars : CertVars C V)
 #check @shared_support_mem
 #check @feasible_witness_exists
 #check @negative_disc_infeasible
-#check @repairable_or_coupled
+#check @lll_budget_feasible_or_infeasible

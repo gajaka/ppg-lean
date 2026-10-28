@@ -1,22 +1,19 @@
 # Pure-theory module inventory
 
-This inventory covers 191 generic PPG theory modules and 1,824 explicit theorem/lemma declarations.
+This inventory covers 192 generic PPG theory modules and 1,842 explicit theorem/lemma declarations.
 Generated theorem constants are counted separately in the whole-library axiom audit.
-Counts describe declarations, not distinct applications or measured hardware cases.
-They include structural laws and helper lemmas. See [theorem scope](THEOREM_SCOPE.md)
-for the local-repair model and the removal of the former `True` placeholder.
-The `PPGraph` facade and `PPGraph.All` import entry point add no mathematical results
-and are not counted as theory modules.
+Counts include structural laws, projections and helper lemmas. See [theorem scope](THEOREM_SCOPE.md).
+The `PPGraph` facade and `PPGraph.All` import entry point add no mathematical results.
 
 The complete per-declaration dependency report is [`reports/PPGRAPH_AXIOM_AUDIT.json`](../reports/PPGRAPH_AXIOM_AUDIT.json).
-Reproduce the build and audit from the repository root with `python3 tools/audit_ppgraph.py`.
-The [module migration table](MODULE_MIGRATION.md) preserves the former names and their canonical imports.
-Direct project imports below are read from the theory sources, including imports of the core graph module.
+Reproduce it with `python3 tools/audit_ppgraph.py`.
+The [module migration table](MODULE_MIGRATION.md) records the historical flat imports.
+CertificationDependency was added after that reorganization and has no former flat import.
 
 | Family | Theory modules | Explicit theorems/lemmas |
 | --- | ---: | ---: |
-| `Core` | 5 | 60 |
-| `Certification` | 8 | 108 |
+| `Core` | 5 | 62 |
+| `Certification` | 8 | 110 |
 | `Dependency` | 7 | 46 |
 | `LLL` | 3 | 65 |
 | `MoserTardos` | 44 | 388 |
@@ -26,8 +23,8 @@ Direct project imports below are read from the theory sources, including imports
 | `Finite` | 14 | 251 |
 | `Decision` | 12 | 129 |
 | `Optimization` | 1 | 5 |
-| `Integration` | 17 | 176 |
-| **Total** | **191** | **1,824** |
+| `Integration` | 18 | 190 |
+| **Total** | **192** | **1,842** |
 
 | Module | Explicit theorems/lemmas | Direct PPG imports |
 | --- | ---: | --- |
@@ -36,12 +33,12 @@ Direct project imports below are read from the theory sources, including imports
 | [PPGraph.Certification.EquivBridge](../PPGraph/Certification/EquivBridge.lean) | 4 | [PPGraph.Certification.Parametric](../PPGraph/Certification/Parametric.lean), [PPGraph.Certification.ParametricQuotient](../PPGraph/Certification/ParametricQuotient.lean), [PPGraph.Certification.Selection](../PPGraph/Certification/Selection.lean) |
 | [PPGraph.Certification.Parametric](../PPGraph/Certification/Parametric.lean) | 24 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean) |
 | [PPGraph.Certification.ParametricQuotient](../PPGraph/Certification/ParametricQuotient.lean) | 25 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean), [PPGraph.Certification.Parametric](../PPGraph/Certification/Parametric.lean), [PPGraph.Core.Categorical](../PPGraph/Core/Categorical.lean) |
-| [PPGraph.Certification.QuotientBridge](../PPGraph/Certification/QuotientBridge.lean) | 5 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean), [PPGraph.Certification.Parametric](../PPGraph/Certification/Parametric.lean), [PPGraph.Certification.ParametricQuotient](../PPGraph/Certification/ParametricQuotient.lean), [PPGraph.Core.Categorical](../PPGraph/Core/Categorical.lean) |
-| [PPGraph.Certification.Selection](../PPGraph/Certification/Selection.lean) | 23 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean), [PPGraph.Certification.Parametric](../PPGraph/Certification/Parametric.lean) |
+| [PPGraph.Certification.QuotientBridge](../PPGraph/Certification/QuotientBridge.lean) | 7 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean), [PPGraph.Certification.Parametric](../PPGraph/Certification/Parametric.lean), [PPGraph.Certification.ParametricQuotient](../PPGraph/Certification/ParametricQuotient.lean), [PPGraph.Core.Categorical](../PPGraph/Core/Categorical.lean) |
+| [PPGraph.Certification.Selection](../PPGraph/Certification/Selection.lean) | 23 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean), [PPGraph.Core.Categorical](../PPGraph/Core/Categorical.lean), [PPGraph.Certification.Parametric](../PPGraph/Certification/Parametric.lean) |
 | [PPGraph.Certification.SelfAssessment](../PPGraph/Certification/SelfAssessment.lean) | 12 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean), [PPGraph.Core.Repair](../PPGraph/Core/Repair.lean) |
 | [PPGraph.Core.Categorical](../PPGraph/Core/Categorical.lean) | 10 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean) |
 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean) | 22 | - |
-| [PPGraph.Core.Meta](../PPGraph/Core/Meta.lean) | 10 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean) |
+| [PPGraph.Core.Meta](../PPGraph/Core/Meta.lean) | 12 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean), [PPGraph.Core.RR](../PPGraph/Core/RR.lean) |
 | [PPGraph.Core.RR](../PPGraph/Core/RR.lean) | 9 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean) |
 | [PPGraph.Core.Repair](../PPGraph/Core/Repair.lean) | 9 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean) |
 | [PPGraph.Decision.Abstraction](../PPGraph/Decision/Abstraction.lean) | 22 | [PPGraph.Decision.ReachabilityRefutation](../PPGraph/Decision/ReachabilityRefutation.lean) |
@@ -142,6 +139,7 @@ Direct project imports below are read from the theory sources, including imports
 | [PPGraph.HLS.Probability.RootUnion](../PPGraph/HLS/Probability/RootUnion.lean) | 6 | [PPGraph.HLS.Bounds.OrdinalOccurrence](../PPGraph/HLS/Bounds/OrdinalOccurrence.lean), [PPGraph.HLS.Probability.UnitChecks](../PPGraph/HLS/Probability/UnitChecks.lean) |
 | [PPGraph.HLS.Probability.UnitChecks](../PPGraph/HLS/Probability/UnitChecks.lean) | 9 | [PPGraph.HLS.Probability.AugmentedDependence](../PPGraph/HLS/Probability/AugmentedDependence.lean) |
 | [PPGraph.Integration.AbstractionRepair](../PPGraph/Integration/AbstractionRepair.lean) | 12 | [PPGraph.Decision.Abstraction](../PPGraph/Decision/Abstraction.lean) |
+| [PPGraph.Integration.CertificationDependency](../PPGraph/Integration/CertificationDependency.lean) | 10 | [PPGraph.Certification.Blocking](../PPGraph/Certification/Blocking.lean), [PPGraph.Dependency.Decomposition](../PPGraph/Dependency/Decomposition.lean), [PPGraph.Certification.SelfAssessment](../PPGraph/Certification/SelfAssessment.lean) |
 | [PPGraph.Integration.DependencyInfeasibility](../PPGraph/Integration/DependencyInfeasibility.lean) | 10 | [PPGraph.Dependency.Partition](../PPGraph/Dependency/Partition.lean), [PPGraph.Decision.UnsatisfiableCore](../PPGraph/Decision/UnsatisfiableCore.lean) |
 | [PPGraph.Integration.DependencyMoserTardos](../PPGraph/Integration/DependencyMoserTardos.lean) | 2 | [PPGraph.Dependency.Decomposition](../PPGraph/Dependency/Decomposition.lean), [PPGraph.MoserTardos.Process.Process](../PPGraph/MoserTardos/Process/Process.lean) |
 | [PPGraph.Integration.FiniteMTDrift](../PPGraph/Integration/FiniteMTDrift.lean) | 18 | [PPGraph.Finite.Resampling.TableLaw](../PPGraph/Finite/Resampling/TableLaw.lean), [PPGraph.MoserTardos.Bounds.Drift](../PPGraph/MoserTardos/Bounds/Drift.lean) |
@@ -152,7 +150,7 @@ Direct project imports below are read from the theory sources, including imports
 | [PPGraph.Integration.HLSRepair](../PPGraph/Integration/HLSRepair.lean) | 3 | [PPGraph.HLS.Bounds.Expectation](../PPGraph/HLS/Bounds/Expectation.lean), [PPGraph.Integration.MoserTardosRepair](../PPGraph/Integration/MoserTardosRepair.lean) |
 | [PPGraph.Integration.MoserTardosDriftRegion](../PPGraph/Integration/MoserTardosDriftRegion.lean) | 8 | [PPGraph.MoserTardos.Process.FullResampling](../PPGraph/MoserTardos/Process/FullResampling.lean), [PPGraph.Shearer.BDD](../PPGraph/Shearer/BDD.lean), [PPGraph.Shearer.Slack](../PPGraph/Shearer/Slack.lean), [PPGraph.HLS.DAG.Matching](../PPGraph/HLS/DAG/Matching.lean) |
 | [PPGraph.Integration.MoserTardosInfeasibility](../PPGraph/Integration/MoserTardosInfeasibility.lean) | 9 | [PPGraph.Integration.MoserTardosRepair](../PPGraph/Integration/MoserTardosRepair.lean), [PPGraph.Decision.UnsatisfiableCore](../PPGraph/Decision/UnsatisfiableCore.lean), [PPGraph.Decision.FiniteFeasibility](../PPGraph/Decision/FiniteFeasibility.lean) |
-| [PPGraph.Integration.MoserTardosRepair](../PPGraph/Integration/MoserTardosRepair.lean) | 8 | [PPGraph.Core.Repair](../PPGraph/Core/Repair.lean), [PPGraph.MoserTardos.Bounds.ConstantLog](../PPGraph/MoserTardos/Bounds/ConstantLog.lean) |
+| [PPGraph.Integration.MoserTardosRepair](../PPGraph/Integration/MoserTardosRepair.lean) | 12 | [PPGraph.Core.Repair](../PPGraph/Core/Repair.lean), [PPGraph.MoserTardos.Bounds.ConstantLog](../PPGraph/MoserTardos/Bounds/ConstantLog.lean) |
 | [PPGraph.Integration.Policy.HLSCounting](../PPGraph/Integration/Policy/HLSCounting.lean) | 14 | [PPGraph.Integration.Policy.HLSDAG](../PPGraph/Integration/Policy/HLSDAG.lean), [PPGraph.HLS.Probability.RootUnion](../PPGraph/HLS/Probability/RootUnion.lean) |
 | [PPGraph.Integration.Policy.HLSDAG](../PPGraph/Integration/Policy/HLSDAG.lean) | 16 | [PPGraph.Integration.Policy.MoserTardos](../PPGraph/Integration/Policy/MoserTardos.lean) |
 | [PPGraph.Integration.Policy.HLSExpectation](../PPGraph/Integration/Policy/HLSExpectation.lean) | 13 | [PPGraph.HLS.Probability.RefinedProbability](../PPGraph/HLS/Probability/RefinedProbability.lean), [PPGraph.Integration.Policy.HLSCounting](../PPGraph/Integration/Policy/HLSCounting.lean), [PPGraph.Integration.Policy.History](../PPGraph/Integration/Policy/History.lean) |

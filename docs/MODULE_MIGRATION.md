@@ -225,3 +225,29 @@ constructors remain intact. Theory source changes are confined to import lines.
 | `PPGraphShearerWitness` | `PPGraph.Shearer.Witness` | [PPGraph/Shearer/Witness.lean](../PPGraph/Shearer/Witness.lean) |
 | `PPGraphUnsatisfiableCore` | `PPGraph.Decision.UnsatisfiableCore` | [PPGraph/Decision/UnsatisfiableCore.lean](../PPGraph/Decision/UnsatisfiableCore.lean) |
 | `PPGraphVariableLLL` | `PPGraph.LLL.Variable` | [PPGraph/LLL/Variable.lean](../PPGraph/LLL/Variable.lean) |
+
+
+## Modules added after the reorganization
+
+`PPGraph.Integration.CertificationDependency` was introduced on 2026-10-28 at
+its current path. It has no former flat import. Its source-map `old_path` key
+therefore equals its current path; the historical migration table above records
+only modules that existed before the reorganization.
+
+## API corrections on 2026-10-28
+
+Numerical feasibility names now state their scope:
+
+| Earlier name | Current name |
+| --- | --- |
+| `locally_repairable` | `lll_budget_feasible` |
+| `coupled_obstruction` | `lll_budget_infeasible` |
+| `repairable_or_coupled` | `lll_budget_feasible_or_infeasible` |
+| `finest_quotient_pp_valid` | `finest_quotient_invariant` |
+
+The renamed Selection invariant helper states only endpoint certification.
+`finest_quotient_inherits_pp_valid` now proves actual `pp_valid` with a
+well-defined quotient RR. `proj_is_pp_morphism` and `proj_is_pp_quotient` conclude
+the shared categorical predicates, with explicit invariant/RR descent and edge
+noncollapse arguments. Callers must supply these mathematical obligations;
+source edges that collapse do not yield edges between distinct quotient nodes.
