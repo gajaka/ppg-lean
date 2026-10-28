@@ -75,17 +75,23 @@ Subsequent warning cleanup on macOS, 2026-10-25 passed a fresh 3,915-job
 `lake build` with zero warnings or errors. It replaced 161 deprecated API uses,
 58 `letI`/`haveI` bindings in proposition goals and 11 deprecated import shims, and
 added `module` headers to all 191 theory modules and two facades, without
-suppressing warnings. The current axiom audit covers all 4,896 project
+suppressing warnings. That axiom audit covered all 4,896 project
 declarations, including generated helpers, and all 1,824 explicit theorems/lemmas
 retain their `#check` entries; dependencies remain within the standard axiom
 allowlist. The 4,893-declaration refactoring results above and the 2026-10-18
 external-checker results remain historical.
 
 The module system changes generated helper visibility and proof extraction;
-the current inventory therefore has three more helper theorems. Authored
-theorem names and statements, model definitions, structures and instances are
-preserved. The one authored type whose printed proof witness changed was
+that inventory therefore had three more helper theorems. That cleanup preserved
+authored theorem names and statements, model definitions, structures and instances.
+The one authored type whose printed proof witness changed was
 checked for definitional equality by Lean's kernel.
+
+The theorem-scope cleanup on 2026-10-28 passed the full 3,915-job build with zero
+warnings or errors. Its whole-library audit covers 1,824 explicit results and
+all 4,904 project declarations, with only the standard axiom dependencies.
+The [scope note](docs/THEOREM_SCOPE.md) records the removed placeholder,
+strengthened repair statements and renamed order-preservation helper.
 
 ## Motivation
 
@@ -247,7 +253,11 @@ contains the concrete results. Different checks use different aspects of the
 measurements; shared data does not make them probabilistically independent.
 
 The library has **1,824 explicitly declared theorems and lemmas**, with an explicit
-`#check` for each. The diagram below shows how certification, dependency
+`#check` for each. This inventory includes structural laws, projections and API
+helpers as well as the main mathematical results. The
+[theorem-scope note](docs/THEOREM_SCOPE.md) explains the local-state repair model
+and the 2026-10-28 removal of a `True` placeholder. The diagram below shows how
+certification, dependency
 analysis, repair, finite decisions and work bounds fit together.
 
 The [module inventory](docs/THEORY_INDEX.md) lists all 191 modules. Run
@@ -302,14 +312,14 @@ the later probabilistic and decision results.
 | `PPGraph/Core/Graph.lean` | 22 | Core PPG framework: validity, walks, paths, evolution, monotonicity, connectivity, separation, deterministic traversal, violation detection, certificate chains |
 | `PPGraph/Core/Categorical.lean` | 10 | Categorical structure: morphisms, embeddings, quotients, refinement, simulation, composition |
 | `PPGraph/Core/Meta.lean` | 10 | Meta-PPG: graphs over refinement relations, backward compatibility, upgrade chains, spec versioning |
-| `PPGraph/Core/Repair.lean` | 8 | Repair semantics: isolation reversal, route bypass, locality, convergence |
+| `PPGraph/Core/Repair.lean` | 9 | Local value replacement under a fixed predicate: restoration, exact frame, healthy fixed points, no new isolation and unaffected active edges |
 | `PPGraph/Core/RR.lean` | 9 | Refinement relations: port of NASA pvslib sets_aux@rr_rel (rel_extension, RR, g/f-consistency, PPGConfig bridge) |
 | `PPGraph/Certification/Parametric.lean` | 24 | Parametric certification: master refinement, canonical levels, lattice operators, PPG bridge, repair bounds, threshold instance |
-| `PPGraph/Certification/ParametricQuotient.lean` | 26 | Quotient structure: cert_equiv, induced PartialOrder, CertInfClosed meet, LinearOrder separating |
+| `PPGraph/Certification/ParametricQuotient.lean` | 25 | Quotient structure: cert_equiv, induced PartialOrder, CertInfClosed meet, LinearOrder separating |
 | `PPGraph/Certification/Blocking.lean` | 7 | Blocking certificates: diagnostic layer, canonical has empty blocking, stricter has nonempty |
 | `PPGraph/Certification/QuotientBridge.lean` | 5 | Surjective specification projection: an edge maps to a quotient edge or collapses within a class; certification is well-defined on classes |
 | `PPGraph/Certification/Selection.lean` | 23 | Hierarchical representative selection: pullback equiv, finest equiv, CertFamily instance via OrderDual Finset, pp_quotient bridge |
-| `PPGraph/Optimization/ComplementarySlackness.lean` | 5 | LP duality for optimal transport: pointwise CS, Monge structure, strict uniqueness, zero duality gap certificate |
+| `PPGraph/Optimization/ComplementarySlackness.lean` | 5 | Pointwise complementary slackness, entry-cost equality and uniqueness of the tight Monge entry |
 | `PPGraph/Certification/SelfAssessment.lean` | 12 | Failure containment, contamination impossibility, assessment trichotomy, monotone recovery (state-based, spec fixed), three evolution modes |
 | `PPGraph/Certification/AssessmentBridge.lean` | 8 | Bridge: self-assessment ↔ parametric certification. Complete repair cycle: strict growth + blocking cleared + canonical frontier advances |
 | `PPGraph/Dependency/Probabilistic.lean` | 6 | Blocking dependency decomposition: dependency graph, LLL feasibility, pair infeasibility (quadratic discriminant), repair classification |

@@ -1,8 +1,8 @@
-PPGraph whole-library axiom audit — 2026-10-25
+PPGraph whole-library axiom audit — 2026-10-28
 
 PASS: 1824 explicitly declared theorems in 191 canonical modules.
 Also built and scanned: 2 import-only facades.
-Also audited: 1490 generated theorem constants and all remaining project declarations, 4896 declarations in total.
+Also audited: 1495 generated theorem constants and all remaining project declarations, 4904 declarations in total.
 Every explicitly declared theorem has an explicit #check.
 Module ownership comes from the imported Lean environment.
 Every project declaration is inspected with a temporary #print axioms command.
@@ -5030,7 +5030,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Quot.sound]
 'above_canonical_all_pass' does not depend on any axioms
 'active_edge' does not depend on any axioms
-'active_independent_of_isolated' does not depend on any axioms
+'active_edge.eq_1' does not depend on any axioms
+'active_independent_of_isolated' depends on axioms: [propext, Classical.choice, Quot.sound]
 'adj_imp_dependent' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ae_randomInitTLog_lt_top' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ae_randomInit_exists_good' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -5284,7 +5285,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'growAlong_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
 'growAlong_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
 'growAlong_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
-'healthy_self_stable' does not depend on any axioms
+'healthy_self_stable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'id_embedding' does not depend on any axioms
 'id_morphism' does not depend on any axioms
 'implementation_correct' does not depend on any axioms
@@ -5356,10 +5357,9 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'lens_pred' does not depend on any axioms
 'lens_pred_refl' does not depend on any axioms
 'lens_propagates' does not depend on any axioms
-'linear_cert_le_iff_le' depends on axioms: [propext]
+'linear_cert_le_of_le' depends on axioms: [propext]
 'linear_join_preserves' depends on axioms: [propext]
 'linear_strict_not_equiv' depends on axioms: [propext]
-'linear_strict_not_equiv_aux' does not depend on any axioms
 'list_concat_inj' depends on axioms: [propext]
 'list_forall_map_iff_pointwise' depends on axioms: [propext, Quot.sound]
 'list_map_eq_iff_of_mem' depends on axioms: [propext, Quot.sound]
@@ -5639,23 +5639,31 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'relaxation' does not depend on any axioms
 'relaxation_preserves' does not depend on any axioms
 'repair' does not depend on any axioms
+'repair_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+'repair_at.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'repair_candidates' does not depend on any axioms
 'repair_candidates_exist' does not depend on any axioms
 'repair_canonical_below_target' does not depend on any axioms
+'repair_choice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'repair_choice.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'repair_clears_blocking' does not depend on any axioms
-'repair_locality' does not depend on any axioms
+'repair_locality' depends on axioms: [propext, Classical.choice, Quot.sound]
 'repair_monotone_recovery' does not depend on any axioms
-'repair_no_cascade' does not depend on any axioms
+'repair_no_cascade' depends on axioms: [propext, Classical.choice, Quot.sound]
 'repair_noninterference' depends on axioms: [propext, Classical.choice, Quot.sound]
 'repair_noninterference_all' depends on axioms: [propext, Classical.choice, Quot.sound]
 'repair_possible' does not depend on any axioms
 'repair_preserves_certified' does not depend on any axioms
 'repair_raises_canonical' does not depend on any axioms
 'repair_removes_all_blockers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'repair_restores' depends on axioms: [propext, Classical.choice, Quot.sound]
 'repair_restores_broken_target' does not depend on any axioms
+'repair_state' depends on axioms: [propext, Classical.choice, Quot.sound]
+'repair_state.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'repair_strict_growth' does not depend on any axioms
 'repair_target' depends on axioms: [Classical.choice]
 'repair_target._proof_1' does not depend on any axioms
+'repair_target.congr_simp' depends on axioms: [Classical.choice]
 'repair_target_valid' depends on axioms: [Classical.choice]
 'repair_vs_relaxation' does not depend on any axioms
 'repairable_or_coupled' depends on axioms: [propext, Classical.choice, Quot.sound]

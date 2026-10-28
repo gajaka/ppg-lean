@@ -4,8 +4,9 @@
 
   Two specifications are certification-equivalent if they certify
   exactly the same data. The quotient Θ/~ gives the effective
-  specification space. The spec graph projects to a quotient PPG
-  via pp_quotient from PPGraphCategorical.
+  specification space. Certification-set inclusion induces a partial
+  order on this quotient. The graph projection is developed separately
+  in PPGraph.Certification.QuotientBridge.
 -/
 
 module
@@ -109,10 +110,8 @@ theorem cert_respects_equiv (F : CertFamily D Θ) (d : D) (t1 t2 : Θ)
 -- Section 4: PPG Quotient Bridge
 -- ═══════════════════════════════════════════════════════════════════
 
-/-- Spec edge respects certification equivalence:
-    if t1 ~ t1' and t2 ~ t2' and spec_edge t1 t2,
-    then certification at t1 implies certification at t2
-    (same as for t1' and t2') -/
+/-- Certification propagates along a specification edge by monotonicity.
+    This helper does not compare edges between equivalent representatives. -/
 theorem spec_edge_respects_equiv (F : CertFamily D Θ)
     (t1 t2 : Θ) (d : D)
     (h_edge : spec_edge t1 t2)
@@ -120,18 +119,19 @@ theorem spec_edge_respects_equiv (F : CertFamily D Θ)
     fully_certified F d t2 :=
   certification_propagates F d t1 t2 h_edge h_cert
 
-/-- The projection from Θ to SpecQuotient maps the certified subgraph
-    via a surjective map (quotient morphism in PPG sense) -/
+/-- Every quotient class has a representative. This is surjectivity of the
+    projection as a function; its graph properties are separate obligations. -/
 theorem quotient_projection_surjective (F : CertFamily D Θ) :
     Function.Surjective (Quotient.mk (certSetoid F)) :=
   fun q => Quotient.inductionOn q (fun a => ⟨a, rfl⟩)
 
 -- ═══════════════════════════════════════════════════════════════════
--- Section 5: Collapse Theorem
+-- Section 5: Certification Within an Equivalence Class
 -- ═══════════════════════════════════════════════════════════════════
 
-/-- If two specs are equivalent AND ordered, they must be equal
-    (no distinct equivalent specs in the same chain) -/
+/-- Certification transfers backwards between certification-equivalent
+    specifications. The order hypothesis is retained for this helper's API;
+    certification equivalence alone supplies the implication. -/
 theorem equiv_chain_collapses (F : CertFamily D Θ)
     (t1 t2 : Θ) (_h_order : t1 ≤ t2) (h_equiv : cert_equiv F t1 t2)
     (d : D) (h_cert : fully_certified F d t2) :
@@ -236,7 +236,7 @@ instance (F : CertFamily D Θ) : PartialOrder (SpecQuotient F) where
 #check @SpecQuotient.le_antisymm
 
 -- ═══════════════════════════════════════════════════════════════════
--- Section 7: Lattice on Quotient (under InfClosed assumption)
+-- Section 7: Meet on Quotient (under InfClosed assumption)
 -- ═══════════════════════════════════════════════════════════════════
 
 variable {Θ' : Type} [Lattice Θ']
@@ -299,23 +299,16 @@ theorem certified_sup_right (F : CertFamily D Θ') (d : D) (t1 t2 : Θ')
   intro C hC
   exact F.all_monotone C hC d t2 (t1 ⊔ t2) le_sup_right (h C hC)
 
--- Note: join does NOT respect cert_equiv in general.
--- Meet respects equiv under CertInfClosed (proved above).
--- Join would require an additional JoinCompat axiom.
--- This asymmetry is fundamental: satisfying sets are upward-closed
--- and closed under meets (under InfClosed), but not under joins.
+-- Upward closure preserves certification at joins, as proved above.
+-- Descending join to certification-equivalence classes is a different claim:
+-- changing either representative need not preserve the class of their join.
+-- That construction requires a separate compatibility hypothesis. The meet
+-- operation above is well-defined under CertInfClosed; no lattice instance
+-- on the quotient is constructed here.
 
 -- ═══════════════════════════════════════════════════════════════════
--- Section 8: Finite Total Order (full Lattice, no additional axioms)
+-- Section 8: Linear Orders and Separating Families
 -- ═══════════════════════════════════════════════════════════════════
-
-/-- For a LinearOrder, cert_equiv classes are convex and the
-    quotient order agrees with the original. -/
-theorem linear_strict_not_equiv_aux : True := trivial
-
--- Section 8: Finite Total Order (full Lattice, no additional axioms)
--- For a LinearOrder, cert_equiv → equality when certs separate points.
--- Quotient is trivial and inherits full Lattice from Θ.
 
 variable {Θ'' : Type} [LinearOrder Θ'']
 
@@ -344,8 +337,9 @@ theorem equiv_convex (F : CertFamily D Θ'')
     have h_cert3 : fully_certified F d t3 := master_refinement F d t2 t3 h23 h_cert2
     exact (h13 d).mpr h_cert3
 
-/-- In a linear order, the quotient order agrees with the original -/
-theorem linear_cert_le_iff_le (F : CertFamily D Θ'')
+/-- The original order implies inclusion of certified data sets.
+    The converse is not asserted for an arbitrary certificate family. -/
+theorem linear_cert_le_of_le (F : CertFamily D Θ'')
     (t1 t2 : Θ'') (h_le : t1 ≤ t2) :
     cert_le F t1 t2 := by
   intro d h_cert
@@ -380,8 +374,8 @@ theorem separating_equiv_eq (F : CertFamily D Θ'')
     obtain ⟨d, h_cert1, h_not2⟩ := h_sep t2 t1 h_gt
     exact h_not2 ((h_equiv d).mp h_cert1)
 
-/-- Under separating, the quotient is isomorphic to Θ itself.
-    Therefore the quotient inherits the full Lattice from LinearOrder. -/
+/-- For a separating family, equality of quotient classes implies equality
+    of their representatives: the quotient projection is injective. -/
 theorem separating_quotient_trivial (F : CertFamily D Θ'')
     (h_sep : separating F) (t1 t2 : Θ'')
     (h_q : Quotient.mk (certSetoid F) t1 = Quotient.mk (certSetoid F) t2) :
@@ -414,11 +408,8 @@ theorem separating_quotient_trivial (F : CertFamily D Θ'')
 #check @certified_sup_right
 #check @linear_strict_not_equiv
 #check @equiv_convex
-#check @linear_cert_le_iff_le
+#check @linear_cert_le_of_le
 #check @linear_join_preserves
 #check @separating
 #check @separating_equiv_eq
 #check @separating_quotient_trivial
-
--- Explicit checks for all remaining helper theorems.
-#check @linear_strict_not_equiv_aux

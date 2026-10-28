@@ -3,6 +3,8 @@
 This inventory covers 191 generic PPG theory modules and 1,824 explicit theorem/lemma declarations.
 Generated theorem constants are counted separately in the whole-library axiom audit.
 Counts describe declarations, not distinct applications or measured hardware cases.
+They include structural laws and helper lemmas. See [theorem scope](THEOREM_SCOPE.md)
+for the local-repair model and the removal of the former `True` placeholder.
 The `PPGraph` facade and `PPGraph.All` import entry point add no mathematical results
 and are not counted as theory modules.
 
@@ -13,8 +15,8 @@ Direct project imports below are read from the theory sources, including imports
 
 | Family | Theory modules | Explicit theorems/lemmas |
 | --- | ---: | ---: |
-| `Core` | 5 | 59 |
-| `Certification` | 8 | 109 |
+| `Core` | 5 | 60 |
+| `Certification` | 8 | 108 |
 | `Dependency` | 7 | 46 |
 | `LLL` | 3 | 65 |
 | `MoserTardos` | 44 | 388 |
@@ -33,7 +35,7 @@ Direct project imports below are read from the theory sources, including imports
 | [PPGraph.Certification.Blocking](../PPGraph/Certification/Blocking.lean) | 7 | [PPGraph.Certification.Parametric](../PPGraph/Certification/Parametric.lean) |
 | [PPGraph.Certification.EquivBridge](../PPGraph/Certification/EquivBridge.lean) | 4 | [PPGraph.Certification.Parametric](../PPGraph/Certification/Parametric.lean), [PPGraph.Certification.ParametricQuotient](../PPGraph/Certification/ParametricQuotient.lean), [PPGraph.Certification.Selection](../PPGraph/Certification/Selection.lean) |
 | [PPGraph.Certification.Parametric](../PPGraph/Certification/Parametric.lean) | 24 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean) |
-| [PPGraph.Certification.ParametricQuotient](../PPGraph/Certification/ParametricQuotient.lean) | 26 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean), [PPGraph.Certification.Parametric](../PPGraph/Certification/Parametric.lean), [PPGraph.Core.Categorical](../PPGraph/Core/Categorical.lean) |
+| [PPGraph.Certification.ParametricQuotient](../PPGraph/Certification/ParametricQuotient.lean) | 25 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean), [PPGraph.Certification.Parametric](../PPGraph/Certification/Parametric.lean), [PPGraph.Core.Categorical](../PPGraph/Core/Categorical.lean) |
 | [PPGraph.Certification.QuotientBridge](../PPGraph/Certification/QuotientBridge.lean) | 5 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean), [PPGraph.Certification.Parametric](../PPGraph/Certification/Parametric.lean), [PPGraph.Certification.ParametricQuotient](../PPGraph/Certification/ParametricQuotient.lean), [PPGraph.Core.Categorical](../PPGraph/Core/Categorical.lean) |
 | [PPGraph.Certification.Selection](../PPGraph/Certification/Selection.lean) | 23 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean), [PPGraph.Certification.Parametric](../PPGraph/Certification/Parametric.lean) |
 | [PPGraph.Certification.SelfAssessment](../PPGraph/Certification/SelfAssessment.lean) | 12 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean), [PPGraph.Core.Repair](../PPGraph/Core/Repair.lean) |
@@ -41,7 +43,7 @@ Direct project imports below are read from the theory sources, including imports
 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean) | 22 | - |
 | [PPGraph.Core.Meta](../PPGraph/Core/Meta.lean) | 10 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean) |
 | [PPGraph.Core.RR](../PPGraph/Core/RR.lean) | 9 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean) |
-| [PPGraph.Core.Repair](../PPGraph/Core/Repair.lean) | 8 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean) |
+| [PPGraph.Core.Repair](../PPGraph/Core/Repair.lean) | 9 | [PPGraph.Core.Graph](../PPGraph/Core/Graph.lean) |
 | [PPGraph.Decision.Abstraction](../PPGraph/Decision/Abstraction.lean) | 22 | [PPGraph.Decision.ReachabilityRefutation](../PPGraph/Decision/ReachabilityRefutation.lean) |
 | [PPGraph.Decision.CertifiedDecision](../PPGraph/Decision/CertifiedDecision.lean) | 6 | [PPGraph.Decision.RepairDecision](../PPGraph/Decision/RepairDecision.lean) |
 | [PPGraph.Decision.CorrectionDuality](../PPGraph/Decision/CorrectionDuality.lean) | 5 | [PPGraph.Decision.UnsatisfiableCore](../PPGraph/Decision/UnsatisfiableCore.lean) |

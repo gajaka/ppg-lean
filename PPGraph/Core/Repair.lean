@@ -2,12 +2,14 @@
   PPGraphRepair.lean
   Repair Semantics for Proof-Preserving Graphs
 
-  Extends PPG with repair: an isolated vertex can be restored
-  to active status via relational choice from its reach_rel neighbors.
+  A local graph-state model: each vertex slot initially stores its own V value.
+  Repair copies a selected healthy neighbor's value into one slot, leaving the
+  other values, edges and reach_rel unchanged. The original invariant predicate
+  is then evaluated on the updated values; its specification is fixed.
 
-  Key idea: repair(v) = choose w : reach_rel v w ∧ invariant_holds w
-
-  Imports PPGraph.lean for core definitions (Graph, pp_edge, pp_valid).
+  The update is explicit, so locality and non-interference compare the graph
+  before and after repair. Candidate existence is a hypothesis; this file does
+  not provide a repair-search algorithm or model an arbitrary implementation.
 -/
 
 module
@@ -51,6 +53,23 @@ theorem repair_target_valid (v : V) (h : repair_possible G v) :
     repair_candidates G v (repair_target G v h) :=
   Classical.choose_spec h.2
 
+-- Total selection leaves a vertex unchanged when no repair candidate is available.
+noncomputable def repair_choice (v : V) : V := by
+  classical
+  exact if h : repair_possible G v then repair_target G v h else v
+
+-- A slot stores its own value initially. Repair copies one selected V value;
+-- unavailable repairs leave every stored value unchanged.
+noncomputable def repair_state (v w : V) : V := by
+  classical
+  exact if w = v then repair_choice G v else w
+
+-- The repaired graph view evaluates the original invariant on repaired data.
+-- The predicate on V values, topology and reachability are not redefined.
+noncomputable def repair_at (v : V) : RepairGraph V := by
+  exact { G with invariant_holds := fun w =>
+    G.invariant_holds (repair_state G v w) }
+
 -- Route repair: bypass isolated vertex through valid neighbor
 def route_repairable (x v y : V) : Prop :=
   isolated G v ∧ G.edges x v ∧ G.edges v y ∧
@@ -72,19 +91,41 @@ theorem repair_candidates_exist (v : V)
   obtain ⟨_, w, hw⟩ := h
   exact ⟨w, hw⟩
 
--- T2: Repair locality - repairing v does not affect w's invariant
-theorem repair_locality (v w : V) (_ : v ≠ w)
-    (inv_w : G.invariant_holds w) :
-    G.invariant_holds w :=
-  inv_w
+-- A selected healthy candidate restores the repaired vertex in the updated graph.
+theorem repair_restores (v : V) (h : repair_possible G v) :
+    (repair_at G v).invariant_holds v := by
+  classical
+  simpa [repair_at, repair_state, repair_choice, h] using
+    (repair_target_valid G v h).2.2
 
--- T3: If reach_rel is reflexive for healthy vertices, healthy vertices
--- are trivially self-repairable
+-- T2: Updating v preserves the stored data and health of every distinct vertex.
+theorem repair_locality (v w : V) (hne : v ≠ w) :
+    repair_state G v w = w ∧
+      ((repair_at G v).invariant_holds w ↔ G.invariant_holds w) := by
+  classical
+  have hframe : repair_state G v w = w := by
+    simp [repair_state, Ne.symm hne]
+  exact ⟨hframe, by simp [repair_at, hframe]⟩
+
+-- T3: Healthy vertices are fixed by both total selection and graph repair.
 theorem healthy_self_stable (v : V)
-    (h_healthy : G.invariant_holds v)
-    (h_refl : G.invariant_holds v → G.reach_rel v v) :
-    G.reach_rel v v :=
-  h_refl h_healthy
+    (h_healthy : G.invariant_holds v) :
+    repair_choice G v = v ∧ repair_at G v = G := by
+  classical
+  have hn : ¬ repair_possible G v := fun h => h.1 h_healthy
+  have hchoice : repair_choice G v = v := by simp [repair_choice, hn]
+  constructor
+  · exact hchoice
+  · have hstate : repair_state G v = id := by
+      funext w
+      by_cases hw : w = v
+      · subst w
+        simpa [repair_state] using hchoice
+      · simp [repair_state, hw]
+    change { G with invariant_holds := fun w =>
+      G.invariant_holds (repair_state G v w) } = G
+    rw [hstate]
+    rfl
 
 -- T4: Route repair with healthy endpoints implies active bypass
 theorem route_bypass (x v y : V)
@@ -101,18 +142,26 @@ theorem global_means_candidates (h : globally_repairable G) (v : V)
     ∃ w : V, repair_candidates G v w := by
   exact repair_candidates_exist G v (h v hiso)
 
--- T6: Repair does not create new isolation
-theorem repair_no_cascade (v w : V) (_ : v ≠ w)
+-- T6: A local repair cannot isolate any previously healthy vertex.
+theorem repair_no_cascade (v w : V)
     (hw : G.invariant_holds w) :
-    G.invariant_holds w :=
-  hw
+    (repair_at G v).invariant_holds w := by
+  classical
+  by_cases hwv : w = v
+  · subst w
+    by_cases h : repair_possible G v
+    · exact repair_restores G v h
+    · simpa [repair_at, repair_state, repair_choice, h] using hw
+  · exact (repair_locality G v w (Ne.symm hwv)).2.mpr hw
 
--- T7: Active edge is independent of isolated vertex's status
-theorem active_independent_of_isolated (x w : V) (_ : V)
-    (he : G.edges x w) (hx : G.invariant_holds x)
-    (hw : G.invariant_holds w) :
-    active_edge G x w :=
-  ⟨he, hx, hw⟩
+-- T7: Repairing a third vertex preserves whether an edge is active.
+theorem active_independent_of_isolated (x w v : V)
+    (hvx : v ≠ x) (hvw : v ≠ w) :
+    active_edge (repair_at G v) x w ↔ active_edge G x w := by
+  classical
+  have hx : repair_state G v x = x := (repair_locality G v x hvx).1
+  have hw : repair_state G v w = w := (repair_locality G v w hvw).1
+  simp [active_edge, repair_at, hx, hw]
 
 -- ═══════════════════════════════════════════════════════════════════
 -- Verification
@@ -120,6 +169,7 @@ theorem active_independent_of_isolated (x w : V) (_ : V)
 
 #check @repair_candidates_exist
 #check @repair_target_valid
+#check @repair_restores
 #check @repair_locality
 #check @healthy_self_stable
 #check @route_bypass

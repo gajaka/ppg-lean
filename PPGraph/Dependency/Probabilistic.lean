@@ -167,8 +167,9 @@ def pair_discriminant (p1 p2 : Real) : Real :=
 
 /-- disc < 0 implies no (x1, x2) in [0,1)^2 satisfies both conditions. E.g.
     pair_discriminant 0.5 0.5 = -1 < 0, so no (x1,x2) can satisfy both
-    0.5 ≤ x1(1-x2) and 0.5 ≤ x2(1-x1) - c1,c2 with those failure
-    probabilities would be an unrepairable pair. -/
+    0.5 ≤ x1(1-x2) and 0.5 ≤ x2(1-x1). This rules out the sufficient
+    LLL budget system for that pair; it does not prove that no satisfying
+    state or semantic repair exists. -/
 theorem negative_disc_infeasible (p1 p2 : Real)
     (h_p1_pos : 0 < p1) (h_p2_pos : 0 < p2)
     (h_p1_lt : p1 < 1) (h_p2_lt : p2 < 1)

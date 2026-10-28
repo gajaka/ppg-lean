@@ -14,9 +14,9 @@
     Level 1: graphs validated by pp_valid
     Level 2: meta-graph over rr_rel instances (THIS FILE)
 
-  Application: spec versioning for hardware root-of-trust.
-  Each OpenTitan spec revision is a node; edge = upgrade preserves
-  implementation correctness.
+  A specification-versioning application must supply concrete configurations
+  and prove their compatibility. The results below transport correctness
+  along that supplied relation inclusion.
 -/
 
 module
@@ -54,12 +54,13 @@ def rr_of {T : Type} (cfg : RefinementConfig T) (x y : T) : Prop :=
 -- Section 2: Meta-Invariant (What makes a node "valid")
 -- ═══════════════════════════════════════════════════════════════════
 
--- A refinement config is "valid" if it satisfies basic sanity:
--- f_abs and g_con are consistent with the equivalence relation
+-- The first two conjuncts record reflexivity at the image points and follow
+-- from the bundled equivalence. The last conjunct separately requires the
+-- induced refinement relation to be reflexive.
 def config_valid {T : Type} (cfg : RefinementConfig T) : Prop :=
-  -- g_con consistency: g_con(y) is always in y's equivalence class under le
+  -- Reflexivity at the image of g_con; no relation to y is asserted here.
   (∀ y : T, cfg.le.rel (cfg.g_con y) (cfg.g_con y)) ∧
-  -- f_abs consistency: f_abs(x) is always in x's equivalence class under le
+  -- Reflexivity at the image of f_abs; no relation to x is asserted here.
   (∀ x : T, cfg.le.rel (cfg.f_abs x) (cfg.f_abs x)) ∧
   -- Reflexivity: every element is related to itself
   (∀ x : T, rr_of cfg x x)
@@ -144,7 +145,7 @@ theorem upgrade_chain_preserves (cfg1 cfg2 cfg3 : RefinementConfig T)
     rr_of cfg3 x y :=
   h23.2.2.2 x y (h12.2.2.2 x y h)
 
--- T8: Compatibility defines a preorder on valid configs
+-- T8: Relation inclusion defines a preorder on all configurations
 -- (reflexive + transitive, not necessarily antisymmetric)
 theorem compatibility_preorder :
     (∀ cfg : RefinementConfig T, configs_compatible cfg cfg) ∧

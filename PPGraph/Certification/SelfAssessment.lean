@@ -2,9 +2,9 @@
   PPGraphSelfAssessment.lean
   Formal Self-Assessment for Proof-Preserving Graphs
 
-  A PPG is failure-containing, self-assessing, and repair-capable.
-  A failure may change the certified region, but it cannot silently
-  redefine what counts as certified.
+  Graph extension uses a fixed invariant predicate. Its preservation lemmas
+  expose consequences of that model. State repair is treated separately:
+  a proposed operator must restore its target and preserve the certified core.
 
   Builds on PPGraph.lean (Graph, pp_valid, invariant_set, violation_set,
   pp_transform, violating_isolated) and PPGraphRepair.lean (RepairGraph,
@@ -12,10 +12,11 @@
 
   Key modeling choice: repair is a primitive operator (S → V → S) on
   system state. The specification (S → V → Prop) is an external fixed
-  parameter that repair cannot access or modify. The type system enforces
-  spec immutability. A repair operator is valid (proof-preserving) if it
+  parameter held fixed in every before/after statement. A repair operator
+  is valid (proof-preserving) if it
   satisfies two proof obligations: target restoration and core preservation.
-  Monotone recovery is then a derived theorem, not a definitional truth.
+  The later recovery results derive set inclusion and strict growth from
+  those obligations; a concrete operator must establish them independently.
 
   Author: Dragan Stosic, 2026.
 -/
@@ -37,9 +38,9 @@ variable {V : Type} [DecidableEq V]
 -- Section 1: Contamination Impossibility
 -- ═══════════════════════════════════════════════════════════════════
 
-/-- Under pp_transform, every vertex in the invariant set of G1
-    remains in the invariant set of G2. Invalid extensions cannot
-    corrupt the certified core. Direct use of invariant_monotone. -/
+/-- A graph extension preserves invariant-set membership under the same
+    predicate. This is the graph-level helper invariant_monotone; arbitrary
+    changes to system data require the separate state-repair contract below. -/
 theorem contamination_impossible (G1 G2 : Graph V)
     (rr_rel : V → V → Prop) (invariant_holds : V → Prop)
     (h_transform : pp_transform G1 G2 rr_rel invariant_holds)
@@ -61,10 +62,8 @@ theorem violations_propagate (G1 G2 : Graph V)
 -- Section 2: Silent Redefinition Impossibility
 -- ═══════════════════════════════════════════════════════════════════
 
-/-- pp_transform uses the SAME invariant_holds for both graphs.
-    Therefore the certified/violating partition is identical for any
-    vertex that exists in both. What counts as certified cannot be
-    silently redefined by graph evolution. -/
+/-- Membership at an existing vertex is unchanged because pp_transform
+    retains vertices and both graphs use the same invariant predicate. -/
 theorem no_silent_redefinition (G1 G2 : Graph V)
     (rr_rel : V → V → Prop) (invariant_holds : V → Prop)
     (h_transform : pp_transform G1 G2 rr_rel invariant_holds)
@@ -110,9 +109,9 @@ theorem certified_excludes_isolated (G : RepairGraph V) (v : V)
 --   Relaxation:   θ → θ', State fixed
 --   Repair:       s → s', Spec fixed
 --
--- Repair is a function on states. The specification is an external
--- fixed parameter - repair has no access to it as a mutable object.
--- The type system enforces spec immutability.
+-- Repair is a function on states. The theorems evaluate the same external
+-- specification before and after the update. A repair function can depend
+-- on that specification; preserving its truth requires the obligations below.
 -- ═══════════════════════════════════════════════════════════════════
 
 variable {S : Type}
@@ -121,8 +120,8 @@ variable {S : Type}
     This is the primitive - what the system does when it attempts to fix v. -/
 def RepairOp (S V : Type) := S → V → S
 
-/-- Specification: evaluates a state at a vertex. Fixed, external, immutable.
-    Repair cannot access or modify the specification - only the state. -/
+/-- A specification evaluates a state at a vertex. Each repair theorem holds
+    this predicate fixed while evaluating it on the old and new states. -/
 def Spec (S V : Type) := S → V → Prop
 
 /-- Target is broken in the current state. -/
@@ -141,10 +140,9 @@ def core_preserved (R : RepairOp S V) (spec : Spec S V) (s : S) (v : V) : Prop :
 def valid_repair (R : RepairOp S V) (spec : Spec S V) (s : S) (v : V) : Prop :=
   target_restored R spec s v ∧ core_preserved R spec s v
 
-/-- Monotone recovery: any valid repair operator on a broken target
-    produces a strictly larger certified region. The new state certifies
-    everything the old state certified, plus the target.
-    This is NOT definitional - it requires both proof obligations. -/
+/-- Expose target restoration and core preservation from the supplied repair
+    contract. The following theorems derive preservation at every vertex
+    and strict growth of the certified set. -/
 theorem repair_monotone_recovery (R : RepairOp S V) (spec : Spec S V)
     (s : S) (v : V)
     (h_broken : broken spec s v)

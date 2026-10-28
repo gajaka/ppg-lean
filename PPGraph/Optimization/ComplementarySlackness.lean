@@ -2,11 +2,12 @@
   PPGraphComplementarySlackness.lean
   Complementary Slackness for Optimal Transport
 
-  LP duality certificate: if P is primal-feasible, (u,v) is dual-feasible,
-  and primal cost equals dual cost, then complementary slackness holds.
+  A zero weighted slack at an entry with positive mass implies that entry's
+  dual constraint is tight. The other results derive entry-cost equality
+  and uniqueness properties for a supplied Monge plan.
 
-  We work with finite index types (Fin N, Fin M) and avoid sigma/sum
-  complexity by stating theorems pointwise where possible.
+  The statements are pointwise on Fin N and Fin M. This file does not
+  define aggregate primal/dual objectives or prove strong duality.
 -/
 
 module

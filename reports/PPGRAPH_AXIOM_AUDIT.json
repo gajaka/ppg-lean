@@ -1,5 +1,5 @@
 {
-  "date_utc": "2026-10-25",
+  "date_utc": "2026-10-28",
   "toolchain": "leanprover/lean4:v4.35.0",
   "full_build_passed": true,
   "kernel_checked_library": true,
@@ -18,8 +18,8 @@
     "PPGraph.All"
   ],
   "explicit_theorem_count": 1824,
-  "generated_theorem_count": 1490,
-  "environment_declaration_count": 4896,
+  "generated_theorem_count": 1495,
+  "environment_declaration_count": 4904,
   "source_sha256": {
     "PPGraph/Core/Graph.lean": "6e4d3ec172faa60aedb75a2c47451494e83284d38f37e560f86e319a0c295718",
     "PPGraph/Drift/Additive.lean": "d9e04c87dc3f806aea0e5a368ddc25dd18e768192a9c5e1d7a71f242e9957396",
@@ -35,7 +35,7 @@
     "PPGraph/Certification/Blocking.lean": "e9c28d8fe54a98b92bfc936e8d3c600caf139913dd9b0ccd7e8d964c9fd83bd4",
     "PPGraph/Core/Categorical.lean": "08bd6c7f17ee3c7804403e1b3dea5e8f1c9031efe34323b662e6e036ca356090",
     "PPGraph/Decision/CertifiedDecision.lean": "d5e266d0d0f951cbca185be18f77180891f8a95a3bb78ad995a0dca60e218c42",
-    "PPGraph/Optimization/ComplementarySlackness.lean": "cc882af1280a26f034f6850d21fa4396bbf21fce9cc6ff7889ed7d72c662e154",
+    "PPGraph/Optimization/ComplementarySlackness.lean": "9bb40d6117202186a4ffb34c217a70c863a618dfa803f9a503e59c006ef9bfb1",
     "PPGraph/Decision/CorrectionDuality.lean": "9c95f903ebe4a95bbe5b40e54f043407ab11b0123b1a8be52090f685ef984af1",
     "PPGraph/Certification/EquivBridge.lean": "27289fc50118a754b9dceb16c6995fa9a33f3f188fbd4aca347fdd55b4383e94",
     "PPGraph/Decision/FarkasCertificate.lean": "2786260ae4f187671ade4379d06f25dce17841e024d3f8dbdd7a31dda3b76133",
@@ -133,7 +133,7 @@
     "PPGraph/Decision/InfeasibilityCounting.lean": "1db8beecca5cbc463889c1f1a17e31991d02c8cbeed9e8cc76b7d25fc523fa35",
     "PPGraph/LLL/General.lean": "dcb84033d68ab0b86bf0e6c566ed262b4e22ecea06a09b1cf8f980d9b5a3e628",
     "PPGraph/LLL/Lopsided.lean": "dfbaa467fe2b26542df2bcba5341e9dd31208b9b61e751de59099e2db54d6e7d",
-    "PPGraph/Core/Meta.lean": "93728c07b8ec759e65fb340451091bb6168f9f21e3b203de0ed276190b4e828a",
+    "PPGraph/Core/Meta.lean": "0a69055f2d4b3e1d539b9ca5587f8de6ba0739a43f53e4236ebbf0c69e62f5cd",
     "PPGraph/MoserTardos/Process/Basic.lean": "2bbe5b89a538dba8948f8be0e3939a498501b4703d5b96b54ebff8b048bcfb53",
     "PPGraph/MoserTardos/Witness/Canonical.lean": "e44113aad479231985df4ac7896519b16a333d6266496471c570006d683e5ca5",
     "PPGraph/MoserTardos/Witness/Check.lean": "f98006bf97ba09d8200be3f5b9d8029b148975e5f08f66e1d9207a01666cfd45",
@@ -184,16 +184,16 @@
     "PPGraph/MoserTardos/Witness/Witness.lean": "5d6200abf4444ebbb2388d4b9992d0dc82e4e3983c4c081c22ea6f71d651379f",
     "PPGraph/MoserTardos/Witness/WitnessFamily.lean": "e8ec0abe57be524e584316f654f999870cf0dc7e7fe41a2c22fe4f8c43b13ffe",
     "PPGraph/Certification/Parametric.lean": "24b4e7053eeb6d84ce027cfc6b51f352a2d9ee6355d6dc0289414964640cbaea",
-    "PPGraph/Certification/ParametricQuotient.lean": "b3365f13a0c36d29ea714282f963a373e067f1661422d77dedfcc7b935542044",
-    "PPGraph/Dependency/Probabilistic.lean": "217dd3e8bf93b1ea76cf9076e6ea9a14b202628ede3791db92a73660edbed8b6",
+    "PPGraph/Certification/ParametricQuotient.lean": "36ce8a8498deef6db620c7377d765939058eee7004f439d017f3ab690c212dca",
+    "PPGraph/Dependency/Probabilistic.lean": "8ae737cf31b2f2177c0d829bdf2882fcbb3473f9a9e0c781064b5c60079a64f3",
     "PPGraph/Certification/QuotientBridge.lean": "3beedfab946ceb22af6a0e358e6379d9a392f0e742eece5ceabd5fab222cee0d",
     "PPGraph/Core/RR.lean": "35ee5b8a953048f5b06594930241d3b506c92304ffe58ee006b2f33ce112fc2d",
     "PPGraph/Decision/ReachabilityRefutation.lean": "768cdf05dce0e20a16129ea39dfc56a3d1ac92deb9f79fd973e7e478a36e5e85",
-    "PPGraph/Core/Repair.lean": "f0de01672fa510d506d037ca2a389d51fdfe21af99814772b8078ebbe517919e",
+    "PPGraph/Core/Repair.lean": "caba0ef56cce78cad3c77173e986cfdfc802629cd10020336fc11bbb2dde78d5",
     "PPGraph/Decision/RepairDecision.lean": "4f81c6f2cd63d5e04074fc1322a793f41babf663bc0c324980f971f69df1a8d1",
     "PPGraph/Decision/Undecidability.lean": "72d4663f3c6be5123c91caf7dc26d8accb8b9e81d233dfe8e5fecdbd39238dcf",
     "PPGraph/Certification/Selection.lean": "20ec045145192554a778f07ed945b1468797c53869df14caf4ebb13805d11c77",
-    "PPGraph/Certification/SelfAssessment.lean": "1aa3a28abe551f19993fb236e6a69b99648855c4ebb759d82e5192ca63238874",
+    "PPGraph/Certification/SelfAssessment.lean": "b1a65ec27b9175e85fc87c4e3c4a31d3985e016117b944c4f548e551951b2a1f",
     "PPGraph/Shearer/Basic.lean": "677f5753c2e83d76dc1a6215b059a5a6dc0502d74f80ab4bd22023a2d3161d1b",
     "PPGraph/Shearer/BDD.lean": "7fec8bdd838d30e5e763efc8da54dca470e8aae49a8905ac8f09008634ac0747",
     "PPGraph/Shearer/BDDBudget.lean": "2cd260cc026aad5fd842919e42fc653035ec947a9172cdc8669c4e37b22affb5",
@@ -220,9 +220,9 @@
     "lake-manifest.json": "69bd64ee24bd0360be6279ab7737e7b384b13db846fb9bfe5d0026f8debd4e72"
   },
   "audit_tool_sha256": "0a7849f6aa6d62f163e86f09292f3b4dd219db2b933d4b77143dc82c2cc99a75",
-  "full_build_log_sha256": "4a84b2515c8316e41aec375fa892d31954ea4fe68f96493a4aaee14965bf1447",
-  "inventory_log_sha256": "fbfb39fc5ee90f416ea1514e5aeedf8b49ab3f546b5d6c047e56bd0318600387",
-  "axiom_log_sha256": "8aadf626f18464b22715f10eda3c80d33613296b074c79fad30b4de408e2f2fe",
+  "full_build_log_sha256": "cf767436097f92b35a515d25640bd56a8c8e60732830c05842cb33c44cb515ec",
+  "inventory_log_sha256": "c9a516f95114eec92bdded4c6dc3731be35df3c9b6999e34384154c59b681665",
+  "axiom_log_sha256": "8493383c16dc13b0ae5584ebaf8deda0cf73f22c5e0d6a975bb4ec1cb7fa0387",
   "modules": {
     "PPGraph.Core.Graph": {
       "explicit_theorems": [
@@ -2556,15 +2556,14 @@
         "cert_inf_respects_equiv'",
         "certified_sup_left",
         "certified_sup_right",
-        "linear_strict_not_equiv_aux",
         "linear_strict_not_equiv",
         "equiv_convex",
-        "linear_cert_le_iff_le",
+        "linear_cert_le_of_le",
         "linear_join_preserves",
         "separating_equiv_eq",
         "separating_quotient_trivial"
       ],
-      "environment_declaration_count": 42
+      "environment_declaration_count": 41
     },
     "PPGraph.Dependency.Probabilistic": {
       "explicit_theorems": [
@@ -2622,6 +2621,7 @@
       "explicit_theorems": [
         "repair_target_valid",
         "repair_candidates_exist",
+        "repair_restores",
         "repair_locality",
         "healthy_self_stable",
         "route_bypass",
@@ -2629,7 +2629,7 @@
         "repair_no_cascade",
         "active_independent_of_isolated"
       ],
-      "environment_declaration_count": 34
+      "environment_declaration_count": 43
     },
     "PPGraph.Decision.RepairDecision": {
       "explicit_theorems": [
@@ -39754,11 +39754,21 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "active_edge.eq_1": {
+      "module": "PPGraph.Core.Repair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "active_independent_of_isolated": {
       "module": "PPGraph.Core.Repair",
       "kind": "theorem",
       "explicit_theorem": true,
-      "axioms": []
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
     },
     "adj_imp_dependent": {
       "module": "PPGraph.Dependency.Laplacian",
@@ -41897,7 +41907,11 @@
       "module": "PPGraph.Core.Repair",
       "kind": "theorem",
       "explicit_theorem": true,
-      "axioms": []
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
     },
     "id_embedding": {
       "module": "PPGraph.Core.Categorical",
@@ -42526,7 +42540,7 @@
       "explicit_theorem": true,
       "axioms": []
     },
-    "linear_cert_le_iff_le": {
+    "linear_cert_le_of_le": {
       "module": "PPGraph.Certification.ParametricQuotient",
       "kind": "theorem",
       "explicit_theorem": true,
@@ -42549,12 +42563,6 @@
       "axioms": [
         "propext"
       ]
-    },
-    "linear_strict_not_equiv_aux": {
-      "module": "PPGraph.Certification.ParametricQuotient",
-      "kind": "theorem",
-      "explicit_theorem": true,
-      "axioms": []
     },
     "list_concat_inj": {
       "module": "PPGraph.MoserTardos.Witness.Growing",
@@ -45118,6 +45126,26 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "repair_at": {
+      "module": "PPGraph.Core.Repair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "repair_at.eq_1": {
+      "module": "PPGraph.Core.Repair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "repair_candidates": {
       "module": "PPGraph.Core.Repair",
       "kind": "definition",
@@ -45136,6 +45164,26 @@
       "explicit_theorem": true,
       "axioms": []
     },
+    "repair_choice": {
+      "module": "PPGraph.Core.Repair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "repair_choice.eq_1": {
+      "module": "PPGraph.Core.Repair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "repair_clears_blocking": {
       "module": "PPGraph.Certification.AssessmentBridge",
       "kind": "theorem",
@@ -45146,7 +45194,11 @@
       "module": "PPGraph.Core.Repair",
       "kind": "theorem",
       "explicit_theorem": true,
-      "axioms": []
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
     },
     "repair_monotone_recovery": {
       "module": "PPGraph.Certification.SelfAssessment",
@@ -45158,7 +45210,11 @@
       "module": "PPGraph.Core.Repair",
       "kind": "theorem",
       "explicit_theorem": true,
-      "axioms": []
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
     },
     "repair_noninterference": {
       "module": "PPGraph.Dependency.Decomposition",
@@ -45208,11 +45264,41 @@
         "propext"
       ]
     },
+    "repair_restores": {
+      "module": "PPGraph.Core.Repair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "repair_restores_broken_target": {
       "module": "PPGraph.Certification.SelfAssessment",
       "kind": "theorem",
       "explicit_theorem": true,
       "axioms": []
+    },
+    "repair_state": {
+      "module": "PPGraph.Core.Repair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "repair_state.eq_1": {
+      "module": "PPGraph.Core.Repair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
     },
     "repair_strict_growth": {
       "module": "PPGraph.Certification.SelfAssessment",
@@ -45233,6 +45319,14 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
+    },
+    "repair_target.congr_simp": {
+      "module": "PPGraph.Core.Repair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice"
+      ]
     },
     "repair_target_valid": {
       "module": "PPGraph.Core.Repair",
