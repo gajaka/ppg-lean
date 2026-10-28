@@ -84,8 +84,9 @@ Its failing-index set maps exactly to `blocking_set`. At one fixed specification
 level, component footprints range over the whole tracked family, including
 currently passing certificates. Each update checks its entire affected component
 and preserves data outside the footprint. The same
-full-family preservation theorem constructs the `SelfAssessment.valid_repair`
-contract for the actual certificate predicates and changed data. Under predicate
+full-family preservation theorem constructs the `valid_repair` contract from
+`Certification/SelfAssessment.lean` for the actual certificate predicates and
+changed data. Under predicate
 locality, a finite checked plan covering every original blocker establishes
 full certification.
 The theorems require these contracts from each actual intermediate update;
