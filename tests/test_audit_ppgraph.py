@@ -179,5 +179,41 @@ class ModuleMapTests(unittest.TestCase):
             audit.validate_lake_configuration(self.root)
 
 
+class IncludedInputTests(unittest.TestCase):
+    def setUp(self):
+        directory = tempfile.TemporaryDirectory(prefix="ppg-input-audit-")
+        self.addCleanup(directory.cleanup)
+        self.root = Path(directory.name)
+        (self.root / "src").mkdir()
+        (self.root / "data").mkdir()
+        self.source = self.root / "src/Test.lean"
+        self.asset = self.root / "data/input.json"
+        self.asset.write_text('{"value": 1}\n')
+
+    def test_literal_inputs_comments_and_elaborator_antiquotation(self):
+        self.source.write_text('''-- include_str "missing.json"
+def text := "include_ascii_bytes"
+def value := include_str "../data/input.json"
+def bytes := include_ascii_bytes "../data/input.json"
+def elaborator := `(include_ascii_bytes $path:str)
+''')
+        self.assertEqual(audit.included_inputs([self.source], self.root),
+                         {self.source: [self.asset.resolve()]})
+
+    def test_missing_and_outside_inputs_are_rejected(self):
+        for name in ("missing.json", "../../outside.json"):
+            self.source.write_text(f'def value := include_str "{name}"\n')
+            with self.subTest(name=name), self.assertRaisesRegex(
+                    AssertionError, "missing/outside-project"):
+                audit.included_inputs([self.source], self.root)
+
+    def test_input_mutation_is_detected(self):
+        hashes = {"data/input.json": audit.digest(self.asset)}
+        audit.assert_hashes_unchanged(hashes, self.root)
+        self.asset.write_text('{"value": 2}\n')
+        with self.assertRaisesRegex(AssertionError, "source/input changed"):
+            audit.assert_hashes_unchanged(hashes, self.root)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

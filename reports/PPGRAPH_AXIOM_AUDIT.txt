@@ -1,14 +1,15 @@
 PPGraph whole-library axiom audit — 2026-10-28
 
-PASS: 1842 explicitly declared theorems in 192 canonical modules.
+PASS: 1876 explicitly declared theorems in 198 canonical modules.
 Also built and scanned: 2 import-only facades.
-Also audited: 1502 generated theorem constants and all remaining project declarations, 4953 declarations in total.
+Also audited: 1636 generated theorem constants and all remaining project declarations, 5368 declarations in total.
 Every explicitly declared theorem has an explicit #check.
 Module ownership comes from the imported Lean environment.
 Every project declaration is inspected with a temporary #print axioms command.
 Allowed dependencies: any subset of {propext, Classical.choice, Quot.sound}.
 No project-owned axioms, sorry/admit, native_decide, bv_decide, or unsafe/extern overrides.
-Full Lake build passed before inspection; source hashes checked afterward.
+Full Lake build passed; literal-input sources were freshly elaborated.
+Source and included-input hashes were checked across the audit.
 Scope: the canonical PPGraph modules and declared facades in tools/module-map.json, not .changes archival copies or Mathlib's own declarations. Transitive dependencies on imported proofs ARE checked.
 This audit does not prove paper fidelity, C compiler preservation, native hardware execution, acquisition, or optical response.
 Reproduce: python3 tools/audit_ppgraph.py
@@ -42,6 +43,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'CertFamily.ctorIdx' does not depend on any axioms
 'CertFamily.mk' does not depend on any axioms
 'CertFamily.mk._flat_ctor' does not depend on any axioms
+'CertFamily.mk.congr_simp' does not depend on any axioms
 'CertFamily.mk.inj' does not depend on any axioms
 'CertFamily.mk.injEq' depends on axioms: [propext]
 'CertFamily.mk.noConfusion' does not depend on any axioms
@@ -95,6 +97,21 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'CertificationDependency.run._sunfold' does not depend on any axioms
 'CertificationDependency.run._unsafe_rec' does not depend on any axioms
 'CertificationDependency.run.match_1' does not depend on any axioms
+'CertifiedQuotientExample.Spec' depends on axioms: [propext, Quot.sound]
+'CertifiedQuotientExample.cardinalityCertificate' depends on axioms: [propext, Quot.sound]
+'CertifiedQuotientExample.cardinalityCertificate.eq_1' depends on axioms: [propext, Quot.sound]
+'CertifiedQuotientExample.certificate_equiv_iff_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertifiedQuotientExample.different_middles_merge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertifiedQuotientExample.edges_separate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertifiedQuotientExample.family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertifiedQuotientExample.family._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertifiedQuotientExample.family.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertifiedQuotientExample.fully_certified_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertifiedQuotientExample.project' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertifiedQuotientExample.projected_edge_of_strict_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertifiedQuotientExample.projection_not_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertifiedQuotientExample.projection_pp_quotient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CertifiedQuotientExample.quotient_has_two_edges' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ConformsWith' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CostMatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CoupledIn' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -126,6 +143,118 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'EquivRel.trans' does not depend on any axioms
 'Exterior' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinestQuotient' does not depend on any axioms
+'FiniteAsciiJson.Value' does not depend on any axioms
+'FiniteAsciiJson.Value._sizeOf_1' does not depend on any axioms
+'FiniteAsciiJson.Value._sizeOf_2' does not depend on any axioms
+'FiniteAsciiJson.Value._sizeOf_2_eq' does not depend on any axioms
+'FiniteAsciiJson.Value._sizeOf_3' does not depend on any axioms
+'FiniteAsciiJson.Value._sizeOf_3_eq' does not depend on any axioms
+'FiniteAsciiJson.Value._sizeOf_4' does not depend on any axioms
+'FiniteAsciiJson.Value._sizeOf_inst' does not depend on any axioms
+'FiniteAsciiJson.Value.arr' does not depend on any axioms
+'FiniteAsciiJson.Value.arr.elim' does not depend on any axioms
+'FiniteAsciiJson.Value.arr.inj' does not depend on any axioms
+'FiniteAsciiJson.Value.arr.injEq' depends on axioms: [propext]
+'FiniteAsciiJson.Value.arr.noConfusion' does not depend on any axioms
+'FiniteAsciiJson.Value.arr.sizeOf_spec' does not depend on any axioms
+'FiniteAsciiJson.Value.below' does not depend on any axioms
+'FiniteAsciiJson.Value.below_1' does not depend on any axioms
+'FiniteAsciiJson.Value.below_2' does not depend on any axioms
+'FiniteAsciiJson.Value.below_3' does not depend on any axioms
+'FiniteAsciiJson.Value.brecOn' does not depend on any axioms
+'FiniteAsciiJson.Value.brecOn.eq' does not depend on any axioms
+'FiniteAsciiJson.Value.brecOn.go' does not depend on any axioms
+'FiniteAsciiJson.Value.brecOn_1' does not depend on any axioms
+'FiniteAsciiJson.Value.brecOn_1.eq' does not depend on any axioms
+'FiniteAsciiJson.Value.brecOn_1.go' does not depend on any axioms
+'FiniteAsciiJson.Value.brecOn_2' does not depend on any axioms
+'FiniteAsciiJson.Value.brecOn_2.eq' does not depend on any axioms
+'FiniteAsciiJson.Value.brecOn_2.go' does not depend on any axioms
+'FiniteAsciiJson.Value.brecOn_3' does not depend on any axioms
+'FiniteAsciiJson.Value.brecOn_3.eq' does not depend on any axioms
+'FiniteAsciiJson.Value.brecOn_3.go' does not depend on any axioms
+'FiniteAsciiJson.Value.casesOn' does not depend on any axioms
+'FiniteAsciiJson.Value.ctorElim' does not depend on any axioms
+'FiniteAsciiJson.Value.ctorElimType' does not depend on any axioms
+'FiniteAsciiJson.Value.ctorIdx' does not depend on any axioms
+'FiniteAsciiJson.Value.int' does not depend on any axioms
+'FiniteAsciiJson.Value.int.elim' does not depend on any axioms
+'FiniteAsciiJson.Value.int.inj' does not depend on any axioms
+'FiniteAsciiJson.Value.int.injEq' depends on axioms: [propext]
+'FiniteAsciiJson.Value.int.noConfusion' does not depend on any axioms
+'FiniteAsciiJson.Value.int.sizeOf_spec' does not depend on any axioms
+'FiniteAsciiJson.Value.noConfusion' does not depend on any axioms
+'FiniteAsciiJson.Value.noConfusionType' does not depend on any axioms
+'FiniteAsciiJson.Value.obj' does not depend on any axioms
+'FiniteAsciiJson.Value.obj.elim' does not depend on any axioms
+'FiniteAsciiJson.Value.obj.inj' does not depend on any axioms
+'FiniteAsciiJson.Value.obj.injEq' depends on axioms: [propext]
+'FiniteAsciiJson.Value.obj.noConfusion' does not depend on any axioms
+'FiniteAsciiJson.Value.obj.sizeOf_spec' does not depend on any axioms
+'FiniteAsciiJson.Value.rec' does not depend on any axioms
+'FiniteAsciiJson.Value.recOn' does not depend on any axioms
+'FiniteAsciiJson.Value.rec_1' does not depend on any axioms
+'FiniteAsciiJson.Value.rec_2' does not depend on any axioms
+'FiniteAsciiJson.Value.rec_3' does not depend on any axioms
+'FiniteAsciiJson.Value.str' does not depend on any axioms
+'FiniteAsciiJson.Value.str.elim' does not depend on any axioms
+'FiniteAsciiJson.Value.str.inj' does not depend on any axioms
+'FiniteAsciiJson.Value.str.injEq' depends on axioms: [propext]
+'FiniteAsciiJson.Value.str.noConfusion' does not depend on any axioms
+'FiniteAsciiJson.Value.str.sizeOf_spec' does not depend on any axioms
+'FiniteAsciiJson.array' depends on axioms: [propext]
+'FiniteAsciiJson.array._f' depends on axioms: [propext]
+'FiniteAsciiJson.array._sunfold' depends on axioms: [propext]
+'FiniteAsciiJson.array._unsafe_rec' depends on axioms: [propext]
+'FiniteAsciiJson.array.match_1' depends on axioms: [propext]
+'FiniteAsciiJson.array.match_3' does not depend on any axioms
+'FiniteAsciiJson.array.match_5' depends on axioms: [propext]
+'FiniteAsciiJson.array.match_7' does not depend on any axioms
+'FiniteAsciiJson.chars' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteAsciiJson.digit' does not depend on any axioms
+'FiniteAsciiJson.digits' does not depend on any axioms
+'FiniteAsciiJson.digits._f' does not depend on any axioms
+'FiniteAsciiJson.digits._sunfold' does not depend on any axioms
+'FiniteAsciiJson.digits._unsafe_rec' does not depend on any axioms
+'FiniteAsciiJson.digits.match_1' does not depend on any axioms
+'FiniteAsciiJson.get' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteAsciiJson.get._sparseCasesOn_1' depends on axioms: [propext]
+'FiniteAsciiJson.get.match_1' depends on axioms: [propext]
+'FiniteAsciiJson.getArray' depends on axioms: [propext]
+'FiniteAsciiJson.getArray._sparseCasesOn_1' depends on axioms: [propext]
+'FiniteAsciiJson.getArray.match_1' depends on axioms: [propext]
+'FiniteAsciiJson.getInt' depends on axioms: [propext]
+'FiniteAsciiJson.getInt._sparseCasesOn_1' depends on axioms: [propext]
+'FiniteAsciiJson.getInt.match_1' depends on axioms: [propext]
+'FiniteAsciiJson.getString' depends on axioms: [propext]
+'FiniteAsciiJson.getString._sparseCasesOn_1' depends on axioms: [propext]
+'FiniteAsciiJson.getString.match_1' depends on axioms: [propext]
+'FiniteAsciiJson.object' depends on axioms: [propext]
+'FiniteAsciiJson.object._f' depends on axioms: [propext]
+'FiniteAsciiJson.object._sunfold' depends on axioms: [propext]
+'FiniteAsciiJson.object._unsafe_rec' depends on axioms: [propext]
+'FiniteAsciiJson.object.match_1' depends on axioms: [propext]
+'FiniteAsciiJson.object.match_3' depends on axioms: [propext]
+'FiniteAsciiJson.object.match_5' depends on axioms: [propext]
+'FiniteAsciiJson.parse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteAsciiJson.parseBytes' depends on axioms: [propext]
+'FiniteAsciiJson.skip' does not depend on any axioms
+'FiniteAsciiJson.stringBody' does not depend on any axioms
+'FiniteAsciiJson.stringBody._f' does not depend on any axioms
+'FiniteAsciiJson.stringBody._sunfold' does not depend on any axioms
+'FiniteAsciiJson.stringBody._unsafe_rec' does not depend on any axioms
+'FiniteAsciiJson.stringBody.match_1' does not depend on any axioms
+'FiniteAsciiJson.value' depends on axioms: [propext]
+'FiniteAsciiJson.value._f' depends on axioms: [propext]
+'FiniteAsciiJson.value._sparseCasesOn_7' depends on axioms: [propext]
+'FiniteAsciiJson.value._sunfold' depends on axioms: [propext]
+'FiniteAsciiJson.value._unsafe_rec' depends on axioms: [propext]
+'FiniteAsciiJson.value.match_1' does not depend on any axioms
+'FiniteAsciiJson.value.match_10' does not depend on any axioms
+'FiniteAsciiJson.value.match_3' does not depend on any axioms
+'FiniteAsciiJson.value.match_5' does not depend on any axioms
+'FiniteAsciiJson.value.match_7' depends on axioms: [propext]
+'FiniteAsciiJson.whitespace' does not depend on any axioms
 'FiniteDrift.Conditions' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteDrift.Model' does not depend on any axioms
 'FiniteDrift.Model._sizeOf_1' does not depend on any axioms
@@ -399,6 +528,169 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'FinitePotential.systemMatrix_mulVec' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.systemRHS' depends on axioms: [propext, Quot.sound]
 'FinitePotential.systemRHS.eq_1' depends on axioms: [propext, Quot.sound]
+'FiniteReadCertificates.Check' does not depend on any axioms
+'FiniteReadCertificates.Check._sizeOf_1' does not depend on any axioms
+'FiniteReadCertificates.Check._sizeOf_inst' does not depend on any axioms
+'FiniteReadCertificates.Check.atom' does not depend on any axioms
+'FiniteReadCertificates.Check.atom.elim' does not depend on any axioms
+'FiniteReadCertificates.Check.atom.inj' does not depend on any axioms
+'FiniteReadCertificates.Check.atom.injEq' depends on axioms: [propext]
+'FiniteReadCertificates.Check.atom.noConfusion' does not depend on any axioms
+'FiniteReadCertificates.Check.atom.sizeOf_spec' does not depend on any axioms
+'FiniteReadCertificates.Check.below' does not depend on any axioms
+'FiniteReadCertificates.Check.both' does not depend on any axioms
+'FiniteReadCertificates.Check.both.elim' does not depend on any axioms
+'FiniteReadCertificates.Check.both.inj' does not depend on any axioms
+'FiniteReadCertificates.Check.both.injEq' depends on axioms: [propext]
+'FiniteReadCertificates.Check.both.noConfusion' does not depend on any axioms
+'FiniteReadCertificates.Check.both.sizeOf_spec' does not depend on any axioms
+'FiniteReadCertificates.Check.brecOn' does not depend on any axioms
+'FiniteReadCertificates.Check.brecOn.eq' does not depend on any axioms
+'FiniteReadCertificates.Check.brecOn.go' does not depend on any axioms
+'FiniteReadCertificates.Check.casesOn' does not depend on any axioms
+'FiniteReadCertificates.Check.ctorElim' does not depend on any axioms
+'FiniteReadCertificates.Check.ctorElimType' does not depend on any axioms
+'FiniteReadCertificates.Check.ctorIdx' does not depend on any axioms
+'FiniteReadCertificates.Check.either' does not depend on any axioms
+'FiniteReadCertificates.Check.either.elim' does not depend on any axioms
+'FiniteReadCertificates.Check.either.inj' does not depend on any axioms
+'FiniteReadCertificates.Check.either.injEq' depends on axioms: [propext]
+'FiniteReadCertificates.Check.either.noConfusion' does not depend on any axioms
+'FiniteReadCertificates.Check.either.sizeOf_spec' does not depend on any axioms
+'FiniteReadCertificates.Check.eval' does not depend on any axioms
+'FiniteReadCertificates.Check.eval._f' does not depend on any axioms
+'FiniteReadCertificates.Check.eval._sunfold' does not depend on any axioms
+'FiniteReadCertificates.Check.eval._unsafe_rec' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.eq_1' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.eq_2' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.eq_3' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.eq_4' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.eq_5' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.eq_6' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.eq_7' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.eq_def' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.match_1' does not depend on any axioms
+'FiniteReadCertificates.Check.eval_eq_of_agree_reads' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.Check.neg' does not depend on any axioms
+'FiniteReadCertificates.Check.neg.elim' does not depend on any axioms
+'FiniteReadCertificates.Check.neg.inj' does not depend on any axioms
+'FiniteReadCertificates.Check.neg.injEq' depends on axioms: [propext]
+'FiniteReadCertificates.Check.neg.noConfusion' does not depend on any axioms
+'FiniteReadCertificates.Check.neg.sizeOf_spec' does not depend on any axioms
+'FiniteReadCertificates.Check.noConfusion' does not depend on any axioms
+'FiniteReadCertificates.Check.noConfusionType' does not depend on any axioms
+'FiniteReadCertificates.Check.reads' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.Check.reads._f' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.Check.reads._sunfold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.Check.reads._unsafe_rec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.Check.reads.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.Check.reads.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.Check.reads.eq_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.Check.reads.eq_4' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.Check.reads.eq_5' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.Check.reads.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.Check.reads.match_1' does not depend on any axioms
+'FiniteReadCertificates.Check.rec' does not depend on any axioms
+'FiniteReadCertificates.Check.recOn' does not depend on any axioms
+'FiniteReadCertificates.Check.truth' does not depend on any axioms
+'FiniteReadCertificates.Check.truth.elim' does not depend on any axioms
+'FiniteReadCertificates.Check.truth.sizeOf_spec' does not depend on any axioms
+'FiniteReadCertificates.Comparison' does not depend on any axioms
+'FiniteReadCertificates.Comparison._sizeOf_1' does not depend on any axioms
+'FiniteReadCertificates.Comparison._sizeOf_inst' does not depend on any axioms
+'FiniteReadCertificates.Comparison.casesOn' does not depend on any axioms
+'FiniteReadCertificates.Comparison.ctorElim' does not depend on any axioms
+'FiniteReadCertificates.Comparison.ctorElimType' does not depend on any axioms
+'FiniteReadCertificates.Comparison.ctorIdx' does not depend on any axioms
+'FiniteReadCertificates.Comparison.eq' does not depend on any axioms
+'FiniteReadCertificates.Comparison.eq.elim' does not depend on any axioms
+'FiniteReadCertificates.Comparison.eq.sizeOf_spec' does not depend on any axioms
+'FiniteReadCertificates.Comparison.le' does not depend on any axioms
+'FiniteReadCertificates.Comparison.le.elim' does not depend on any axioms
+'FiniteReadCertificates.Comparison.le.sizeOf_spec' does not depend on any axioms
+'FiniteReadCertificates.Comparison.lt' does not depend on any axioms
+'FiniteReadCertificates.Comparison.lt.elim' does not depend on any axioms
+'FiniteReadCertificates.Comparison.lt.sizeOf_spec' does not depend on any axioms
+'FiniteReadCertificates.Comparison.noConfusion' does not depend on any axioms
+'FiniteReadCertificates.Comparison.noConfusionType' does not depend on any axioms
+'FiniteReadCertificates.Comparison.ofNat' does not depend on any axioms
+'FiniteReadCertificates.Comparison.ofNat_ctorIdx' does not depend on any axioms
+'FiniteReadCertificates.Comparison.rec' does not depend on any axioms
+'FiniteReadCertificates.Comparison.recOn' does not depend on any axioms
+'FiniteReadCertificates.allPass' does not depend on any axioms
+'FiniteReadCertificates.allPass.eq_1' does not depend on any axioms
+'FiniteReadCertificates.allPass_iff_certified' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.certificate' does not depend on any axioms
+'FiniteReadCertificates.certificate.eq_1' does not depend on any axioms
+'FiniteReadCertificates.family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.family._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.family.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.family_local' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.footprints' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.frame.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.frame.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.frame_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.holds_iff_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.indexedCheck' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.indexedCheck._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.instDecidableEqCheck' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._f' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_1' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_10' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_11' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_12' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_13' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_14' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_15' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_16' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_17' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_18' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_19' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_2' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_20' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_21' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_22' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_23' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_24' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_25' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_26' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_27' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_28' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_29' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_3' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_30' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_31' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_32' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_33' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_4' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_5' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_6' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_7' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_8' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._proof_9' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._sunfold' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq._unsafe_rec' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqCheck.decEq.match_1' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqComparison' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqComparison._proof_1' does not depend on any axioms
+'FiniteReadCertificates.instDecidableEqComparison._proof_2' does not depend on any axioms
+'FiniteReadCertificates.instInhabitedCheck' does not depend on any axioms
+'FiniteReadCertificates.instInhabitedCheck.default' does not depend on any axioms
+'FiniteReadCertificates.instReprCheck' depends on axioms: [propext]
+'FiniteReadCertificates.instReprCheck.repr' depends on axioms: [propext]
+'FiniteReadCertificates.instReprCheck.repr._f' depends on axioms: [propext]
+'FiniteReadCertificates.instReprCheck.repr._sunfold' depends on axioms: [propext]
+'FiniteReadCertificates.instReprCheck.repr._unsafe_rec' depends on axioms: [propext]
+'FiniteReadCertificates.instReprComparison' does not depend on any axioms
+'FiniteReadCertificates.instReprComparison.repr' does not depend on any axioms
+'FiniteReadCertificates.search' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.search_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.search_component_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.search_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.search_preserves_and_restores' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FiniteReadCertificates.search_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteResampling.Admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteResampling.ETLog_checkedClosedBad_eq_top' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteResampling.ETLog_eq_of_equations' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1799,6 +2091,99 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'Local' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LocalCost' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LogSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.F' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.before_target_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.checks' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.component_check_derived' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.contractFileBytes' does not depend on any axioms
+'LucesCertificateRepair.contract_source_bytes' does not depend on any axioms
+'LucesCertificateRepair.contract_source_decodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.decodeCheck' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.decodeContract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.decodeField' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.decodeRatio' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.decodeRatio._sparseCasesOn_1' depends on axioms: [propext]
+'LucesCertificateRepair.decodeRatio._sparseCasesOn_2' depends on axioms: [propext]
+'LucesCertificateRepair.decodeRatio._sparseCasesOn_3' depends on axioms: [propext]
+'LucesCertificateRepair.decodeRatio._sparseCasesOn_4' depends on axioms: [propext]
+'LucesCertificateRepair.decodeRatio.match_1' depends on axioms: [propext]
+'LucesCertificateRepair.decodeRows' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.duplicateMonge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.duplicateMonge._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.duplicate_preserved' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.finite_search_selects_candidate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.generator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.generator._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.generator_and_provenance_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.locality_derived' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.observedFileBytes' does not depend on any axioms
+'LucesCertificateRepair.observed_rows_decode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.observed_source_bytes' does not depend on any axioms
+'LucesCertificateRepair.protected_generator_before' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.protected_provenance_before' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.provenance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.provenance._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.selected_candidate_in_bank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.selected_repair_fully_certifies' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.selected_repair_restores_and_preserves' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'LucesCertificateRepair.target' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.target._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.target_reads' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesCertificateRepair.vars' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesObservedInputs.Field' does not depend on any axioms
+'LucesObservedInputs.Field._sizeOf_1' does not depend on any axioms
+'LucesObservedInputs.Field._sizeOf_inst' does not depend on any axioms
+'LucesObservedInputs.Field.casesOn' does not depend on any axioms
+'LucesObservedInputs.Field.ctorElim' does not depend on any axioms
+'LucesObservedInputs.Field.ctorElimType' does not depend on any axioms
+'LucesObservedInputs.Field.ctorIdx' does not depend on any axioms
+'LucesObservedInputs.Field.datasetKey' does not depend on any axioms
+'LucesObservedInputs.Field.datasetKey.elim' does not depend on any axioms
+'LucesObservedInputs.Field.datasetKey.sizeOf_spec' does not depend on any axioms
+'LucesObservedInputs.Field.generatorCos' does not depend on any axioms
+'LucesObservedInputs.Field.generatorCos.elim' does not depend on any axioms
+'LucesObservedInputs.Field.generatorCos.sizeOf_spec' does not depend on any axioms
+'LucesObservedInputs.Field.mongeFraction' does not depend on any axioms
+'LucesObservedInputs.Field.mongeFraction.elim' does not depend on any axioms
+'LucesObservedInputs.Field.mongeFraction.sizeOf_spec' does not depend on any axioms
+'LucesObservedInputs.Field.nnz' does not depend on any axioms
+'LucesObservedInputs.Field.nnz.elim' does not depend on any axioms
+'LucesObservedInputs.Field.nnz.sizeOf_spec' does not depend on any axioms
+'LucesObservedInputs.Field.noConfusion' does not depend on any axioms
+'LucesObservedInputs.Field.noConfusionType' does not depend on any axioms
+'LucesObservedInputs.Field.ofNat' does not depend on any axioms
+'LucesObservedInputs.Field.ofNat_ctorIdx' does not depend on any axioms
+'LucesObservedInputs.Field.position' does not depend on any axioms
+'LucesObservedInputs.Field.position.match_1' does not depend on any axioms
+'LucesObservedInputs.Field.rec' does not depend on any axioms
+'LucesObservedInputs.Field.recOn' does not depend on any axioms
+'LucesObservedInputs.Field.validRows' does not depend on any axioms
+'LucesObservedInputs.Field.validRows.elim' does not depend on any axioms
+'LucesObservedInputs.Field.validRows.sizeOf_spec' does not depend on any axioms
+'LucesObservedInputs.Field.violations' does not depend on any axioms
+'LucesObservedInputs.Field.violations.elim' does not depend on any axioms
+'LucesObservedInputs.Field.violations.sizeOf_spec' does not depend on any axioms
+'LucesObservedInputs.after' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesObservedInputs.bank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesObservedInputs.baseChecks' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesObservedInputs.before' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesObservedInputs.contractBytes' does not depend on any axioms
+'LucesObservedInputs.contractSource' does not depend on any axioms
+'LucesObservedInputs.datasetKey' depends on axioms: [propext, Quot.sound]
+'LucesObservedInputs.instDecidableEqField' does not depend on any axioms
+'LucesObservedInputs.instDecidableEqField._proof_1' does not depend on any axioms
+'LucesObservedInputs.instDecidableEqField._proof_2' does not depend on any axioms
+'LucesObservedInputs.instFintypeField' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesObservedInputs.instFintypeField._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesObservedInputs.instReprField' does not depend on any axioms
+'LucesObservedInputs.instReprField.repr' does not depend on any axioms
+'LucesObservedInputs.kernelBytes' does not depend on any axioms
+'LucesObservedInputs.kernelInputsSource' does not depend on any axioms
+'LucesObservedInputs.snapshotRows' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LucesObservedInputs.sourceCsvSHA256' does not depend on any axioms
+'LucesObservedInputs.stateOfRow' depends on axioms: [propext, Quot.sound]
 'MTGood' depends on axioms: [propext, Classical.choice, Quot.sound]
 'MTGood.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'MTPolicy.Admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -4055,6 +4440,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.Integration.CertificationDependency.0.CertificationDependency.fully_certified_iff_failing_empty._simp_1_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
+'_private.PPGraph.Integration.CertifiedQuotientExample.0.CertifiedQuotientExample.certificate_equiv_iff_card._simp_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Integration.CertifiedQuotientExample.0.CertifiedQuotientExample.family._simp_1' depends on axioms: [propext]
 '_private.PPGraph.Integration.DependencyInfeasibility.0.RepairFeasibility.frame_infeasible_iff_component_infeasible._simp_1_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -4072,6 +4461,52 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.FiniteMTDrift.0.FiniteResampling.table_hitCount_eq_TLog._simp_1_1' depends on axioms: [propext]
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.eq_1' does not depend on any axioms
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.eq_2' does not depend on any axioms
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.eq_3' does not depend on any axioms
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.eq_4' does not depend on any axioms
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.eq_5' does not depend on any axioms
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.eq_6' does not depend on any axioms
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.eq_7' does not depend on any axioms
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.splitter' does not depend on any axioms
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.reads.match_1.eq_1' does not depend on any axioms
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.reads.match_1.eq_2' does not depend on any axioms
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.reads.match_1.eq_3' does not depend on any axioms
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.reads.match_1.eq_4' does not depend on any axioms
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.reads.match_1.eq_5' does not depend on any axioms
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.reads.match_1.splitter' does not depend on any axioms
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.instReprCheck.repr.match_1' does not depend on any axioms
+'_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.instReprComparison.repr.match_1' does not depend on any axioms
+'_private.PPGraph.Integration.IncludeAsciiBytes.0.elabIncludeAsciiBytes._sparseCasesOn_1' depends on axioms: [propext]
+'_private.PPGraph.Integration.IncludeAsciiBytes.0.elabIncludeAsciiBytes.match_1' depends on axioms: [propext]
+'_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.before_target_fails._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.contract_source_decodes._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.duplicate_preserved._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.finite_search_selects_candidate._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.generator_and_provenance_fixed._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.observed_rows_decode._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.protected_generator_before._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.protected_provenance_before._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.target_reads._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Integration.LucesObservedInputs.0.LucesObservedInputs.instReprField.repr.match_1' does not depend on any axioms
 '_private.PPGraph.Integration.MoserTardosRepair.0.exists_edgeReach_good_of_good_target._proof_1_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -5257,6 +5692,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'drawFrom_constantLog' depends on axioms: [propext, Classical.choice, Quot.sound]
 'dual_feasible' depends on axioms: [propext, Classical.choice, Quot.sound]
 'edges_separate_classes' does not depend on any axioms
+'elabIncludeAsciiBytes' depends on axioms: [propext, Classical.choice, Quot.sound]
 'embedding_compose' does not depend on any axioms
 'embedding_is_morphism' does not depend on any axioms
 'empty_blocking_means_certified' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -5310,6 +5746,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'footprint_disjoint_of_diff_component' depends on axioms: [propext, Classical.choice, Quot.sound]
 'freshState' depends on axioms: [propext, Classical.choice, Quot.sound]
 'fully_certified' does not depend on any axioms
+'fully_certified.eq_1' does not depend on any axioms
 'g_consistent_with_RR' does not depend on any axioms
 'g_section' does not depend on any axioms
 'genuineAt' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -5340,6 +5777,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'incidenceMatrix.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'incidenceMatrix_entry_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
 'incidence_mul_transpose_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'includeAsciiBytes' does not depend on any axioms
 'independence_implies_lopsidependence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'independent' depends on axioms: [propext, Quot.sound]
 'independent.eq_1' depends on axioms: [propext, Quot.sound]

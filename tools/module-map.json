@@ -960,6 +960,36 @@
       "old_path": "PPGraph/Integration/CertificationDependency.lean",
       "path": "PPGraph/Integration/CertificationDependency.lean",
       "module": "PPGraph.Integration.CertificationDependency"
+    },
+    {
+      "old_path": "PPGraph/Integration/CertifiedQuotientExample.lean",
+      "path": "PPGraph/Integration/CertifiedQuotientExample.lean",
+      "module": "PPGraph.Integration.CertifiedQuotientExample"
+    },
+    {
+      "old_path": "PPGraph/Integration/FiniteReadCertificates.lean",
+      "path": "PPGraph/Integration/FiniteReadCertificates.lean",
+      "module": "PPGraph.Integration.FiniteReadCertificates"
+    },
+    {
+      "old_path": "PPGraph/Integration/FiniteAsciiJson.lean",
+      "path": "PPGraph/Integration/FiniteAsciiJson.lean",
+      "module": "PPGraph.Integration.FiniteAsciiJson"
+    },
+    {
+      "old_path": "PPGraph/Integration/IncludeAsciiBytes.lean",
+      "path": "PPGraph/Integration/IncludeAsciiBytes.lean",
+      "module": "PPGraph.Integration.IncludeAsciiBytes"
+    },
+    {
+      "old_path": "PPGraph/Integration/LucesObservedInputs.lean",
+      "path": "PPGraph/Integration/LucesObservedInputs.lean",
+      "module": "PPGraph.Integration.LucesObservedInputs"
+    },
+    {
+      "old_path": "PPGraph/Integration/LucesCertificateRepair.lean",
+      "path": "PPGraph/Integration/LucesCertificateRepair.lean",
+      "module": "PPGraph.Integration.LucesCertificateRepair"
     }
   ],
   "facades": [

@@ -234,6 +234,18 @@ its current path. It has no former flat import. Its source-map `old_path` key
 therefore equals its current path; the historical migration table above records
 only modules that existed before the reorganization.
 
+The later finite-read integration also added these modules at their current
+paths, without old flat imports:
+
+- `Integration.CertifiedQuotientExample`
+- `Integration.FiniteReadCertificates`
+- `Integration.FiniteAsciiJson`
+- `Integration.IncludeAsciiBytes`
+- `Integration.LucesObservedInputs`
+- `Integration.LucesCertificateRepair`
+
+Their source-map `old_path` keys likewise equal their current paths.
+
 ## API corrections on 2026-10-28
 
 Numerical feasibility names now state their scope:

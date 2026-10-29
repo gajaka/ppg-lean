@@ -1,9 +1,9 @@
 # Proof-Preserving Graphs: Formal Certification, Self-Assessment, and Repair (Lean 4)
 
 This Lean 4 development studies graded certification, blocking and repair. It
-contains **192 modules of generic PPG theory**. The LUCES controller motivated the
-work; concrete LUCES/nfer models, firmware, binary-memory models and measured
-datasets are developed separately.
+contains **198 modules**, covering generic PPG theory and a finite certificate
+repair example using measured LUCES inputs. The full controller, nfer models,
+firmware and binary-memory models are developed separately.
 
 ## Build and kernel verification
 
@@ -96,6 +96,11 @@ strengthened repair statements and renamed order-preservation helper.
 The subsequent structural-bridge update passed the full 3,916-job build and
 whole-library audit: 192 theory modules, 1,842 explicit results and all 4,953
 project declarations, with only the standard axiom dependencies.
+
+The finite-read integration update passed the full 3,922-job build and the
+whole-library audit: **198 modules, 1,876 explicit results and all 5,368 project
+declarations**. The audit also freshly elaborates literal-input sources and binds
+the included JSON files by SHA-256. Its 18 Python regression tests passed.
 
 ## Motivation
 
@@ -193,6 +198,21 @@ At a fixed specification, checked component updates preserve every previously pa
 certificate and instantiate the state-repair `valid_repair` contract. A finite
 checked plan covering the initial blockers establishes full certification. Locality and each update's frame and post-check are explicit obligations.
 
+The [finite-read evaluator](PPGraph/Integration/FiniteReadCertificates.lean)
+computes footprints from its comparison syntax and proves locality by induction.
+Its executable finite-bank search checks the write frame and the whole family;
+when it succeeds, restoration and preservation follow without a supplied
+`ComponentChecked` hypothesis. The [measured LUCES instance](PPGraph/Integration/LucesCertificateRepair.lean)
+uses five coupling proposals for one actual boot320 transport problem. The fourth
+proposal passes the Monge-fraction check but fails cycle and sparsity checks; the
+fifth passes all eight certificate positions. Generator and dataset-provenance
+fields remain fixed. Repeated predicates retain distinct indexed positions.
+
+The kernel decodes the included JSON contract and exact numeric rows, then
+checks this finite selection. The runner separately recomputes the matrices and
+feature provenance. This does not verify NumPy/POT, physical control, or a general
+program-repair synthesizer. See [the full scope](docs/THEOREM_SCOPE.md#finite-read-measured-instance).
+
 The repair layer requires a state change to restore the target while preserving
 prior certification. It also separates three claims: a repair path exists, a
 chosen random procedure reaches a good state almost surely, and its expected
@@ -261,7 +281,7 @@ would hide that distinction. The
 contains the concrete results. Different checks use different aspects of the
 measurements; shared data does not make them probabilistically independent.
 
-The library has **1,842 explicitly declared theorems and lemmas**, with an explicit
+The library has **1,876 explicitly declared theorems and lemmas**, with an explicit
 `#check` for each. This inventory includes structural laws, projections and API
 helpers as well as the main mathematical results. The
 [theorem-scope note](docs/THEOREM_SCOPE.md) explains the local-state repair model
@@ -269,7 +289,7 @@ and the 2026-10-28 removal of a `True` placeholder. The diagram below shows how
 certification, dependency
 analysis, repair, finite decisions and work bounds fit together.
 
-The [module inventory](docs/THEORY_INDEX.md) lists all 192 modules. Run
+The [module inventory](docs/THEORY_INDEX.md) lists all 198 modules. Run
 `python3 tools/audit_ppgraph.py` to rebuild and inspect the axiom dependencies of
 every project declaration, including generated theorem constants. Results and
 source hashes are recorded in `reports/PPGRAPH_AXIOM_AUDIT.txt` and
@@ -279,7 +299,7 @@ source hashes are recorded in `reports/PPGRAPH_AXIOM_AUDIT.txt` and
 
 ## Library layout
 
-The 192 theory modules are grouped by mathematical subject under `PPGraph/`.
+The 198 modules are grouped by mathematical subject under `PPGraph/`.
 Import a specific module to use one part of the library, or import
 `PPGraph.All` for the complete development. `import PPGraph` remains a small
 entry point for the core graph theory.
@@ -332,6 +352,9 @@ the later probabilistic and decision results.
 | `PPGraph/Certification/SelfAssessment.lean` | 12 | Fixed-predicate graph extension laws and a state-repair contract requiring target restoration and certified-core preservation |
 | `PPGraph/Certification/AssessmentBridge.lean` | 8 | Bridge: self-assessment ↔ parametric certification. Complete repair cycle: strict growth + blocking cleared + canonical frontier advances |
 | `PPGraph/Integration/CertificationDependency.lean` | 10 | Actual family/blocker correspondence, full-family component preservation and checked finite repair plans |
+| `PPGraph/Integration/FiniteReadCertificates.lean` | 10 | Syntax-derived reads/locality and sound, complete finite-bank checked search |
+| `PPGraph/Integration/LucesCertificateRepair.lean` | 16 | Actual JSON decoding, measured five-candidate repair and protected-field preservation |
+| `PPGraph/Integration/CertifiedQuotientExample.lean` | 8 | Noninjective diamond quotient with descent, noncollapse and a nonempty edge |
 | `PPGraph/Dependency/Probabilistic.lean` | 6 | Dependency graph and numerical LLL budget feasibility; discriminant-based budget infeasibility does not imply semantic irreparability |
 | `PPGraph/LLL/General.lean` | 30 | General Lovász Local Lemma (Alon-Spencer 5.1.1): key inductive bound, denominator telescope, good-event lower bound, positive probability, good state exists |
 | `PPGraph/MoserTardos/Process/Basic.lean` | 3 | Product probability space and resample operator |

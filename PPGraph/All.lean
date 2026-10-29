@@ -192,5 +192,11 @@ public import PPGraph.Shearer.Slack
 public import PPGraph.Shearer.SlackExpectation
 public import PPGraph.Shearer.Stable
 public import PPGraph.Shearer.Witness
+public import PPGraph.Integration.CertifiedQuotientExample
+public import PPGraph.Integration.FiniteReadCertificates
+public import PPGraph.Integration.FiniteAsciiJson
+public import PPGraph.Integration.IncludeAsciiBytes
+public import PPGraph.Integration.LucesObservedInputs
+public import PPGraph.Integration.LucesCertificateRepair
 
 /-! Complete generic PPG library. Individual modules can be imported separately. -/

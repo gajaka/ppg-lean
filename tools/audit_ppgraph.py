@@ -90,6 +90,51 @@ def inspect_library_sources(canonical, facades):
         inspect_source(path.read_text(), module)
 
 
+def included_inputs(paths, root=ROOT):
+    """Find literal file inputs without treating comments or syntax strings as code."""
+    root = root.resolve()
+    owners = {}
+    for path in paths:
+        source = path.read_text()
+        code = code_only(source)
+        assets = set()
+        for match in re.finditer(r"\b(?:include_str|include_ascii_bytes)\b", code):
+            rest = source[match.end():].lstrip()
+            # The elaborator's quoted syntax contains an antiquotation, not a file read.
+            if rest.startswith("$"):
+                continue
+            literal = re.match(r'"(?:[^"\\]|\\.)*"', rest)
+            if not literal:
+                raise AssertionError(f"nonliteral included input: {path}")
+            asset = (path.parent / json.loads(literal.group())).resolve()
+            if not asset.is_relative_to(root) or not asset.is_file():
+                raise AssertionError(f"missing/outside-project included input: {path}: {asset}")
+            assets.add(asset)
+        if assets:
+            owners[path] = sorted(assets)
+    return owners
+
+
+def assert_hashes_unchanged(hashes, root=ROOT):
+    for relative, expected in hashes.items():
+        path = root / relative
+        if not path.is_file() or digest(path) != expected:
+            raise AssertionError(f"source/input changed during audit: {relative}")
+
+
+def recheck_included_sources(lake, owners, log):
+    # Lake may reuse an olean when only a non-Lean input changes. Elaborating the
+    # literal-input owners again checks today's bytes even with a warm cache.
+    with log.open("w") as output:
+        for path in sorted(owners):
+            output.write(f"Checking literal inputs: {path.relative_to(ROOT)}\n")
+            output.flush()
+            result = subprocess.run([str(lake), "env", "lean", str(path)], cwd=ROOT,
+                                    text=True, stdout=output, stderr=subprocess.STDOUT)
+            if result.returncode:
+                raise AssertionError(f"literal-input elaboration failed; see {log}")
+
+
 def code_only(source):
     """Mask nested Lean comments and strings, retaining source line positions."""
     out = list(source)
@@ -318,8 +363,15 @@ def main():
     directory = toolchain.replace("/", "--").replace(":", "---")
     lake = Path.home() / ".elan/toolchains" / directory / "bin/lake"
     logs = {name: Path("/tmp/ppg-whole-" + name + ".log")
-            for name in ("build", "inventory", "axioms")}
+            for name in ("build", "inputs", "inventory", "axioms")}
+    owners = included_inputs([*canonical.values(), *facades.values()])
+    source_paths = list(canonical.values()) + list(facades.values()) + [ROOT / name for name in
+                    ("tools/module-map.json", "lakefile.lean", "lean-toolchain", "lake-manifest.json")]
+    source_paths += sorted({asset for assets in owners.values() for asset in assets})
+    source_hashes = {str(p.relative_to(ROOT)): digest(p) for p in source_paths}
     build(lake, logs["build"])
+    recheck_included_sources(lake, owners, logs["inputs"])
+    assert_hashes_unchanged(source_hashes)
     print("Discovering declarations from Lean module ownership...", flush=True)
     inventory = inventory_from_output(
         lean_harness(lake, modules, INVENTORY_BODY, logs["inventory"]), canonical, facades)
@@ -339,9 +391,12 @@ def main():
             with path.open("a") as output:
                 output.write("\n-- Explicit checks for all remaining helper theorems.\n")
                 output.write("\n".join("#check @" + name for name in names) + "\n")
+            source_hashes[str(path.relative_to(ROOT))] = digest(path)
         print(f"Added {sum(map(len, missing.values()))} #checks in {len(missing)} modules.",
               flush=True)
         build(lake, logs["build"])
+        recheck_included_sources(lake, owners, logs["inputs"])
+        assert_hashes_unchanged(source_hashes)
         inventory = inventory_from_output(
             lean_harness(lake, modules, INVENTORY_BODY, logs["inventory"]), canonical, facades)
         for module, path in canonical.items():
@@ -350,18 +405,13 @@ def main():
             if absent:
                 raise AssertionError(f"remaining missing checks: {path}: {absent}")
             explicit[module] = names
-    source_paths = list(canonical.values()) + list(facades.values()) + [ROOT / name for name in
-                    ("tools/module-map.json", "lakefile.lean", "lean-toolchain", "lake-manifest.json")]
-    source_hashes = {str(p.relative_to(ROOT)): digest(p) for p in source_paths}
     all_entries = {entry["name"]: {"module": module, **entry}
                    for module, entries in inventory.items() for entry in entries}
     print(f"Printing axiom dependencies of {len(all_entries)} project declarations...",
           flush=True)
     raw = lean_harness(lake, modules, DEPENDENCY_BODY, logs["axioms"])
     dependencies = dependencies_from_output(raw, all_entries)
-    for relative, expected in source_hashes.items():
-        if digest(ROOT / relative) != expected:
-            raise AssertionError(f"source changed during audit: {relative}")
+    assert_hashes_unchanged(source_hashes)
     theorem_names = sorted(name for names in explicit.values() for name in names)
     count = len(theorem_names)
     generated = sum(e["kind"] == "theorem" for e in all_entries.values()) - count
@@ -377,7 +427,8 @@ def main():
         "Every project declaration is inspected with a temporary #print axioms command.\n"
         "Allowed dependencies: any subset of {propext, Classical.choice, Quot.sound}.\n"
         "No project-owned axioms, sorry/admit, native_decide, bv_decide, or unsafe/extern overrides.\n"
-        "Full Lake build passed before inspection; source hashes checked afterward.\n"
+        "Full Lake build passed; literal-input sources were freshly elaborated.\n"
+        "Source and included-input hashes were checked across the audit.\n"
         "Scope: the canonical PPGraph modules and declared facades in tools/module-map.json, "
         "not .changes archival copies or Mathlib's "
         "own declarations. Transitive dependencies on imported proofs ARE checked.\n"
@@ -395,8 +446,15 @@ def main():
         "generated_theorem_count": generated,
         "environment_declaration_count": len(all_entries),
         "source_sha256": source_hashes,
+        "included_input_sha256": {
+            str(asset.relative_to(ROOT)): source_hashes[str(asset.relative_to(ROOT))]
+            for assets in owners.values() for asset in assets},
+        "included_input_owners": {
+            str(path.relative_to(ROOT)): [str(asset.relative_to(ROOT)) for asset in assets]
+            for path, assets in owners.items()},
         "audit_tool_sha256": digest(Path(__file__)),
         "full_build_log_sha256": digest(logs["build"]),
+        "literal_input_check_log_sha256": digest(logs["inputs"]),
         "inventory_log_sha256": digest(logs["inventory"]),
         "axiom_log_sha256": digest(logs["axioms"]),
         "modules": {module: {"explicit_theorems": names,

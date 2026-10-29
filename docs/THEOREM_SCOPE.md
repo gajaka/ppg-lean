@@ -107,5 +107,64 @@ assumed to stay in that component automatically.
 
 Numerical feasibility predicates are named `lll_budget_feasible` and
 `lll_budget_infeasible`, making their sufficient-criterion scope explicit.
-The current inventory contains 192 theory modules and 1,842 explicit results;
-the structural extensions add eighteen results to the earlier inventory.
+That structural update contained 192 theory modules and 1,842 explicit results;
+its extensions added eighteen results to the earlier inventory.
+
+
+## Finite-read measured instance
+
+`Integration.FiniteReadCertificates` adds a finite comparison language over
+rational-valued fields. `Check.reads` traverses the same syntax evaluated by
+`Check.eval`; locality is proved by induction. A finite candidate search checks
+all certificate positions and equality outside the permitted write footprint.
+Its soundness theorem derives `ComponentChecked`, restoration, full certification
+and preservation of every previously passing tracked certificate. Its completeness
+is relative to that finite candidate bank and those exact checks. It does not
+construct an arbitrary code change or assume every input has a passing candidate.
+
+`Integration.LucesCertificateRepair` instantiates it with the runner's actual
+local-plan comparisons and five measured boot320 coupling proposals. The eight
+positions include four atomic checks, their conjunction, a repeated Monge check,
+a signed-generator check and a CSV-digest check. Footprints are derived rather
+than asserted. The original independent coupling fails; the fourth proposal
+passes the Monge threshold but still fails cycle and sparsity tests; the fifth
+passes all positions. The selected change preserves the generator and dataset
+fields, and hence the two protected certificates. Duplicate checks remain
+separate positions in both this Lean instance and the new indexed PVS bridge.
+The legacy PVS predicate-set bridge merges equal predicates and is a separate
+construction; no graph isomorphism with that legacy bridge is claimed.
+
+The normative contract is `artifacts/luces/local_plan.json`. The exact observed
+binary64 ratios are in `local_plan_kernel_inputs.json`. A frontend file loader,
+like `include_str`, emits their ASCII bytes as ordinary Lean literals; it neither
+parses JSON nor proves propositions. A bounded pure Lean reader then decodes
+these specific files, and kernel proofs identify their checks and rows with the
+instance. This reader is not a complete JSON implementation. The audit freshly
+elaborates the literal-input owners and records hashes of their inputs, covering
+warm Lake caches as well as source changes. No native proof evaluator or additional
+axiom is used.
+
+The reader accepts only ASCII strings and integer numbers; it also accepts
+leading-zero integers and resolves duplicate object keys to their first value.
+The frozen artifacts are strict JSON with unique keys, so those general parser
+differences do not affect these concrete decoding proofs. Row decoding validates
+field names, row widths and numeric ratios. Metadata hashes and the recorded
+selection index are checked by the exporter, rather than by a kernel SHA-256
+implementation; the selection theorem independently computes the accepted row.
+
+`tools/export_luces_instance.py --runner-root ../master-controler --check` checks
+exact artifacts and their CSV/producer hashes. The runner additionally recomputes
+the coupling matrices and extracted features. These are numerical/provenance
+checks, not a formal verification of Python, NumPy, POT, the CSV acquisition
+process or physical actuation.
+
+`Integration.CertifiedQuotientExample` supplies a concrete noninjective quotient
+of the four subsets of `Fin 2`. The two middle vertices merge. Certification
+descends by cardinality; strict source edges cannot collapse, and a nonempty
+quotient edge is proved. It instantiates the shared categorical `pp_quotient`,
+whose contract here is a surjective forward morphism rather than a universal
+property for arbitrary categories.
+
+The current audit covers 198 modules, 1,876 explicit results and all 5,368
+project declarations. The six added modules contribute 34 explicit results; the
+remaining additions define the finite reader, file embedding and observed data.

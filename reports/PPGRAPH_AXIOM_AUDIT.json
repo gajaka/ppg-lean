@@ -11,15 +11,15 @@
     "propext"
   ],
   "project_owned_axioms": 0,
-  "module_count": 192,
+  "module_count": 198,
   "facade_count": 2,
   "facades": [
     "PPGraph",
     "PPGraph.All"
   ],
-  "explicit_theorem_count": 1842,
-  "generated_theorem_count": 1502,
-  "environment_declaration_count": 4953,
+  "explicit_theorem_count": 1876,
+  "generated_theorem_count": 1636,
+  "environment_declaration_count": 5368,
   "source_sha256": {
     "PPGraph/Core/Graph.lean": "6e4d3ec172faa60aedb75a2c47451494e83284d38f37e560f86e319a0c295718",
     "PPGraph/Drift/Additive.lean": "d9e04c87dc3f806aea0e5a368ddc25dd18e768192a9c5e1d7a71f242e9957396",
@@ -213,17 +213,40 @@
     "PPGraph/Decision/UnsatisfiableCore.lean": "7abebec429626aa0143bf5a41bdf80c1f9fe64062248478119e86b6e9963780a",
     "PPGraph/LLL/Variable.lean": "c8772e34215fae9eff66898ca8533b0f554f1c8eceec97bbe36e834d5edf81d4",
     "PPGraph/Integration/CertificationDependency.lean": "0de8f7564477c63c449650ad310d0f2315b2738809f83099b4efdf4002e39a11",
+    "PPGraph/Integration/CertifiedQuotientExample.lean": "37efe22b93375b86a6a99cc085de3977917d3bfcc2ef65e624aa4b8f20f2a688",
+    "PPGraph/Integration/FiniteReadCertificates.lean": "8dfd8575aec21c073b52d14f5df6a6d02252c1bd68127d6f65dd8576e031adaf",
+    "PPGraph/Integration/FiniteAsciiJson.lean": "c2ec8c4cfc2c3a560cff9a82729c63fdef9bad1b0fac62a89bf3073f2f136866",
+    "PPGraph/Integration/IncludeAsciiBytes.lean": "2794677295b0f3e78d8f8f527f3c7cf45c814be4690910c40317e32ce1bb98ae",
+    "PPGraph/Integration/LucesObservedInputs.lean": "e75d4481516ea41ddbe7ae6c7b52637b0129862cb56f2e6546ef8aa49fab2bda",
+    "PPGraph/Integration/LucesCertificateRepair.lean": "9029aba304cd0042298ab6a635cf92dadf23e01125b56a11f907f7450f7b9f7b",
     "PPGraph.lean": "41760bb8a3187d98b8fdaaf2329d5296d753d161c6dbbdf979e98606908d3e96",
-    "PPGraph/All.lean": "1a3ceeeb7b7a0cbc5ba74154b64ca39fe6c5352f2524a61bf586bca1ac08fcb1",
-    "tools/module-map.json": "fc92e6969d8071e1637f631b7ee46928154df15845998b7465e3132d8dc170b8",
+    "PPGraph/All.lean": "da2abc314ebac6b53adf096a8c29d39e2ba6edb012d4a160243826e60a183057",
+    "tools/module-map.json": "aa49fe92f8e40f943e8a2481be47c98bd157b8c54d004a8fc5b9b865fd4ff577",
     "lakefile.lean": "38fc21914e2365b1948c01db24f709abe5dc0d3347b928fbf7f10f94bb026d5a",
     "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
-    "lake-manifest.json": "69bd64ee24bd0360be6279ab7737e7b384b13db846fb9bfe5d0026f8debd4e72"
+    "lake-manifest.json": "69bd64ee24bd0360be6279ab7737e7b384b13db846fb9bfe5d0026f8debd4e72",
+    "artifacts/luces/local_plan.json": "86f65e4d4c779825b809380a204ecb7746cdb50a995baebd0bec2f37b2dc9192",
+    "artifacts/luces/local_plan_kernel_inputs.json": "c4837b129b640eb5f246659bc2f85f03d0ebb18e5c314bc9c03c5801e228c4e9"
   },
-  "audit_tool_sha256": "0a7849f6aa6d62f163e86f09292f3b4dd219db2b933d4b77143dc82c2cc99a75",
-  "full_build_log_sha256": "c966a38f1dcf4468af408944e3d85f19119b56df996ff253cd896df62aeac71b",
-  "inventory_log_sha256": "44d9b01554ce048412d921bd728cdc4f115d5a0dfc4d23f74d17dc3150a4eda5",
-  "axiom_log_sha256": "52b7adc3504ff7b98db7fc8e9ea61abbd57f0f59f01c383554dd7b7d20f83155",
+  "included_input_sha256": {
+    "artifacts/luces/local_plan.json": "86f65e4d4c779825b809380a204ecb7746cdb50a995baebd0bec2f37b2dc9192",
+    "artifacts/luces/local_plan_kernel_inputs.json": "c4837b129b640eb5f246659bc2f85f03d0ebb18e5c314bc9c03c5801e228c4e9"
+  },
+  "included_input_owners": {
+    "PPGraph/Integration/LucesObservedInputs.lean": [
+      "artifacts/luces/local_plan.json",
+      "artifacts/luces/local_plan_kernel_inputs.json"
+    ],
+    "PPGraph/Integration/LucesCertificateRepair.lean": [
+      "artifacts/luces/local_plan.json",
+      "artifacts/luces/local_plan_kernel_inputs.json"
+    ]
+  },
+  "audit_tool_sha256": "a5724e0d785228856590132c5d46a0f3f3c760d822ce9040ca5a31f3c3c7b459",
+  "full_build_log_sha256": "e7d44750be992284e0a21d3bfaf57e5207fd8fef3800c360f6558ef115c9c57d",
+  "literal_input_check_log_sha256": "0aacf5bb05ba4de83dc4bfe8558fe1c73a98df5202d5a90856896e42325b4b4c",
+  "inventory_log_sha256": "1fe62c5d5b9ee982c576a794b933b8f4d8501dc2682b8151bc359c685c4df8dc",
+  "axiom_log_sha256": "3f0877070156e56cd2cffc5998c6aba93084e3da381577f86e99e5b464291581",
   "modules": {
     "PPGraph.Core.Graph": {
       "explicit_theorems": [
@@ -3026,6 +3049,67 @@
         "CertificationDependency.checked_plan_certifies"
       ],
       "environment_declaration_count": 27
+    },
+    "PPGraph.Integration.CertifiedQuotientExample": {
+      "explicit_theorems": [
+        "CertifiedQuotientExample.fully_certified_iff",
+        "CertifiedQuotientExample.certificate_equiv_iff_card",
+        "CertifiedQuotientExample.edges_separate",
+        "CertifiedQuotientExample.projection_pp_quotient",
+        "CertifiedQuotientExample.different_middles_merge",
+        "CertifiedQuotientExample.projection_not_injective",
+        "CertifiedQuotientExample.projected_edge_of_strict_subset",
+        "CertifiedQuotientExample.quotient_has_two_edges"
+      ],
+      "environment_declaration_count": 19
+    },
+    "PPGraph.Integration.FiniteReadCertificates": {
+      "explicit_theorems": [
+        "FiniteReadCertificates.Check.eval_eq_of_agree_reads",
+        "FiniteReadCertificates.holds_iff_eval",
+        "FiniteReadCertificates.family_local",
+        "FiniteReadCertificates.allPass_iff_certified",
+        "FiniteReadCertificates.frame_iff",
+        "FiniteReadCertificates.search_sound",
+        "FiniteReadCertificates.search_mem",
+        "FiniteReadCertificates.search_complete",
+        "FiniteReadCertificates.search_component_checked",
+        "FiniteReadCertificates.search_preserves_and_restores"
+      ],
+      "environment_declaration_count": 179
+    },
+    "PPGraph.Integration.FiniteAsciiJson": {
+      "explicit_theorems": [],
+      "environment_declaration_count": 112
+    },
+    "PPGraph.Integration.IncludeAsciiBytes": {
+      "explicit_theorems": [],
+      "environment_declaration_count": 4
+    },
+    "PPGraph.Integration.LucesObservedInputs": {
+      "explicit_theorems": [],
+      "environment_declaration_count": 53
+    },
+    "PPGraph.Integration.LucesCertificateRepair": {
+      "explicit_theorems": [
+        "LucesCertificateRepair.contract_source_bytes",
+        "LucesCertificateRepair.contract_source_decodes",
+        "LucesCertificateRepair.observed_source_bytes",
+        "LucesCertificateRepair.observed_rows_decode",
+        "LucesCertificateRepair.locality_derived",
+        "LucesCertificateRepair.target_reads",
+        "LucesCertificateRepair.duplicate_preserved",
+        "LucesCertificateRepair.before_target_fails",
+        "LucesCertificateRepair.protected_generator_before",
+        "LucesCertificateRepair.protected_provenance_before",
+        "LucesCertificateRepair.finite_search_selects_candidate",
+        "LucesCertificateRepair.selected_candidate_in_bank",
+        "LucesCertificateRepair.component_check_derived",
+        "LucesCertificateRepair.selected_repair_restores_and_preserves",
+        "LucesCertificateRepair.selected_repair_fully_certifies",
+        "LucesCertificateRepair.generator_and_provenance_fixed"
+      ],
+      "environment_declaration_count": 48
     }
   },
   "declarations": {
@@ -3249,6 +3333,12 @@
     "CertFamily.mk._flat_ctor": {
       "module": "PPGraph.Certification.Parametric",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "CertFamily.mk.congr_simp": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -3645,6 +3735,153 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "CertifiedQuotientExample.Spec": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertifiedQuotientExample.cardinalityCertificate": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertifiedQuotientExample.cardinalityCertificate.eq_1": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertifiedQuotientExample.certificate_equiv_iff_card": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertifiedQuotientExample.different_middles_merge": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertifiedQuotientExample.edges_separate": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertifiedQuotientExample.family": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertifiedQuotientExample.family._proof_2": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertifiedQuotientExample.family.eq_1": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertifiedQuotientExample.fully_certified_iff": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertifiedQuotientExample.project": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertifiedQuotientExample.projected_edge_of_strict_subset": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertifiedQuotientExample.projection_not_injective": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertifiedQuotientExample.projection_pp_quotient": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "CertifiedQuotientExample.quotient_has_two_edges": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "ConformsWith": {
       "module": "PPGraph.LLL.Variable",
       "kind": "definition",
@@ -3873,6 +4110,760 @@
     },
     "FinestQuotient": {
       "module": "PPGraph.Certification.Selection",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "inductive",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value._sizeOf_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value._sizeOf_2": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value._sizeOf_2_eq": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value._sizeOf_3": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value._sizeOf_3_eq": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value._sizeOf_4": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value._sizeOf_inst": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.arr": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.arr.elim": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.arr.inj": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.arr.injEq": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.Value.arr.noConfusion": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.arr.sizeOf_spec": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.below": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.below_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.below_2": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.below_3": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.brecOn": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.brecOn.eq": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.brecOn.go": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.brecOn_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.brecOn_1.eq": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.brecOn_1.go": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.brecOn_2": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.brecOn_2.eq": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.brecOn_2.go": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.brecOn_3": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.brecOn_3.eq": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.brecOn_3.go": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.casesOn": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.ctorElim": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.ctorElimType": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.ctorIdx": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.int": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.int.elim": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.int.inj": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.int.injEq": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.Value.int.noConfusion": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.int.sizeOf_spec": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.noConfusion": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.noConfusionType": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.obj": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.obj.elim": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.obj.inj": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.obj.injEq": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.Value.obj.noConfusion": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.obj.sizeOf_spec": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.rec": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.recOn": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.rec_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.rec_2": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.rec_3": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.str": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.str.elim": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.str.inj": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.str.injEq": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.Value.str.noConfusion": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.Value.str.sizeOf_spec": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.array": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.array._f": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.array._sunfold": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.array._unsafe_rec": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.array.match_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.array.match_3": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.array.match_5": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.array.match_7": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.chars": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.digit": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.digits": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.digits._f": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.digits._sunfold": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.digits._unsafe_rec": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.digits.match_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.get": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.get._sparseCasesOn_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.get.match_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.getArray": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.getArray._sparseCasesOn_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.getArray.match_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.getInt": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.getInt._sparseCasesOn_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.getInt.match_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.getString": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.getString._sparseCasesOn_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.getString.match_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.object": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.object._f": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.object._sunfold": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.object._unsafe_rec": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.object.match_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.object.match_3": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.object.match_5": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.parse": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.parseBytes": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.skip": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.stringBody": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.stringBody._f": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.stringBody._sunfold": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.stringBody._unsafe_rec": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.stringBody.match_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.value": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.value._f": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.value._sparseCasesOn_7": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.value._sunfold": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.value._unsafe_rec": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.value.match_1": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.value.match_10": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.value.match_3": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.value.match_5": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteAsciiJson.value.match_7": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteAsciiJson.whitespace": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": []
@@ -6429,6 +7420,1122 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "inductive",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check._sizeOf_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check._sizeOf_inst": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.atom": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.atom.elim": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.atom.inj": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.atom.injEq": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check.atom.noConfusion": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.atom.sizeOf_spec": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.below": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.both": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.both.elim": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.both.inj": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.both.injEq": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check.both.noConfusion": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.both.sizeOf_spec": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.brecOn": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.brecOn.eq": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.brecOn.go": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.casesOn": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.ctorElim": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.ctorElimType": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.ctorIdx": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.either": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.either.elim": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.either.inj": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.either.injEq": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check.either.noConfusion": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.either.sizeOf_spec": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval._f": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval._sunfold": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval._unsafe_rec": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.eq_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.eq_2": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.eq_3": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.eq_4": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.eq_5": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.eq_6": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.eq_7": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.eq_def": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.match_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval_eq_of_agree_reads": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check.neg": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.neg.elim": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.neg.inj": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.neg.injEq": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check.neg.noConfusion": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.neg.sizeOf_spec": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.noConfusion": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.noConfusionType": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.reads": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check.reads._f": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check.reads._sunfold": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check.reads._unsafe_rec": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check.reads.eq_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check.reads.eq_2": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check.reads.eq_3": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check.reads.eq_4": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check.reads.eq_5": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check.reads.eq_def": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.Check.reads.match_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.rec": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.recOn": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.truth": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.truth.elim": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.truth.sizeOf_spec": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "inductive",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison._sizeOf_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison._sizeOf_inst": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.casesOn": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.ctorElim": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.ctorElimType": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.ctorIdx": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.eq": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.eq.elim": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.eq.sizeOf_spec": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.le": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.le.elim": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.le.sizeOf_spec": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.lt": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.lt.elim": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.lt.sizeOf_spec": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.noConfusion": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.noConfusionType": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.ofNat": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.ofNat_ctorIdx": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.rec": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.recOn": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.allPass": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.allPass.eq_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.allPass_iff_certified": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.certificate": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.certificate.eq_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.family": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.family._proof_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.family.eq_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.family_local": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.footprints": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.frame": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.frame.congr_simp": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.frame.eq_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.frame_iff": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.holds_iff_eval": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.indexedCheck": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.indexedCheck._proof_3": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.instDecidableEqCheck": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._f": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_10": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_11": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_12": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_13": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_14": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_15": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_16": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_17": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_18": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_19": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_2": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_20": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_21": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_22": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_23": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_24": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_25": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_26": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_27": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_28": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_29": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_3": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_30": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_31": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_32": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_33": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_4": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_5": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_6": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_7": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_8": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._proof_9": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._sunfold": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq._unsafe_rec": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqCheck.decEq.match_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqComparison": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqComparison._proof_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instDecidableEqComparison._proof_2": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instInhabitedCheck": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instInhabitedCheck.default": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instReprCheck": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.instReprCheck.repr": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.instReprCheck.repr._f": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.instReprCheck.repr._sunfold": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.instReprCheck.repr._unsafe_rec": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.instReprComparison": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.instReprComparison.repr": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.search": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.search_complete": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.search_component_checked": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.search_mem": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.search_preserves_and_restores": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "FiniteReadCertificates.search_sound": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -19156,6 +21263,716 @@
       "explicit_theorem": false,
       "axioms": [
         "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.F": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.before_target_fails": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.checks": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.component_check_derived": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.contractFileBytes": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesCertificateRepair.contract_source_bytes": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "LucesCertificateRepair.contract_source_decodes": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.decodeCheck": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.decodeContract": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.decodeField": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.decodeRatio": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.decodeRatio._sparseCasesOn_1": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.decodeRatio._sparseCasesOn_2": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.decodeRatio._sparseCasesOn_3": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.decodeRatio._sparseCasesOn_4": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.decodeRatio.match_1": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.decodeRows": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.duplicateMonge": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.duplicateMonge._proof_1": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.duplicate_preserved": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.finite_search_selects_candidate": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.generator": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.generator._proof_1": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.generator_and_provenance_fixed": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.locality_derived": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.observedFileBytes": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesCertificateRepair.observed_rows_decode": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.observed_source_bytes": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "LucesCertificateRepair.protected_generator_before": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.protected_provenance_before": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.provenance": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.provenance._proof_1": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.selected_candidate_in_bank": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.selected_repair_fully_certifies": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.selected_repair_restores_and_preserves": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.target": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.target._proof_1": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.target_reads": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesCertificateRepair.vars": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesObservedInputs.Field": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "inductive",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field._sizeOf_1": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field._sizeOf_inst": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.casesOn": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.ctorElim": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.ctorElimType": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.ctorIdx": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.datasetKey": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.datasetKey.elim": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.datasetKey.sizeOf_spec": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.generatorCos": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.generatorCos.elim": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.generatorCos.sizeOf_spec": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.mongeFraction": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.mongeFraction.elim": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.mongeFraction.sizeOf_spec": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.nnz": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.nnz.elim": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.nnz.sizeOf_spec": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.noConfusion": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.noConfusionType": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.ofNat": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.ofNat_ctorIdx": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.position": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.position.match_1": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.rec": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.recOn": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.validRows": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.validRows.elim": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.validRows.sizeOf_spec": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.violations": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.violations.elim": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.Field.violations.sizeOf_spec": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.after": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesObservedInputs.bank": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesObservedInputs.baseChecks": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesObservedInputs.before": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesObservedInputs.contractBytes": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.contractSource": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.datasetKey": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesObservedInputs.instDecidableEqField": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.instDecidableEqField._proof_1": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.instDecidableEqField._proof_2": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.instFintypeField": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesObservedInputs.instFintypeField._proof_1": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesObservedInputs.instReprField": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.instReprField.repr": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.kernelBytes": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.kernelInputsSource": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.snapshotRows": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "LucesObservedInputs.sourceCsvSHA256": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "LucesObservedInputs.stateOfRow": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
         "Quot.sound",
         "propext"
       ]
@@ -35791,6 +38608,24 @@
         "propext"
       ]
     },
+    "_private.PPGraph.Integration.CertifiedQuotientExample.0.CertifiedQuotientExample.certificate_equiv_iff_card._simp_1_1": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Integration.CertifiedQuotientExample.0.CertifiedQuotientExample.family._simp_1": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
     "_private.PPGraph.Integration.DependencyInfeasibility.0.RepairFeasibility.frame_infeasible_iff_component_infeasible._simp_1_1": {
       "module": "PPGraph.Integration.DependencyInfeasibility",
       "kind": "theorem",
@@ -35863,6 +38698,214 @@
       "axioms": [
         "propext"
       ]
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.eq_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.eq_2": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.eq_3": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.eq_4": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.eq_5": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.eq_6": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.eq_7": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.eval.match_1.splitter": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.reads.match_1.eq_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.reads.match_1.eq_2": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.reads.match_1.eq_3": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.reads.match_1.eq_4": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.reads.match_1.eq_5": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.reads.match_1.splitter": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.instReprCheck.repr.match_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.instReprComparison.repr.match_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Integration.IncludeAsciiBytes.0.elabIncludeAsciiBytes._sparseCasesOn_1": {
+      "module": "PPGraph.Integration.IncludeAsciiBytes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Integration.IncludeAsciiBytes.0.elabIncludeAsciiBytes.match_1": {
+      "module": "PPGraph.Integration.IncludeAsciiBytes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.before_target_fails._proof_1_1": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.contract_source_decodes._proof_1_1": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.duplicate_preserved._proof_1_1": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.finite_search_selects_candidate._proof_1_1": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.generator_and_provenance_fixed._proof_1_1": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.observed_rows_decode._proof_1_1": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.protected_generator_before._proof_1_1": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.protected_provenance_before._proof_1_1": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.target_reads._proof_1_1": {
+      "module": "PPGraph.Integration.LucesCertificateRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Integration.LucesObservedInputs.0.LucesObservedInputs.instReprField.repr.match_1": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
     },
     "_private.PPGraph.Integration.MoserTardosRepair.0.exists_edgeReach_good_of_good_target._proof_1_1": {
       "module": "PPGraph.Integration.MoserTardosRepair",
@@ -41647,6 +44690,16 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "elabIncludeAsciiBytes": {
+      "module": "PPGraph.Integration.IncludeAsciiBytes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "embedding_compose": {
       "module": "PPGraph.Core.Categorical",
       "kind": "theorem",
@@ -42075,6 +45128,12 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "fully_certified.eq_1": {
+      "module": "PPGraph.Integration.CertifiedQuotientExample",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "g_consistent_with_RR": {
       "module": "PPGraph.Core.RR",
       "kind": "theorem",
@@ -42346,6 +45405,12 @@
         "Quot.sound",
         "propext"
       ]
+    },
+    "includeAsciiBytes": {
+      "module": "PPGraph.Integration.IncludeAsciiBytes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
     },
     "independence_implies_lopsidependence": {
       "module": "PPGraph.LLL.Lopsided",
