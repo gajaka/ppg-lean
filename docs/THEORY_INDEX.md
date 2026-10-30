@@ -1,6 +1,6 @@
 # PPG module inventory
 
-This inventory covers 198 PPG modules and 1,876 explicit theorem/lemma declarations.
+This inventory covers 206 PPG modules and 2,054 explicit theorem/lemma declarations.
 Generated theorem constants are counted separately in the whole-library axiom audit.
 Counts include structural laws, projections and helper lemmas. See [theorem scope](THEOREM_SCOPE.md).
 The `PPGraph` facade and `PPGraph.All` import entry point add no mathematical results.
@@ -14,6 +14,7 @@ The [module migration table](MODULE_MIGRATION.md) records historical flat import
 | `Core` | 5 | 62 |
 | `Certification` | 8 | 110 |
 | `Dependency` | 7 | 46 |
+| `Repair` | 8 | 178 |
 | `LLL` | 3 | 65 |
 | `MoserTardos` | 44 | 388 |
 | `Shearer` | 16 | 161 |
@@ -23,7 +24,7 @@ The [module migration table](MODULE_MIGRATION.md) records historical flat import
 | `Decision` | 12 | 129 |
 | `Optimization` | 1 | 5 |
 | `Integration` | 24 | 224 |
-| **Total** | **198** | **1,876** |
+| **Total** | **206** | **2,054** |
 
 | Module | Explicit theorems/lemmas | Direct PPG imports |
 | --- | ---: | --- |
@@ -209,6 +210,14 @@ The [module migration table](MODULE_MIGRATION.md) records historical flat import
 | [PPGraph.MoserTardos.Witness.Witness](../PPGraph/MoserTardos/Witness/Witness.lean) | 5 | [PPGraph.MoserTardos.Process.Process](../PPGraph/MoserTardos/Process/Process.lean) |
 | [PPGraph.MoserTardos.Witness.WitnessFamily](../PPGraph/MoserTardos/Witness/WitnessFamily.lean) | 6 | [PPGraph.MoserTardos.Bounds.WeightSum](../PPGraph/MoserTardos/Bounds/WeightSum.lean), [PPGraph.MoserTardos.Bounds.Convergence](../PPGraph/MoserTardos/Bounds/Convergence.lean) |
 | [PPGraph.Optimization.ComplementarySlackness](../PPGraph/Optimization/ComplementarySlackness.lean) | 5 | — |
+| [PPGraph.Repair.HazardExamples](../PPGraph/Repair/HazardExamples.lean) | 13 | [PPGraph.Repair.Hazards](../PPGraph/Repair/Hazards.lean) |
+| [PPGraph.Repair.Hazards](../PPGraph/Repair/Hazards.lean) | 23 | [PPGraph.Dependency.Decomposition](../PPGraph/Dependency/Decomposition.lean) |
+| [PPGraph.Repair.ObservableAlgebra](../PPGraph/Repair/ObservableAlgebra.lean) | 31 | [PPGraph.Repair.Hazards](../PPGraph/Repair/Hazards.lean) |
+| [PPGraph.Repair.ObservableExamples](../PPGraph/Repair/ObservableExamples.lean) | 14 | [PPGraph.Repair.ObservableKernel](../PPGraph/Repair/ObservableKernel.lean) |
+| [PPGraph.Repair.ObservableKernel](../PPGraph/Repair/ObservableKernel.lean) | 10 | [PPGraph.Repair.ObservableAlgebra](../PPGraph/Repair/ObservableAlgebra.lean), [PPGraph.Finite.Lumping.Basic](../PPGraph/Finite/Lumping/Basic.lean) |
+| [PPGraph.Repair.ObservableSchemes](../PPGraph/Repair/ObservableSchemes.lean) | 34 | [PPGraph.Repair.ObservableAlgebra](../PPGraph/Repair/ObservableAlgebra.lean) |
+| [PPGraph.Repair.SemanticHazardExamples](../PPGraph/Repair/SemanticHazardExamples.lean) | 26 | [PPGraph.Repair.SemanticHazards](../PPGraph/Repair/SemanticHazards.lean) |
+| [PPGraph.Repair.SemanticHazards](../PPGraph/Repair/SemanticHazards.lean) | 27 | [PPGraph.Repair.Hazards](../PPGraph/Repair/Hazards.lean) |
 | [PPGraph.Shearer.BDD](../PPGraph/Shearer/BDD.lean) | 4 | [PPGraph.Shearer.Polynomial](../PPGraph/Shearer/Polynomial.lean), [PPGraph.Dependency.Decomposition](../PPGraph/Dependency/Decomposition.lean) |
 | [PPGraph.Shearer.BDDBudget](../PPGraph/Shearer/BDDBudget.lean) | 8 | [PPGraph.Shearer.Stable](../PPGraph/Shearer/Stable.lean), [PPGraph.Shearer.BDD](../PPGraph/Shearer/BDD.lean) |
 | [PPGraph.Shearer.BDDExpectation](../PPGraph/Shearer/BDDExpectation.lean) | 9 | [PPGraph.Dependency.Partition](../PPGraph/Dependency/Partition.lean), [PPGraph.Shearer.BDDBudget](../PPGraph/Shearer/BDDBudget.lean), [PPGraph.Shearer.ComponentOccurrence](../PPGraph/Shearer/ComponentOccurrence.lean) |

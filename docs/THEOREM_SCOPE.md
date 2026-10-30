@@ -165,6 +165,74 @@ quotient edge is proved. It instantiates the shared categorical `pp_quotient`,
 whose contract here is a surjective forward morphism rather than a universal
 property for arbitrary categories.
 
-The current audit covers 198 modules, 1,876 explicit results and all 5,368
+The finite-read integration audit covered 198 modules, 1,876 explicit results and all 5,368
 project declarations. The six added modules contribute 34 explicit results; the
 remaining additions define the finite reader, file embedding and observed data.
+
+## Repair hazards and observable reduction
+
+The eight modules under `PPGraph/Repair/` add a read/write hazard calculation,
+semantic invalidation, checked commits, deterministic observable subalgebras,
+finite probabilistic reduction and affine-scheme interpretations.
+
+`Repair.Hazards` requires an action's write-frame proof and read-locality proof.
+Its RAW, WAR and WAW tests detect declared footprint interference. Hazard-free
+actions commute, and certificates outside an action's affected footprint retain
+their truth values under the stated predicate-locality hypothesis. An overlap
+alone does not establish that a particular certificate becomes false.
+`scopedContract_iff_fullContract` proves that checking the target and the
+potentially affected core suffices for the full restoration-and-preservation
+contract. The core includes previously passing obligations.
+
+`Repair.SemanticHazards` defines invalidation as a certificate holding before an
+operation and failing afterward. Its semantic scope contains exactly those
+tracked certificates with an invalidation witness in the specified allowed
+domain. This is a possibility over that domain, rather than a failure at every
+state. Scope is minimal relative to those predicates, that operation and that
+domain, and is contained in the footprint scope when the required frame and
+locality proofs hold. Finite classification and exact checked commits require
+a `CompleteDomain`; checking an arbitrary sample supplies only the corresponding
+sample-relative result. The examples include a proper subset of sampled states
+that misses a genuine hazard.
+
+`Repair.ObservableAlgebra` uses Mathlib's `Subalgebra R (S -> R)`. `Stable` means
+that every allowed repair's pullback maps the algebra into itself; observable
+values may change. `Fixed` means that a particular repair leaves every observable
+unchanged. `ObsEq` identifies states with equal retained observables. Stability
+preserves this equivalence under finite repair sequences. Computing a decision
+from the retained view separately requires its test to factor through those
+observables. Observationally equivalent states then give equal decisions after
+the same operation sequence; individual decision values need not stay constant.
+The least stable hull is characterized by all finite future pullbacks; its definition
+does not supply an algorithm that always discovers a small representation.
+Disjoint write and observation footprints give a fixed local algebra, while
+read closure gives stability under the stated action-locality proofs.
+
+`Repair.ObservableKernel` treats finite rational transition models. Stochastic
+expectation is linear and need not preserve multiplication. Full closure of a
+projection algebra, `KernelClosed`, is equivalent to equal aggregate transition
+masses on each summary fiber, `FiberLocal`, for a surjective summary. The
+good-state predicate must also factor through the summary (`GoodLocal`). These
+conditions establish the existing `FiniteLumping.Compatible` interface and
+transfer stochasticity and survival probabilities under the separate stated
+assumptions. An example proves that checking expectation on algebra generators
+alone is insufficient.
+
+`Repair.ObservableSchemes` applies affine-spectrum constructions to the same
+function algebras and their subalgebras. Restricted repair pullbacks induce
+scheme maps commuting with observation; fixed observables give a protected
+projection. Concrete states supply evaluation points. The construction does not
+identify every spectrum point with a state or turn inequality tests into basic
+opens without additional encoding.
+
+These additions are maintained in Lean. Their generic hazard and observable
+algebra framework is not asserted to have a corresponding PVS development in
+this update. The examples establish mathematical instances and countermodels;
+they do not verify a general program-repair synthesizer or a physical controller.
+
+Verification on 2026-10-30 passed the full 4,167-job build without warnings or
+errors and the whole-library axiom audit: 206 modules, 2,054 explicit results and
+5,835 project declarations. The eight repair modules contribute 178 explicit
+results, each with a `#check`. Audited dependencies remain within the standard
+`propext`, `Classical.choice`, `Quot.sound` allowlist. The earlier external-kernel
+checks remain historical; this update does not claim a new external-checker run.

@@ -1,5 +1,5 @@
 {
-  "date_utc": "2026-10-28",
+  "date_utc": "2026-10-30",
   "toolchain": "leanprover/lean4:v4.35.0",
   "full_build_passed": true,
   "kernel_checked_library": true,
@@ -11,15 +11,15 @@
     "propext"
   ],
   "project_owned_axioms": 0,
-  "module_count": 198,
+  "module_count": 206,
   "facade_count": 2,
   "facades": [
     "PPGraph",
     "PPGraph.All"
   ],
-  "explicit_theorem_count": 1876,
-  "generated_theorem_count": 1636,
-  "environment_declaration_count": 5368,
+  "explicit_theorem_count": 2054,
+  "generated_theorem_count": 1761,
+  "environment_declaration_count": 5835,
   "source_sha256": {
     "PPGraph/Core/Graph.lean": "6e4d3ec172faa60aedb75a2c47451494e83284d38f37e560f86e319a0c295718",
     "PPGraph/Drift/Additive.lean": "d9e04c87dc3f806aea0e5a368ddc25dd18e768192a9c5e1d7a71f242e9957396",
@@ -219,9 +219,17 @@
     "PPGraph/Integration/IncludeAsciiBytes.lean": "2794677295b0f3e78d8f8f527f3c7cf45c814be4690910c40317e32ce1bb98ae",
     "PPGraph/Integration/LucesObservedInputs.lean": "e75d4481516ea41ddbe7ae6c7b52637b0129862cb56f2e6546ef8aa49fab2bda",
     "PPGraph/Integration/LucesCertificateRepair.lean": "9029aba304cd0042298ab6a635cf92dadf23e01125b56a11f907f7450f7b9f7b",
+    "PPGraph/Repair/Hazards.lean": "172f5b373ae1b717ab82f6562e2dd5c1fd0c3fbd74f10fc96f07e6edebbc2fc1",
+    "PPGraph/Repair/HazardExamples.lean": "4d40c9691624644caaf2a3ac6c047e666705cbf2614f7920b6c2d79f0bacd42e",
+    "PPGraph/Repair/SemanticHazards.lean": "fa733dc0bfab7297e55fa01d962592af2b46b2a3ec0fbdf3a5db78641adc7c00",
+    "PPGraph/Repair/SemanticHazardExamples.lean": "e4502a882036f5dd3813643c255b270444b853b7421e5e6fa281db024e0420d8",
+    "PPGraph/Repair/ObservableAlgebra.lean": "77f2ebc744aae40795d70d1bcba1fa1c5115bce05beece79a7bd74e77e94bc4d",
+    "PPGraph/Repair/ObservableKernel.lean": "55fa40c6ff924f5b798b61105faadcaedd9472fd21beceeb87a4e97d1206d3e8",
+    "PPGraph/Repair/ObservableExamples.lean": "5366dbdbd3e4ba8c5b99e150ddfef72e4ecc8e7912e67c7201e2b86f0e9e9829",
+    "PPGraph/Repair/ObservableSchemes.lean": "6f20e981f8bdd8fcb65ada38d44d7c6b3e9908cb8f72dd1453c31f4333c87a6e",
     "PPGraph.lean": "41760bb8a3187d98b8fdaaf2329d5296d753d161c6dbbdf979e98606908d3e96",
-    "PPGraph/All.lean": "da2abc314ebac6b53adf096a8c29d39e2ba6edb012d4a160243826e60a183057",
-    "tools/module-map.json": "aa49fe92f8e40f943e8a2481be47c98bd157b8c54d004a8fc5b9b865fd4ff577",
+    "PPGraph/All.lean": "2a9196bbb61ac1d22570cbe5467fac5adb912f75428e216991096bc071027656",
+    "tools/module-map.json": "1f8efe65c085e9ca32723fe1bc9a65a3a218c3714684b03cb73308a69ad4a8b4",
     "lakefile.lean": "38fc21914e2365b1948c01db24f709abe5dc0d3347b928fbf7f10f94bb026d5a",
     "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
     "lake-manifest.json": "69bd64ee24bd0360be6279ab7737e7b384b13db846fb9bfe5d0026f8debd4e72",
@@ -243,10 +251,10 @@
     ]
   },
   "audit_tool_sha256": "a5724e0d785228856590132c5d46a0f3f3c760d822ce9040ca5a31f3c3c7b459",
-  "full_build_log_sha256": "e7d44750be992284e0a21d3bfaf57e5207fd8fef3800c360f6558ef115c9c57d",
+  "full_build_log_sha256": "25e0d64b64b0479f2f5c7d55915dfe38d4fc0c34c4c3db4a7924ccb02ffb4861",
   "literal_input_check_log_sha256": "0aacf5bb05ba4de83dc4bfe8558fe1c73a98df5202d5a90856896e42325b4b4c",
-  "inventory_log_sha256": "1fe62c5d5b9ee982c576a794b933b8f4d8501dc2682b8151bc359c685c4df8dc",
-  "axiom_log_sha256": "3f0877070156e56cd2cffc5998c6aba93084e3da381577f86e99e5b464291581",
+  "inventory_log_sha256": "0ae77ee751fb5f110f4980a91f18a9544cfb45b1ca6a371496a0f39133d91765",
+  "axiom_log_sha256": "1d89d539d18254fcf161b9c076cec8ec54124415e53d24ec101c0982038e6eb4",
   "modules": {
     "PPGraph.Core.Graph": {
       "explicit_theorems": [
@@ -3110,6 +3118,224 @@
         "LucesCertificateRepair.generator_and_provenance_fixed"
       ],
       "environment_declaration_count": 48
+    },
+    "PPGraph.Repair.Hazards": {
+      "explicit_theorems": [
+        "RepairHazard.rawHazard_eq_false_iff",
+        "RepairHazard.warHazard_eq_false_iff",
+        "RepairHazard.wawHazard_eq_false_iff",
+        "RepairHazard.canSwap_eq_true_iff",
+        "RepairHazard.canSwap_iff_no_hazards",
+        "RepairHazard.canSwap_commute",
+        "RepairHazard.mem_affected_iff",
+        "RepairHazard.affected_subset",
+        "RepairHazard.affected_mono_writes",
+        "RepairHazard.affected_union",
+        "RepairHazard.preserved_of_disjoint",
+        "RepairHazard.preserved_outside_affected",
+        "RepairHazard.affected_iff_possible_invalidation",
+        "RepairHazard.runPlan_frame",
+        "RepairHazard.runPlan_swap_adjacent",
+        "RepairHazard.runPlan_preserved_outside_affected",
+        "RepairHazard.scopedContract_iff_fullContract",
+        "RepairHazard.checkCommit_iff_scopedContract",
+        "RepairHazard.checkCommit_iff_fullContract",
+        "RepairHazard.checkCommit_sound",
+        "RepairHazard.checkCommit_plan_sound",
+        "RepairHazard.checkedStep_preserves",
+        "RepairHazard.checkedStep_target_of_accepted"
+      ],
+      "environment_declaration_count": 87
+    },
+    "PPGraph.Repair.HazardExamples": {
+      "explicit_theorems": [
+        "RepairHazardExamples.sat_local",
+        "RepairHazardExamples.independent_writes_canSwap",
+        "RepairHazardExamples.independent_writes_commute",
+        "RepairHazardExamples.raw_is_detected",
+        "RepairHazardExamples.raw_changes_result",
+        "RepairHazardExamples.war_is_detected",
+        "RepairHazardExamples.waw_is_detected",
+        "RepairHazardExamples.scoped_repair_is_accepted",
+        "RepairHazardExamples.scoped_repair_has_full_contract",
+        "RepairHazardExamples.target_only_would_accept_damage",
+        "RepairHazardExamples.protected_damage_is_rejected",
+        "RepairHazardExamples.overlap_need_not_violate",
+        "RepairHazardExamples.no_hazards_need_not_repair"
+      ],
+      "environment_declaration_count": 35
+    },
+    "PPGraph.Repair.SemanticHazards": {
+      "explicit_theorems": [
+        "RepairSemanticHazard.mem_scope_iff",
+        "RepairSemanticHazard.scope_subset_core",
+        "RepairSemanticHazard.mem_scope_iff_not_preserves",
+        "RepairSemanticHazard.scope_no_false_positives",
+        "RepairSemanticHazard.scope_no_false_negatives",
+        "RepairSemanticHazard.not_mem_scope_iff_preserves",
+        "RepairSemanticHazard.preserved_outside_scope",
+        "RepairSemanticHazard.not_mem_scope_of_preserves",
+        "RepairSemanticHazard.scope_minimal",
+        "RepairSemanticHazard.scope_mono_domain",
+        "RepairSemanticHazard.scope_eq_empty_of_preserves",
+        "RepairSemanticHazard.scope_identity",
+        "RepairSemanticHazard.scope_comp_subset_union",
+        "RepairSemanticHazard.scope_subset_after_safe_removal",
+        "RepairSemanticHazard.scope_subset_affected",
+        "RepairSemanticHazard.findInvalidation_sound",
+        "RepairSemanticHazard.findInvalidation_mem",
+        "RepairSemanticHazard.findInvalidation_none_iff",
+        "RepairSemanticHazard.findInvalidation_isSome_iff",
+        "RepairSemanticHazard.mem_finiteScope_iff",
+        "RepairSemanticHazard.exactScope_eq_scope",
+        "RepairSemanticHazard.classify_isHazard_iff",
+        "RepairSemanticHazard.checkScope_iff",
+        "RepairSemanticHazard.checkScope_iff_fullContract",
+        "RepairSemanticHazard.checkExactCommit_iff_fullContract",
+        "RepairSemanticHazard.checkedExactStep_preserves",
+        "RepairSemanticHazard.checkedExactStep_target_of_accepted"
+      ],
+      "environment_declaration_count": 103
+    },
+    "PPGraph.Repair.SemanticHazardExamples": {
+      "explicit_theorems": [
+        "RepairSemanticHazardExamples.intSat_local",
+        "RepairSemanticHazardExamples.increment_structural_scope",
+        "RepairSemanticHazardExamples.increment_preserves_nonnegative",
+        "RepairSemanticHazardExamples.increment_nonnegative_alarm_removed",
+        "RepairSemanticHazardExamples.increment_zero_has_counterexample",
+        "RepairSemanticHazardExamples.increment_zero_alarm_retained",
+        "RepairSemanticHazardExamples.increment_semantic_scope_exact",
+        "RepairSemanticHazardExamples.increment_refined_scope_exact",
+        "RepairSemanticHazardExamples.increment_refined_commit_iff_fullContract",
+        "RepairSemanticHazardExamples.decrement_nonnegative_alarm_retained",
+        "RepairSemanticHazardExamples.cancelling_plan_is_identity",
+        "RepairSemanticHazardExamples.cancelling_plan_has_empty_semantic_scope",
+        "RepairSemanticHazardExamples.cancelling_plan_still_has_structural_overlap",
+        "RepairSemanticHazardExamples.bitSat_local",
+        "RepairSemanticHazardExamples.bit_structural_scope_all",
+        "RepairSemanticHazardExamples.bit_exact_scope_singleton",
+        "RepairSemanticHazardExamples.bit_counterexample_found",
+        "RepairSemanticHazardExamples.bit_preserved_classified",
+        "RepairSemanticHazardExamples.bit_invalidated_classified",
+        "RepairSemanticHazardExamples.partial_sample_misses_hazard",
+        "RepairSemanticHazardExamples.partial_sample_does_not_cover",
+        "RepairSemanticHazardExamples.hazard_can_be_harmless_at_current_state",
+        "RepairSemanticHazardExamples.exact_commit_rejects_real_damage",
+        "RepairSemanticHazardExamples.exact_commit_accepts_safe_core",
+        "RepairSemanticHazardExamples.exact_commit_still_checks_targets",
+        "RepairSemanticHazardExamples.accepted_commit_has_full_contract"
+      ],
+      "environment_declaration_count": 76
+    },
+    "PPGraph.Repair.ObservableAlgebra": {
+      "explicit_theorems": [
+        "RepairObservable.pullback_apply",
+        "RepairObservable.pullback_comp",
+        "RepairObservable.mem_fixedAlgebra",
+        "RepairObservable.fixed_adjoin_iff",
+        "RepairObservable.stable_adjoin_iff",
+        "RepairObservable.subset_stableHull",
+        "RepairObservable.stable_stableHull",
+        "RepairObservable.stableHull_le",
+        "RepairObservable.stableHull_mono",
+        "RepairObservable.stableHull_idempotent",
+        "RepairObservable.obsEq_adjoin_iff",
+        "RepairObservable.obsEq_after",
+        "RepairObservable.quotientStep_mk",
+        "RepairObservable.quotientObservable_mk",
+        "RepairObservable.observable_test_congr",
+        "RepairObservable.stable_runWord",
+        "RepairObservable.obsEq_runWord",
+        "RepairObservable.subset_orbitGenerators",
+        "RepairObservable.orbit_adjoin_stable",
+        "RepairObservable.stableHull_eq_adjoin_orbit",
+        "RepairObservable.obsEq_stableHull_iff_future",
+        "RepairObservable.mem_projectionAlgebra",
+        "RepairObservable.obsEq_of_projection_eq",
+        "RepairObservable.obsEq_projectionAlgebra_iff",
+        "RepairObservable.projection_stable_of_factor",
+        "RepairObservable.reads_mono",
+        "RepairObservable.pullback_fixed_of_disjoint",
+        "RepairObservable.disjoint_fixes_localAlgebra",
+        "RepairObservable.pullback_reads",
+        "RepairObservable.reads_subset_stable_localAlgebra",
+        "RepairObservable.hazard_free_pullbacks_commute"
+      ],
+      "environment_declaration_count": 62
+    },
+    "PPGraph.Repair.ObservableKernel": {
+      "explicit_theorems": [
+        "RepairObservableKernel.expectation_projection",
+        "RepairObservableKernel.kernelClosed_fiberLocal",
+        "RepairObservableKernel.representative_spec",
+        "RepairObservableKernel.fiberLocal_kernelClosed",
+        "RepairObservableKernel.kernelClosed_iff_fiberLocal",
+        "RepairObservableKernel.reduced_compatible",
+        "RepairObservableKernel.compatible_local",
+        "RepairObservableKernel.reduced_compatible_iff",
+        "RepairObservableKernel.reduced_stochastic",
+        "RepairObservableKernel.reduced_survival"
+      ],
+      "environment_declaration_count": 19
+    },
+    "PPGraph.Repair.ObservableExamples": {
+      "explicit_theorems": [
+        "RepairObservableExamples.increment_stable",
+        "RepairObservableExamples.increment_not_fixed",
+        "RepairObservableExamples.swap_not_stable",
+        "RepairObservableExamples.visible_surjective",
+        "RepairObservableExamples.demo_stochastic",
+        "RepairObservableExamples.signal_in_projection",
+        "RepairObservableExamples.signal_interpolation",
+        "RepairObservableExamples.signal_generates_projection",
+        "RepairObservableExamples.mean_zero",
+        "RepairObservableExamples.generator_image_in_projection",
+        "RepairObservableExamples.square_in_projection",
+        "RepairObservableExamples.square_after_distinguishes",
+        "RepairObservableExamples.demo_not_kernelClosed",
+        "RepairObservableExamples.mean_check_insufficient"
+      ],
+      "environment_declaration_count": 30
+    },
+    "PPGraph.Repair.ObservableSchemes": {
+      "explicit_theorems": [
+        "RepairObservableScheme.restrictedPullback_apply",
+        "RepairObservableScheme.fixed_restricts",
+        "RepairObservableScheme.stateScheme_affine",
+        "RepairObservableScheme.observableScheme_affine",
+        "RepairObservableScheme.repair_observe_commutes",
+        "RepairObservableScheme.observe_over_base",
+        "RepairObservableScheme.stateRepair_over_base",
+        "RepairObservableScheme.observableRepair_over_base",
+        "RepairObservableScheme.stateRepair_id",
+        "RepairObservableScheme.stateRepair_comp",
+        "RepairObservableScheme.restricts_comp",
+        "RepairObservableScheme.observableRepair_comp",
+        "RepairObservableScheme.observableRepair_eq_id_iff",
+        "RepairObservableScheme.statePoint_observe",
+        "RepairObservableScheme.statePoint_after",
+        "RepairObservableScheme.observablePoint_after",
+        "RepairObservableScheme.observablePoint_eq_iff",
+        "RepairObservableScheme.protected_projection",
+        "RepairObservableScheme.stateRepair_commute",
+        "RepairObservableScheme.observableRepair_commute",
+        "RepairObservableScheme.restricts_of_scheme_factor",
+        "RepairObservableScheme.restricts_iff_scheme_factor",
+        "RepairObservableScheme.scheme_factor_unique",
+        "RepairObservableScheme.restricts_iff_unique_scheme_factor",
+        "RepairObservableScheme.pullback_injective_of_surjective",
+        "RepairObservableScheme.observableRing_reduced",
+        "RepairObservableScheme.observableScheme_reduced",
+        "RepairObservableScheme.evaluationPrime_maximal",
+        "RepairObservableScheme.evaluationPrime_basicOpen",
+        "RepairObservableScheme.evaluationPrime_after",
+        "RepairObservableScheme.repair_basicOpen_preimage",
+        "RepairObservableScheme.repaired_point_basicOpen",
+        "RepairObservableScheme.hazard_free_scheme_commute",
+        "RepairObservableScheme.hazard_free_observable_scheme_commute"
+      ],
+      "environment_declaration_count": 55
     }
   },
   "declarations": {
@@ -31002,8 +31228,3918 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "RepairHazard.Action": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "inductive",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action._sizeOf_1": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action._sizeOf_inst": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.casesOn": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.ctorIdx": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.frame": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.mk": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.mk._flat_ctor": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.mk.inj": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.mk.injEq": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.mk.noConfusion": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.mk.sizeOf_spec": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.noConfusion": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.noConfusionType": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.read_local": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.reads": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.rec": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.recOn": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.run": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Action.writes": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.Framed": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.FullContract": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.ScopedContract": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.ScopedContract.eq_1": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.State": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairHazard.affected": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.affected.congr_simp": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.affected.eq_1": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.affected_iff_possible_invalidation": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.affected_mono_writes": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.affected_subset": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.affected_union": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.canSwap": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.canSwap.eq_1": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.canSwap_commute": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.canSwap_eq_true_iff": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.canSwap_iff_no_hazards": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.checkCommit": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.checkCommit.congr_simp": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.checkCommit.eq_1": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.checkCommit_iff_fullContract": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.checkCommit_iff_scopedContract": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.checkCommit_plan_sound": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.checkCommit_sound": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.checkedStep": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.checkedStep.eq_1": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.checkedStep_preserves": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.checkedStep_target_of_accepted": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.mem_affected_iff": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.planWrites": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.planWrites._f": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.planWrites._sunfold": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.planWrites._unsafe_rec": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.planWrites.eq_1": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.planWrites.eq_2": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.planWrites.eq_def": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.planWrites.match_1": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.preserved_of_disjoint": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.preserved_outside_affected": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.rawHazard": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.rawHazard.eq_1": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.rawHazard_eq_false_iff": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.runPlan": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.runPlan._f": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.runPlan._sunfold": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.runPlan._unsafe_rec": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.runPlan.match_1": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.runPlan_frame": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.runPlan_preserved_outside_affected": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.runPlan_swap_adjacent": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.scopedContract_iff_fullContract": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.warHazard": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.warHazard_eq_false_iff": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.wawHazard": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.wawHazard.eq_1": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.wawHazard_eq_false_iff": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.Coordinate": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairHazardExamples.Snapshot": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairHazardExamples.before": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.before._proof_1": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.copy": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.copy._proof_1": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.copy._proof_2": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.damaging": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.damaging._proof_1": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.damaging._proof_2": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.idle": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.idle._proof_1": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.idle._proof_2": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.independent_writes_canSwap": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.independent_writes_commute": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.instDecidablePredSnapshotSat": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairHazardExamples.instDecidablePredSnapshotSat._proof_1": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairHazardExamples.no_hazards_need_not_repair": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.ones": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairHazardExamples.overlap_need_not_violate": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.protected_damage_is_rejected": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.raw_changes_result": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.raw_is_detected": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.sat": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairHazardExamples.sat_local": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.scoped_repair_has_full_contract": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.scoped_repair_is_accepted": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.setAt": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.setAt._proof_1": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.setAt._proof_2": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.target_only_would_accept_damage": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.vars": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.war_is_detected": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.waw_is_detected": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazardExamples.zero": {
+      "module": "PPGraph.Repair.HazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairObservable.Fixed": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.ObsEq": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.Reads": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.Stable": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.disjoint_fixes_localAlgebra": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.fixedAlgebra": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.fixed_adjoin_iff": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.hazard_free_pullbacks_commute": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.localAlgebra": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.localAlgebra._proof_1": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.localAlgebra._proof_2": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.localAlgebra._proof_3": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.localAlgebra._proof_4": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.localAlgebra._proof_5": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.mem_fixedAlgebra": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.mem_fixedAlgebra._simp_1": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.mem_projectionAlgebra": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.obsEq_adjoin_iff": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.obsEq_after": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.obsEq_of_projection_eq": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.obsEq_projectionAlgebra_iff": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.obsEq_runWord": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.obsEq_stableHull_iff_future": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.observableSetoid": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.observableSetoid._proof_1": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.observable_test_congr": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.orbitGenerators": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.orbit_adjoin_stable": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.projectionAlgebra": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.projection_stable_of_factor": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.pullback": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.pullback._proof_1": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound"
+      ]
+    },
+    "RepairObservable.pullback._proof_2": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound"
+      ]
+    },
+    "RepairObservable.pullback._proof_3": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound"
+      ]
+    },
+    "RepairObservable.pullback._proof_4": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound"
+      ]
+    },
+    "RepairObservable.pullback._proof_5": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.pullback_apply": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.pullback_comp": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.pullback_fixed_of_disjoint": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.pullback_reads": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.quotientObservable": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.quotientObservable_mk": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.quotientStep": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.quotientStep_mk": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.readEnvelope": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.reads_mono": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.reads_subset_stable_localAlgebra": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.runWord": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairObservable.runWord._f": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairObservable.runWord._sunfold": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairObservable.runWord._unsafe_rec": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairObservable.runWord.match_1": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairObservable.stableHull": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.stableHull_eq_adjoin_orbit": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.stableHull_idempotent": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.stableHull_le": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.stableHull_mono": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.stable_adjoin_iff": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.stable_runWord": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.stable_stableHull": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.subset_orbitGenerators": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservable.subset_stableHull": {
+      "module": "PPGraph.Repair.ObservableAlgebra",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.PairState": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairObservableExamples.demoModel": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.demoModel.eq_1": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.demo_not_kernelClosed": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.demo_stochastic": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.firstAlgebra": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.generator_image_in_projection": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.increment": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.increment.eq_1": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.increment_not_fixed": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.increment_stable": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.mean_check_insufficient": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.mean_zero": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.signal": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.signal.eq_1": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.signal_generates_projection": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.signal_in_projection": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.signal_interpolation": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.square_after_distinguishes": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.square_in_projection": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.swap": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairObservableExamples.swap.eq_1": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairObservableExamples.swap_not_stable": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.visible": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.visible._proof_1": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.visible._proof_2": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.visible.eq_1": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.visibleSignal": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.visibleSignal.eq_1": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableExamples.visible_surjective": {
+      "module": "PPGraph.Repair.ObservableExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.FiberLocal": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.GoodLocal": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairObservableKernel.KernelClosed": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.compatible_local": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.expectation": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.expectation.eq_1": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.expectation_projection": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.fiberLocal_kernelClosed": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.fiberMass": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.fiberMass.eq_1": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.kernelClosed_fiberLocal": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.kernelClosed_iff_fiberLocal": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.reducedModel": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.reduced_compatible": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.reduced_compatible_iff": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.reduced_stochastic": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.reduced_survival": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableKernel.representative": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice"
+      ]
+    },
+    "RepairObservableKernel.representative_spec": {
+      "module": "PPGraph.Repair.ObservableKernel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.Restricts": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.baseScheme": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.evaluate": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.evaluationPrime": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.evaluationPrime._proof_1": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.evaluationPrime._proof_2": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.evaluationPrime_after": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.evaluationPrime_basicOpen": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.evaluationPrime_maximal": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.fixed_restricts": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.hazard_free_observable_scheme_commute": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.hazard_free_scheme_commute": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observableBase": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observablePoint": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observablePoint.eq_1": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observablePoint_after": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observablePoint_eq_iff": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observableRepair": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observableRepair.eq_1": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observableRepair_commute": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observableRepair_comp": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observableRepair_eq_id_iff": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observableRepair_over_base": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observableRing_reduced": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observableScheme": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observableScheme_affine": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observableScheme_reduced": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observe": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.observe_over_base": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.protected_projection": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.pullback_injective_of_surjective": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.repair_basicOpen_preimage": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.repair_observe_commutes": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.repaired_point_basicOpen": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.restrictedPullback": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.restrictedPullback._proof_1": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.restrictedPullback_apply": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.restricts_comp": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.restricts_iff_scheme_factor": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.restricts_iff_unique_scheme_factor": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.restricts_of_scheme_factor": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.scheme_factor_unique": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.stateBase": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.statePoint": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.statePoint_after": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.statePoint_observe": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.stateRepair": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.stateRepair_commute": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.stateRepair_comp": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.stateRepair_id": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.stateRepair_over_base": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.stateScheme": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.stateScheme_affine": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.summaryAlgebraEquiv": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairObservableScheme.summarySchemeIso": {
+      "module": "PPGraph.Repair.ObservableSchemes",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "RepairOp": {
       "module": "PPGraph.Certification.SelfAssessment",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "inductive",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain._sizeOf_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain._sizeOf_inst": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain.casesOn": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain.covers": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain.ctorIdx": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain.mk": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain.mk._flat_ctor": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain.mk.inj": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain.mk.injEq": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.CompleteDomain.mk.noConfusion": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain.mk.sizeOf_spec": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain.noConfusion": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain.noConfusionType": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain.rec": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain.recOn": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.CompleteDomain.states": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "inductive",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult._sizeOf_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult._sizeOf_inst": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.casesOn": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.ctorElim": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.ctorElimType": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.ctorIdx": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.invalidated": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.invalidated.congr_simp": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.invalidated.elim": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.invalidated.inj": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.invalidated.injEq": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.HazardResult.invalidated.noConfusion": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.invalidated.sizeOf_spec": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.isHazard": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.isHazard.eq_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.isHazard.eq_2": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.isHazard.match_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.noConfusion": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.noConfusionType": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.preserved": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.preserved.congr_simp": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.preserved.elim": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.preserved.noConfusion": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.preserved.sizeOf_spec": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.rec": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.recOn": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.Invalidates": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.Invalidates.eq_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.PreservesOn": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.PreservesOn.eq_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.checkExactCommit": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.checkExactCommit.congr_simp": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.checkExactCommit_iff_fullContract": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.checkScope": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.checkScope.eq_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.checkScope_iff": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.checkScope_iff_fullContract": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.checkedExactStep": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.checkedExactStep.eq_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.checkedExactStep_preserves": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.checkedExactStep_target_of_accepted": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.classify": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.classify._proof_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.classify._proof_2": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.classify._proof_3": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.classify.match_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.classify_isHazard_iff": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.exactScope": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.exactScope.eq_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.exactScope_eq_scope": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.findInvalidation": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.findInvalidation.congr_simp": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound"
+      ]
+    },
+    "RepairSemanticHazard.findInvalidation.eq_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.findInvalidation_isSome_iff": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.findInvalidation_mem": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.findInvalidation_none_iff": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.findInvalidation_sound": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.finiteScope": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.finiteScope.eq_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.invalidatesDecidable": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.mem_finiteScope_iff": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.mem_scope_iff": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.mem_scope_iff_not_preserves": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.not_mem_scope_iff_preserves": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.not_mem_scope_of_preserves": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.preserved_outside_scope": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.scope": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.scope_comp_subset_union": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.scope_eq_empty_of_preserves": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.scope_identity": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.scope_minimal": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.scope_mono_domain": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.scope_no_false_negatives": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.scope_no_false_positives": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.scope_subset_affected": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.scope_subset_after_safe_removal": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazard.scope_subset_core": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.BitCert": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazardExamples.BitSnapshot": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazardExamples.IntCert": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazardExamples.IntSnapshot": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazardExamples.accepted_commit_has_full_contract": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.bitDomain": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.bitDomain._proof_3": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.bitFalse": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazardExamples.bitFalse.eq_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazardExamples.bitSat": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.bitSat._proof_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.bitSat.eq_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.bitSat_local": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.bitTrue": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazardExamples.bitTrue.eq_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazardExamples.bitVars": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.bit_counterexample_found": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.bit_exact_scope_singleton": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.bit_invalidated_classified": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.bit_preserved_classified": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.bit_structural_scope_all": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.cancelling_plan_has_empty_semantic_scope": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.cancelling_plan_is_identity": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.cancelling_plan_still_has_structural_overlap": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.decrement": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.decrement._proof_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.decrement._proof_2": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.decrement_nonnegative_alarm_retained": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.exact_commit_accepts_safe_core": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.exact_commit_rejects_real_damage": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.exact_commit_still_checks_targets": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.hazard_can_be_harmless_at_current_state": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.increment": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.increment._proof_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.increment._proof_2": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.increment_nonnegative_alarm_removed": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.increment_preserves_nonnegative": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.increment_refined_commit_iff_fullContract": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.increment_refined_scope_exact": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.increment_semantic_scope_exact": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.increment_structural_scope": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.increment_zero_alarm_retained": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.increment_zero_has_counterexample": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.instDecidablePredBitSnapshotBitSat": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.instDecidablePredBitSnapshotUnrestrictedBit": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazardExamples.instDecidablePredBitSnapshotUnrestrictedBit._proof_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazardExamples.instDecidablePredIntSnapshotIntSat": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.instDecidablePredIntSnapshotUnrestrictedInt": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazardExamples.instDecidablePredIntSnapshotUnrestrictedInt._proof_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazardExamples.intSat": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.intSat._proof_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.intSat.eq_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.intSat_local": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.intVars": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.partial_sample_does_not_cover": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.partial_sample_misses_hazard": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.setTrue": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.setTrue._proof_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.setTrue._proof_2": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairSemanticHazardExamples.unrestrictedBit": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazardExamples.unrestrictedInt": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": []
@@ -42545,6 +46681,326 @@
     },
     "_private.PPGraph.MoserTardos.Witness.Witness.0.WTree.size_pos._proof_1_2": {
       "module": "PPGraph.MoserTardos.Witness.Witness",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.Hazards.0.RepairHazard.affected_union._simp_1_1": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.Hazards.0.RepairHazard.affected_union._simp_1_2": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.Hazards.0.RepairHazard.planWrites.match_1.eq_1": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.Hazards.0.RepairHazard.planWrites.match_1.eq_2": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.Hazards.0.RepairHazard.planWrites.match_1.splitter": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.Hazards.0.RepairHazard.rawHazard_eq_false_iff._simp_1_2": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.Hazards.0.RepairHazard.rawHazard_eq_false_iff._simp_1_3": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.Hazards.0.RepairHazard.runPlan_frame._simp_1_4": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.Hazards.0.RepairHazard.runPlan_frame._simp_1_5": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.Hazards.0.RepairHazard.wawHazard_eq_false_iff._simp_1_2": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.Hazards.0.RepairHazard.wawHazard_eq_false_iff._simp_1_3": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.bitDomain._simp_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.bitDomain._simp_2": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.bit_counterexample_found._proof_1_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.bit_exact_scope_singleton._proof_1_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.bit_invalidated_classified._proof_1_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.bit_preserved_classified._proof_1_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.cancelling_plan_is_identity._proof_1_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.exact_commit_accepts_safe_core._proof_1_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.exact_commit_rejects_real_damage._proof_1_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.exact_commit_still_checks_targets._proof_1_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.hazard_can_be_harmless_at_current_state._proof_1_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.increment_preserves_nonnegative._proof_1_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.increment_semantic_scope_exact._simp_1_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.increment_semantic_scope_exact._simp_1_2": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.partial_sample_misses_hazard._proof_1_1": {
+      "module": "PPGraph.Repair.SemanticHazardExamples",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.HazardResult.isHazard.match_1.eq_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.HazardResult.isHazard.match_1.eq_2": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.HazardResult.isHazard.match_1.splitter": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.mem_finiteScope_iff._simp_1_2": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.mem_finiteScope_iff._simp_1_3": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.mem_scope_iff_not_preserves._simp_1_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.mem_scope_iff_not_preserves._simp_1_3": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.not_mem_scope_iff_preserves._simp_1_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [

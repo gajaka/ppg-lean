@@ -1,9 +1,10 @@
 # Proof-Preserving Graphs: Formal Certification, Self-Assessment, and Repair (Lean 4)
 
 This Lean 4 development studies graded certification, blocking and repair. It
-contains **198 modules**, covering generic PPG theory and a finite certificate
-repair example using measured LUCES inputs. The full controller, nfer models,
-firmware and binary-memory models are developed separately.
+contains **206 modules**, covering generic PPG theory, repair hazards, observable
+subalgebras and a finite certificate repair example using measured LUCES inputs.
+The full controller, nfer models, firmware and binary-memory models are developed
+separately.
 
 ## Build and kernel verification
 
@@ -101,6 +102,14 @@ The finite-read integration update passed the full 3,922-job build and the
 whole-library audit: **198 modules, 1,876 explicit results and all 5,368 project
 declarations**. The audit also freshly elaborates literal-input sources and binds
 the included JSON files by SHA-256. Its 18 Python regression tests passed.
+
+The repair-hazard and observable-algebra update on 2026-10-30 passed the full
+4,167-job build with zero warnings or errors and the whole-library axiom audit:
+**206 modules, 2,054 explicit results and all 5,835 project declarations**.
+The eight added repair modules contribute 178 explicit results. Every explicit
+result retains a `#check`, and all audited dependencies stay within the standard
+axiom allowlist. These checks use Lean's kernel; the external-checker results
+above remain the historical 2026-10-18 record.
 
 ## Motivation
 
@@ -218,6 +227,27 @@ prior certification. It also separates three claims: a repair path exists, a
 chosen random procedure reaches a good state almost surely, and its expected
 work is bounded. Each claim needs its own evidence.
 
+The [hazard calculus](PPGraph/Repair/Hazards.lean) computes potentially affected
+certificates from proved read/write footprints. It proves commutation of
+hazard-free actions and equivalence between scoped checking and the full repair
+contract. [Semantic hazards](PPGraph/Repair/SemanticHazards.lean) refine that scope
+using actual invalidation witnesses over an allowed state domain. Exact finite
+classification requires a complete enumeration of that domain; a footprint
+overlap alone does not show that a certificate fails.
+
+[Observable subalgebras](PPGraph/Repair/ObservableAlgebra.lean) describe which
+information suffices for a chosen observation and update interface. A stable
+algebra remains closed under repair pullbacks, while a fixed algebra retains
+each observable's value. Decision tests must separately factor through the
+retained observations. The stable-hull construction characterizes all future
+dependencies; it does not guarantee a small or computable summary. For finite
+stochastic models, [kernel closure](PPGraph/Repair/ObservableKernel.lean) requires
+equal aggregate transition masses on each summary fiber and a separately
+factored good-state predicate. These conditions connect the observable view to
+the existing exact lumping results. The [affine-scheme module](PPGraph/Repair/ObservableSchemes.lean)
+expresses deterministic pullbacks and protected observations as commuting scheme
+maps. See [the precise scope](docs/THEOREM_SCOPE.md#repair-hazards-and-observable-reduction).
+
 The General and lopsided Lovász Local Lemmas give sufficient conditions for a
 positive probability of avoiding all bad events. In the product-variable model,
 Moser–Tardos resampling constructs a satisfying assignment by redrawing the
@@ -281,7 +311,7 @@ would hide that distinction. The
 contains the concrete results. Different checks use different aspects of the
 measurements; shared data does not make them probabilistically independent.
 
-The library has **1,876 explicitly declared theorems and lemmas**, with an explicit
+The library has **2,054 explicitly declared theorems and lemmas**, with an explicit
 `#check` for each. This inventory includes structural laws, projections and API
 helpers as well as the main mathematical results. The
 [theorem-scope note](docs/THEOREM_SCOPE.md) explains the local-state repair model
@@ -289,7 +319,7 @@ and the 2026-10-28 removal of a `True` placeholder. The diagram below shows how
 certification, dependency
 analysis, repair, finite decisions and work bounds fit together.
 
-The [module inventory](docs/THEORY_INDEX.md) lists all 198 modules. Run
+The [module inventory](docs/THEORY_INDEX.md) lists all 206 modules. Run
 `python3 tools/audit_ppgraph.py` to rebuild and inspect the axiom dependencies of
 every project declaration, including generated theorem constants. Results and
 source hashes are recorded in `reports/PPGRAPH_AXIOM_AUDIT.txt` and
@@ -299,7 +329,7 @@ source hashes are recorded in `reports/PPGRAPH_AXIOM_AUDIT.txt` and
 
 ## Library layout
 
-The 198 modules are grouped by mathematical subject under `PPGraph/`.
+The 206 modules are grouped by mathematical subject under `PPGraph/`.
 Import a specific module to use one part of the library, or import
 `PPGraph.All` for the complete development. `import PPGraph` remains a small
 entry point for the core graph theory.
@@ -309,6 +339,7 @@ entry point for the core graph theory.
 | `PPGraph/Core/` | Graphs, categorical structure, refinement relations and basic repair |
 | `PPGraph/Certification/` | Ordered certificates, canonical levels, quotients, selection and self-assessment |
 | `PPGraph/Dependency/` | Blocking Dependency Decomposition, component footprints, cost and matrix views |
+| `PPGraph/Repair/` | Structural and semantic hazards, checked commits, stable observable subalgebras, stochastic reduction and affine schemes |
 | `PPGraph/LLL/` | General, lopsided and variable Lovász Local Lemmas |
 | `PPGraph/MoserTardos/` | Process, witness trees, probability laws and expected-work bounds |
 | `PPGraph/Shearer/` | Shearer polynomials, stable sequences and work budgets |
@@ -343,6 +374,11 @@ the later probabilistic and decision results.
 | `PPGraph/Core/Meta.lean` | 12 | Core-RR correspondence, compatibility constructed from base-relation inclusion, and upgrade laws |
 | `PPGraph/Core/Repair.lean` | 9 | Local value replacement under a fixed predicate: restoration, exact frame, healthy fixed points, no new isolation and unaffected active edges |
 | `PPGraph/Core/RR.lean` | 9 | Refinement relations: port of NASA pvslib sets_aux@rr_rel (rel_extension, RR, g/f-consistency, PPGConfig bridge) |
+| `PPGraph/Repair/Hazards.lean` | 23 | Read/write hazards, commuting actions, affected certificates and scoped checked commits |
+| `PPGraph/Repair/SemanticHazards.lean` | 27 | Exact invalidation scope, complete finite-domain classification and checked restoration with core preservation |
+| `PPGraph/Repair/ObservableAlgebra.lean` | 31 | Pullbacks, stable/fixed subalgebras, future observational equivalence, stable hulls and local-algebra footprint laws |
+| `PPGraph/Repair/ObservableKernel.lean` | 10 | Finite stochastic closure, fiber-local transition masses and exact lumping compatibility |
+| `PPGraph/Repair/ObservableSchemes.lean` | 34 | Affine spectra, repair maps, observation factorization and protected projections |
 | `PPGraph/Certification/Parametric.lean` | 24 | Parametric certification: master refinement, canonical levels, lattice operators, PPG bridge, repair bounds, threshold instance |
 | `PPGraph/Certification/ParametricQuotient.lean` | 25 | Quotient structure: cert_equiv, induced PartialOrder, CertInfClosed meet, LinearOrder separating |
 | `PPGraph/Certification/Blocking.lean` | 7 | Blocking certificates: diagnostic layer, canonical has empty blocking, stricter has nonempty |

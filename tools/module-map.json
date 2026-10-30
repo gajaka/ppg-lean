@@ -990,6 +990,46 @@
       "old_path": "PPGraph/Integration/LucesCertificateRepair.lean",
       "path": "PPGraph/Integration/LucesCertificateRepair.lean",
       "module": "PPGraph.Integration.LucesCertificateRepair"
+    },
+    {
+      "old_path": "PPGraphRepairHazards.lean",
+      "path": "PPGraph/Repair/Hazards.lean",
+      "module": "PPGraph.Repair.Hazards"
+    },
+    {
+      "old_path": "PPGraphRepairHazardExamples.lean",
+      "path": "PPGraph/Repair/HazardExamples.lean",
+      "module": "PPGraph.Repair.HazardExamples"
+    },
+    {
+      "old_path": "PPGraphRepairSemanticHazards.lean",
+      "path": "PPGraph/Repair/SemanticHazards.lean",
+      "module": "PPGraph.Repair.SemanticHazards"
+    },
+    {
+      "old_path": "PPGraphRepairSemanticHazardExamples.lean",
+      "path": "PPGraph/Repair/SemanticHazardExamples.lean",
+      "module": "PPGraph.Repair.SemanticHazardExamples"
+    },
+    {
+      "old_path": "PPGraphRepairObservableAlgebra.lean",
+      "path": "PPGraph/Repair/ObservableAlgebra.lean",
+      "module": "PPGraph.Repair.ObservableAlgebra"
+    },
+    {
+      "old_path": "PPGraphRepairObservableKernel.lean",
+      "path": "PPGraph/Repair/ObservableKernel.lean",
+      "module": "PPGraph.Repair.ObservableKernel"
+    },
+    {
+      "old_path": "PPGraphRepairObservableExamples.lean",
+      "path": "PPGraph/Repair/ObservableExamples.lean",
+      "module": "PPGraph.Repair.ObservableExamples"
+    },
+    {
+      "old_path": "PPGraphRepairObservableSchemes.lean",
+      "path": "PPGraph/Repair/ObservableSchemes.lean",
+      "module": "PPGraph.Repair.ObservableSchemes"
     }
   ],
   "facades": [

@@ -199,4 +199,13 @@ public import PPGraph.Integration.IncludeAsciiBytes
 public import PPGraph.Integration.LucesObservedInputs
 public import PPGraph.Integration.LucesCertificateRepair
 
+public import PPGraph.Repair.Hazards
+public import PPGraph.Repair.HazardExamples
+public import PPGraph.Repair.SemanticHazards
+public import PPGraph.Repair.SemanticHazardExamples
+public import PPGraph.Repair.ObservableAlgebra
+public import PPGraph.Repair.ObservableKernel
+public import PPGraph.Repair.ObservableExamples
+public import PPGraph.Repair.ObservableSchemes
+
 /-! Complete generic PPG library. Individual modules can be imported separately. -/

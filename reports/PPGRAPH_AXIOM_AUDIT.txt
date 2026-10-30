@@ -1,8 +1,8 @@
-PPGraph whole-library axiom audit — 2026-10-28
+PPGraph whole-library axiom audit — 2026-10-30
 
-PASS: 1876 explicitly declared theorems in 198 canonical modules.
+PASS: 2054 explicitly declared theorems in 206 canonical modules.
 Also built and scanned: 2 import-only facades.
-Also audited: 1636 generated theorem constants and all remaining project declarations, 5368 declarations in total.
+Also audited: 1761 generated theorem constants and all remaining project declarations, 5835 declarations in total.
 Every explicitly declared theorem has an explicit #check.
 Module ownership comes from the imported Lean environment.
 Every project declaration is inspected with a temporary #print axioms command.
@@ -3257,7 +3257,464 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairGraph.reach_rel' does not depend on any axioms
 'RepairGraph.rec' does not depend on any axioms
 'RepairGraph.recOn' does not depend on any axioms
+'RepairHazard.Action' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action._sizeOf_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action._sizeOf_inst' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.casesOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.ctorIdx' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.mk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.mk._flat_ctor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.mk.inj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.mk.injEq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.mk.noConfusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.mk.sizeOf_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.noConfusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.noConfusionType' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.read_local' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.reads' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.rec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.recOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Action.writes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.Framed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.FullContract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.ScopedContract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.ScopedContract.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.State' does not depend on any axioms
+'RepairHazard.affected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.affected.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.affected.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.affected_iff_possible_invalidation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.affected_mono_writes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.affected_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.affected_union' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.canSwap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.canSwap.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.canSwap_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.canSwap_eq_true_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.canSwap_iff_no_hazards' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.checkCommit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.checkCommit.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.checkCommit.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.checkCommit_iff_fullContract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.checkCommit_iff_scopedContract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.checkCommit_plan_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.checkCommit_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.checkedStep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.checkedStep.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.checkedStep_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.checkedStep_target_of_accepted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.mem_affected_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.planWrites' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.planWrites._f' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.planWrites._sunfold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.planWrites._unsafe_rec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.planWrites.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.planWrites.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.planWrites.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.planWrites.match_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.preserved_of_disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.preserved_outside_affected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.rawHazard' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.rawHazard.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.rawHazard_eq_false_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.runPlan' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.runPlan._f' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.runPlan._sunfold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.runPlan._unsafe_rec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.runPlan.match_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.runPlan_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.runPlan_preserved_outside_affected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.runPlan_swap_adjacent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.scopedContract_iff_fullContract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.warHazard' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.warHazard_eq_false_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.wawHazard' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.wawHazard.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.wawHazard_eq_false_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.Coordinate' does not depend on any axioms
+'RepairHazardExamples.Snapshot' does not depend on any axioms
+'RepairHazardExamples.before' depends on axioms: [propext]
+'RepairHazardExamples.before._proof_1' depends on axioms: [propext]
+'RepairHazardExamples.copy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.copy._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.copy._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.damaging' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.damaging._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.damaging._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.idle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.idle._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.idle._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.independent_writes_canSwap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.independent_writes_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.instDecidablePredSnapshotSat' does not depend on any axioms
+'RepairHazardExamples.instDecidablePredSnapshotSat._proof_1' does not depend on any axioms
+'RepairHazardExamples.no_hazards_need_not_repair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.ones' does not depend on any axioms
+'RepairHazardExamples.overlap_need_not_violate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.protected_damage_is_rejected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.raw_changes_result' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.raw_is_detected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.sat' does not depend on any axioms
+'RepairHazardExamples.sat_local' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.scoped_repair_has_full_contract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.scoped_repair_is_accepted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.setAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.setAt._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.setAt._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.target_only_would_accept_damage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.vars' depends on axioms: [propext, Quot.sound]
+'RepairHazardExamples.war_is_detected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.waw_is_detected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazardExamples.zero' does not depend on any axioms
+'RepairObservable.Fixed' depends on axioms: [propext, Quot.sound]
+'RepairObservable.ObsEq' depends on axioms: [propext, Quot.sound]
+'RepairObservable.Reads' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.Stable' depends on axioms: [propext, Quot.sound]
+'RepairObservable.disjoint_fixes_localAlgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.fixedAlgebra' depends on axioms: [propext, Quot.sound]
+'RepairObservable.fixed_adjoin_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.hazard_free_pullbacks_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.localAlgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.localAlgebra._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.localAlgebra._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.localAlgebra._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.localAlgebra._proof_4' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.localAlgebra._proof_5' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.mem_fixedAlgebra' depends on axioms: [propext, Quot.sound]
+'RepairObservable.mem_fixedAlgebra._simp_1' depends on axioms: [propext, Quot.sound]
+'RepairObservable.mem_projectionAlgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.obsEq_adjoin_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.obsEq_after' depends on axioms: [propext, Quot.sound]
+'RepairObservable.obsEq_of_projection_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.obsEq_projectionAlgebra_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.obsEq_runWord' depends on axioms: [propext, Quot.sound]
+'RepairObservable.obsEq_stableHull_iff_future' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.observableSetoid' depends on axioms: [propext, Quot.sound]
+'RepairObservable.observableSetoid._proof_1' depends on axioms: [propext, Quot.sound]
+'RepairObservable.observable_test_congr' depends on axioms: [propext, Quot.sound]
+'RepairObservable.orbitGenerators' depends on axioms: [propext, Quot.sound]
+'RepairObservable.orbit_adjoin_stable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.projectionAlgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.projection_stable_of_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.pullback' depends on axioms: [propext, Quot.sound]
+'RepairObservable.pullback._proof_1' depends on axioms: [Quot.sound]
+'RepairObservable.pullback._proof_2' depends on axioms: [Quot.sound]
+'RepairObservable.pullback._proof_3' depends on axioms: [Quot.sound]
+'RepairObservable.pullback._proof_4' depends on axioms: [Quot.sound]
+'RepairObservable.pullback._proof_5' depends on axioms: [propext, Quot.sound]
+'RepairObservable.pullback_apply' depends on axioms: [propext, Quot.sound]
+'RepairObservable.pullback_comp' depends on axioms: [propext, Quot.sound]
+'RepairObservable.pullback_fixed_of_disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.pullback_reads' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.quotientObservable' depends on axioms: [propext, Quot.sound]
+'RepairObservable.quotientObservable_mk' depends on axioms: [propext, Quot.sound]
+'RepairObservable.quotientStep' depends on axioms: [propext, Quot.sound]
+'RepairObservable.quotientStep_mk' depends on axioms: [propext, Quot.sound]
+'RepairObservable.readEnvelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.reads_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.reads_subset_stable_localAlgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.runWord' does not depend on any axioms
+'RepairObservable.runWord._f' does not depend on any axioms
+'RepairObservable.runWord._sunfold' does not depend on any axioms
+'RepairObservable.runWord._unsafe_rec' does not depend on any axioms
+'RepairObservable.runWord.match_1' does not depend on any axioms
+'RepairObservable.stableHull' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.stableHull_eq_adjoin_orbit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.stableHull_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.stableHull_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.stableHull_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.stable_adjoin_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.stable_runWord' depends on axioms: [propext, Quot.sound]
+'RepairObservable.stable_stableHull' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservable.subset_orbitGenerators' depends on axioms: [propext, Quot.sound]
+'RepairObservable.subset_stableHull' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.PairState' does not depend on any axioms
+'RepairObservableExamples.demoModel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.demoModel.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.demo_not_kernelClosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.demo_stochastic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.firstAlgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.generator_image_in_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.increment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.increment.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.increment_not_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.increment_stable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.mean_check_insufficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.mean_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.signal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.signal.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.signal_generates_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.signal_in_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.signal_interpolation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.square_after_distinguishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.square_in_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.swap' does not depend on any axioms
+'RepairObservableExamples.swap.eq_1' does not depend on any axioms
+'RepairObservableExamples.swap_not_stable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.visible' depends on axioms: [propext]
+'RepairObservableExamples.visible._proof_1' depends on axioms: [propext]
+'RepairObservableExamples.visible._proof_2' depends on axioms: [propext]
+'RepairObservableExamples.visible.eq_1' depends on axioms: [propext]
+'RepairObservableExamples.visibleSignal' depends on axioms: [propext, Quot.sound]
+'RepairObservableExamples.visibleSignal.eq_1' depends on axioms: [propext, Quot.sound]
+'RepairObservableExamples.visible_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.FiberLocal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.GoodLocal' does not depend on any axioms
+'RepairObservableKernel.KernelClosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.compatible_local' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.expectation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.expectation.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.expectation_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.fiberLocal_kernelClosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.fiberMass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.fiberMass.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.kernelClosed_fiberLocal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.kernelClosed_iff_fiberLocal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.reducedModel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.reduced_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.reduced_compatible_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.reduced_stochastic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.reduced_survival' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableKernel.representative' depends on axioms: [Classical.choice]
+'RepairObservableKernel.representative_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.Restricts' depends on axioms: [propext, Quot.sound]
+'RepairObservableScheme.baseScheme' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.evaluate' depends on axioms: [propext, Quot.sound]
+'RepairObservableScheme.evaluationPrime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.evaluationPrime._proof_1' depends on axioms: [propext, Quot.sound]
+'RepairObservableScheme.evaluationPrime._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.evaluationPrime_after' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.evaluationPrime_basicOpen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.evaluationPrime_maximal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.fixed_restricts' depends on axioms: [propext, Quot.sound]
+'RepairObservableScheme.hazard_free_observable_scheme_commute' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RepairObservableScheme.hazard_free_scheme_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observableBase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observablePoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observablePoint.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observablePoint_after' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observablePoint_eq_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observableRepair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observableRepair.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observableRepair_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observableRepair_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observableRepair_eq_id_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observableRepair_over_base' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observableRing_reduced' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observableScheme' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observableScheme_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observableScheme_reduced' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.observe_over_base' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.protected_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.pullback_injective_of_surjective' depends on axioms: [propext, Quot.sound]
+'RepairObservableScheme.repair_basicOpen_preimage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.repair_observe_commutes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.repaired_point_basicOpen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.restrictedPullback' depends on axioms: [propext, Quot.sound]
+'RepairObservableScheme.restrictedPullback._proof_1' depends on axioms: [propext, Quot.sound]
+'RepairObservableScheme.restrictedPullback_apply' depends on axioms: [propext, Quot.sound]
+'RepairObservableScheme.restricts_comp' depends on axioms: [propext, Quot.sound]
+'RepairObservableScheme.restricts_iff_scheme_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.restricts_iff_unique_scheme_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.restricts_of_scheme_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.scheme_factor_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.stateBase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.statePoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.statePoint_after' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.statePoint_observe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.stateRepair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.stateRepair_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.stateRepair_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.stateRepair_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.stateRepair_over_base' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.stateScheme' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.stateScheme_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.summaryAlgebraEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableScheme.summarySchemeIso' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairOp' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain._sizeOf_1' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain._sizeOf_inst' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain.casesOn' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain.covers' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain.ctorIdx' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain.mk' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain.mk._flat_ctor' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain.mk.inj' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain.mk.injEq' depends on axioms: [propext]
+'RepairSemanticHazard.CompleteDomain.mk.noConfusion' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain.mk.sizeOf_spec' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain.noConfusion' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain.noConfusionType' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain.rec' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain.recOn' does not depend on any axioms
+'RepairSemanticHazard.CompleteDomain.states' does not depend on any axioms
+'RepairSemanticHazard.HazardResult' does not depend on any axioms
+'RepairSemanticHazard.HazardResult._sizeOf_1' does not depend on any axioms
+'RepairSemanticHazard.HazardResult._sizeOf_inst' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.casesOn' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.ctorElim' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.ctorElimType' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.ctorIdx' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.invalidated' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.invalidated.congr_simp' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.invalidated.elim' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.invalidated.inj' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.invalidated.injEq' depends on axioms: [propext]
+'RepairSemanticHazard.HazardResult.invalidated.noConfusion' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.invalidated.sizeOf_spec' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.isHazard' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.isHazard.eq_1' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.isHazard.eq_2' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.isHazard.match_1' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.noConfusion' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.noConfusionType' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.preserved' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.preserved.congr_simp' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.preserved.elim' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.preserved.noConfusion' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.preserved.sizeOf_spec' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.rec' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.recOn' does not depend on any axioms
+'RepairSemanticHazard.Invalidates' does not depend on any axioms
+'RepairSemanticHazard.Invalidates.eq_1' does not depend on any axioms
+'RepairSemanticHazard.PreservesOn' does not depend on any axioms
+'RepairSemanticHazard.PreservesOn.eq_1' does not depend on any axioms
+'RepairSemanticHazard.checkExactCommit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.checkExactCommit.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.checkExactCommit_iff_fullContract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.checkScope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.checkScope.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.checkScope_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.checkScope_iff_fullContract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.checkedExactStep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.checkedExactStep.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.checkedExactStep_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.checkedExactStep_target_of_accepted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.classify' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.classify._proof_1' depends on axioms: [propext]
+'RepairSemanticHazard.classify._proof_2' depends on axioms: [propext]
+'RepairSemanticHazard.classify._proof_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.classify.match_1' does not depend on any axioms
+'RepairSemanticHazard.classify_isHazard_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.exactScope' depends on axioms: [propext, Quot.sound]
+'RepairSemanticHazard.exactScope.eq_1' depends on axioms: [propext, Quot.sound]
+'RepairSemanticHazard.exactScope_eq_scope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.findInvalidation' does not depend on any axioms
+'RepairSemanticHazard.findInvalidation.congr_simp' depends on axioms: [Quot.sound]
+'RepairSemanticHazard.findInvalidation.eq_1' does not depend on any axioms
+'RepairSemanticHazard.findInvalidation_isSome_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.findInvalidation_mem' depends on axioms: [propext]
+'RepairSemanticHazard.findInvalidation_none_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.findInvalidation_sound' depends on axioms: [propext]
+'RepairSemanticHazard.finiteScope' depends on axioms: [propext, Quot.sound]
+'RepairSemanticHazard.finiteScope.eq_1' depends on axioms: [propext, Quot.sound]
+'RepairSemanticHazard.invalidatesDecidable' does not depend on any axioms
+'RepairSemanticHazard.mem_finiteScope_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.mem_scope_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.mem_scope_iff_not_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.not_mem_scope_iff_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.not_mem_scope_of_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.preserved_outside_scope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.scope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.scope_comp_subset_union' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.scope_eq_empty_of_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.scope_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.scope_minimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.scope_mono_domain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.scope_no_false_negatives' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.scope_no_false_positives' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.scope_subset_affected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.scope_subset_after_safe_removal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazard.scope_subset_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.BitCert' does not depend on any axioms
+'RepairSemanticHazardExamples.BitSnapshot' does not depend on any axioms
+'RepairSemanticHazardExamples.IntCert' does not depend on any axioms
+'RepairSemanticHazardExamples.IntSnapshot' does not depend on any axioms
+'RepairSemanticHazardExamples.accepted_commit_has_full_contract' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RepairSemanticHazardExamples.bitDomain' depends on axioms: [propext, Quot.sound]
+'RepairSemanticHazardExamples.bitDomain._proof_3' depends on axioms: [propext, Quot.sound]
+'RepairSemanticHazardExamples.bitFalse' does not depend on any axioms
+'RepairSemanticHazardExamples.bitFalse.eq_1' does not depend on any axioms
+'RepairSemanticHazardExamples.bitSat' depends on axioms: [propext]
+'RepairSemanticHazardExamples.bitSat._proof_1' depends on axioms: [propext]
+'RepairSemanticHazardExamples.bitSat.eq_1' depends on axioms: [propext]
+'RepairSemanticHazardExamples.bitSat_local' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.bitTrue' does not depend on any axioms
+'RepairSemanticHazardExamples.bitTrue.eq_1' does not depend on any axioms
+'RepairSemanticHazardExamples.bitVars' depends on axioms: [propext, Quot.sound]
+'RepairSemanticHazardExamples.bit_counterexample_found' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.bit_exact_scope_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.bit_invalidated_classified' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.bit_preserved_classified' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.bit_structural_scope_all' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.cancelling_plan_has_empty_semantic_scope' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RepairSemanticHazardExamples.cancelling_plan_is_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.cancelling_plan_still_has_structural_overlap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RepairSemanticHazardExamples.decrement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.decrement._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.decrement._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.decrement_nonnegative_alarm_retained' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RepairSemanticHazardExamples.exact_commit_accepts_safe_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.exact_commit_rejects_real_damage' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RepairSemanticHazardExamples.exact_commit_still_checks_targets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RepairSemanticHazardExamples.hazard_can_be_harmless_at_current_state' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RepairSemanticHazardExamples.increment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.increment._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.increment._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.increment_nonnegative_alarm_removed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RepairSemanticHazardExamples.increment_preserves_nonnegative' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RepairSemanticHazardExamples.increment_refined_commit_iff_fullContract' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RepairSemanticHazardExamples.increment_refined_scope_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.increment_semantic_scope_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.increment_structural_scope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.increment_zero_alarm_retained' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.increment_zero_has_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RepairSemanticHazardExamples.instDecidablePredBitSnapshotBitSat' depends on axioms: [propext]
+'RepairSemanticHazardExamples.instDecidablePredBitSnapshotUnrestrictedBit' does not depend on any axioms
+'RepairSemanticHazardExamples.instDecidablePredBitSnapshotUnrestrictedBit._proof_1' does not depend on any axioms
+'RepairSemanticHazardExamples.instDecidablePredIntSnapshotIntSat' depends on axioms: [propext]
+'RepairSemanticHazardExamples.instDecidablePredIntSnapshotUnrestrictedInt' does not depend on any axioms
+'RepairSemanticHazardExamples.instDecidablePredIntSnapshotUnrestrictedInt._proof_1' does not depend on any axioms
+'RepairSemanticHazardExamples.intSat' depends on axioms: [propext]
+'RepairSemanticHazardExamples.intSat._proof_1' depends on axioms: [propext]
+'RepairSemanticHazardExamples.intSat.eq_1' depends on axioms: [propext]
+'RepairSemanticHazardExamples.intSat_local' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.intVars' depends on axioms: [propext, Quot.sound]
+'RepairSemanticHazardExamples.partial_sample_does_not_cover' depends on axioms: [propext]
+'RepairSemanticHazardExamples.partial_sample_misses_hazard' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.setTrue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.setTrue._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.setTrue._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairSemanticHazardExamples.unrestrictedBit' does not depend on any axioms
+'RepairSemanticHazardExamples.unrestrictedInt' does not depend on any axioms
 'RunningUntil' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RunningUntil.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RunningUntil.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -5364,6 +5821,94 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.MoserTardos.Witness.Witness.0.WTree.label.match_1.eq_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.Witness.0.WTree.label.match_1.splitter' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.Witness.0.WTree.size_pos._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.Hazards.0.RepairHazard.affected_union._simp_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.Hazards.0.RepairHazard.affected_union._simp_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.Hazards.0.RepairHazard.planWrites.match_1.eq_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.Hazards.0.RepairHazard.planWrites.match_1.eq_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.Hazards.0.RepairHazard.planWrites.match_1.splitter' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.Hazards.0.RepairHazard.rawHazard_eq_false_iff._simp_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.Hazards.0.RepairHazard.rawHazard_eq_false_iff._simp_1_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.Hazards.0.RepairHazard.runPlan_frame._simp_1_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.Hazards.0.RepairHazard.runPlan_frame._simp_1_5' depends on axioms: [propext]
+'_private.PPGraph.Repair.Hazards.0.RepairHazard.wawHazard_eq_false_iff._simp_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.Hazards.0.RepairHazard.wawHazard_eq_false_iff._simp_1_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.bitDomain._simp_1' depends on axioms: [propext]
+'_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.bitDomain._simp_2' depends on axioms: [propext]
+'_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.bit_counterexample_found._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.bit_exact_scope_singleton._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.bit_invalidated_classified._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.bit_preserved_classified._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.cancelling_plan_is_identity._proof_1_1' depends on axioms: [propext,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.exact_commit_accepts_safe_core._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.exact_commit_rejects_real_damage._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.exact_commit_still_checks_targets._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.hazard_can_be_harmless_at_current_state._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.increment_preserves_nonnegative._proof_1_1' depends on axioms: [propext,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.increment_semantic_scope_exact._simp_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.increment_semantic_scope_exact._simp_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.partial_sample_misses_hazard._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.HazardResult.isHazard.match_1.eq_1' does not depend on any axioms
+'_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.HazardResult.isHazard.match_1.eq_2' does not depend on any axioms
+'_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.HazardResult.isHazard.match_1.splitter' does not depend on any axioms
+'_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.mem_finiteScope_iff._simp_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.mem_finiteScope_iff._simp_1_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.mem_scope_iff_not_preserves._simp_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.mem_scope_iff_not_preserves._simp_1_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.not_mem_scope_iff_preserves._simp_1_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.BDD.0.Shearer.strictCriterion_iff_components._simp_1_2' depends on axioms: [propext,

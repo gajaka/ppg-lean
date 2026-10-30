@@ -1,15 +1,16 @@
 # Module migration
 
-The library's 191 theory modules now live in subject directories under
-`PPGraph/`. This reorganization changes source paths and import names.
-Public declaration names, namespaces, theorem statements, proof bodies and mathematical
-references are preserved. The theory inventory still contains 1,824 explicitly
-declared theorems and lemmas; the entry points below add no mathematical results.
+The 2026-10-25 reorganization moved 191 theory modules into subject directories
+under `PPGraph/`. It changed source paths and import names while preserving public
+declaration names, namespaces, theorem statements, proof bodies and mathematical
+references. That inventory contained 1,824 explicitly declared theorems and
+lemmas; the entry points below add no mathematical results.
 
 Use the canonical import in the table when updating a downstream project.
 `import PPGraph` remains available for the core graph theory through a small
-facade over `PPGraph.Core.Graph`. `import PPGraph.All` imports all 191 theory
-modules. The other former flat imports have no compatibility shims.
+facade over `PPGraph.Core.Graph`. `import PPGraph.All` imports the complete library,
+currently 206 theory modules. The other former flat imports have no compatibility
+shims.
 
 For example:
 
@@ -245,6 +246,22 @@ paths, without old flat imports:
 - `Integration.LucesCertificateRepair`
 
 Their source-map `old_path` keys likewise equal their current paths.
+
+The repair-observable modules added on 2026-10-30 use the following canonical
+imports. The flat names identify their earlier source organization; no flat
+compatibility shims are installed. These additions are separate from the
+191-module directory reorganization and its historical API comparison above.
+
+| Earlier flat name | Canonical import | Source |
+| --- | --- | --- |
+| `PPGraphRepairHazards` | `PPGraph.Repair.Hazards` | [PPGraph/Repair/Hazards.lean](../PPGraph/Repair/Hazards.lean) |
+| `PPGraphRepairHazardExamples` | `PPGraph.Repair.HazardExamples` | [PPGraph/Repair/HazardExamples.lean](../PPGraph/Repair/HazardExamples.lean) |
+| `PPGraphRepairSemanticHazards` | `PPGraph.Repair.SemanticHazards` | [PPGraph/Repair/SemanticHazards.lean](../PPGraph/Repair/SemanticHazards.lean) |
+| `PPGraphRepairSemanticHazardExamples` | `PPGraph.Repair.SemanticHazardExamples` | [PPGraph/Repair/SemanticHazardExamples.lean](../PPGraph/Repair/SemanticHazardExamples.lean) |
+| `PPGraphRepairObservableAlgebra` | `PPGraph.Repair.ObservableAlgebra` | [PPGraph/Repair/ObservableAlgebra.lean](../PPGraph/Repair/ObservableAlgebra.lean) |
+| `PPGraphRepairObservableKernel` | `PPGraph.Repair.ObservableKernel` | [PPGraph/Repair/ObservableKernel.lean](../PPGraph/Repair/ObservableKernel.lean) |
+| `PPGraphRepairObservableExamples` | `PPGraph.Repair.ObservableExamples` | [PPGraph/Repair/ObservableExamples.lean](../PPGraph/Repair/ObservableExamples.lean) |
+| `PPGraphRepairObservableSchemes` | `PPGraph.Repair.ObservableSchemes` | [PPGraph/Repair/ObservableSchemes.lean](../PPGraph/Repair/ObservableSchemes.lean) |
 
 ## API corrections on 2026-10-28
 
