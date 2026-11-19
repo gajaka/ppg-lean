@@ -208,4 +208,6 @@ public import PPGraph.Repair.ObservableKernel
 public import PPGraph.Repair.ObservableExamples
 public import PPGraph.Repair.ObservableSchemes
 
+public import PPGraph.Research.PlanRepair
+
 /-! Complete generic PPG library. Individual modules can be imported separately. -/

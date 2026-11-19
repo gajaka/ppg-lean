@@ -1,5 +1,5 @@
 {
-  "date_utc": "2026-10-30",
+  "date_utc": "2026-11-19",
   "toolchain": "leanprover/lean4:v4.35.0",
   "full_build_passed": true,
   "kernel_checked_library": true,
@@ -11,15 +11,15 @@
     "propext"
   ],
   "project_owned_axioms": 0,
-  "module_count": 206,
+  "module_count": 208,
   "facade_count": 2,
   "facades": [
     "PPGraph",
     "PPGraph.All"
   ],
-  "explicit_theorem_count": 2054,
-  "generated_theorem_count": 1761,
-  "environment_declaration_count": 5835,
+  "explicit_theorem_count": 2079,
+  "generated_theorem_count": 1789,
+  "environment_declaration_count": 5975,
   "source_sha256": {
     "PPGraph/Core/Graph.lean": "6e4d3ec172faa60aedb75a2c47451494e83284d38f37e560f86e319a0c295718",
     "PPGraph/Drift/Additive.lean": "d9e04c87dc3f806aea0e5a368ddc25dd18e768192a9c5e1d7a71f242e9957396",
@@ -227,9 +227,11 @@
     "PPGraph/Repair/ObservableKernel.lean": "55fa40c6ff924f5b798b61105faadcaedd9472fd21beceeb87a4e97d1206d3e8",
     "PPGraph/Repair/ObservableExamples.lean": "5366dbdbd3e4ba8c5b99e150ddfef72e4ecc8e7912e67c7201e2b86f0e9e9829",
     "PPGraph/Repair/ObservableSchemes.lean": "6f20e981f8bdd8fcb65ada38d44d7c6b3e9908cb8f72dd1453c31f4333c87a6e",
+    "PPGraph/Research/PlanRepairModel.lean": "39ee9161700f08e392fe77be7fbbf3b530338c160ac0eb2f617cf36161987fcc",
+    "PPGraph/Research/PlanRepair.lean": "6ef80c7a39a1d16fa87050070d74559955cfe4091c1dfa1c296328bcbe568668",
     "PPGraph.lean": "41760bb8a3187d98b8fdaaf2329d5296d753d161c6dbbdf979e98606908d3e96",
-    "PPGraph/All.lean": "2a9196bbb61ac1d22570cbe5467fac5adb912f75428e216991096bc071027656",
-    "tools/module-map.json": "1f8efe65c085e9ca32723fe1bc9a65a3a218c3714684b03cb73308a69ad4a8b4",
+    "PPGraph/All.lean": "486199217d9b5c648c8285191347115d18e2b62c38629b4a7e9787f48817cfdf",
+    "tools/module-map.json": "cf890604659616165a7ace426fe27d404b229d1089b93a4213ebf87ce6da65a2",
     "lakefile.lean": "38fc21914e2365b1948c01db24f709abe5dc0d3347b928fbf7f10f94bb026d5a",
     "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
     "lake-manifest.json": "69bd64ee24bd0360be6279ab7737e7b384b13db846fb9bfe5d0026f8debd4e72",
@@ -251,10 +253,10 @@
     ]
   },
   "audit_tool_sha256": "a5724e0d785228856590132c5d46a0f3f3c760d822ce9040ca5a31f3c3c7b459",
-  "full_build_log_sha256": "25e0d64b64b0479f2f5c7d55915dfe38d4fc0c34c4c3db4a7924ccb02ffb4861",
+  "full_build_log_sha256": "1ce18380814fa56dd718e049fe49dbad48ff6e4f151df19ec9e9a77410162f72",
   "literal_input_check_log_sha256": "0aacf5bb05ba4de83dc4bfe8558fe1c73a98df5202d5a90856896e42325b4b4c",
-  "inventory_log_sha256": "0ae77ee751fb5f110f4980a91f18a9544cfb45b1ca6a371496a0f39133d91765",
-  "axiom_log_sha256": "1d89d539d18254fcf161b9c076cec8ec54124415e53d24ec101c0982038e6eb4",
+  "inventory_log_sha256": "4bba7ebc601ed6451cbebe6cda74d05b9de36a8614cc99c3302626e263897378",
+  "axiom_log_sha256": "a876296f5e27427389b841e36bb733ccfdb9a6a34a13047aa183553a06af94d0",
   "modules": {
     "PPGraph.Core.Graph": {
       "explicit_theorems": [
@@ -3336,6 +3338,41 @@
         "RepairObservableScheme.hazard_free_observable_scheme_commute"
       ],
       "environment_declaration_count": 55
+    },
+    "PPGraph.Research.PlanRepairModel": {
+      "explicit_theorems": [
+        "PlanRepair.sameContext_equivalence",
+        "PlanRepair.step_context",
+        "PlanRepair.step_revision",
+        "PlanRepair.step_distinct",
+        "PlanRepair.step_history_tail",
+        "PlanRepair.step_history",
+        "PlanRepair.step_not_reverse",
+        "PlanRepair.step_preserves_accepted",
+        "PlanRepair.step_preserves_obstructions",
+        "PlanRepair.step_sound",
+        "PlanRepair.accepted_not_refuted",
+        "PlanRepair.proposal_does_not_certify",
+        "PlanRepair.proposal_opens_question",
+        "PlanRepair.unresolved_does_not_refute",
+        "PlanRepair.steps_sound",
+        "PlanRepair.steps_context",
+        "PlanRepair.steps_preserve_accepted",
+        "PlanRepair.steps_preserve_obstructions",
+        "PlanRepair.steps_retain_justification",
+        "PlanRepair.steps_retain_history"
+      ],
+      "environment_declaration_count": 132
+    },
+    "PPGraph.Research.PlanRepair": {
+      "explicit_theorems": [
+        "PlanRepair.PPG.rr_iff_same_context",
+        "PlanRepair.PPG.configured_rr_is_equivalence",
+        "PlanRepair.PPG.admitted_step_is_pp_edge",
+        "PlanRepair.PPG.research_graph_is_pp_valid",
+        "PlanRepair.PPG.research_path_preserves_invariant"
+      ],
+      "environment_declaration_count": 8
     }
   },
   "declarations": {
@@ -25281,6 +25318,872 @@
         "propext"
       ]
     },
+    "PlanRepair.Event": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "inductive",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event._sizeOf_1": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event._sizeOf_inst": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.casesOn": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.ctorElim": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.ctorElimType": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.ctorIdx": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.noConfusion": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.noConfusionType": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.proposed": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.proposed.elim": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.proposed.inj": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.proposed.injEq": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "PlanRepair.Event.proposed.noConfusion": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.proposed.sizeOf_spec": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.rec": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.recOn": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.refuted": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.refuted.elim": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.refuted.inj": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.refuted.injEq": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "PlanRepair.Event.refuted.noConfusion": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.refuted.sizeOf_spec": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.unresolved": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.unresolved.elim": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.unresolved.inj": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.unresolved.injEq": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "PlanRepair.Event.unresolved.noConfusion": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.unresolved.sizeOf_spec": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.verified": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.verified.elim": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.verified.inj": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.verified.injEq": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "PlanRepair.Event.verified.noConfusion": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.verified.sizeOf_spec": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.PPG.admitted_step_is_pp_edge": {
+      "module": "PPGraph.Research.PlanRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "PlanRepair.PPG.configuration": {
+      "module": "PPGraph.Research.PlanRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.PPG.configured_rr_is_equivalence": {
+      "module": "PPGraph.Research.PlanRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.PPG.graph": {
+      "module": "PPGraph.Research.PlanRepair",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "PlanRepair.PPG.graph._proof_1": {
+      "module": "PPGraph.Research.PlanRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "PlanRepair.PPG.research_graph_is_pp_valid": {
+      "module": "PPGraph.Research.PlanRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "PlanRepair.PPG.research_path_preserves_invariant": {
+      "module": "PPGraph.Research.PlanRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "PlanRepair.PPG.rr_iff_same_context": {
+      "module": "PPGraph.Research.PlanRepair",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.SameContext": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "inductive",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics._sizeOf_1": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics._sizeOf_inst": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.casesOn": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.certificate": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.ctorIdx": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.extendsView": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.mk": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.mk._flat_ctor": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.mk.inj": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.mk.injEq": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "PlanRepair.Semantics.mk.noConfusion": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.mk.sizeOf_spec": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.noConfusion": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.noConfusionType": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.rec": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.recOn": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.refutes": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.valid": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Semantics.witnesses": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Sound": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "inductive",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State._sizeOf_1": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State._sizeOf_inst": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.accepted": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.casesOn": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.core": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.ctorIdx": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.history": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.mk": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.mk._flat_ctor": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.mk.inj": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.mk.injEq": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "PlanRepair.State.mk.noConfusion": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.mk.sizeOf_spec": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.noConfusion": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.noConfusionType": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.obstructions": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.problem": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.questions": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.rec": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.recOn": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.rejected": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.State.revision": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Step": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "inductive",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Step.casesOn": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Step.proposed": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Step.rec": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Step.recOn": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Step.refuted": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Step.unresolved": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Step.verified": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Steps": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "inductive",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Steps.below": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "inductive",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Steps.below.casesOn": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Steps.below.cons": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Steps.below.rec": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Steps.below.refl": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Steps.brecOn": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Steps.casesOn": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Steps.cons": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Steps.rec": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "recursor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Steps.recOn": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Steps.refl": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "constructor",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.accepted_not_refuted": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.proposal_does_not_certify": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.proposal_opens_question": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.propose": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.propose.eq_1": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.record": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.record.eq_1": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.refute": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.refute.eq_1": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.sameContext_equivalence": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.step_context": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.step_distinct": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "PlanRepair.step_history": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.step_history_tail": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.step_not_reverse": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "PlanRepair.step_preserves_accepted": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.step_preserves_obstructions": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.step_revision": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.step_sound": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "PlanRepair.steps_context": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.steps_preserve_accepted": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.steps_preserve_obstructions": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.steps_retain_history": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "PlanRepair.steps_retain_justification": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "PlanRepair.steps_sound": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": [
+        "propext"
+      ]
+    },
+    "PlanRepair.unresolved": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.unresolved.eq_1": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.unresolved_does_not_refute": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": true,
+      "axioms": []
+    },
+    "PlanRepair.verify": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.verify.eq_1": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "Prewalk": {
       "module": "PPGraph.Core.Graph",
       "kind": "inductive",
@@ -47005,6 +47908,24 @@
       "explicit_theorem": false,
       "axioms": [
         "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Research.PlanRepairModel.0.PlanRepair.step_distinct._proof_1_1": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.Research.PlanRepairModel.0.PlanRepair.step_not_reverse._proof_1_1": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
         "Quot.sound",
         "propext"
       ]

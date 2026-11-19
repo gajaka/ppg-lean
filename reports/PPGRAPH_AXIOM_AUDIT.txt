@@ -1,8 +1,8 @@
-PPGraph whole-library axiom audit — 2026-10-30
+PPGraph whole-library axiom audit — 2026-11-19
 
-PASS: 2054 explicitly declared theorems in 206 canonical modules.
+PASS: 2079 explicitly declared theorems in 208 canonical modules.
 Also built and scanned: 2 import-only facades.
-Also audited: 1761 generated theorem constants and all remaining project declarations, 5835 declarations in total.
+Also audited: 1789 generated theorem constants and all remaining project declarations, 5975 declarations in total.
 Every explicitly declared theorem has an explicit #check.
 Module ownership comes from the imported Lean environment.
 Every project declaration is inspected with a temporary #print axioms command.
@@ -2525,6 +2525,144 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'Pegden.witnessOccurrence_eq_empty_of_not_mem_family' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.witnessOccurrence_nonempty_mem_treesUpTo' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.τC_toWTree_depthIndependent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PlanRepair.Event' does not depend on any axioms
+'PlanRepair.Event._sizeOf_1' does not depend on any axioms
+'PlanRepair.Event._sizeOf_inst' does not depend on any axioms
+'PlanRepair.Event.casesOn' does not depend on any axioms
+'PlanRepair.Event.ctorElim' does not depend on any axioms
+'PlanRepair.Event.ctorElimType' does not depend on any axioms
+'PlanRepair.Event.ctorIdx' does not depend on any axioms
+'PlanRepair.Event.noConfusion' does not depend on any axioms
+'PlanRepair.Event.noConfusionType' does not depend on any axioms
+'PlanRepair.Event.proposed' does not depend on any axioms
+'PlanRepair.Event.proposed.elim' does not depend on any axioms
+'PlanRepair.Event.proposed.inj' does not depend on any axioms
+'PlanRepair.Event.proposed.injEq' depends on axioms: [propext]
+'PlanRepair.Event.proposed.noConfusion' does not depend on any axioms
+'PlanRepair.Event.proposed.sizeOf_spec' does not depend on any axioms
+'PlanRepair.Event.rec' does not depend on any axioms
+'PlanRepair.Event.recOn' does not depend on any axioms
+'PlanRepair.Event.refuted' does not depend on any axioms
+'PlanRepair.Event.refuted.elim' does not depend on any axioms
+'PlanRepair.Event.refuted.inj' does not depend on any axioms
+'PlanRepair.Event.refuted.injEq' depends on axioms: [propext]
+'PlanRepair.Event.refuted.noConfusion' does not depend on any axioms
+'PlanRepair.Event.refuted.sizeOf_spec' does not depend on any axioms
+'PlanRepair.Event.unresolved' does not depend on any axioms
+'PlanRepair.Event.unresolved.elim' does not depend on any axioms
+'PlanRepair.Event.unresolved.inj' does not depend on any axioms
+'PlanRepair.Event.unresolved.injEq' depends on axioms: [propext]
+'PlanRepair.Event.unresolved.noConfusion' does not depend on any axioms
+'PlanRepair.Event.unresolved.sizeOf_spec' does not depend on any axioms
+'PlanRepair.Event.verified' does not depend on any axioms
+'PlanRepair.Event.verified.elim' does not depend on any axioms
+'PlanRepair.Event.verified.inj' does not depend on any axioms
+'PlanRepair.Event.verified.injEq' depends on axioms: [propext]
+'PlanRepair.Event.verified.noConfusion' does not depend on any axioms
+'PlanRepair.Event.verified.sizeOf_spec' does not depend on any axioms
+'PlanRepair.PPG.admitted_step_is_pp_edge' depends on axioms: [propext, Quot.sound]
+'PlanRepair.PPG.configuration' does not depend on any axioms
+'PlanRepair.PPG.configured_rr_is_equivalence' does not depend on any axioms
+'PlanRepair.PPG.graph' depends on axioms: [propext]
+'PlanRepair.PPG.graph._proof_1' depends on axioms: [propext]
+'PlanRepair.PPG.research_graph_is_pp_valid' depends on axioms: [propext, Quot.sound]
+'PlanRepair.PPG.research_path_preserves_invariant' depends on axioms: [propext]
+'PlanRepair.PPG.rr_iff_same_context' does not depend on any axioms
+'PlanRepair.SameContext' does not depend on any axioms
+'PlanRepair.Semantics' does not depend on any axioms
+'PlanRepair.Semantics._sizeOf_1' does not depend on any axioms
+'PlanRepair.Semantics._sizeOf_inst' does not depend on any axioms
+'PlanRepair.Semantics.casesOn' does not depend on any axioms
+'PlanRepair.Semantics.certificate' does not depend on any axioms
+'PlanRepair.Semantics.ctorIdx' does not depend on any axioms
+'PlanRepair.Semantics.extendsView' does not depend on any axioms
+'PlanRepair.Semantics.mk' does not depend on any axioms
+'PlanRepair.Semantics.mk._flat_ctor' does not depend on any axioms
+'PlanRepair.Semantics.mk.inj' does not depend on any axioms
+'PlanRepair.Semantics.mk.injEq' depends on axioms: [propext]
+'PlanRepair.Semantics.mk.noConfusion' does not depend on any axioms
+'PlanRepair.Semantics.mk.sizeOf_spec' does not depend on any axioms
+'PlanRepair.Semantics.noConfusion' does not depend on any axioms
+'PlanRepair.Semantics.noConfusionType' does not depend on any axioms
+'PlanRepair.Semantics.rec' does not depend on any axioms
+'PlanRepair.Semantics.recOn' does not depend on any axioms
+'PlanRepair.Semantics.refutes' does not depend on any axioms
+'PlanRepair.Semantics.valid' does not depend on any axioms
+'PlanRepair.Semantics.witnesses' does not depend on any axioms
+'PlanRepair.Sound' does not depend on any axioms
+'PlanRepair.State' does not depend on any axioms
+'PlanRepair.State._sizeOf_1' does not depend on any axioms
+'PlanRepair.State._sizeOf_inst' does not depend on any axioms
+'PlanRepair.State.accepted' does not depend on any axioms
+'PlanRepair.State.casesOn' does not depend on any axioms
+'PlanRepair.State.core' does not depend on any axioms
+'PlanRepair.State.ctorIdx' does not depend on any axioms
+'PlanRepair.State.history' does not depend on any axioms
+'PlanRepair.State.mk' does not depend on any axioms
+'PlanRepair.State.mk._flat_ctor' does not depend on any axioms
+'PlanRepair.State.mk.inj' does not depend on any axioms
+'PlanRepair.State.mk.injEq' depends on axioms: [propext]
+'PlanRepair.State.mk.noConfusion' does not depend on any axioms
+'PlanRepair.State.mk.sizeOf_spec' does not depend on any axioms
+'PlanRepair.State.noConfusion' does not depend on any axioms
+'PlanRepair.State.noConfusionType' does not depend on any axioms
+'PlanRepair.State.obstructions' does not depend on any axioms
+'PlanRepair.State.problem' does not depend on any axioms
+'PlanRepair.State.questions' does not depend on any axioms
+'PlanRepair.State.rec' does not depend on any axioms
+'PlanRepair.State.recOn' does not depend on any axioms
+'PlanRepair.State.rejected' does not depend on any axioms
+'PlanRepair.State.revision' does not depend on any axioms
+'PlanRepair.Step' does not depend on any axioms
+'PlanRepair.Step.casesOn' does not depend on any axioms
+'PlanRepair.Step.proposed' does not depend on any axioms
+'PlanRepair.Step.rec' does not depend on any axioms
+'PlanRepair.Step.recOn' does not depend on any axioms
+'PlanRepair.Step.refuted' does not depend on any axioms
+'PlanRepair.Step.unresolved' does not depend on any axioms
+'PlanRepair.Step.verified' does not depend on any axioms
+'PlanRepair.Steps' does not depend on any axioms
+'PlanRepair.Steps.below' does not depend on any axioms
+'PlanRepair.Steps.below.casesOn' does not depend on any axioms
+'PlanRepair.Steps.below.cons' does not depend on any axioms
+'PlanRepair.Steps.below.rec' does not depend on any axioms
+'PlanRepair.Steps.below.refl' does not depend on any axioms
+'PlanRepair.Steps.brecOn' does not depend on any axioms
+'PlanRepair.Steps.casesOn' does not depend on any axioms
+'PlanRepair.Steps.cons' does not depend on any axioms
+'PlanRepair.Steps.rec' does not depend on any axioms
+'PlanRepair.Steps.recOn' does not depend on any axioms
+'PlanRepair.Steps.refl' does not depend on any axioms
+'PlanRepair.accepted_not_refuted' does not depend on any axioms
+'PlanRepair.proposal_does_not_certify' does not depend on any axioms
+'PlanRepair.proposal_opens_question' does not depend on any axioms
+'PlanRepair.propose' does not depend on any axioms
+'PlanRepair.propose.eq_1' does not depend on any axioms
+'PlanRepair.record' does not depend on any axioms
+'PlanRepair.record.eq_1' does not depend on any axioms
+'PlanRepair.refute' does not depend on any axioms
+'PlanRepair.refute.eq_1' does not depend on any axioms
+'PlanRepair.sameContext_equivalence' does not depend on any axioms
+'PlanRepair.step_context' does not depend on any axioms
+'PlanRepair.step_distinct' depends on axioms: [propext, Quot.sound]
+'PlanRepair.step_history' does not depend on any axioms
+'PlanRepair.step_history_tail' does not depend on any axioms
+'PlanRepair.step_not_reverse' depends on axioms: [propext, Quot.sound]
+'PlanRepair.step_preserves_accepted' does not depend on any axioms
+'PlanRepair.step_preserves_obstructions' does not depend on any axioms
+'PlanRepair.step_revision' does not depend on any axioms
+'PlanRepair.step_sound' depends on axioms: [propext]
+'PlanRepair.steps_context' does not depend on any axioms
+'PlanRepair.steps_preserve_accepted' does not depend on any axioms
+'PlanRepair.steps_preserve_obstructions' does not depend on any axioms
+'PlanRepair.steps_retain_history' depends on axioms: [propext]
+'PlanRepair.steps_retain_justification' depends on axioms: [propext]
+'PlanRepair.steps_sound' depends on axioms: [propext]
+'PlanRepair.unresolved' does not depend on any axioms
+'PlanRepair.unresolved.eq_1' does not depend on any axioms
+'PlanRepair.unresolved_does_not_refute' does not depend on any axioms
+'PlanRepair.verify' does not depend on any axioms
+'PlanRepair.verify.eq_1' does not depend on any axioms
 'Prewalk' does not depend on any axioms
 'Prewalk._sizeOf_1' does not depend on any axioms
 'Prewalk._sizeOf_inst' does not depend on any axioms
@@ -5910,6 +6048,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Quot.sound]
 '_private.PPGraph.Repair.SemanticHazards.0.RepairSemanticHazard.not_mem_scope_iff_preserves._simp_1_1' depends on axioms: [propext,
  Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Research.PlanRepairModel.0.PlanRepair.step_distinct._proof_1_1' depends on axioms: [propext,
+ Quot.sound]
+'_private.PPGraph.Research.PlanRepairModel.0.PlanRepair.step_not_reverse._proof_1_1' depends on axioms: [propext,
  Quot.sound]
 '_private.PPGraph.Shearer.BDD.0.Shearer.strictCriterion_iff_components._simp_1_2' depends on axioms: [propext,
  Classical.choice,

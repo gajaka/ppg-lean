@@ -1030,6 +1030,18 @@
       "old_path": "PPGraphRepairObservableSchemes.lean",
       "path": "PPGraph/Repair/ObservableSchemes.lean",
       "module": "PPGraph.Repair.ObservableSchemes"
+    },
+    {
+      "old_path": "PPGraph/Research/PlanRepairModel.lean",
+      "path": "PPGraph/Research/PlanRepairModel.lean",
+      "module": "PPGraph.Research.PlanRepairModel",
+      "note": "New module; no historical flat-path predecessor."
+    },
+    {
+      "old_path": "PPGraph/Research/PlanRepair.lean",
+      "path": "PPGraph/Research/PlanRepair.lean",
+      "module": "PPGraph.Research.PlanRepair",
+      "note": "New module; no historical flat-path predecessor."
     }
   ],
   "facades": [
