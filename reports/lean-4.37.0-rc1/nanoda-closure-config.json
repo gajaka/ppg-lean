@@ -1,0 +1,19 @@
+{
+  "export_file_path": "/Users/gajaka/.local/state/lean-migrations/2026-11-20-v4.37.0-rc1/ppg-lean/project-closure.ndjson",
+  "use_stdin": false,
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "unpermitted_axiom_hard_error": true,
+  "unsafe_permit_all_axioms": false,
+  "num_threads": 1,
+  "nat_extension": true,
+  "string_extension": true,
+  "print_success_message": true,
+  "print_axioms": false,
+  "pp_to_stdout": true,
+  "pp_declars": [],
+  "unknown_pp_declar_hard_error": true
+}

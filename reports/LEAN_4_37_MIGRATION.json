@@ -1,0 +1,215 @@
+{
+  "status": "PASS",
+  "date": "2026-11-20",
+  "branch": "upgrade/lean-4.37.0-rc1",
+  "baseline_commit": "8b33f44",
+  "original_main_commit": "60151677e58704ce856c05a572904d681fd959f6",
+  "toolchain": "leanprover/lean4:v4.37.0-rc1",
+  "lean_revision": "0b77e12952ad39077d80d8bd6b66d601f225c321",
+  "mathlib_revision": "31ce06eaadf4a200c0e1407c5f10953cf606b8f8",
+  "strict_project_build": {
+    "command": [
+      "lake",
+      "--wfail",
+      "build"
+    ],
+    "toolchain": "leanprover/lean4:v4.37.0-rc1",
+    "scope": "Fresh project compilation with dependency caches; single-run timing, not a Mathlib instruction-count benchmark",
+    "elapsed_seconds": 51.044,
+    "exit_code": 0,
+    "log_sha256": "a0c5886ec81adba24324f2409fcbac94090682204e723d67181e1228d9c4210e"
+  },
+  "baseline_project_build": {
+    "command": [
+      "lake",
+      "--wfail",
+      "build"
+    ],
+    "toolchain": "leanprover/lean4:v4.35.0",
+    "scope": "Fresh project compilation with previously built dependency caches; not a clean Mathlib benchmark",
+    "elapsed_seconds": 93.911,
+    "exit_code": 0,
+    "log_sha256": "b350d428f994ff61466d92fd9dc33778bf74cc4243de2157b2497c4190f13698"
+  },
+  "timing_scope": "Single fresh project rebuild per version, with cached dependencies. Not a clean Mathlib build or retired-instruction benchmark.",
+  "canonical_modules": 208,
+  "import_facades": 2,
+  "explicit_theorems": 2079,
+  "audited_environment_declarations": 6073,
+  "logical_project_declarations": 6016,
+  "generated_runtime_implementations_excluded_from_logical_replay": 57,
+  "whole_library_axiom_audit": "PASS",
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "source_preservation": {
+    "receipt": "lean-4.37.0-rc1/source-preservation-v2.json",
+    "compared_modules": 210,
+    "changed_modules": 24,
+    "theorem_headers_unchanged": 2079,
+    "status": "PASS"
+  },
+  "full_project_bundled_kernels": {
+    "command": [
+      "lake",
+      "check",
+      "--paranoid",
+      "--inadvisably-no-sandbox"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 2052.06,
+    "sandboxed": false,
+    "inputs_unchanged": true,
+    "inputs_checked": 216,
+    "log_sha256": "a9d4b250982f8a19a3ce0a0971dd8cb64f83b06b27f556366d042f83f6d91d41",
+    "kernel_messages": [
+      "Running Lean paranoid kernel on solution",
+      "Lean paranoid kernel accepts the solution",
+      "Running lean4lean kernel on solution",
+      "lean4lean kernel accepts the solution",
+      "Running nanoda kernel on solution",
+      "nanoda kernel accepts the solution",
+      "Running con-leche kernel on solution",
+      "con-leche kernel accepts the solution",
+      "Running con-ron kernel on solution",
+      "con-ron kernel accepts the solution",
+      "Running Lean default kernel on solution",
+      "Lean default kernel accepts the solution"
+    ],
+    "kernels": {
+      "Lean paranoid": "PASS",
+      "lean4lean": "PASS",
+      "nanoda": "PASS",
+      "con-leche": "PASS",
+      "con-ron": "PASS",
+      "Lean default": "PASS"
+    },
+    "log": "lean-4.37.0-rc1/paranoid-check.log"
+  },
+  "redundant_bundled_closure_replay": {
+    "outcome": {
+      "status": "STOPPED_REDUNDANT_REPLAY",
+      "reason": "The full project lake check --paranoid completed with exit 0 and all six bundled kernels accepted; the additional from-export replay was redundant. Strict dependency-closed upstream Nanoda independently passed.",
+      "terminated_pids": [
+        17446,
+        17364
+      ],
+      "date_utc": "2026-11-20T01:06:20.051837+00:00"
+    },
+    "raw_process_result": {
+      "status": "FAIL",
+      "exit_code": -15,
+      "elapsed_seconds": 200.955,
+      "command": [
+        "lake",
+        "check",
+        "--from-export",
+        "/Users/gajaka/.local/state/lean-migrations/2026-11-20-v4.37.0-rc1/ppg-lean/project-logical-closure.ndjson",
+        "--paranoid",
+        "--inadvisably-no-sandbox"
+      ],
+      "export_sha256": "01b29cbec2ecda34dbbb67a87c627df93fb3a6985d9519d261cf2ef7863fdcd9",
+      "membership_receipt": "project-logical-closure-inventory.json",
+      "scope": "The from-export command checks the export only. Project coverage is separately bound by source/input hashes and the declaration membership inventory. Local macOS replay without process sandbox."
+    },
+    "note": "Stopped after the complete full-project replay succeeded; not recorded as a successful combined command.",
+    "accepted_kernels_before_stop": [
+      "Lean paranoid",
+      "lean4lean"
+    ]
+  },
+  "strict_upstream_nanoda_logical_closure": {
+    "status": "PASS",
+    "checked_declarations": 63334,
+    "elapsed_seconds": 62.091,
+    "unpermitted_axiom_hard_error": true,
+    "unsafe_permit_all_axioms": false,
+    "receipt": "lean-4.37.0-rc1/nanoda-logical-closure-result.json"
+  },
+  "export_membership_inventory": "lean-4.37.0-rc1/project-logical-closure-inventory.json",
+  "whole_environment_bundled_replay": {
+    "result": {
+      "command": [
+        "lake",
+        "check",
+        "--paranoid",
+        "--inadvisably-no-sandbox"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2052.06,
+      "sandboxed": false,
+      "inputs_unchanged": true,
+      "inputs_checked": 216,
+      "log_sha256": "a9d4b250982f8a19a3ce0a0971dd8cb64f83b06b27f556366d042f83f6d91d41",
+      "kernel_messages": [
+        "Running Lean paranoid kernel on solution",
+        "Lean paranoid kernel accepts the solution",
+        "Running lean4lean kernel on solution",
+        "lean4lean kernel accepts the solution",
+        "Running nanoda kernel on solution",
+        "nanoda kernel accepts the solution",
+        "Running con-leche kernel on solution",
+        "con-leche kernel accepts the solution",
+        "Running con-ron kernel on solution",
+        "con-ron kernel accepts the solution",
+        "Running Lean default kernel on solution",
+        "Lean default kernel accepts the solution"
+      ]
+    },
+    "accepted_kernels": [
+      "Lean paranoid",
+      "lean4lean",
+      "nanoda",
+      "con-leche",
+      "con-ron",
+      "Lean default"
+    ],
+    "log": "lean-4.37.0-rc1/paranoid-check.log",
+    "note": "Whole environment contains unused imported sorryAx; bundled Nanoda reports skipping it. Project dependencies and strict logical closure use only the three permitted axioms."
+  },
+  "retained_unsuccessful_diagnostics": {
+    "strict_raw_whole_environment_nanoda": "Rejected exported unpermitted sorryAx; no project dependency on it.",
+    "strict_every_entry_closure_nanoda": "Parser rejected generated partial runtime implementations; final closure uses Lean safety metadata and retains every explicit theorem."
+  },
+  "unchanged_checked_input_files": 216,
+  "tool_sha256": {
+    "lean": "c7da4c1b7adf0834e19aff92bf06da80172405a93f54964b4abbe820366a96de",
+    "leanexport": "748692e11022c0d73fc0d206631b47520efae6de8cd883c4f4f3ce86b592cd17",
+    "leanchecker": "126e8d474af2ce45618018dbdac36cfe1bbd6cb40727a816c48650ad547ccd00",
+    "leanchecker-paranoid": "7e0f8d1ac8cf1f7afc4ba4aac995d3a4ee1dc4d3bc5652ee935c9f5d1672b53a",
+    "lean4lean": "5d9522abac7f701e7b5324c96b0be5b0091d5d557b558d2a023d950688eccdea",
+    "nanoda_bin": "f3fcbe67999ab41acba0a24d8e979709d7fa8668bedaedcbc05d62a645915778",
+    "con-leche": "b45954719eb53f78de8d475f69fda7a26e1fd183e517190302c631f0ff7c91b2",
+    "con-ron": "4208f2d49ee6dffabb2d4cc7fd90814ca14b7fda0a35e5c4710f717b511924fa"
+  },
+  "evidence_sha256": {
+    "reports/lean-4.37.0-rc1/ExportSafety.lean": "a71b9d35abebee6e875a3d1b68f5415de759a11331e87a9a5852706da894f3e4",
+    "reports/lean-4.37.0-rc1/baseline-build.json": "b99896118d7dde36d2f35fb6dccbcfe0ea2f21795585c1dc71f8f103bb80b899",
+    "reports/lean-4.37.0-rc1/export-safety.log": "2d0bffe228f11cd611c7011036e6e6090d9141119a722b3bb5bca39ee0fe7368",
+    "reports/lean-4.37.0-rc1/logical-closure-paranoid-cancellation.json": "b12c2ad566bc205b29906b1e9ee2e905da7a60e728b5f78f4728c7a780d59864",
+    "reports/lean-4.37.0-rc1/logical-closure-paranoid-result.json": "69399319a12f0cd9508eb1891f901f8244510e336e61c434bd04deccf6734533",
+    "reports/lean-4.37.0-rc1/logical-closure-paranoid.log": "d7649e36f9ba80059e0438dcd7e17c8428a08803fdbb4ce6059634e81ed0df33",
+    "reports/lean-4.37.0-rc1/nanoda-closure-config.json": "18d775a938f64007435e0ca4c1c4906c9dfbf0682e590ba90d0a192a7a1b0787",
+    "reports/lean-4.37.0-rc1/nanoda-closure-result.json": "257e88aa056e64519d7c83f54ed32213809d6db7e0b65360a8363c6284bbb44d",
+    "reports/lean-4.37.0-rc1/nanoda-closure.log": "b7338f3610c9ac5f3863067dca466e637c71b0fdabcd2c66193ddccc87671de9",
+    "reports/lean-4.37.0-rc1/nanoda-full-config.json": "4369a60f37cace2d677eedee8232bee6659f1e94788d64cec48fbd4bc55125c7",
+    "reports/lean-4.37.0-rc1/nanoda-full-result.json": "1846ba6a71bee861c58ddffb94267029eeb0625d5103f04884762938e7547282",
+    "reports/lean-4.37.0-rc1/nanoda-full.log": "427b4c8bff774e9479c0e0cdd9538902b7052fca07856d1473420cedfd546438",
+    "reports/lean-4.37.0-rc1/nanoda-logical-closure-config.json": "272ba41e74344111a6a1dd0c1598e220604b1b53bceefa1a53536921f5555d77",
+    "reports/lean-4.37.0-rc1/nanoda-logical-closure-result.json": "258d13d23b440c444ae7df149cc3ba6c58967bb9548357e9dc11bef4ecc00675",
+    "reports/lean-4.37.0-rc1/nanoda-logical-closure.log": "cbbc7f405e6e3ac14ec3caa09f7675bf3478441449929084dd89ca292ee2b409",
+    "reports/lean-4.37.0-rc1/paranoid-check.log": "a9d4b250982f8a19a3ce0a0971dd8cb64f83b06b27f556366d042f83f6d91d41",
+    "reports/lean-4.37.0-rc1/paranoid-inputs-before.json": "1e65de54ee09a2cf9f47f246447c1b8b37448bdab5b375432ea83ab72fa89f3d",
+    "reports/lean-4.37.0-rc1/paranoid-result.json": "271ee02a802bfec8a3fb3f1afbf7460a5f5408276d39d6d2342e519e0c38ffca",
+    "reports/lean-4.37.0-rc1/project-closure-inventory.json": "42fc0e66d56c45423afab8a1a57b2380129fd207c110cc81e9203eda8e5c26d9",
+    "reports/lean-4.37.0-rc1/project-logical-closure-export.json": "905617a86d4b235b6836b826a61f3a9ff5811fe5e11cfd45ce154d90b6384356",
+    "reports/lean-4.37.0-rc1/project-logical-closure-inputs.json": "79f4f5e93a6eec49d1117396fda275fc98989a3e6a214e0a5713ceba436b5cd5",
+    "reports/lean-4.37.0-rc1/project-logical-closure-inventory.json": "1f971c79f17097b569e9210c1753cf5862efd0f62402603481308808a04aad11",
+    "reports/lean-4.37.0-rc1/source-preservation-v2.json": "41746cc653359fe806ed591e7eedced1d95db8864fc61f1161e9cbad264d2753",
+    "reports/lean-4.37.0-rc1/upgrade-fresh-build.json": "6ffaeb37e965f20e724739d5550f324ffa6563a01301ef5ddc71abecfe435ad1",
+    "reports/lean-4.37.0-rc1/verify_logical_export.py": "e658f8d999f37f354edef0de678a1436c7b7b29f9c4f1783adbe97aeeb44354a"
+  },
+  "scope": "Logical proof acceptance and textual source preservation. No theorem weakening, project axiom or proof placeholder added. Does not prove semantic equivalence between Mathlib versions, native compiler correctness, or paper fidelity. No NFER migration."
+}

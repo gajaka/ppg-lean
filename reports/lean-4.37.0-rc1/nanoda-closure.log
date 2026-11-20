@@ -1,0 +1,4 @@
+
+thread 'main' (267738) panicked at src/parser.rs:784:17:
+assertion failed: !matches!(safety, DefinitionSafety::Unsafe | DefinitionSafety::Partial)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

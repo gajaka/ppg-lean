@@ -1,0 +1,10 @@
+{
+  "exit_code": 1,
+  "timed_out": false,
+  "elapsed_seconds": 21.265,
+  "binary_sha256": "4f2264a0c987e94c4a654768a90ddb92369014578ecafba3287020bec0f4d439",
+  "export_sha256": "9b99ce6a8fd8acac1b7c276164adc4da216e29a3de2d4c79b753dbcda0294da6",
+  "worker_stack_bytes": 268435456,
+  "config_sha256": "4369a60f37cace2d677eedee8232bee6659f1e94788d64cec48fbd4bc55125c7",
+  "log_sha256": "427b4c8bff774e9479c0e0cdd9538902b7052fca07856d1473420cedfd546438"
+}

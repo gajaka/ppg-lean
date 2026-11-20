@@ -2,7 +2,7 @@ PPGraph whole-library axiom audit — 2026-11-19
 
 PASS: 2079 explicitly declared theorems in 208 canonical modules.
 Also built and scanned: 2 import-only facades.
-Also audited: 1789 generated theorem constants and all remaining project declarations, 5975 declarations in total.
+Also audited: 1874 generated theorem constants and all remaining project declarations, 6073 declarations in total.
 Every explicitly declared theorem has an explicit #check.
 Module ownership comes from the imported Lean environment.
 Every project declaration is inspected with a temporary #print axioms command.
@@ -177,6 +177,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'FiniteAsciiJson.Value.ctorElim' does not depend on any axioms
 'FiniteAsciiJson.Value.ctorElimType' does not depend on any axioms
 'FiniteAsciiJson.Value.ctorIdx' does not depend on any axioms
+'FiniteAsciiJson.Value.ctorIdx._impl' does not depend on any axioms
 'FiniteAsciiJson.Value.int' does not depend on any axioms
 'FiniteAsciiJson.Value.int.elim' does not depend on any axioms
 'FiniteAsciiJson.Value.int.inj' does not depend on any axioms
@@ -202,13 +203,13 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'FiniteAsciiJson.Value.str.injEq' depends on axioms: [propext]
 'FiniteAsciiJson.Value.str.noConfusion' does not depend on any axioms
 'FiniteAsciiJson.Value.str.sizeOf_spec' does not depend on any axioms
-'FiniteAsciiJson.array' depends on axioms: [propext]
-'FiniteAsciiJson.array._f' depends on axioms: [propext]
-'FiniteAsciiJson.array._sunfold' depends on axioms: [propext]
-'FiniteAsciiJson.array._unsafe_rec' depends on axioms: [propext]
-'FiniteAsciiJson.array.match_1' depends on axioms: [propext]
+'FiniteAsciiJson.array' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.array._f' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.array._sunfold' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.array._unsafe_rec' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.array.match_1' depends on axioms: [propext, Classical.choice]
 'FiniteAsciiJson.array.match_3' does not depend on any axioms
-'FiniteAsciiJson.array.match_5' depends on axioms: [propext]
+'FiniteAsciiJson.array.match_5' depends on axioms: [propext, Classical.choice]
 'FiniteAsciiJson.array.match_7' does not depend on any axioms
 'FiniteAsciiJson.chars' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteAsciiJson.digit' does not depend on any axioms
@@ -218,42 +219,42 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'FiniteAsciiJson.digits._unsafe_rec' does not depend on any axioms
 'FiniteAsciiJson.digits.match_1' does not depend on any axioms
 'FiniteAsciiJson.get' depends on axioms: [propext, Classical.choice, Quot.sound]
-'FiniteAsciiJson.get._sparseCasesOn_1' depends on axioms: [propext]
-'FiniteAsciiJson.get.match_1' depends on axioms: [propext]
-'FiniteAsciiJson.getArray' depends on axioms: [propext]
-'FiniteAsciiJson.getArray._sparseCasesOn_1' depends on axioms: [propext]
-'FiniteAsciiJson.getArray.match_1' depends on axioms: [propext]
-'FiniteAsciiJson.getInt' depends on axioms: [propext]
-'FiniteAsciiJson.getInt._sparseCasesOn_1' depends on axioms: [propext]
-'FiniteAsciiJson.getInt.match_1' depends on axioms: [propext]
-'FiniteAsciiJson.getString' depends on axioms: [propext]
-'FiniteAsciiJson.getString._sparseCasesOn_1' depends on axioms: [propext]
-'FiniteAsciiJson.getString.match_1' depends on axioms: [propext]
-'FiniteAsciiJson.object' depends on axioms: [propext]
-'FiniteAsciiJson.object._f' depends on axioms: [propext]
-'FiniteAsciiJson.object._sunfold' depends on axioms: [propext]
-'FiniteAsciiJson.object._unsafe_rec' depends on axioms: [propext]
-'FiniteAsciiJson.object.match_1' depends on axioms: [propext]
-'FiniteAsciiJson.object.match_3' depends on axioms: [propext]
-'FiniteAsciiJson.object.match_5' depends on axioms: [propext]
+'FiniteAsciiJson.get._sparseCasesOn_1' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.get.match_1' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.getArray' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.getArray._sparseCasesOn_1' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.getArray.match_1' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.getInt' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.getInt._sparseCasesOn_1' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.getInt.match_1' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.getString' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.getString._sparseCasesOn_1' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.getString.match_1' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.object' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.object._f' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.object._sunfold' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.object._unsafe_rec' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.object.match_1' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.object.match_3' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.object.match_5' depends on axioms: [propext, Classical.choice]
 'FiniteAsciiJson.parse' depends on axioms: [propext, Classical.choice, Quot.sound]
-'FiniteAsciiJson.parseBytes' depends on axioms: [propext]
+'FiniteAsciiJson.parseBytes' depends on axioms: [propext, Classical.choice]
 'FiniteAsciiJson.skip' does not depend on any axioms
 'FiniteAsciiJson.stringBody' does not depend on any axioms
 'FiniteAsciiJson.stringBody._f' does not depend on any axioms
 'FiniteAsciiJson.stringBody._sunfold' does not depend on any axioms
 'FiniteAsciiJson.stringBody._unsafe_rec' does not depend on any axioms
 'FiniteAsciiJson.stringBody.match_1' does not depend on any axioms
-'FiniteAsciiJson.value' depends on axioms: [propext]
-'FiniteAsciiJson.value._f' depends on axioms: [propext]
-'FiniteAsciiJson.value._sparseCasesOn_7' depends on axioms: [propext]
-'FiniteAsciiJson.value._sunfold' depends on axioms: [propext]
-'FiniteAsciiJson.value._unsafe_rec' depends on axioms: [propext]
+'FiniteAsciiJson.value' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.value._f' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.value._sparseCasesOn_7' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.value._sunfold' depends on axioms: [propext, Classical.choice]
+'FiniteAsciiJson.value._unsafe_rec' depends on axioms: [propext, Classical.choice]
 'FiniteAsciiJson.value.match_1' does not depend on any axioms
 'FiniteAsciiJson.value.match_10' does not depend on any axioms
 'FiniteAsciiJson.value.match_3' does not depend on any axioms
 'FiniteAsciiJson.value.match_5' does not depend on any axioms
-'FiniteAsciiJson.value.match_7' depends on axioms: [propext]
+'FiniteAsciiJson.value.match_7' depends on axioms: [propext, Classical.choice]
 'FiniteAsciiJson.whitespace' does not depend on any axioms
 'FiniteDrift.Conditions' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteDrift.Model' does not depend on any axioms
@@ -409,12 +410,12 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'FiniteLumpingUpdate.valid_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteLumpingUpdate.withPassive' does not depend on any axioms
 'FiniteLumpingUpdate.withPassive_commutes' depends on axioms: [propext, Classical.choice, Quot.sound]
-'FinitePotential.Absorbing' depends on axioms: [propext, Quot.sound]
-'FinitePotential.Accessible' depends on axioms: [propext, Quot.sound]
-'FinitePotential.ClosedBad' depends on axioms: [propext, Quot.sound]
+'FinitePotential.Absorbing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FinitePotential.Accessible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FinitePotential.ClosedBad' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.Equations' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.Harmonic' depends on axioms: [propext, Classical.choice, Quot.sound]
-'FinitePotential.ReachesGood' depends on axioms: [propext, Quot.sound]
+'FinitePotential.ReachesGood' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.Stochastic' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.SurvivalTable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.ae_never_good_closedBad' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -503,6 +504,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'FinitePotential.survival.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.survival.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.survival.match_1' does not depend on any axioms
+'FinitePotential.survival.match_1.congr_eq_1' does not depend on any axioms
+'FinitePotential.survival.match_1.congr_eq_2' does not depend on any axioms
 'FinitePotential.survivalTableDecidable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.survivalTableDecidable._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.survivalTable_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -526,8 +529,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'FinitePotential.systemMatrix.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.systemMatrix.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FinitePotential.systemMatrix_mulVec' depends on axioms: [propext, Classical.choice, Quot.sound]
-'FinitePotential.systemRHS' depends on axioms: [propext, Quot.sound]
-'FinitePotential.systemRHS.eq_1' depends on axioms: [propext, Quot.sound]
+'FinitePotential.systemRHS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FinitePotential.systemRHS.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteReadCertificates.Check' does not depend on any axioms
 'FiniteReadCertificates.Check._sizeOf_1' does not depend on any axioms
 'FiniteReadCertificates.Check._sizeOf_inst' does not depend on any axioms
@@ -551,6 +554,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'FiniteReadCertificates.Check.ctorElim' does not depend on any axioms
 'FiniteReadCertificates.Check.ctorElimType' does not depend on any axioms
 'FiniteReadCertificates.Check.ctorIdx' does not depend on any axioms
+'FiniteReadCertificates.Check.ctorIdx._impl' does not depend on any axioms
 'FiniteReadCertificates.Check.either' does not depend on any axioms
 'FiniteReadCertificates.Check.either.elim' does not depend on any axioms
 'FiniteReadCertificates.Check.either.inj' does not depend on any axioms
@@ -570,6 +574,13 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'FiniteReadCertificates.Check.eval.eq_7' does not depend on any axioms
 'FiniteReadCertificates.Check.eval.eq_def' does not depend on any axioms
 'FiniteReadCertificates.Check.eval.match_1' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.match_1.congr_eq_1' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.match_1.congr_eq_2' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.match_1.congr_eq_3' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.match_1.congr_eq_4' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.match_1.congr_eq_5' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.match_1.congr_eq_6' does not depend on any axioms
+'FiniteReadCertificates.Check.eval.match_1.congr_eq_7' does not depend on any axioms
 'FiniteReadCertificates.Check.eval_eq_of_agree_reads' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteReadCertificates.Check.neg' does not depend on any axioms
 'FiniteReadCertificates.Check.neg.elim' does not depend on any axioms
@@ -590,6 +601,11 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'FiniteReadCertificates.Check.reads.eq_5' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteReadCertificates.Check.reads.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteReadCertificates.Check.reads.match_1' does not depend on any axioms
+'FiniteReadCertificates.Check.reads.match_1.congr_eq_1' does not depend on any axioms
+'FiniteReadCertificates.Check.reads.match_1.congr_eq_2' does not depend on any axioms
+'FiniteReadCertificates.Check.reads.match_1.congr_eq_3' does not depend on any axioms
+'FiniteReadCertificates.Check.reads.match_1.congr_eq_4' does not depend on any axioms
+'FiniteReadCertificates.Check.reads.match_1.congr_eq_5' does not depend on any axioms
 'FiniteReadCertificates.Check.rec' does not depend on any axioms
 'FiniteReadCertificates.Check.recOn' does not depend on any axioms
 'FiniteReadCertificates.Check.truth' does not depend on any axioms
@@ -602,6 +618,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'FiniteReadCertificates.Comparison.ctorElim' does not depend on any axioms
 'FiniteReadCertificates.Comparison.ctorElimType' does not depend on any axioms
 'FiniteReadCertificates.Comparison.ctorIdx' does not depend on any axioms
+'FiniteReadCertificates.Comparison.ctorIdx._impl' does not depend on any axioms
 'FiniteReadCertificates.Comparison.eq' does not depend on any axioms
 'FiniteReadCertificates.Comparison.eq.elim' does not depend on any axioms
 'FiniteReadCertificates.Comparison.eq.sizeOf_spec' does not depend on any axioms
@@ -895,10 +912,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'FiniteTable.pathCount' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteTable.pathCount.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteTable.pathState' depends on axioms: [propext, Classical.choice, Quot.sound]
-'FiniteTable.pathState._proof_2' depends on axioms: [propext, Quot.sound]
+'FiniteTable.pathState._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteTable.pathState.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteTable.pathState_at' depends on axioms: [propext, Classical.choice, Quot.sound]
-'FiniteTable.pathState_at._proof_2' depends on axioms: [propext, Quot.sound]
+'FiniteTable.pathState_at._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteTable.prefix_event_depends_consumed' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteTable.prefix_nextDraw_atom' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteTable.prefix_nextDraw_joint_law' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -913,6 +930,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'FiniteTable.run.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteTable.run.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteTable.run.match_1' does not depend on any axioms
+'FiniteTable.run.match_1.congr_eq_1' does not depend on any axioms
+'FiniteTable.run.match_1.congr_eq_2' does not depend on any axioms
 'FiniteTable.run_eq_of_footprints_agree' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteTable.run_prefix_stable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteTable.stateDecidableEq' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -936,6 +955,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'FiniteTable.uses.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteTable.uses.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteTable.uses.match_1' does not depend on any axioms
+'FiniteTable.uses.match_1.congr_eq_1' does not depend on any axioms
+'FiniteTable.uses.match_1.congr_eq_2' does not depend on any axioms
 'FiniteTable.uses_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteUpdate.Execution' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteUpdate.Execution.adapted' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -988,6 +1009,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'FiniteUpdate.iidTrajectory.eq_2' does not depend on any axioms
 'FiniteUpdate.iidTrajectory.eq_def' does not depend on any axioms
 'FiniteUpdate.iidTrajectory.match_1' does not depend on any axioms
+'FiniteUpdate.iidTrajectory.match_1.congr_eq_1' does not depend on any axioms
+'FiniteUpdate.iidTrajectory.match_1.congr_eq_2' does not depend on any axioms
 'FiniteUpdate.iidTrajectory_adapted' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteUpdate.iidTrajectory_step' depends on axioms: [propext, Classical.choice, Quot.sound]
 'FiniteUpdate.iidTrajectory_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1159,6 +1182,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'HLS.ExpansionChoice.ctorElim' does not depend on any axioms
 'HLS.ExpansionChoice.ctorElimType' does not depend on any axioms
 'HLS.ExpansionChoice.ctorIdx' does not depend on any axioms
+'HLS.ExpansionChoice.ctorIdx._impl' does not depend on any axioms
 'HLS.ExpansionChoice.down' does not depend on any axioms
 'HLS.ExpansionChoice.down.elim' does not depend on any axioms
 'HLS.ExpansionChoice.down.sizeOf_spec' does not depend on any axioms
@@ -1213,6 +1237,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'HLS.OrientationCoin.ctorElim' does not depend on any axioms
 'HLS.OrientationCoin.ctorElimType' does not depend on any axioms
 'HLS.OrientationCoin.ctorIdx' does not depend on any axioms
+'HLS.OrientationCoin.ctorIdx._impl' does not depend on any axioms
 'HLS.OrientationCoin.flip' does not depend on any axioms
 'HLS.OrientationCoin.flip.elim' does not depend on any axioms
 'HLS.OrientationCoin.flip.sizeOf_spec' does not depend on any axioms
@@ -1376,6 +1401,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'HLS.WitnessDAG.choiceWeight.eq_3' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.choiceWeight.eq_4' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.choiceWeight.match_1' does not depend on any axioms
+'HLS.WitnessDAG.choiceWeight.match_1.congr_eq_1' does not depend on any axioms
+'HLS.WitnessDAG.choiceWeight.match_1.congr_eq_2' does not depend on any axioms
+'HLS.WitnessDAG.choiceWeight.match_1.congr_eq_3' does not depend on any axioms
+'HLS.WitnessDAG.choiceWeight.match_1.congr_eq_4' does not depend on any axioms
 'HLS.WitnessDAG.choices_eq_of_colored_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.cliquePrior' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.cliquePrior.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1544,6 +1573,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'HLS.WitnessDAG.layerSequence.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.layerSequence.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.layerSequence.match_1' does not depend on any axioms
+'HLS.WitnessDAG.layerSequence.match_1.congr_eq_1' does not depend on any axioms
+'HLS.WitnessDAG.layerSequence.match_1.congr_eq_2' does not depend on any axioms
 'HLS.WitnessDAG.layerSequence_eq_range_map' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.layerSequence_getD' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.layerSequence_mem_index' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1619,6 +1650,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'HLS.WitnessDAG.needsExtra.eq_3' does not depend on any axioms
 'HLS.WitnessDAG.needsExtra.eq_4' does not depend on any axioms
 'HLS.WitnessDAG.needsExtra.match_1' does not depend on any axioms
+'HLS.WitnessDAG.needsExtra.match_1.congr_eq_1' does not depend on any axioms
+'HLS.WitnessDAG.needsExtra.match_1.congr_eq_2' does not depend on any axioms
+'HLS.WitnessDAG.needsExtra.match_1.congr_eq_3' does not depend on any axioms
+'HLS.WitnessDAG.needsExtra.match_1.congr_eq_4' does not depend on any axioms
 'HLS.WitnessDAG.needsExtra_iff_insertedBefore' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.needsExtra_implies_down' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.noConfusion' depends on axioms: [propext, Quot.sound]
@@ -1714,7 +1749,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'HLS.WitnessDAG.randomInitResamplingCount_eq_tsum_ordinalOccurrence' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'HLS.WitnessDAG.rank_power_strict' depends on axioms: [propext, Quot.sound]
+'HLS.WitnessDAG.rank_power_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.rawExpansion' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.rawExpansion_extra_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.rawExpansion_extra_reversible' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1808,7 +1843,6 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'HLS.WitnessDAG.tableCoordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.tableCoordinates_disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.tableEvent' depends on axioms: [propext, Classical.choice, Quot.sound]
-'HLS.WitnessDAG.tableEvent.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.tableEvent.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.tableEvent_depends_on_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.WitnessDAG.tableEvent_normalize' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1878,7 +1912,6 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'HLS.coinChoice' does not depend on any axioms
 'HLS.coinChoice.eq_1' does not depend on any axioms
 'HLS.coinLabel' depends on axioms: [propext, Classical.choice, Quot.sound]
-'HLS.coinLabel.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.coinLabel.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.coinLabel.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.coinLabel_target_iff_relative_flip' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1901,6 +1934,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'HLS.decodeExpansion.eq_3' does not depend on any axioms
 'HLS.decodeExpansion.eq_def' does not depend on any axioms
 'HLS.decodeExpansion.match_1' does not depend on any axioms
+'HLS.decodeExpansion.match_1.congr_eq_1' does not depend on any axioms
+'HLS.decodeExpansion.match_1.congr_eq_2' does not depend on any axioms
 'HLS.decode_encodeExpansion' depends on axioms: [propext]
 'HLS.decode_expansionBlock_append' depends on axioms: [propext]
 'HLS.decoded_length_eq_original' depends on axioms: [propext]
@@ -1916,6 +1951,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'HLS.expansionBlock' does not depend on any axioms
 'HLS.expansionBlock.eq_1' does not depend on any axioms
 'HLS.expansionBlock.match_1' does not depend on any axioms
+'HLS.expansionBlock.match_1.congr_eq_1' does not depend on any axioms
+'HLS.expansionBlock.match_1.congr_eq_2' does not depend on any axioms
+'HLS.expansionBlock.match_1.congr_eq_3' does not depend on any axioms
+'HLS.expansionBlock.match_1.congr_eq_4' does not depend on any axioms
 'HLS.fairOrientation' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.fairOrientation_flip' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.fairOrientation_keep' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1932,6 +1971,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'HLS.fourVariable.eq_3' does not depend on any axioms
 'HLS.fourVariable.eq_4' does not depend on any axioms
 'HLS.fourVariable.match_1' does not depend on any axioms
+'HLS.fourVariable.match_1.congr_eq_1' does not depend on any axioms
+'HLS.fourVariable.match_1.congr_eq_2' does not depend on any axioms
+'HLS.fourVariable.match_1.congr_eq_3' does not depend on any axioms
+'HLS.fourVariable.match_1.congr_eq_4' does not depend on any axioms
 'HLS.four_block_query_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.good_repair_reachable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.good_state_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2071,6 +2114,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'HLS.swapCoin.eq_1' does not depend on any axioms
 'HLS.swapCoin.eq_2' does not depend on any axioms
 'HLS.swapCoin.match_1' does not depend on any axioms
+'HLS.swapCoin.match_1.congr_eq_1' does not depend on any axioms
+'HLS.swapCoin.match_1.congr_eq_2' does not depend on any axioms
 'HLS.tableQuery_equidistributed' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.targetPrivate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HLS.targetPrivate.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2086,8 +2131,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'Lam_of_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Lam_of_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Lam_of_sInf_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-'List.getElem?_and_drop_succ_of_drop_eq_cons' depends on axioms: [propext]
-'List.getElem?_and_drop_succ_of_drop_eq_cons._f' depends on axioms: [propext]
+'List.getElem?_and_drop_succ_of_drop_eq_cons' depends on axioms: [propext, Classical.choice]
+'List.getElem?_and_drop_succ_of_drop_eq_cons._f' depends on axioms: [propext, Classical.choice]
 'Local' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LocalCost' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LogSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2102,11 +2147,11 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'LucesCertificateRepair.decodeContract' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LucesCertificateRepair.decodeField' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LucesCertificateRepair.decodeRatio' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LucesCertificateRepair.decodeRatio._sparseCasesOn_1' depends on axioms: [propext]
-'LucesCertificateRepair.decodeRatio._sparseCasesOn_2' depends on axioms: [propext]
-'LucesCertificateRepair.decodeRatio._sparseCasesOn_3' depends on axioms: [propext]
-'LucesCertificateRepair.decodeRatio._sparseCasesOn_4' depends on axioms: [propext]
-'LucesCertificateRepair.decodeRatio.match_1' depends on axioms: [propext]
+'LucesCertificateRepair.decodeRatio._sparseCasesOn_1' depends on axioms: [propext, Classical.choice]
+'LucesCertificateRepair.decodeRatio._sparseCasesOn_2' depends on axioms: [propext, Classical.choice]
+'LucesCertificateRepair.decodeRatio._sparseCasesOn_3' depends on axioms: [propext, Classical.choice]
+'LucesCertificateRepair.decodeRatio._sparseCasesOn_4' depends on axioms: [propext, Classical.choice]
+'LucesCertificateRepair.decodeRatio.match_1' depends on axioms: [propext, Classical.choice]
 'LucesCertificateRepair.decodeRows' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LucesCertificateRepair.duplicateMonge' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LucesCertificateRepair.duplicateMonge._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2139,6 +2184,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'LucesObservedInputs.Field.ctorElim' does not depend on any axioms
 'LucesObservedInputs.Field.ctorElimType' does not depend on any axioms
 'LucesObservedInputs.Field.ctorIdx' does not depend on any axioms
+'LucesObservedInputs.Field.ctorIdx._impl' does not depend on any axioms
 'LucesObservedInputs.Field.datasetKey' does not depend on any axioms
 'LucesObservedInputs.Field.datasetKey.elim' does not depend on any axioms
 'LucesObservedInputs.Field.datasetKey.sizeOf_spec' does not depend on any axioms
@@ -2171,7 +2217,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'LucesObservedInputs.before' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LucesObservedInputs.contractBytes' does not depend on any axioms
 'LucesObservedInputs.contractSource' does not depend on any axioms
-'LucesObservedInputs.datasetKey' depends on axioms: [propext, Quot.sound]
+'LucesObservedInputs.datasetKey' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LucesObservedInputs.instDecidableEqField' does not depend on any axioms
 'LucesObservedInputs.instDecidableEqField._proof_1' does not depend on any axioms
 'LucesObservedInputs.instDecidableEqField._proof_2' does not depend on any axioms
@@ -2183,7 +2229,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'LucesObservedInputs.kernelInputsSource' does not depend on any axioms
 'LucesObservedInputs.snapshotRows' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LucesObservedInputs.sourceCsvSHA256' does not depend on any axioms
-'LucesObservedInputs.stateOfRow' depends on axioms: [propext, Quot.sound]
+'LucesObservedInputs.stateOfRow' depends on axioms: [propext, Classical.choice, Quot.sound]
 'MTGood' depends on axioms: [propext, Classical.choice, Quot.sound]
 'MTGood.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'MTPolicy.Admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2477,7 +2523,6 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'Pegden.exists_MTGood' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.exists_treesUpTo_superset' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.family' depends on axioms: [propext, Classical.choice, Quot.sound]
-'Pegden.family.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.familyWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.familyWeight.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.independentSubsets' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2521,6 +2566,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'Pegden.weight.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.weight.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.weight.match_1' does not depend on any axioms
+'Pegden.weight.match_1.congr_eq_1' does not depend on any axioms
+'Pegden.weight.match_1.congr_eq_2' does not depend on any axioms
 'Pegden.weight_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.witnessOccurrence_eq_empty_of_not_mem_family' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Pegden.witnessOccurrence_nonempty_mem_treesUpTo' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2532,6 +2579,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'PlanRepair.Event.ctorElim' does not depend on any axioms
 'PlanRepair.Event.ctorElimType' does not depend on any axioms
 'PlanRepair.Event.ctorIdx' does not depend on any axioms
+'PlanRepair.Event.ctorIdx._impl' does not depend on any axioms
 'PlanRepair.Event.noConfusion' does not depend on any axioms
 'PlanRepair.Event.noConfusionType' does not depend on any axioms
 'PlanRepair.Event.proposed' does not depend on any axioms
@@ -2560,12 +2608,12 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'PlanRepair.Event.verified.injEq' depends on axioms: [propext]
 'PlanRepair.Event.verified.noConfusion' does not depend on any axioms
 'PlanRepair.Event.verified.sizeOf_spec' does not depend on any axioms
-'PlanRepair.PPG.admitted_step_is_pp_edge' depends on axioms: [propext, Quot.sound]
+'PlanRepair.PPG.admitted_step_is_pp_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
 'PlanRepair.PPG.configuration' does not depend on any axioms
 'PlanRepair.PPG.configured_rr_is_equivalence' does not depend on any axioms
 'PlanRepair.PPG.graph' depends on axioms: [propext]
 'PlanRepair.PPG.graph._proof_1' depends on axioms: [propext]
-'PlanRepair.PPG.research_graph_is_pp_valid' depends on axioms: [propext, Quot.sound]
+'PlanRepair.PPG.research_graph_is_pp_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
 'PlanRepair.PPG.research_path_preserves_invariant' depends on axioms: [propext]
 'PlanRepair.PPG.rr_iff_same_context' does not depend on any axioms
 'PlanRepair.SameContext' does not depend on any axioms
@@ -2644,10 +2692,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'PlanRepair.refute.eq_1' does not depend on any axioms
 'PlanRepair.sameContext_equivalence' does not depend on any axioms
 'PlanRepair.step_context' does not depend on any axioms
-'PlanRepair.step_distinct' depends on axioms: [propext, Quot.sound]
+'PlanRepair.step_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
 'PlanRepair.step_history' does not depend on any axioms
 'PlanRepair.step_history_tail' does not depend on any axioms
-'PlanRepair.step_not_reverse' depends on axioms: [propext, Quot.sound]
+'PlanRepair.step_not_reverse' depends on axioms: [propext, Classical.choice, Quot.sound]
 'PlanRepair.step_preserves_accepted' does not depend on any axioms
 'PlanRepair.step_preserves_obstructions' does not depend on any axioms
 'PlanRepair.step_revision' does not depend on any axioms
@@ -2831,6 +2879,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairFeasibility.AbstractDecision.ctorElim' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.AbstractDecision.ctorElimType' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.AbstractDecision.ctorIdx' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairFeasibility.AbstractDecision.ctorIdx._impl' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.AbstractDecision.impossible' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.AbstractDecision.impossible.elim' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.AbstractDecision.impossible.inj' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2858,6 +2907,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairFeasibility.AssessmentResult.ctorElim' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.AssessmentResult.ctorElimType' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.AssessmentResult.ctorIdx' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairFeasibility.AssessmentResult.ctorIdx._impl' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.AssessmentResult.gap' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.AssessmentResult.gap.elim' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.AssessmentResult.gap.inj' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2929,10 +2979,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairFeasibility.ConstructiveRepairDecision.ctorElim' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.ConstructiveRepairDecision.ctorElimType' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.ConstructiveRepairDecision.ctorIdx' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairFeasibility.ConstructiveRepairDecision.ctorIdx._impl' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.ConstructiveRepairDecision.impossible' depends on axioms: [propext, Classical.choice, Quot.sound]
-'RepairFeasibility.ConstructiveRepairDecision.impossible.congr_simp' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
 'RepairFeasibility.ConstructiveRepairDecision.impossible.elim' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -2956,6 +3004,12 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairFeasibility.ConstructiveRepairDecision.isRepaired.match_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
+'RepairFeasibility.ConstructiveRepairDecision.isRepaired.match_1.congr_eq_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RepairFeasibility.ConstructiveRepairDecision.isRepaired.match_1.congr_eq_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 'RepairFeasibility.ConstructiveRepairDecision.noConfusion' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.ConstructiveRepairDecision.noConfusionType' depends on axioms: [propext,
  Classical.choice,
@@ -2963,9 +3017,6 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairFeasibility.ConstructiveRepairDecision.rec' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.ConstructiveRepairDecision.recOn' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.ConstructiveRepairDecision.repaired' depends on axioms: [propext, Classical.choice, Quot.sound]
-'RepairFeasibility.ConstructiveRepairDecision.repaired.congr_simp' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
 'RepairFeasibility.ConstructiveRepairDecision.repaired.elim' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.ConstructiveRepairDecision.repaired.inj' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.ConstructiveRepairDecision.repaired.injEq' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -3025,21 +3076,26 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairFeasibility.FeasibilityResult.ctorElim' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.ctorElimType' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.ctorIdx' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairFeasibility.FeasibilityResult.ctorIdx._impl' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.isWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.isWitness.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.isWitness.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.isWitness.match_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairFeasibility.FeasibilityResult.isWitness.match_1.congr_eq_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RepairFeasibility.FeasibilityResult.isWitness.match_1.congr_eq_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 'RepairFeasibility.FeasibilityResult.noConfusion' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.noConfusionType' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.rec' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.recOn' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.refuted' depends on axioms: [propext, Classical.choice, Quot.sound]
-'RepairFeasibility.FeasibilityResult.refuted.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.refuted.elim' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.refuted.noConfusion' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.refuted.sizeOf_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.witness' depends on axioms: [propext, Classical.choice, Quot.sound]
-'RepairFeasibility.FeasibilityResult.witness.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.witness.elim' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.witness.inj' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.FeasibilityResult.witness.injEq' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -3056,6 +3112,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairFeasibility.GoodPath.eq_2' does not depend on any axioms
 'RepairFeasibility.GoodPath.eq_def' does not depend on any axioms
 'RepairFeasibility.GoodPath.match_1' does not depend on any axioms
+'RepairFeasibility.GoodPath.match_1.congr_eq_1' does not depend on any axioms
+'RepairFeasibility.GoodPath.match_1.congr_eq_2' does not depend on any axioms
 'RepairFeasibility.HLSCertified' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.HitsAllMinimalCores' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.HitsAllMinimalCores.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -3088,6 +3146,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairFeasibility.RepairRegion.ctorElim' does not depend on any axioms
 'RepairFeasibility.RepairRegion.ctorElimType' does not depend on any axioms
 'RepairFeasibility.RepairRegion.ctorIdx' does not depend on any axioms
+'RepairFeasibility.RepairRegion.ctorIdx._impl' does not depend on any axioms
 'RepairFeasibility.RepairRegion.gap' does not depend on any axioms
 'RepairFeasibility.RepairRegion.gap.elim' does not depend on any axioms
 'RepairFeasibility.RepairRegion.gap.sizeOf_spec' does not depend on any axioms
@@ -3157,6 +3216,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairFeasibility.boundedPaths.eq_2' does not depend on any axioms
 'RepairFeasibility.boundedPaths.eq_def' does not depend on any axioms
 'RepairFeasibility.boundedPaths.match_1' does not depend on any axioms
+'RepairFeasibility.boundedPaths.match_1.congr_eq_1' does not depend on any axioms
+'RepairFeasibility.boundedPaths.match_1.congr_eq_2' does not depend on any axioms
 'RepairFeasibility.boundedPaths_eventually_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.certified_or_gap_iff_satisfiable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairFeasibility.classify' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -3208,6 +3269,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairFeasibility.executeAbstractPath.eq_2' does not depend on any axioms
 'RepairFeasibility.executeAbstractPath.eq_def' does not depend on any axioms
 'RepairFeasibility.executeAbstractPath.match_1' does not depend on any axioms
+'RepairFeasibility.executeAbstractPath.match_1.congr_eq_1' does not depend on any axioms
+'RepairFeasibility.executeAbstractPath.match_1.congr_eq_2' does not depend on any axioms
 'RepairFeasibility.executeAbstractPath_length' does not depend on any axioms
 'RepairFeasibility.executeAbstractPath_valid' does not depend on any axioms
 'RepairFeasibility.extended_certification_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -3452,6 +3515,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairHazard.planWrites.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairHazard.planWrites.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairHazard.planWrites.match_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.planWrites.match_1.congr_eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairHazard.planWrites.match_1.congr_eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairHazard.preserved_of_disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairHazard.preserved_outside_affected' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairHazard.rawHazard' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -3595,8 +3660,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairObservableExamples.visible._proof_1' depends on axioms: [propext]
 'RepairObservableExamples.visible._proof_2' depends on axioms: [propext]
 'RepairObservableExamples.visible.eq_1' depends on axioms: [propext]
-'RepairObservableExamples.visibleSignal' depends on axioms: [propext, Quot.sound]
-'RepairObservableExamples.visibleSignal.eq_1' depends on axioms: [propext, Quot.sound]
+'RepairObservableExamples.visibleSignal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RepairObservableExamples.visibleSignal.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairObservableExamples.visible_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairObservableKernel.FiberLocal' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairObservableKernel.GoodLocal' does not depend on any axioms
@@ -3621,7 +3686,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairObservableScheme.baseScheme' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairObservableScheme.evaluate' depends on axioms: [propext, Quot.sound]
 'RepairObservableScheme.evaluationPrime' depends on axioms: [propext, Classical.choice, Quot.sound]
-'RepairObservableScheme.evaluationPrime._proof_1' depends on axioms: [propext, Quot.sound]
+'RepairObservableScheme.evaluationPrime._proof_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairObservableScheme.evaluationPrime._proof_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairObservableScheme.evaluationPrime_after' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RepairObservableScheme.evaluationPrime_basicOpen' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -3699,8 +3764,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairSemanticHazard.HazardResult.ctorElim' does not depend on any axioms
 'RepairSemanticHazard.HazardResult.ctorElimType' does not depend on any axioms
 'RepairSemanticHazard.HazardResult.ctorIdx' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.ctorIdx._impl' does not depend on any axioms
 'RepairSemanticHazard.HazardResult.invalidated' does not depend on any axioms
-'RepairSemanticHazard.HazardResult.invalidated.congr_simp' does not depend on any axioms
 'RepairSemanticHazard.HazardResult.invalidated.elim' does not depend on any axioms
 'RepairSemanticHazard.HazardResult.invalidated.inj' does not depend on any axioms
 'RepairSemanticHazard.HazardResult.invalidated.injEq' depends on axioms: [propext]
@@ -3710,6 +3775,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'RepairSemanticHazard.HazardResult.isHazard.eq_1' does not depend on any axioms
 'RepairSemanticHazard.HazardResult.isHazard.eq_2' does not depend on any axioms
 'RepairSemanticHazard.HazardResult.isHazard.match_1' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.isHazard.match_1.congr_eq_1' does not depend on any axioms
+'RepairSemanticHazard.HazardResult.isHazard.match_1.congr_eq_2' does not depend on any axioms
 'RepairSemanticHazard.HazardResult.noConfusion' does not depend on any axioms
 'RepairSemanticHazard.HazardResult.noConfusionType' does not depend on any axioms
 'RepairSemanticHazard.HazardResult.preserved' does not depend on any axioms
@@ -3981,7 +4048,6 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'Shearer.prod_le_stableBudget' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Shearer.prod_map_treeLayers' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Shearer.properFamily' depends on axioms: [propext, Classical.choice, Quot.sound]
-'Shearer.properFamily.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Shearer.properFamilyWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Shearer.properFamilyWeight.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Shearer.properFamilyWeight.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -4063,6 +4129,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'Shearer.stableSequences.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Shearer.stableSequences.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Shearer.stableSequences.match_1' depends on axioms: [propext, Quot.sound]
+'Shearer.stableSequences.match_1.congr_eq_1' depends on axioms: [propext, Quot.sound]
+'Shearer.stableSequences.match_1.congr_eq_2' depends on axioms: [propext, Quot.sound]
 'Shearer.stableSequences_append_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Shearer.stableSequences_append_padding' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Shearer.stableSequences_compOf' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -4186,6 +4254,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'WTree.beq.eq_1' does not depend on any axioms
 'WTree.beq.eq_def' does not depend on any axioms
 'WTree.beq.match_1' does not depend on any axioms
+'WTree.beq.match_1.congr_eq_1' does not depend on any axioms
 'WTree.beqList' does not depend on any axioms
 'WTree.beqList._f' does not depend on any axioms
 'WTree.beqList._sunfold' does not depend on any axioms
@@ -4197,6 +4266,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'WTree.beqList.eq_4' does not depend on any axioms
 'WTree.beqList.eq_def' does not depend on any axioms
 'WTree.beqList.match_1' does not depend on any axioms
+'WTree.beqList.match_1.congr_eq_1' does not depend on any axioms
+'WTree.beqList.match_1.congr_eq_2' does not depend on any axioms
+'WTree.beqList.match_1.congr_eq_3' does not depend on any axioms
+'WTree.beqList.match_1.congr_eq_4' does not depend on any axioms
 'WTree.beqList_iff' depends on axioms: [propext]
 'WTree.beqList_iff._f' depends on axioms: [propext]
 'WTree.beq_iff' depends on axioms: [propext]
@@ -4216,6 +4289,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'WTree.canonicalizeFuel.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.canonicalizeFuel.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.canonicalizeFuel.match_1' does not depend on any axioms
+'WTree.canonicalizeFuel.match_1.congr_eq_1' does not depend on any axioms
+'WTree.canonicalizeFuel.match_1.congr_eq_2' does not depend on any axioms
 'WTree.canonicalizeFuel_checkOK' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.canonicalizeFuel_countLabel' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.canonicalizeFuel_footprintCountBeyondAt' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -4240,6 +4315,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'WTree.checkOKList.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.checkOKList.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.checkOKList.match_1' does not depend on any axioms
+'WTree.checkOKList.match_1.congr_eq_1' does not depend on any axioms
+'WTree.checkOKList.match_1.congr_eq_2' does not depend on any axioms
 'WTree.checkOKList_iff_forall_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.checkOKList_iff_forall_mem._f' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.checkOKList_iff_toGT_domChildren' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -4267,6 +4344,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'WTree.countLabel.eq_1' does not depend on any axioms
 'WTree.countLabel.eq_def' does not depend on any axioms
 'WTree.countLabel.match_1' does not depend on any axioms
+'WTree.countLabel.match_1.congr_eq_1' does not depend on any axioms
 'WTree.countLabelList' does not depend on any axioms
 'WTree.countLabelList._f' does not depend on any axioms
 'WTree.countLabelList._sunfold' does not depend on any axioms
@@ -4276,6 +4354,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'WTree.countLabelList.eq_2' does not depend on any axioms
 'WTree.countLabelList.eq_def' does not depend on any axioms
 'WTree.countLabelList.match_1' does not depend on any axioms
+'WTree.countLabelList.match_1.congr_eq_1' does not depend on any axioms
+'WTree.countLabelList.match_1.congr_eq_2' does not depend on any axioms
 'WTree.countLabelList_eq_sum' depends on axioms: [propext]
 'WTree.countLabelList_eq_sum._f' depends on axioms: [propext]
 'WTree.ctorIdx' does not depend on any axioms
@@ -4293,10 +4373,12 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'WTree.depthList.eq_2' does not depend on any axioms
 'WTree.depthList.eq_def' does not depend on any axioms
 'WTree.depthList.match_1' does not depend on any axioms
+'WTree.depthList.match_1.congr_eq_1' does not depend on any axioms
+'WTree.depthList.match_1.congr_eq_2' does not depend on any axioms
 'WTree.depthList_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.depthList_le._f' depends on axioms: [propext, Classical.choice, Quot.sound]
-'WTree.depth_child_lt' depends on axioms: [propext, Quot.sound]
-'WTree.depth_lt_depthList' depends on axioms: [propext, Quot.sound]
+'WTree.depth_child_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WTree.depth_lt_depthList' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.depth_singleton' does not depend on any axioms
 'WTree.eq_of_mem_children_label_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.footprintCountBeyondAt' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -4307,6 +4389,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'WTree.footprintCountBeyondAt.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.footprintCountBeyondAt.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.footprintCountBeyondAt.match_1' does not depend on any axioms
+'WTree.footprintCountBeyondAt.match_1.congr_eq_1' does not depend on any axioms
 'WTree.footprintCountBeyondListAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.footprintCountBeyondListAt._f' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.footprintCountBeyondListAt._sunfold' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -4316,6 +4399,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'WTree.footprintCountBeyondListAt.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.footprintCountBeyondListAt.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.footprintCountBeyondListAt.match_1' does not depend on any axioms
+'WTree.footprintCountBeyondListAt.match_1.congr_eq_1' does not depend on any axioms
+'WTree.footprintCountBeyondListAt.match_1.congr_eq_2' does not depend on any axioms
 'WTree.footprintCountBeyondListAt_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.footprintCountBeyondListAt_eq_sum._f' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.instCountable' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -4323,6 +4408,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'WTree.label' does not depend on any axioms
 'WTree.label.eq_1' does not depend on any axioms
 'WTree.label.match_1' does not depend on any axioms
+'WTree.label.match_1.congr_eq_1' does not depend on any axioms
 'WTree.labelSet' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.labelsAtDepth' depends on axioms: [Quot.sound]
 'WTree.labelsAtDepth._f' depends on axioms: [Quot.sound]
@@ -4332,6 +4418,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'WTree.labelsAtDepth.eq_2' depends on axioms: [Quot.sound]
 'WTree.labelsAtDepth.eq_def' depends on axioms: [Quot.sound]
 'WTree.labelsAtDepth.match_1' does not depend on any axioms
+'WTree.labelsAtDepth.match_1.congr_eq_1' does not depend on any axioms
+'WTree.labelsAtDepth.match_1.congr_eq_2' does not depend on any axioms
 'WTree.labelsAtDepthChildren' depends on axioms: [Quot.sound]
 'WTree.labelsAtDepthChildren._f' depends on axioms: [Quot.sound]
 'WTree.labelsAtDepthChildren._sunfold' depends on axioms: [Quot.sound]
@@ -4383,6 +4471,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'WTree.toGT_domChildren.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.toGT_domChildren.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.toGT_domChildren.match_1' does not depend on any axioms
+'WTree.toGT_domChildren.match_1.congr_eq_1' does not depend on any axioms
+'WTree.toGT_domChildren.match_1.congr_eq_2' does not depend on any axioms
 'WTree.toGT_domChildren_footprintCountBeyondAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.toGT_domChildren_footprintCountBeyondAt._f' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.toGT_domChildren_head_disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -4397,15 +4487,19 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'WTree.toGT_dom_prefix_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.toGT_dom_prefix_mem._f' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.toGT_dom_root_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
-'WTree.toGT_lab' depends on axioms: [propext]
-'WTree.toGT_lab._f' depends on axioms: [propext]
-'WTree.toGT_lab._sunfold' depends on axioms: [propext]
-'WTree.toGT_lab._unsafe_rec' depends on axioms: [propext]
-'WTree.toGT_lab.eq_1' depends on axioms: [propext]
-'WTree.toGT_lab.eq_2' depends on axioms: [propext]
-'WTree.toGT_lab.eq_def' depends on axioms: [propext]
+'WTree.toGT_lab' depends on axioms: [propext, Classical.choice]
+'WTree.toGT_lab._f' depends on axioms: [propext, Classical.choice]
+'WTree.toGT_lab._sunfold' depends on axioms: [propext, Classical.choice]
+'WTree.toGT_lab._unsafe_rec' depends on axioms: [propext, Classical.choice]
+'WTree.toGT_lab.eq_1' depends on axioms: [propext, Classical.choice]
+'WTree.toGT_lab.eq_2' depends on axioms: [propext, Classical.choice]
+'WTree.toGT_lab.eq_def' depends on axioms: [propext, Classical.choice]
 'WTree.toGT_lab.match_1' does not depend on any axioms
+'WTree.toGT_lab.match_1.congr_eq_1' does not depend on any axioms
+'WTree.toGT_lab.match_1.congr_eq_2' does not depend on any axioms
 'WTree.toGT_lab.match_3' does not depend on any axioms
+'WTree.toGT_lab.match_3.congr_eq_1' does not depend on any axioms
+'WTree.toGT_lab.match_3.congr_eq_2' does not depend on any axioms
 'WTree.toGrowingTree' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.toGrowingTree_sameDepthIndependent_of_labelsAtDepth' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.toGrowingTree_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -4416,6 +4510,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'WTree.weight.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.weight.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.weight.match_1' does not depend on any axioms
+'WTree.weight.match_1.congr_eq_1' does not depend on any axioms
 'WTree.weight_children' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.weight_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
 'WTree.weight_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -4500,7 +4595,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.Decision.RepairDecision.0.RepairFeasibility.gap_after_extension_iff._simp_1_3' depends on axioms: [propext]
 '_private.PPGraph.Decision.Undecidability.0.RepairFeasibility.ComputabilityLimit.boundedGood_iff_evaln_mem._simp_1_3' depends on axioms: [propext,
  Quot.sound]
-'_private.PPGraph.Decision.Undecidability.0.RepairFeasibility.ComputabilityLimit.checked_certificate_exists_re._simp_1_1' depends on axioms: [propext]
+'_private.PPGraph.Decision.Undecidability.0.RepairFeasibility.ComputabilityLimit.checked_certificate_exists_re._simp_1_1' depends on axioms: [propext,
+ Classical.choice]
 '_private.PPGraph.Decision.Undecidability.0.RepairFeasibility.ComputabilityLimit.good_exists_iff_halting._simp_1_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -4552,17 +4648,22 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.Finite.Lumping.Update.0.FiniteUpdate.iidTrajectory.match_1.eq_2' does not depend on any axioms
 '_private.PPGraph.Finite.Lumping.Update.0.FiniteUpdate.iidTrajectory.match_1.splitter' does not depend on any axioms
 '_private.PPGraph.Finite.Potential.Expectation.0.FinitePotential.runningEvent_succ._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Finite.Potential.Expectation.0.FinitePotential.runningEvent_succ._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Finite.Potential.Tail.0.FinitePotential.stopped_survival_integral_horizon._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Finite.Potential.Tail.0.FinitePotential.survival.match_1.eq_1' does not depend on any axioms
 '_private.PPGraph.Finite.Potential.Tail.0.FinitePotential.survival.match_1.eq_2' does not depend on any axioms
 '_private.PPGraph.Finite.Potential.Tail.0.FinitePotential.survival.match_1.splitter' does not depend on any axioms
 '_private.PPGraph.Finite.Potential.TailCertificate.0.FinitePotential.survivalTable_exact._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Finite.Potential.TailCertificate.0.FinitePotential.survivalTable_exact._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Finite.Resampling.Basic.0.FiniteResampling.allGood_iff_no_mt_violation._simp_1_3' depends on axioms: [propext,
  Quot.sound]
@@ -4577,8 +4678,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.count_of_prefix._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.count_of_prefix._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.count_step._proof_1_2' depends on axioms: [propext,
  Classical.choice,
@@ -4598,20 +4701,29 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.mem_consumedBlock._simp_1_3' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.pathState._proof_1' depends on axioms: [propext, Quot.sound]
-'_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.pathState_at._proof_1' depends on axioms: [propext, Quot.sound]
+'_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.pathState._proof_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.pathState_at._proof_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.prefix_event_depends_consumed._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.run.match_1.eq_1' does not depend on any axioms
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.run.match_1.eq_2' does not depend on any axioms
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.run.match_1.splitter' does not depend on any axioms
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.run_eq_of_footprints_agree._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.run_eq_of_footprints_agree._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.run_prefix_stable._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.run_prefix_stable._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.stateMeasurableSingleton._proof_1' depends on axioms: [propext,
  Classical.choice,
@@ -4619,16 +4731,24 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.uses.match_1.eq_1' does not depend on any axioms
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.uses.match_1.eq_2' does not depend on any axioms
 '_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.uses.match_1.splitter' does not depend on any axioms
-'_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.uses_congr._proof_1_1' depends on axioms: [propext, Quot.sound]
-'_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.uses_congr._proof_1_5' depends on axioms: [propext, Quot.sound]
-'_private.PPGraph.Finite.Resampling.TableLaw.0.FiniteTable.consumed_query_disjoint._proof_1_1' depends on axioms: [propext,
+'_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.uses_congr._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
-'_private.PPGraph.Finite.Resampling.TableLaw.0.FiniteTable.history._proof_1' depends on axioms: [propext, Quot.sound]
+'_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.uses_congr._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Finite.Resampling.TableLaw.0.FiniteTable.consumed_query_disjoint._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.Finite.Resampling.TableLaw.0.FiniteTable.history._proof_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 '_private.PPGraph.Finite.Resampling.TableLaw.0.FiniteTable.prefix_nextDraw_atom._simp_1_1' depends on axioms: [propext]
 '_private.PPGraph.Finite.Resampling.TableLaw.0.FiniteTable.prefix_nextDraw_joint_law.match_1_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Finite.Resampling.TableLaw.0.FiniteTable.trajectory_adapted._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Finite.Update.Basic.0.FiniteUpdate.next_indicator_expansion._simp_1_1' depends on axioms: [propext]
 '_private.PPGraph.HLS.Bounds.ChoiceSum.0.HLS.WitnessDAG.choiceWeight.match_1.eq_1' does not depend on any axioms
@@ -4642,6 +4762,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.HLS.Bounds.ExpansionWeight.0.HLS.WitnessDAG.choiceWeight.match_1.eq_4' does not depend on any axioms
 '_private.PPGraph.HLS.Bounds.ExpansionWeight.0.HLS.WitnessDAG.choiceWeight.match_1.splitter' does not depend on any axioms
 '_private.PPGraph.HLS.Bounds.OrdinalOccurrence.0.HLS.WitnessDAG.measurable_earlierLabelCount._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.Bounds.OrdinalOccurrence.0.HLS.WitnessDAG.ordinalOccurrence_eq_iUnion._simp_1_2' depends on axioms: [propext]
 '_private.PPGraph.HLS.Bounds.OrdinalOccurrence.0.HLS.WitnessDAG.ordinalOccurrence_eq_iUnion._simp_1_3' depends on axioms: [propext]
@@ -4697,8 +4818,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.DAG.ExpansionVertices.0.HLS.WitnessDAG.expansionEmbed_injective._proof_1_5' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.DAG.ExpansionVertices.0.HLS.WitnessDAG.expansionEmbed_injective._proof_1_6' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.DAG.FiniteDAG.0.HLS.WitnessDAG.mem_boundedDAGs_iff._simp_1_2' depends on axioms: [propext,
  Classical.choice,
@@ -4743,10 +4866,13 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.DAG.OrientationScore.0.HLS.WitnessDAG.rank_power_strict._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.DAG.OrientationScore.0.HLS.WitnessDAG.rank_power_strict._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.DAG.OrientationScore.0.HLS.WitnessDAG.rank_power_strict._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.DAG.OrientationScore.0.HLS.WitnessDAG.sum_erase_two._proof_1_1' depends on axioms: [propext,
  Classical.choice,
@@ -4757,15 +4883,23 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.HLS.DAG.PairKeys.0.HLS.DependencyMatching.pair_is_clique._simp_1_3' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.HLS.DAG.ParitySelection.0.HLS.largerParity_half._proof_1_1' depends on axioms: [propext, Quot.sound]
-'_private.PPGraph.HLS.DAG.ParitySelection.0.HLS.largerParity_half._proof_1_2' depends on axioms: [propext, Quot.sound]
+'_private.PPGraph.HLS.DAG.ParitySelection.0.HLS.largerParity_half._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.HLS.DAG.ParitySelection.0.HLS.largerParity_half._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 '_private.PPGraph.HLS.DAG.ParitySelection.0.HLS.parityEdges_disjoint._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.DAG.ParitySelection.0.HLS.parityEdges_endpoints_disjoint._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.DAG.ParitySelection.0.HLS.parityEdges_endpoints_disjoint._proof_1_4' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.DAG.ParitySelection.0.HLS.parityEdges_endpoints_disjoint._proof_1_5' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.DAG.ParitySelection.0.HLS.parityEdges_endpoints_disjoint._simp_1_1' depends on axioms: [propext,
  Classical.choice,
@@ -4774,8 +4908,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.DAG.ParitySelection.0.HLS.parityEdges_partition._proof_1_4' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.DAG.ParitySelection.0.HLS.parityEdges_partition._proof_1_5' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.DAG.ParitySelection.0.HLS.parityEdges_partition._simp_1_2' depends on axioms: [propext,
  Classical.choice,
@@ -4785,6 +4921,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Quot.sound]
 '_private.PPGraph.HLS.DAG.RealDAG.0.HLS.WitnessDAG.timeDAG_tableCheck_of_running._simp_1_1' depends on axioms: [propext]
 '_private.PPGraph.HLS.DAG.RealDAGCounts.0.HLS.WitnessDAG.labelPrior_execution_root._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.DAG.TimeDAG.0.HLS.WitnessDAG.timeDAG_edge_iff._simp_1_2' depends on axioms: [propext,
  Classical.choice,
@@ -4841,8 +4978,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.Encoding.CanonicalEncoding.0.HLS.WitnessDAG.canonical_node_mem_of_le._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.Encoding.CanonicalEncoding.0.HLS.WitnessDAG.canonical_node_mem_of_le._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.Encoding.CanonicalEncoding.0.HLS.WitnessDAG.same_label_height_iff_index._proof_1_1' depends on axioms: [propext,
  Classical.choice,
@@ -4945,18 +5084,24 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence.match_1.eq_1' does not depend on any axioms
 '_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence.match_1.eq_2' does not depend on any axioms
 '_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence.match_1.splitter' does not depend on any axioms
-'_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_eq_range_map._proof_1_4' depends on axioms: [propext,
+'_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_eq_range_map._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
-'_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_getD._proof_1_5' depends on axioms: [propext,
+'_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_getD._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
-'_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_getD._simp_1_4' depends on axioms: [propext]
+'_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_getD._simp_1_2' depends on axioms: [propext]
+'_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_mem_index._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_mem_index._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 '_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_mem_index._proof_1_4' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_mem_index._proof_1_5' depends on axioms: [propext,
- Quot.sound]
-'_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_mem_index._proof_1_6' depends on axioms: [propext,
- Quot.sound]
-'_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_mem_index._proof_1_7' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.stableEncoding_getD._proof_1_4' depends on axioms: [propext,
  Classical.choice,
@@ -5029,9 +5174,9 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.executeAbstractPath.match_1.eq_1' does not depend on any axioms
 '_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.executeAbstractPath.match_1.eq_2' does not depend on any axioms
 '_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.executeAbstractPath.match_1.splitter' does not depend on any axioms
-'_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.mem_boundedPaths_iff._simp_1_7' depends on axioms: [propext]
-'_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.mem_boundedPaths_iff._simp_1_8' depends on axioms: [propext]
-'_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.mem_boundedPaths_iff._simp_1_9' depends on axioms: [propext]
+'_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.mem_boundedPaths_iff._simp_1_3' depends on axioms: [propext]
+'_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.mem_boundedPaths_iff._simp_1_4' depends on axioms: [propext]
+'_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.mem_boundedPaths_iff._simp_1_5' depends on axioms: [propext]
 '_private.PPGraph.Integration.CertificationDependency.0.CertificationDependency.fully_certified_iff_failing_empty._simp_1_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -5051,6 +5196,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.FiniteMTDrift.0.FiniteResampling.stopped_before_iff_runningUntil._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.FiniteMTDrift.0.FiniteResampling.tableDomainMeasurableSingleton._proof_1' depends on axioms: [propext,
  Classical.choice,
@@ -5072,8 +5218,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.Check.reads.match_1.splitter' does not depend on any axioms
 '_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.instReprCheck.repr.match_1' does not depend on any axioms
 '_private.PPGraph.Integration.FiniteReadCertificates.0.FiniteReadCertificates.instReprComparison.repr.match_1' does not depend on any axioms
-'_private.PPGraph.Integration.IncludeAsciiBytes.0.elabIncludeAsciiBytes._sparseCasesOn_1' depends on axioms: [propext]
-'_private.PPGraph.Integration.IncludeAsciiBytes.0.elabIncludeAsciiBytes.match_1' depends on axioms: [propext]
+'_private.PPGraph.Integration.IncludeAsciiBytes.0.elabIncludeAsciiBytes._sparseCasesOn_1' depends on axioms: [propext,
+ Classical.choice]
+'_private.PPGraph.Integration.IncludeAsciiBytes.0.elabIncludeAsciiBytes.match_1' depends on axioms: [propext,
+ Classical.choice]
 '_private.PPGraph.Integration.LucesCertificateRepair.0.LucesCertificateRepair.before_target_fails._proof_1_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -5109,6 +5257,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.Policy.HLSCounting.0.MTPolicy.measurable_earlierLabelCount._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.Policy.HLSCounting.0.MTPolicy.ordinalOccurrence_eq_iUnion._simp_1_2' depends on axioms: [propext]
 '_private.PPGraph.Integration.Policy.HLSCounting.0.MTPolicy.ordinalOccurrence_eq_iUnion._simp_1_3' depends on axioms: [propext]
@@ -5116,6 +5265,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.Policy.HLSDAG.0.MTPolicy.DAG.labelPrior_execution_root._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.Policy.HLSDAG.0.MTPolicy.DAG.timeDAG_tableCheck_of_running._simp_1_1' depends on axioms: [propext]
 '_private.PPGraph.Integration.Policy.HLSExpectation.0.HLS.Policy.history_termination_eq_one._simp_1_1' depends on axioms: [propext,
@@ -5131,23 +5281,31 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.Integration.Policy.History.0.MTPolicy.historyCount_le.match_1_1' does not depend on any axioms
 '_private.PPGraph.Integration.Policy.History.0.MTPolicy.historyState_eq_state.match_1_1' does not depend on any axioms
 '_private.PPGraph.Integration.Policy.History.0.MTPolicy.history_labels_future_padding._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.Policy.History.0.MTPolicy.history_labels_future_padding._proof_1_4' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.Policy.History.0.MTPolicy.history_labels_future_padding.match_1_1' does not depend on any axioms
 '_private.PPGraph.Integration.Policy.History.0.MTPolicy.history_labels_record._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.Policy.History.0.MTPolicy.history_labels_record._proof_1_4' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.Policy.History.0.MTPolicy.history_labels_record.match_1_1' does not depend on any axioms
 '_private.PPGraph.Integration.Policy.History.0.MTPolicy.history_states_future_padding._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.Policy.History.0.MTPolicy.history_states_future_padding._proof_1_4' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.Policy.History.0.MTPolicy.history_states_future_padding.match_1_1' does not depend on any axioms
 '_private.PPGraph.Integration.Policy.History.0.MTPolicy.history_states_record._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.Policy.History.0.MTPolicy.history_states_record._proof_1_4' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.Policy.History.0.MTPolicy.history_states_record.match_1_1' does not depend on any axioms
 '_private.PPGraph.Integration.Policy.History.0.MTPolicy.measurable_historyRun._proof_1_3' depends on axioms: [propext,
@@ -5161,6 +5319,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.Integration.Policy.MoserTardos.0.MTPolicy.measurableSet_selected_bad._simp_1_1' depends on axioms: [propext]
 '_private.PPGraph.Integration.Policy.MoserTardos.0.MTPolicy.measurableSet_selected_bad._simp_1_2' depends on axioms: [propext]
 '_private.PPGraph.Integration.Policy.MoserTardos.0.MTPolicy.measurable_uses._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Integration.Policy.MoserTardos.0.MTPolicy.uses_succ._simp_1_2' depends on axioms: [propext,
  Classical.choice,
@@ -5217,6 +5376,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.MoserTardos.Bounds.Drift.0.RepairDrift.measurableSet_MTGood._simp_1_1' depends on axioms: [propext]
 '_private.PPGraph.MoserTardos.Bounds.Drift.0.RepairDrift.measurableSet_MTGood._simp_1_2' depends on axioms: [propext]
 '_private.PPGraph.MoserTardos.Bounds.Drift.0.RepairDrift.measurableSet_mtRunningEvent_history._proof_1_8' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.Drift.0.RepairDrift.measurableSet_mtRunningEvent_history._simp_1_2' depends on axioms: [propext]
 '_private.PPGraph.MoserTardos.Bounds.Drift.0.RepairDrift.measurableSet_mtRunningEvent_history._simp_1_3' depends on axioms: [propext,
@@ -5228,6 +5388,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.Drift.0.RepairDrift.measurable_mtStoppedPotential_history._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.Drift.0.randStep.match_1.eq_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Bounds.Drift.0.randStep.match_1.eq_2' does not depend on any axioms
@@ -5256,16 +5417,16 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.canonicalizeFuel_mem_treesUpTo._simp_1_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.canonicalizeFuel_mem_treesUpTo._simp_1_11' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.canonicalizeFuel_mem_treesUpTo._simp_1_13' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.canonicalizeFuel_mem_treesUpTo._simp_1_14' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.canonicalizeFuel_mem_treesUpTo._simp_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.canonicalizeFuel_mem_treesUpTo._simp_1_6' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.canonicalizeFuel_mem_treesUpTo._simp_1_8' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.canonicalizeFuel_mem_treesUpTo._simp_1_9' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.empty_mem_independentSubsets._simp_1_1' depends on axioms: [propext,
@@ -5274,22 +5435,22 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.toWTree_depthIndependent._simp_1_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
+'_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_mono._simp_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_mono._simp_1_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_mono._simp_1_4' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_mono._simp_1_5' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_subset._simp_1_2' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_mono._simp_1_6' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_subset._simp_1_3' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_subset._simp_1_4' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_subset._simp_1_5' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_subset._simp_1_6' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.weight.match_1.eq_1' does not depend on any axioms
@@ -5316,16 +5477,22 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.WTree.beqList_iff.match_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.WTree.beq_iff.match_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.list_map_eq_iff_of_mem._simp_1_1' depends on axioms: [propext]
+'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_label._simp_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_label._simp_1_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_label._simp_1_4' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_label._simp_1_5' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_label._simp_1_6' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_proper._simp_1_2' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_label._simp_1_7' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_proper._simp_1_3' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_proper._simp_1_4' depends on axioms: [propext,
@@ -5335,20 +5502,17 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_proper._simp_1_6' depends on axioms: [propext,
- Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_proper._simp_1_7' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_proper._simp_1_8' depends on axioms: [propext,
- Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_proper._simp_1_9' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_10' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_11' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_2' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_12' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_3' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_4' depends on axioms: [propext,
@@ -5358,12 +5522,9 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_6' depends on axioms: [propext,
- Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_7' depends on axioms: [propext,
  Classical.choice,
- Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_8' depends on axioms: [propext,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_9' depends on axioms: [propext,
  Classical.choice,
@@ -5371,16 +5532,16 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo.match_1.eq_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo.match_1.eq_2' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo.match_1.splitter' does not depend on any axioms
+'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo_mono._simp_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo_mono._simp_1_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo_mono._simp_1_4' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo_mono._simp_1_5' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo_mono._simp_1_6' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo_mono._simp_1_7' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo_succ_children_sub._simp_1_1' depends on axioms: [propext,
@@ -5403,15 +5564,20 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Counting.ResamplingCount.0.resamplingWitness_ne_of_lt._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Counting.ResamplingCount.0.resamplingWitness_ne_of_lt._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Counting.ResamplingCount.0.resamplingWitness_ne_of_lt._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Probability.Intersection.0.HLS.oneOrderOnly_eq_sdiff._simp_1_5' depends on axioms: [propext]
 '_private.PPGraph.MoserTardos.Probability.OccurrenceProbability.0.witnessOccurrence_subset_τCheck_of_witness._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Probability.PastIndependence.0.randStep_depends_on_past._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Probability.PastIndependence.0.randStep_depends_on_past._proof_1_4' depends on axioms: [propext,
  Classical.choice,
@@ -5490,11 +5656,13 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.Canonical.0.WTree.canonicalizeFuel_countLabel._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
-'_private.PPGraph.MoserTardos.Witness.Canonical.0.WTree.canonicalizeFuel_countLabel._proof_1_7' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Witness.Canonical.0.WTree.canonicalizeFuel_countLabel._proof_1_5' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.Canonical.0.WTree.canonicalizeFuel_props._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.Canonical.0.WTree.canonicalizeFuel_props._proof_1_4' depends on axioms: [propext,
  Classical.choice,
@@ -5536,7 +5704,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.MoserTardos.Witness.Canonical.0.WTree.depthList.match_1.eq_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.Canonical.0.WTree.depthList.match_1.eq_2' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.Canonical.0.WTree.depthList.match_1.splitter' does not depend on any axioms
-'_private.PPGraph.MoserTardos.Witness.Canonical.0.WTree.depth_lt_depthList._proof_1_4' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Witness.Canonical.0.WTree.depth_lt_depthList._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.CheckBirth.0.birthStep_eq_succ_of_new_attach._proof_1_1' depends on axioms: [propext,
  Classical.choice,
@@ -5584,17 +5753,23 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.CheckBridge.0.τC_toWTreeFuel_checkOK._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.CheckInvariance.0.GrowingTree.localCount_eq_footprintCountBeyondAt._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.CheckInvariance.0.GrowingTree.localCount_eq_footprintCountBeyondAt._simp_1_3' depends on axioms: [propext]
 '_private.PPGraph.MoserTardos.Witness.CheckInvariance.0.GrowingTree.toWTreeFuel_footprintCountBeyondAt._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.CheckInvariance.0.GrowingTree.toWTreeFuel_footprintCountBeyondAt._proof_1_7' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.CheckInvariance.0.GrowingTree.toWTreeFuel_footprintCountBeyondAt._proof_1_8' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.CheckInvariance.0.GrowingTree.toWTreeFuel_footprintCountBeyondAt._proof_1_9' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.CheckInvariance.0.GrowingTree.toWTreeFuel_footprintCountBeyondAt._simp_1_1' depends on axioms: [propext,
  Classical.choice,
@@ -5612,8 +5787,9 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.CheckInvariance.0.WTree.canonicalizeFuel_footprintCountBeyondAt._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
-'_private.PPGraph.MoserTardos.Witness.CheckInvariance.0.WTree.canonicalizeFuel_footprintCountBeyondAt._proof_1_6' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Witness.CheckInvariance.0.WTree.canonicalizeFuel_footprintCountBeyondAt._proof_1_4' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.CheckInvariance.0.WTree.footprintCountBeyondAt.match_1.eq_1' does not depend on any axioms
@@ -5631,11 +5807,12 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.MoserTardos.Witness.CheckOrder.0.τBuild.match_1.eq_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.CheckOrder.0.τBuild.match_1.eq_2' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.CheckOrder.0.τBuild.match_1.splitter' does not depend on any axioms
-'_private.PPGraph.MoserTardos.Witness.CheckOrder.0.τBuild_sameDepthIndependent._simp_1_6' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Witness.CheckOrder.0.τBuild_sameDepthIndependent._simp_1_4' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.CheckOrder.0.τBuild_sameDepthIndependent.match_1_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.canonicalizeFuel_checkOK._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.canonicalizeFuel_checkOK._proof_1_2' depends on axioms: [propext,
  Classical.choice,
@@ -5643,13 +5820,14 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.checkOKList.match_1.eq_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.checkOKList.match_1.eq_2' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.checkOKList.match_1.splitter' does not depend on any axioms
-'_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.checkOKList_iff_forall_mem._simp_1_7' depends on axioms: [propext]
-'_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.checkOKList_iff_forall_mem._simp_1_8' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.checkOKList_iff_forall_mem._simp_1_4' depends on axioms: [propext]
+'_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.checkOKList_iff_forall_mem._simp_1_5' depends on axioms: [propext,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.checkOKList_iff_forall_mem.match_1_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.checkOKList_whole_congr.match_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.checkOK_whole_congr.match_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.Correspondence.0.localCount_eq_randStep_count._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.Correspondence.0.localCount_eq_randStep_count._proof_1_10' depends on axioms: [propext,
  Classical.choice,
@@ -5710,32 +5888,44 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered.match_1.eq_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered.match_1.eq_2' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered.match_1.splitter' does not depend on any axioms
-'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_le._proof_1_5' depends on axioms: [propext, Quot.sound]
-'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_le._simp_1_4' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_le._proof_1_3' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_lt._proof_1_5' depends on axioms: [propext, Quot.sound]
-'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_lt._proof_1_6' depends on axioms: [propext, Quot.sound]
-'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_lt._proof_1_7' depends on axioms: [propext, Quot.sound]
-'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_lt._simp_1_4' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_le._simp_1_2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_lt._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_lt._proof_1_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_lt._proof_1_5' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_lt._simp_1_2' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_mem_of_lt._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
-'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_mem_of_lt._proof_1_6' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_mem_of_lt._proof_1_4' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
-'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_mem_of_lt._simp_1_5' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_mem_of_lt._simp_1_3' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.Injectivity.0.τBuild.match_1.eq_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.Injectivity.0.τBuild.match_1.eq_2' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.Injectivity.0.τBuild.match_1.splitter' does not depend on any axioms
-'_private.PPGraph.MoserTardos.Witness.Injectivity.0.τBuild_root_and_count._proof_1_8' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Witness.Injectivity.0.τBuild_root_and_count._proof_1_4' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
-'_private.PPGraph.MoserTardos.Witness.Injectivity.0.τBuild_root_and_count._proof_1_9' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Witness.Injectivity.0.τBuild_root_and_count._proof_1_5' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.Injectivity.0.τC_countLabel_ne_of_lt._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.Injectivity.0.τC_countLabel_ne_of_lt._proof_1_2' depends on axioms: [propext,
  Classical.choice,
@@ -5759,16 +5949,22 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.InjectivityBridge.0.GrowingTree.Valid.prefix_mem._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.InjectivityBridge.0.GrowingTree.Valid.prefix_mem._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.InjectivityBridge.0.GrowingTree.toWTreeFuel_countLabel._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.InjectivityBridge.0.GrowingTree.toWTreeFuel_countLabel._proof_1_7' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.InjectivityBridge.0.GrowingTree.toWTreeFuel_countLabel._proof_1_8' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.InjectivityBridge.0.GrowingTree.toWTreeFuel_countLabel._proof_1_9' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.InjectivityBridge.0.GrowingTree.toWTreeFuel_countLabel._simp_1_1' depends on axioms: [propext,
  Classical.choice,
@@ -5786,12 +5982,16 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.InjectivityBridge.0.GrowingTree.toWTreeFuel_weight_eq_prod._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.InjectivityBridge.0.GrowingTree.toWTreeFuel_weight_eq_prod._proof_1_6' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.InjectivityBridge.0.GrowingTree.toWTreeFuel_weight_eq_prod._proof_1_8' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.InjectivityBridge.0.GrowingTree.toWTreeFuel_weight_eq_prod._proof_1_9' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.InjectivityBridge.0.GrowingTree.toWTreeFuel_weight_eq_prod._simp_1_1' depends on axioms: [propext,
  Classical.choice,
@@ -5809,27 +6009,36 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.InjectivityBridge.0.GrowingTree.toWTree_countLabel._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.InjectivityBridge.0.GrowingTree.toWTree_countLabel._simp_1_2' depends on axioms: [propext]
 '_private.PPGraph.MoserTardos.Witness.InjectivityBridge.0.GrowingTree.toWTree_weight_eq_prod._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.LabelsAtDepthBridge.0.GrowingTree.labelsAtDepth_toWTree_eq._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.LabelsAtDepthBridge.0.GrowingTree.labelsAtDepth_toWTree_eq._simp_1_2' depends on axioms: [propext]
 '_private.PPGraph.MoserTardos.Witness.LabelsAtDepthBridge.0.GrowingTree.toWTreeFuel_labelsAtDepth._proof_1_10' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.LabelsAtDepthBridge.0.GrowingTree.toWTreeFuel_labelsAtDepth._proof_1_12' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.LabelsAtDepthBridge.0.GrowingTree.toWTreeFuel_labelsAtDepth._proof_1_13' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.LabelsAtDepthBridge.0.GrowingTree.toWTreeFuel_labelsAtDepth._proof_1_14' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.LabelsAtDepthBridge.0.GrowingTree.toWTreeFuel_labelsAtDepth._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.LabelsAtDepthBridge.0.GrowingTree.toWTreeFuel_labelsAtDepth._proof_1_6' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.LabelsAtDepthBridge.0.GrowingTree.toWTreeFuel_labelsAtDepth._proof_1_7' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.LabelsAtDepthBridge.0.GrowingTree.toWTreeFuel_labelsAtDepth._proof_1_9' depends on axioms: [propext,
  Classical.choice,
@@ -5852,23 +6061,30 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.LabelsAtDepthBridge.0.WTree.labelsAtDepthChildren_map_eq_sum.match_1_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.Occurrence.0.measurable_randomInitWitness._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.Occurrence.0.witnessOccurrence_eq_iUnion._simp_1_2' depends on axioms: [propext]
 '_private.PPGraph.MoserTardos.Witness.Occurrence.0.witnessOccurrence_eq_iUnion._simp_1_3' depends on axioms: [propext]
 '_private.PPGraph.MoserTardos.Witness.Occurrence.0.τBuild_congr_of_eq_upto._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.RealTree.0.GrowingTree.Valid.exists_prefix_finset._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.RealTree.0.GrowingTree.Valid.length_lt_card._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.RealTree.0.WTree.depthList.match_1.eq_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.RealTree.0.WTree.depthList.match_1.eq_2' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.RealTree.0.WTree.depthList.match_1.splitter' does not depend on any axioms
-'_private.PPGraph.MoserTardos.Witness.RealTree.0.WTree.depthList_le._proof_1_6' depends on axioms: [propext, Quot.sound]
+'_private.PPGraph.MoserTardos.Witness.RealTree.0.WTree.depthList_le._proof_1_4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.RealTree.0.WTree.depthList_le.match_1_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.RealTree.0.τBuild_root_mem.match_1_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.RealTree.0.τBuild_valid.match_1_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.RealTree.0.τC_toWTreeFuel_props._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.RealTree.0.τC_toWTreeFuel_props._simp_1_2' depends on axioms: [propext,
  Quot.sound]
@@ -5876,10 +6092,13 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.ToGrowingTreeCheckBridge.0.WTree.checkOKList_iff_toGT_domChildren._proof_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.ToGrowingTreeCheckBridge.0.WTree.toGT_domChildren_footprintCountBeyondAt._proof_4' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.ToGrowingTreeCheckBridge.0.WTree.toGT_domChildren_footprintCountBeyondAt._proof_5' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.ToGrowingTreeCheckBridge.0.WTree.toGT_domChildren_footprintCountBeyondAt._simp_3' depends on axioms: [propext,
  Classical.choice,
@@ -5896,6 +6115,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.ToGrowingTreeCheckBridge.0.WTree.toGT_dom_footprintCountBeyondAt.match_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.ToGrowingTreeCheckBridge.0.WTree.τCheck_toGrowingTree_iff_tauCheck._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.WTreeCountable.0.WTree.instCountableBounded._proof_3' depends on axioms: [propext,
  Classical.choice,
@@ -5916,11 +6136,12 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.WTreeToGrowingTree.0.List.getElem?_and_drop_succ_of_drop_eq_cons.match_1_1' does not depend on any axioms
-'_private.PPGraph.MoserTardos.Witness.WTreeToGrowingTree.0.WTree.labelsAtDepthChildren_eq_domFilter_map._simp_6' depends on axioms: [propext,
+'_private.PPGraph.MoserTardos.Witness.WTreeToGrowingTree.0.WTree.labelsAtDepthChildren_eq_domFilter_map._simp_4' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.WTreeToGrowingTree.0.WTree.labelsAtDepthChildren_eq_domFilter_map.match_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.WTreeToGrowingTree.0.WTree.labelsAtDepth_eq_domFilter_map._proof_4' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.WTreeToGrowingTree.0.WTree.labelsAtDepth_eq_domFilter_map._simp_1' depends on axioms: [propext,
  Classical.choice,
@@ -5935,8 +6156,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.MoserTardos.Witness.WTreeToGrowingTree.0.WTree.toGT_domChildren.match_1.eq_2' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.WTreeToGrowingTree.0.WTree.toGT_domChildren.match_1.splitter' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.WTreeToGrowingTree.0.WTree.toGT_domChildren_head_disjoint._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.WTreeToGrowingTree.0.WTree.toGT_domChildren_head_ge._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.MoserTardos.Witness.WTreeToGrowingTree.0.WTree.toGT_domChildren_head_ge.match_1_1' does not depend on any axioms
 '_private.PPGraph.MoserTardos.Witness.WTreeToGrowingTree.0.WTree.toGT_domChildren_prefix_mem.match_1' does not depend on any axioms
@@ -5979,17 +6202,11 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.Repair.Hazards.0.RepairHazard.rawHazard_eq_false_iff._simp_1_2' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.Repair.Hazards.0.RepairHazard.rawHazard_eq_false_iff._simp_1_3' depends on axioms: [propext,
+'_private.PPGraph.Repair.Hazards.0.RepairHazard.runPlan_frame._simp_1_2' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.Repair.Hazards.0.RepairHazard.runPlan_frame._simp_1_4' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'_private.PPGraph.Repair.Hazards.0.RepairHazard.runPlan_frame._simp_1_5' depends on axioms: [propext]
+'_private.PPGraph.Repair.Hazards.0.RepairHazard.runPlan_frame._simp_1_3' depends on axioms: [propext]
 '_private.PPGraph.Repair.Hazards.0.RepairHazard.wawHazard_eq_false_iff._simp_1_2' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'_private.PPGraph.Repair.Hazards.0.RepairHazard.wawHazard_eq_false_iff._simp_1_3' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.bitDomain._simp_1' depends on axioms: [propext]
@@ -6007,6 +6224,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.cancelling_plan_is_identity._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.exact_commit_accepts_safe_core._proof_1_1' depends on axioms: [propext,
  Classical.choice,
@@ -6021,6 +6239,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.increment_preserves_nonnegative._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Repair.SemanticHazardExamples.0.RepairSemanticHazardExamples.increment_semantic_scope_exact._simp_1_1' depends on axioms: [propext,
  Classical.choice,
@@ -6050,8 +6269,10 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Research.PlanRepairModel.0.PlanRepair.step_distinct._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Research.PlanRepairModel.0.PlanRepair.step_not_reverse._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.BDD.0.Shearer.strictCriterion_iff_components._simp_1_2' depends on axioms: [propext,
  Classical.choice,
@@ -6081,17 +6302,24 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.LayerProfile.0.Shearer.treeLayers_eq_imp_depth_eq._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
-'_private.PPGraph.Shearer.LayerProfile.0.Shearer.treeLayers_getD._proof_1_1' depends on axioms: [propext, Quot.sound]
+'_private.PPGraph.Shearer.LayerProfile.0.Shearer.treeLayers_getD._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 '_private.PPGraph.Shearer.MT.0.Shearer.mt_all_pass_depends_on._simp_1_1' depends on axioms: [propext]
 '_private.PPGraph.Shearer.MT.0.Shearer.mt_all_pass_depends_on._simp_1_2' depends on axioms: [propext]
 '_private.PPGraph.Shearer.Occurrence.0.Shearer.measurable_randomInitSequence._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.Occurrence.0.Shearer.randomInitSequence_ne_of_lt._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.Occurrence.0.Shearer.randomInitSequence_ne_of_lt._proof_1_2' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.Occurrence.0.Shearer.randomInitSequence_ne_of_lt._proof_1_3' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.Occurrence.0.Shearer.sequenceOccurrence_eq_iUnion._simp_1_2' depends on axioms: [propext]
 '_private.PPGraph.Shearer.Occurrence.0.Shearer.sequenceOccurrence_eq_iUnion._simp_1_3' depends on axioms: [propext]
@@ -6129,6 +6357,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.SequenceProbability.0.Shearer.sequenceOccurrence_subset_τCheck_of_representative._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.Slack.0.Shearer.coefficient_singleton._simp_1_1' depends on axioms: [propext,
  Classical.choice,
@@ -6142,7 +6371,9 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 '_private.PPGraph.Shearer.Stable.0.Shearer.coefficient_insert_split._simp_1_2' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.Shearer.Stable.0.Shearer.exists_padding_depth._proof_1_1' depends on axioms: [propext, Quot.sound]
+'_private.PPGraph.Shearer.Stable.0.Shearer.exists_padding_depth._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 '_private.PPGraph.Shearer.Stable.0.Shearer.independent_extension_filter._simp_1_1' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -6150,20 +6381,21 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.Stable.0.Shearer.padTo_mem_stableSequences._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences.match_1.eq_1' depends on axioms: [propext, Quot.sound]
 '_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences.match_1.eq_2' depends on axioms: [propext, Quot.sound]
 '_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences.match_1.splitter' depends on axioms: [propext, Quot.sound]
-'_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_append_empty._simp_1_4' depends on axioms: [propext,
+'_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_append_empty._simp_1_2' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_head_length._simp_1_4' depends on axioms: [propext,
+'_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_head_length._simp_1_2' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_layers._simp_1_4' depends on axioms: [propext,
+'_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_layers._simp_1_2' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_layers._simp_1_5' depends on axioms: [propext]
+'_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_layers._simp_1_3' depends on axioms: [propext]
 '_private.PPGraph.Shearer.Stable.0.Shearer.sum_coefficient._simp_1_2' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -6177,6 +6409,7 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.Witness.0.Shearer.layer_window_mem_stableSequences._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.Witness.0.Shearer.mem_treeLayer._simp_1_2' depends on axioms: [propext,
  Classical.choice,
@@ -6185,10 +6418,13 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
  Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.Witness.0.Shearer.treeLayer_eq_empty_of_depth_lt._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.Witness.0.Shearer.treeLayer_succ_subset_closed._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 '_private.PPGraph.Shearer.Witness.0.Shearer.treeLayers_nonempty_layers._proof_1_1' depends on axioms: [propext,
+ Classical.choice,
  Quot.sound]
 'above_canonical_all_pass' does not depend on any axioms
 'active_edge' does not depend on any axioms
@@ -6336,7 +6572,6 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'compatible_trans' does not depend on any axioms
 'complete_repair_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
 'componentFootprint' depends on axioms: [propext, Classical.choice, Quot.sound]
-'componentFootprint.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'componentFootprint.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'componentFootprint_eq_of_sameComponent' depends on axioms: [propext, Classical.choice, Quot.sound]
 'config_id_reduces' does not depend on any axioms
@@ -6467,7 +6702,6 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'includeAsciiBytes' does not depend on any axioms
 'independence_implies_lopsidependence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'independent' depends on axioms: [propext, Quot.sound]
-'independent.eq_1' depends on axioms: [propext, Quot.sound]
 'induced_equiv' does not depend on any axioms
 'induced_equiv_is_equiv' does not depend on any axioms
 'inference_function_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -6698,6 +6932,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'pickFromList.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'pickFromList.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'pickFromList.match_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'pickFromList.match_1.congr_eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'pickFromList.match_1.congr_eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'pickFromList_mem_or_default' depends on axioms: [propext, Classical.choice, Quot.sound]
 'pickFromList_notMem_bad_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
 'pickFromList_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -6760,6 +6996,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'randStep.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'randStep.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'randStep.match_1' does not depend on any axioms
+'randStep.match_1.congr_eq_1' does not depend on any axioms
+'randStep.match_1.congr_eq_2' does not depend on any axioms
 'randStep_count_eq_filter_card' depends on axioms: [propext, Classical.choice, Quot.sound]
 'randStep_count_eq_filter_card._f' depends on axioms: [propext, Classical.choice, Quot.sound]
 'randStep_depends_on_past' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -6855,6 +7093,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'resampleChain.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'resampleChain.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'resampleChain.match_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'resampleChain.match_1.congr_eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'resampleChain.match_1.congr_eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'resampleChain_eq_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
 'resample_agrees_on' depends on axioms: [propext, Classical.choice, Quot.sound]
 'resample_eq_target_of_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -6915,6 +7155,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'stepsCovered.eq_2' depends on axioms: [propext, Quot.sound]
 'stepsCovered.eq_def' depends on axioms: [propext, Quot.sound]
 'stepsCovered.match_1' does not depend on any axioms
+'stepsCovered.match_1.congr_eq_1' does not depend on any axioms
+'stepsCovered.match_1.congr_eq_2' does not depend on any axioms
 'stepsCovered_fresh' depends on axioms: [propext, Classical.choice, Quot.sound]
 'stepsCovered_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'stepsCovered_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -6963,7 +7205,6 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'walk_resilience' does not depend on any axioms
 'weight_mk_attach' depends on axioms: [propext, Classical.choice, Quot.sound]
 'witnessFamily' depends on axioms: [propext, Classical.choice, Quot.sound]
-'witnessFamily.congr_simp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'witnessFamilyWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
 'witnessFamilyWeight.eq_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'witnessFamilyWeight_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -6983,6 +7224,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'wtreesUpTo.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'wtreesUpTo.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'wtreesUpTo.match_1' does not depend on any axioms
+'wtreesUpTo.match_1.congr_eq_1' does not depend on any axioms
+'wtreesUpTo.match_1.congr_eq_2' does not depend on any axioms
 'wtreesUpTo_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
 'wtreesUpTo_mono_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'wtreesUpTo_succ_children_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -6998,6 +7241,8 @@ Source hashes and per-declaration details: reports/PPGRAPH_AXIOM_AUDIT.json
 'τBuild.eq_2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'τBuild.eq_def' depends on axioms: [propext, Classical.choice, Quot.sound]
 'τBuild.match_1' does not depend on any axioms
+'τBuild.match_1.congr_eq_1' does not depend on any axioms
+'τBuild.match_1.congr_eq_2' does not depend on any axioms
 'τBuild_attach_deeper_than_prior' depends on axioms: [propext, Classical.choice, Quot.sound]
 'τBuild_congr_of_eq_upto' depends on axioms: [propext, Classical.choice, Quot.sound]
 'τBuild_lab_eq_final' depends on axioms: [propext, Classical.choice, Quot.sound]

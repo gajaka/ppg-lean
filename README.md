@@ -1,19 +1,37 @@
 # Proof-Preserving Graphs: Formal Certification, Self-Assessment, and Repair (Lean 4)
 
 This Lean 4 development studies graded certification, blocking and repair. It
-contains **206 modules**, covering generic PPG theory, repair hazards, observable
+contains **208 modules**, covering generic PPG theory, repair hazards, observable
 subalgebras and a finite certificate repair example using measured LUCES inputs.
 The full controller, nfer models, firmware and binary-memory models are developed
 separately.
 
 ## Build and kernel verification
 
-The library builds with **Lean 4.35.0** and **Mathlib v4.35.0**. The toolchain
+The library builds with **Lean 4.37.0-rc1** and **Mathlib v4.37.0-rc1**. The toolchain
 is pinned in `lean-toolchain`, and dependency revisions are pinned in
 `lake-manifest.json`.
 
 ```sh
 lake build
+```
+
+This is a release-candidate migration. The exact Mathlib revision is
+`31ce06eaadf4a200c0e1407c5f10953cf606b8f8`. The full strict build and
+whole-library axiom audit pass: **208 theory modules, 2,079 explicit results,
+and 6,073 project declarations**. The two import facades are counted separately.
+The [migration record](docs/LEAN_4_37_MIGRATION.md) distinguishes fresh checks
+from the historical Lean 4.35 results below.
+The complete `lake check --paranoid --inadvisably-no-sandbox` replay passed
+with exit 0: all six bundled kernels accepted the project export.
+An additional strict Nanoda replay accepted the dependency closure of all
+6,016 logical project declarations: 63,334 declarations, no errors, and only
+the three standard axioms. Generated unsafe/partial runtime implementations
+are outside that logical replay.
+
+```sh
+lake --wfail build
+python3 -B tools/audit_ppgraph.py
 ```
 
 Following the [Lean 4.35.0 announcement](https://leodemoura.github.io/blog/2026-10-15-lean-now-ships-with-verified-kernels/),
@@ -31,8 +49,8 @@ checks without sandbox isolation:
 lake check --paranoid --inadvisably-no-sandbox
 ```
 
-If the bundled `nanoda` aborts with `stack overflow`, the full paranoid check
-has not passed. The bundled version, 0.4.19, also has a reported
+In the historical Lean 4.35 check, bundled `nanoda` aborted with `stack overflow`,
+so the combined paranoid command did not pass. That bundled version, 0.4.19, had a reported
 [performance problem on Lean 4.35 exports](https://github.com/ammkrn/nanoda_lib/issues/44),
 addressed by [upstream fix #45](https://github.com/ammkrn/nanoda_lib/pull/45).
 A separate recheck can use upstream nanoda 0.4.24, revision
@@ -55,8 +73,9 @@ The separate nanoda run also reported `Unable to print axioms` after typecheckin
 axiom printing was enabled without an output destination. This was an output
 configuration error; the checker enforced the allowlist of `propext`,
 `Classical.choice` and `Quot.sound`. The project axiom audit was also rerun on
-Lean 4.35.0; its updated reports are `reports/PPGRAPH_AXIOM_AUDIT.txt` and
-`reports/PPGRAPH_AXIOM_AUDIT.json`.
+Lean 4.35.0. The current `reports/PPGRAPH_AXIOM_AUDIT.txt` and
+`reports/PPGRAPH_AXIOM_AUDIT.json` supersede that historical audit and identify
+their own toolchain and source hashes.
 
 Directory reorganization verification on macOS, 2026-10-25:
 

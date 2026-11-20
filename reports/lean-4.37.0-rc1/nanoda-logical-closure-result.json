@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 62.091,
+  "binary": "/Users/gajaka/.local/state/ppg-lean-upgrade/2026-10-18-v4.35.0/nanoda-fixed-source/target/release/nanoda_bin",
+  "binary_sha256": "4f2264a0c987e94c4a654768a90ddb92369014578ecafba3287020bec0f4d439",
+  "configuration": {
+    "export_file_path": "/Users/gajaka/.local/state/lean-migrations/2026-11-20-v4.37.0-rc1/ppg-lean/project-logical-closure.ndjson",
+    "use_stdin": false,
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "unpermitted_axiom_hard_error": true,
+    "unsafe_permit_all_axioms": false,
+    "num_threads": 1,
+    "nat_extension": true,
+    "string_extension": true,
+    "print_success_message": true,
+    "print_axioms": false,
+    "pp_to_stdout": true,
+    "pp_declars": [],
+    "unknown_pp_declar_hard_error": true
+  },
+  "export_sha256": "01b29cbec2ecda34dbbb67a87c627df93fb3a6985d9519d261cf2ef7863fdcd9",
+  "log_sha256": "cbbc7f405e6e3ac14ec3caa09f7675bf3478441449929084dd89ca292ee2b409"
+}

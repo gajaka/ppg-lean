@@ -1,0 +1,12 @@
+{
+  "command": [
+    "lake",
+    "--wfail",
+    "build"
+  ],
+  "toolchain": "leanprover/lean4:v4.37.0-rc1",
+  "scope": "Fresh project compilation with dependency caches; single-run timing, not a Mathlib instruction-count benchmark",
+  "elapsed_seconds": 51.044,
+  "exit_code": 0,
+  "log_sha256": "a0c5886ec81adba24324f2409fcbac94090682204e723d67181e1228d9c4210e"
+}

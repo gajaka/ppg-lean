@@ -1,0 +1,16 @@
+{
+  "status": "FAIL",
+  "exit_code": -15,
+  "elapsed_seconds": 200.955,
+  "command": [
+    "lake",
+    "check",
+    "--from-export",
+    "/Users/gajaka/.local/state/lean-migrations/2026-11-20-v4.37.0-rc1/ppg-lean/project-logical-closure.ndjson",
+    "--paranoid",
+    "--inadvisably-no-sandbox"
+  ],
+  "export_sha256": "01b29cbec2ecda34dbbb67a87c627df93fb3a6985d9519d261cf2ef7863fdcd9",
+  "membership_receipt": "project-logical-closure-inventory.json",
+  "scope": "The from-export command checks the export only. Project coverage is separately bound by source/input hashes and the declaration membership inventory. Local macOS replay without process sandbox."
+}

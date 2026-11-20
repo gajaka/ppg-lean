@@ -1,0 +1,9 @@
+{
+  "status": "STOPPED_REDUNDANT_REPLAY",
+  "reason": "The full project lake check --paranoid completed with exit 0 and all six bundled kernels accepted; the additional from-export replay was redundant. Strict dependency-closed upstream Nanoda independently passed.",
+  "terminated_pids": [
+    17446,
+    17364
+  ],
+  "date_utc": "2026-11-20T01:06:20.051837+00:00"
+}

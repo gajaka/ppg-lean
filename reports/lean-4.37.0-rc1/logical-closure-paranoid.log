@@ -1,0 +1,8 @@
+WARNING: Sandbox disabled, this run is not trustworthy.
+Uses axioms: propext, Classical.choice, Quot.sound
+Running Lean paranoid kernel on solution
+Lean paranoid kernel accepts the solution
+Running lean4lean kernel on solution
+checked 59899 declarations
+lean4lean kernel accepts the solution
+Running nanoda kernel on solution

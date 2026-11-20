@@ -1,0 +1,1901 @@
+{
+  "status": "PASS",
+  "baseline_revision": "8b33f44",
+  "modules": 210,
+  "theorem_headers": 2079,
+  "changed_modules": 24,
+  "failures": [],
+  "scope": "Textual theorem-header and source preservation outside theorem proofs and VarSpaces.isProb constructor proofs; kernel checks are separate. Imported Mathlib definitions are version-specific.",
+  "rows": [
+    {
+      "path": "PPGraph.lean",
+      "source_changed": false,
+      "theorem_headers": 0,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "41760bb8a3187d98b8fdaaf2329d5296d753d161c6dbbdf979e98606908d3e96",
+      "after_sha256": "41760bb8a3187d98b8fdaaf2329d5296d753d161c6dbbdf979e98606908d3e96"
+    },
+    {
+      "path": "PPGraph/All.lean",
+      "source_changed": false,
+      "theorem_headers": 0,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "486199217d9b5c648c8285191347115d18e2b62c38629b4a7e9787f48817cfdf",
+      "after_sha256": "486199217d9b5c648c8285191347115d18e2b62c38629b4a7e9787f48817cfdf"
+    },
+    {
+      "path": "PPGraph/Certification/AssessmentBridge.lean",
+      "source_changed": false,
+      "theorem_headers": 8,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "f6e7dcc6b3e0f77eaa0341722b8ac0fd61fe9ad7e532197284cc20a053404d81",
+      "after_sha256": "f6e7dcc6b3e0f77eaa0341722b8ac0fd61fe9ad7e532197284cc20a053404d81"
+    },
+    {
+      "path": "PPGraph/Certification/Blocking.lean",
+      "source_changed": false,
+      "theorem_headers": 7,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "e9c28d8fe54a98b92bfc936e8d3c600caf139913dd9b0ccd7e8d964c9fd83bd4",
+      "after_sha256": "e9c28d8fe54a98b92bfc936e8d3c600caf139913dd9b0ccd7e8d964c9fd83bd4"
+    },
+    {
+      "path": "PPGraph/Certification/EquivBridge.lean",
+      "source_changed": false,
+      "theorem_headers": 4,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "27289fc50118a754b9dceb16c6995fa9a33f3f188fbd4aca347fdd55b4383e94",
+      "after_sha256": "27289fc50118a754b9dceb16c6995fa9a33f3f188fbd4aca347fdd55b4383e94"
+    },
+    {
+      "path": "PPGraph/Certification/Parametric.lean",
+      "source_changed": false,
+      "theorem_headers": 24,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "24b4e7053eeb6d84ce027cfc6b51f352a2d9ee6355d6dc0289414964640cbaea",
+      "after_sha256": "24b4e7053eeb6d84ce027cfc6b51f352a2d9ee6355d6dc0289414964640cbaea"
+    },
+    {
+      "path": "PPGraph/Certification/ParametricQuotient.lean",
+      "source_changed": false,
+      "theorem_headers": 25,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "36ce8a8498deef6db620c7377d765939058eee7004f439d017f3ab690c212dca",
+      "after_sha256": "36ce8a8498deef6db620c7377d765939058eee7004f439d017f3ab690c212dca"
+    },
+    {
+      "path": "PPGraph/Certification/QuotientBridge.lean",
+      "source_changed": false,
+      "theorem_headers": 7,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "5624ecb230cf7ba52dedae3252a009f3f199b5f9d2483a6f813dc2c8c00f675c",
+      "after_sha256": "5624ecb230cf7ba52dedae3252a009f3f199b5f9d2483a6f813dc2c8c00f675c"
+    },
+    {
+      "path": "PPGraph/Certification/Selection.lean",
+      "source_changed": false,
+      "theorem_headers": 23,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "79dbd06d394d452ff5abdba22fbaa6ff21f6b8b746471be04225fa3bac1ce487",
+      "after_sha256": "79dbd06d394d452ff5abdba22fbaa6ff21f6b8b746471be04225fa3bac1ce487"
+    },
+    {
+      "path": "PPGraph/Certification/SelfAssessment.lean",
+      "source_changed": false,
+      "theorem_headers": 12,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "b1a65ec27b9175e85fc87c4e3c4a31d3985e016117b944c4f548e551951b2a1f",
+      "after_sha256": "b1a65ec27b9175e85fc87c4e3c4a31d3985e016117b944c4f548e551951b2a1f"
+    },
+    {
+      "path": "PPGraph/Core/Categorical.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "08bd6c7f17ee3c7804403e1b3dea5e8f1c9031efe34323b662e6e036ca356090",
+      "after_sha256": "08bd6c7f17ee3c7804403e1b3dea5e8f1c9031efe34323b662e6e036ca356090"
+    },
+    {
+      "path": "PPGraph/Core/Graph.lean",
+      "source_changed": false,
+      "theorem_headers": 22,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "6e4d3ec172faa60aedb75a2c47451494e83284d38f37e560f86e319a0c295718",
+      "after_sha256": "6e4d3ec172faa60aedb75a2c47451494e83284d38f37e560f86e319a0c295718"
+    },
+    {
+      "path": "PPGraph/Core/Meta.lean",
+      "source_changed": false,
+      "theorem_headers": 12,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "eed194f4725f98e32f7bd808a21645946b425e9ad63273d566c39c6d63f46462",
+      "after_sha256": "eed194f4725f98e32f7bd808a21645946b425e9ad63273d566c39c6d63f46462"
+    },
+    {
+      "path": "PPGraph/Core/RR.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "35ee5b8a953048f5b06594930241d3b506c92304ffe58ee006b2f33ce112fc2d",
+      "after_sha256": "35ee5b8a953048f5b06594930241d3b506c92304ffe58ee006b2f33ce112fc2d"
+    },
+    {
+      "path": "PPGraph/Core/Repair.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "caba0ef56cce78cad3c77173e986cfdfc802629cd10020336fc11bbb2dde78d5",
+      "after_sha256": "caba0ef56cce78cad3c77173e986cfdfc802629cd10020336fc11bbb2dde78d5"
+    },
+    {
+      "path": "PPGraph/Decision/Abstraction.lean",
+      "source_changed": false,
+      "theorem_headers": 22,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "8733e8df58b18a1bb43e25e9664d757c2145ab12bdd00545d75346d4a9b7576e",
+      "after_sha256": "8733e8df58b18a1bb43e25e9664d757c2145ab12bdd00545d75346d4a9b7576e"
+    },
+    {
+      "path": "PPGraph/Decision/CertifiedDecision.lean",
+      "source_changed": false,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "d5e266d0d0f951cbca185be18f77180891f8a95a3bb78ad995a0dca60e218c42",
+      "after_sha256": "d5e266d0d0f951cbca185be18f77180891f8a95a3bb78ad995a0dca60e218c42"
+    },
+    {
+      "path": "PPGraph/Decision/CorrectionDuality.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "9c95f903ebe4a95bbe5b40e54f043407ab11b0123b1a8be52090f685ef984af1",
+      "after_sha256": "9c95f903ebe4a95bbe5b40e54f043407ab11b0123b1a8be52090f685ef984af1"
+    },
+    {
+      "path": "PPGraph/Decision/FarkasCertificate.lean",
+      "source_changed": false,
+      "theorem_headers": 7,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "2786260ae4f187671ade4379d06f25dce17841e024d3f8dbdd7a31dda3b76133",
+      "after_sha256": "2786260ae4f187671ade4379d06f25dce17841e024d3f8dbdd7a31dda3b76133"
+    },
+    {
+      "path": "PPGraph/Decision/FiniteCore.lean",
+      "source_changed": false,
+      "theorem_headers": 3,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "37e694b05591db27678f915005a801559666b5a2338451537d2b3cca436eca46",
+      "after_sha256": "37e694b05591db27678f915005a801559666b5a2338451537d2b3cca436eca46"
+    },
+    {
+      "path": "PPGraph/Decision/FiniteFeasibility.lean",
+      "source_changed": false,
+      "theorem_headers": 13,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "e583eb1a7ee795c1c762669c943d9c7cdea7d85331e479dd33885c273671a2e4",
+      "after_sha256": "e583eb1a7ee795c1c762669c943d9c7cdea7d85331e479dd33885c273671a2e4"
+    },
+    {
+      "path": "PPGraph/Decision/Infeasibility.lean",
+      "source_changed": false,
+      "theorem_headers": 14,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "5e4d79bbb4408e35e5ab8eadfe00000b52d3bfbf0a7f944eacbb4d292e365c9f",
+      "after_sha256": "5e4d79bbb4408e35e5ab8eadfe00000b52d3bfbf0a7f944eacbb4d292e365c9f"
+    },
+    {
+      "path": "PPGraph/Decision/InfeasibilityCounting.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "1db8beecca5cbc463889c1f1a17e31991d02c8cbeed9e8cc76b7d25fc523fa35",
+      "after_sha256": "1db8beecca5cbc463889c1f1a17e31991d02c8cbeed9e8cc76b7d25fc523fa35"
+    },
+    {
+      "path": "PPGraph/Decision/ReachabilityRefutation.lean",
+      "source_changed": false,
+      "theorem_headers": 12,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "768cdf05dce0e20a16129ea39dfc56a3d1ac92deb9f79fd973e7e478a36e5e85",
+      "after_sha256": "768cdf05dce0e20a16129ea39dfc56a3d1ac92deb9f79fd973e7e478a36e5e85"
+    },
+    {
+      "path": "PPGraph/Decision/RepairDecision.lean",
+      "source_changed": false,
+      "theorem_headers": 13,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "4f81c6f2cd63d5e04074fc1322a793f41babf663bc0c324980f971f69df1a8d1",
+      "after_sha256": "4f81c6f2cd63d5e04074fc1322a793f41babf663bc0c324980f971f69df1a8d1"
+    },
+    {
+      "path": "PPGraph/Decision/Undecidability.lean",
+      "source_changed": false,
+      "theorem_headers": 14,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "72d4663f3c6be5123c91caf7dc26d8accb8b9e81d233dfe8e5fecdbd39238dcf",
+      "after_sha256": "72d4663f3c6be5123c91caf7dc26d8accb8b9e81d233dfe8e5fecdbd39238dcf"
+    },
+    {
+      "path": "PPGraph/Decision/UnsatisfiableCore.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "7abebec429626aa0143bf5a41bdf80c1f9fe64062248478119e86b6e9963780a",
+      "after_sha256": "7abebec429626aa0143bf5a41bdf80c1f9fe64062248478119e86b6e9963780a"
+    },
+    {
+      "path": "PPGraph/Dependency/Cost.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "9e130926674b2676773f4eadf072cada28e575eb399946935c34530ee645ab32",
+      "after_sha256": "9e130926674b2676773f4eadf072cada28e575eb399946935c34530ee645ab32"
+    },
+    {
+      "path": "PPGraph/Dependency/Count.lean",
+      "source_changed": false,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "14f98526bb03c7c143388655b332eecd1711fa50d004d8cdaa0fe6a037cf710a",
+      "after_sha256": "14f98526bb03c7c143388655b332eecd1711fa50d004d8cdaa0fe6a037cf710a"
+    },
+    {
+      "path": "PPGraph/Dependency/Decomposition.lean",
+      "source_changed": true,
+      "theorem_headers": 13,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "209d90ab9fa7e4e00b5e4fc2e30d27a8c296e8eb6eb02365d30b0843da26eb48",
+      "after_sha256": "a1c417a8d57a2d59b733bd6139d68591a4eac22c5dfe893cd12b09511ecf0b61"
+    },
+    {
+      "path": "PPGraph/Dependency/Laplacian.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "aa4c14d385984ff94a08622646e603b13e78bfaf3f26c7afde39627ec99cc8ea",
+      "after_sha256": "aa4c14d385984ff94a08622646e603b13e78bfaf3f26c7afde39627ec99cc8ea"
+    },
+    {
+      "path": "PPGraph/Dependency/Matrix.lean",
+      "source_changed": false,
+      "theorem_headers": 3,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "57c98604121670bd7990891a3e9c2ae877bce2644c2eead6d7980f1b350fba21",
+      "after_sha256": "57c98604121670bd7990891a3e9c2ae877bce2644c2eead6d7980f1b350fba21"
+    },
+    {
+      "path": "PPGraph/Dependency/Partition.lean",
+      "source_changed": false,
+      "theorem_headers": 4,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "60db8e06852276779b98898f12d104246e43904003469da7df1568a9ed0b71e7",
+      "after_sha256": "60db8e06852276779b98898f12d104246e43904003469da7df1568a9ed0b71e7"
+    },
+    {
+      "path": "PPGraph/Dependency/Probabilistic.lean",
+      "source_changed": true,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "30a2a2f39929123f5de75d5208ac0a3168ad1699091ce0087a5c30ee18b0cf74",
+      "after_sha256": "3cbfe807e46044109647b4ded6c420adc4e0855acdfee1f102f87ff9def11d84"
+    },
+    {
+      "path": "PPGraph/Drift/Additive.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "d9e04c87dc3f806aea0e5a368ddc25dd18e768192a9c5e1d7a71f242e9957396",
+      "after_sha256": "d9e04c87dc3f806aea0e5a368ddc25dd18e768192a9c5e1d7a71f242e9957396"
+    },
+    {
+      "path": "PPGraph/Finite/Drift/Basic.lean",
+      "source_changed": false,
+      "theorem_headers": 17,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "9842cbcd5f14f119bf67f18329ce818c9fa6ef1480a5754914e4b0c7266d102e",
+      "after_sha256": "9842cbcd5f14f119bf67f18329ce818c9fa6ef1480a5754914e4b0c7266d102e"
+    },
+    {
+      "path": "PPGraph/Finite/Drift/Process.lean",
+      "source_changed": true,
+      "theorem_headers": 20,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "06b6d46f2f82e9f325b59f45ee09ce43ab4173bda6ae4f1ae68fcfca4d46b262",
+      "after_sha256": "2cacad13342abd99daee44962a35ccd8c84f7f48570578218f5b2cdbfbaa24f2"
+    },
+    {
+      "path": "PPGraph/Finite/Lumping/Basic.lean",
+      "source_changed": false,
+      "theorem_headers": 15,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "0ec27c12f426f089b235b5b83f3f82e7a09e2e16f1eb67058fd9eac6a9ecc23f",
+      "after_sha256": "0ec27c12f426f089b235b5b83f3f82e7a09e2e16f1eb67058fd9eac6a9ecc23f"
+    },
+    {
+      "path": "PPGraph/Finite/Lumping/Update.lean",
+      "source_changed": false,
+      "theorem_headers": 25,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "72a338f0f2b6c52ff89a69a602d539b80d7b6884ca13e72a92956547f300acaa",
+      "after_sha256": "72a338f0f2b6c52ff89a69a602d539b80d7b6884ca13e72a92956547f300acaa"
+    },
+    {
+      "path": "PPGraph/Finite/Potential/Basic.lean",
+      "source_changed": false,
+      "theorem_headers": 27,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "5c3777831b86ededeba8832e464e70e5abbf960da8aa7ca557a876298b41948c",
+      "after_sha256": "5c3777831b86ededeba8832e464e70e5abbf960da8aa7ca557a876298b41948c"
+    },
+    {
+      "path": "PPGraph/Finite/Potential/Expectation.lean",
+      "source_changed": true,
+      "theorem_headers": 19,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "3b1eae0e0bbd8261a89e9ba1e1c0780073748d8f505cb5f9aed6d9fc08414a66",
+      "after_sha256": "24206da3f8db52fd680641402dd521913d0f0495e16c92f014d164e398ef1840"
+    },
+    {
+      "path": "PPGraph/Finite/Potential/Refutation.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "00bd917159ae86b3bbc3d1eaf568827ed3c7267992f764e7c4d99dfd61a18bfa",
+      "after_sha256": "00bd917159ae86b3bbc3d1eaf568827ed3c7267992f764e7c4d99dfd61a18bfa"
+    },
+    {
+      "path": "PPGraph/Finite/Potential/Tail.lean",
+      "source_changed": true,
+      "theorem_headers": 23,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "9e279445989e7797d3a226ff1a2fb94c0c942f2a2dfce1df5ae5350d0d8432d7",
+      "after_sha256": "de813a296ac411b26b0cae8f708c3a6fd2438245425f49836e2f14e507a66ff4"
+    },
+    {
+      "path": "PPGraph/Finite/Potential/TailCertificate.lean",
+      "source_changed": false,
+      "theorem_headers": 4,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "3ff0418b0d28d95692382feb48397bb408820402aa98d6343e848f5f6f91af96",
+      "after_sha256": "3ff0418b0d28d95692382feb48397bb408820402aa98d6343e848f5f6f91af96"
+    },
+    {
+      "path": "PPGraph/Finite/Resampling/Basic.lean",
+      "source_changed": false,
+      "theorem_headers": 31,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "ed9eb61837dc193c3ac3f0944fe073c002e3764cf818f267c2cfe456d2422950",
+      "after_sha256": "ed9eb61837dc193c3ac3f0944fe073c002e3764cf818f267c2cfe456d2422950"
+    },
+    {
+      "path": "PPGraph/Finite/Resampling/Table.lean",
+      "source_changed": false,
+      "theorem_headers": 19,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "cdc1cb61b694d323d15d68a92992e30abd1f9f12a06dfa168e4ce005a86bb35f",
+      "after_sha256": "cdc1cb61b694d323d15d68a92992e30abd1f9f12a06dfa168e4ce005a86bb35f"
+    },
+    {
+      "path": "PPGraph/Finite/Resampling/TableLaw.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "751cd426bf0ab60a24b7fddf890ba09ae9c431f907814ee21988ffed625facb0",
+      "after_sha256": "751cd426bf0ab60a24b7fddf890ba09ae9c431f907814ee21988ffed625facb0"
+    },
+    {
+      "path": "PPGraph/Finite/Update/Basic.lean",
+      "source_changed": false,
+      "theorem_headers": 16,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "c01f382ac4cef5952fb499b13acca7cd3a53c1c844c31049e7c698bb896c033c",
+      "after_sha256": "c01f382ac4cef5952fb499b13acca7cd3a53c1c844c31049e7c698bb896c033c"
+    },
+    {
+      "path": "PPGraph/Finite/Update/IID.lean",
+      "source_changed": false,
+      "theorem_headers": 15,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "8d742547cbdbecb9d2b129c6bf3e45f6cd50e28ddb7f1b3670cdb6b5f11cf0e5",
+      "after_sha256": "8d742547cbdbecb9d2b129c6bf3e45f6cd50e28ddb7f1b3670cdb6b5f11cf0e5"
+    },
+    {
+      "path": "PPGraph/HLS/Bounds/AugmentedExistence.lean",
+      "source_changed": false,
+      "theorem_headers": 2,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "a09e31e465366f44df9358faeb34bcf545feccf0c92d3be1e02508d4707fc916",
+      "after_sha256": "a09e31e465366f44df9358faeb34bcf545feccf0c92d3be1e02508d4707fc916"
+    },
+    {
+      "path": "PPGraph/HLS/Bounds/ChoiceSum.lean",
+      "source_changed": false,
+      "theorem_headers": 2,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "2178945220d0e687e2642c3f4ea812dcc94507d7a531274c465f79f43d8ed1b9",
+      "after_sha256": "2178945220d0e687e2642c3f4ea812dcc94507d7a531274c465f79f43d8ed1b9"
+    },
+    {
+      "path": "PPGraph/HLS/Bounds/CoinSaving.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "1141d51e99c9a728d73632dd23a1b98a2abe1cff8dcfc898af2531b08c8592f2",
+      "after_sha256": "1141d51e99c9a728d73632dd23a1b98a2abe1cff8dcfc898af2531b08c8592f2"
+    },
+    {
+      "path": "PPGraph/HLS/Bounds/DecoratedBudget.lean",
+      "source_changed": true,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "7985bdb3aedae05eb7836e9767058cadac107b10479e3fda91f46f6150bc8d92",
+      "after_sha256": "510b81ccb8380e08c931d10cb0172fe2de8a8dec17c3919534ec59159346fda8"
+    },
+    {
+      "path": "PPGraph/HLS/Bounds/ExpansionWeight.lean",
+      "source_changed": false,
+      "theorem_headers": 4,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "50baf05c7ab45f682c6d7169897bbb9268cb77bf32dee782fdf88b2334856b7d",
+      "after_sha256": "50baf05c7ab45f682c6d7169897bbb9268cb77bf32dee782fdf88b2334856b7d"
+    },
+    {
+      "path": "PPGraph/HLS/Bounds/Expectation.lean",
+      "source_changed": true,
+      "theorem_headers": 8,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "e6b4a233ffa4ff88f8dd097c8ac9114d18b7db6ba71d53b392e0e22074c554da",
+      "after_sha256": "b2d4caa7fbe3c56bdfcfee0a889a34fd1872aec2184253f8b51b7a26a80b6201"
+    },
+    {
+      "path": "PPGraph/HLS/Bounds/OrdinalOccurrence.lean",
+      "source_changed": false,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "31c077bf132cd941b707629c162bcdfcf97c384bc76360fd3e1e056ea987dc06",
+      "after_sha256": "31c077bf132cd941b707629c162bcdfcf97c384bc76360fd3e1e056ea987dc06"
+    },
+    {
+      "path": "PPGraph/HLS/Bounds/ProductDiscount.lean",
+      "source_changed": false,
+      "theorem_headers": 7,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "dd972920a27cf87d70c0e8b70cf22ae7e0ba758fde1389e120ebb067d66340ca",
+      "after_sha256": "dd972920a27cf87d70c0e8b70cf22ae7e0ba758fde1389e120ebb067d66340ca"
+    },
+    {
+      "path": "PPGraph/HLS/Bounds/RefinedBudget.lean",
+      "source_changed": true,
+      "theorem_headers": 4,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "38f5e260754be86de11e80a9c60738ead53e10343478b3061a8e8ec839edee5f",
+      "after_sha256": "800fbdc7d30a530e5704816abb1bae7a7e94de10dc251f6356bb7a45d976e0c1"
+    },
+    {
+      "path": "PPGraph/HLS/Bounds/WitnessBudget.lean",
+      "source_changed": true,
+      "theorem_headers": 7,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "0032d6fc6bb04cbcb23cb3fad3e1e2b1c6e84f1fa1f749f49b93893d695bf588",
+      "after_sha256": "07bd78ea8a7fc78805eae6e621d6a4b3e499972b60d66d75e878f46c4854cde5"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/CliqueRanks.lean",
+      "source_changed": false,
+      "theorem_headers": 12,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "4b8126759fd79c3091e8b2d4d83efcdaf7cd84ae963455f5df56b9dabd62b750",
+      "after_sha256": "4b8126759fd79c3091e8b2d4d83efcdaf7cd84ae963455f5df56b9dabd62b750"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/ExpansionGraph.lean",
+      "source_changed": false,
+      "theorem_headers": 8,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "39b2c1aa7c81292c33f80ecf2ffaae04898c62753fe704a82b42ff93e0d5e103",
+      "after_sha256": "39b2c1aa7c81292c33f80ecf2ffaae04898c62753fe704a82b42ff93e0d5e103"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/ExpansionVertices.lean",
+      "source_changed": false,
+      "theorem_headers": 7,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "da855c3259b2e1f9d6e71d7af3ad18d5be8bb9c809dc7190ca31dcb3dd35a022",
+      "after_sha256": "da855c3259b2e1f9d6e71d7af3ad18d5be8bb9c809dc7190ca31dcb3dd35a022"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/FiniteDAG.lean",
+      "source_changed": false,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "3dd90d858b5c517658f9452f7cd281477fd64bcb7545586afd1de62ac556905d",
+      "after_sha256": "3dd90d858b5c517658f9452f7cd281477fd64bcb7545586afd1de62ac556905d"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/Matching.lean",
+      "source_changed": false,
+      "theorem_headers": 13,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "c1bd70f6d00c28fa29541f983cd3ee4e437e0c98f22d51bbca8eda44821c0660",
+      "after_sha256": "c1bd70f6d00c28fa29541f983cd3ee4e437e0c98f22d51bbca8eda44821c0660"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/MatchingArcUniqueness.lean",
+      "source_changed": false,
+      "theorem_headers": 1,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "7e114a1d50434cb27630609f8a6b67cbf7a81a9444179f03b176bfa3b13bdac6",
+      "after_sha256": "7e114a1d50434cb27630609f8a6b67cbf7a81a9444179f03b176bfa3b13bdac6"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/MatchingSelection.lean",
+      "source_changed": false,
+      "theorem_headers": 15,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "eecb59c22965554f3c903ccb7fe10337b3b2d58c272ca3c5f6ff79dde20a5ed4",
+      "after_sha256": "eecb59c22965554f3c903ccb7fe10337b3b2d58c272ca3c5f6ff79dde20a5ed4"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/OrderedDAG.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "30aa373f328add16f396546531b8def2e004aa1dc2dee75bbba0731ebb800da1",
+      "after_sha256": "30aa373f328add16f396546531b8def2e004aa1dc2dee75bbba0731ebb800da1"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/OrientationScore.lean",
+      "source_changed": false,
+      "theorem_headers": 4,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "6055f4232046e0fc35bc8237f0f1e837d3578745f27c0c17ad2e5107b9ab44fe",
+      "after_sha256": "6055f4232046e0fc35bc8237f0f1e837d3578745f27c0c17ad2e5107b9ab44fe"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/PairKeys.lean",
+      "source_changed": false,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "36a25aeccc5bffd3cd0db075bd291910cf08972f18069ef8b6f49aa50b50b8ee",
+      "after_sha256": "36a25aeccc5bffd3cd0db075bd291910cf08972f18069ef8b6f49aa50b50b8ee"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/ParitySelection.lean",
+      "source_changed": false,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "ec325b036257a44abec8c721300188b35c52c56a4bb4f5d44536624c48e64893",
+      "after_sha256": "ec325b036257a44abec8c721300188b35c52c56a4bb4f5d44536624c48e64893"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/RealDAG.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "1d4b42d11b942ece4f405bf0eae183ed8b6d24470fc5b3db95394864b12d8546",
+      "after_sha256": "1d4b42d11b942ece4f405bf0eae183ed8b6d24470fc5b3db95394864b12d8546"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/RealDAGCounts.lean",
+      "source_changed": false,
+      "theorem_headers": 8,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "270b8b19aeed5cae0ac36a280af283ce35138320fbb5f8abb3d747f3808c5105",
+      "after_sha256": "270b8b19aeed5cae0ac36a280af283ce35138320fbb5f8abb3d747f3808c5105"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/TimeDAG.lean",
+      "source_changed": false,
+      "theorem_headers": 7,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "dfafd8f9a6efddc195178daa7503a387ea9eea4f3a9c023853abbcfee9c085f6",
+      "after_sha256": "dfafd8f9a6efddc195178daa7503a387ea9eea4f3a9c023853abbcfee9c085f6"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/TopologicalOrder.lean",
+      "source_changed": false,
+      "theorem_headers": 7,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "b722cffdd4e1d309bc12b80dd66046be91b65e8c05f4363719a1fd0aca659d35",
+      "after_sha256": "b722cffdd4e1d309bc12b80dd66046be91b65e8c05f4363719a1fd0aca659d35"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/WitnessDAG.lean",
+      "source_changed": false,
+      "theorem_headers": 15,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "879be69b5e0cc86388d77595fd7957706bd82f7a0b72dc4769a5a648cd41fff3",
+      "after_sha256": "879be69b5e0cc86388d77595fd7957706bd82f7a0b72dc4769a5a648cd41fff3"
+    },
+    {
+      "path": "PPGraph/HLS/DAG/WitnessLayers.lean",
+      "source_changed": false,
+      "theorem_headers": 14,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "70cfe2379e15513b5e42b1e125b2f53ffa7ae224809d5d2df336c3640121e07d",
+      "after_sha256": "70cfe2379e15513b5e42b1e125b2f53ffa7ae224809d5d2df336c3640121e07d"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/CanonicalEncoding.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "42455a0e506ba96e32ee9b30206311ac028cda33aa9a687743677b02f91a0fb5",
+      "after_sha256": "42455a0e506ba96e32ee9b30206311ac028cda33aa9a687743677b02f91a0fb5"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/ChoiceRecovery.lean",
+      "source_changed": false,
+      "theorem_headers": 4,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "850bf070aa031c1c4b313ff0b64b2b228dde165e301905cd912cdc16b39dfca8",
+      "after_sha256": "850bf070aa031c1c4b313ff0b64b2b228dde165e301905cd912cdc16b39dfca8"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/ColoredExpansion.lean",
+      "source_changed": false,
+      "theorem_headers": 8,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "8314681c1b06daf0d5edb3e3640541cfef0b05285e7c083ab36bbab0833bebaf",
+      "after_sha256": "8314681c1b06daf0d5edb3e3640541cfef0b05285e7c083ab36bbab0833bebaf"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/ExpansionDecoder.lean",
+      "source_changed": false,
+      "theorem_headers": 4,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "a823ab893954542b1e4f462dcfe84173c6f53cf2e44235cbce73b0da34bde7b4",
+      "after_sha256": "a823ab893954542b1e4f462dcfe84173c6f53cf2e44235cbce73b0da34bde7b4"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/ExpansionFamily.lean",
+      "source_changed": false,
+      "theorem_headers": 4,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "4e32763b1fde4969f1fd09849f5f94ee5cafbb0faab85a3ed18bcb6df2b6a6fe",
+      "after_sha256": "4e32763b1fde4969f1fd09849f5f94ee5cafbb0faab85a3ed18bcb6df2b6a6fe"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/ExpansionReversibility.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "cfbfc6075ed5686e656b67ae7a32bd1379c8ea79a4b15a4710eef0033a46443c",
+      "after_sha256": "cfbfc6075ed5686e656b67ae7a32bd1379c8ea79a4b15a4710eef0033a46443c"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/LabelRanks.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "f56d3fa15af48f53e403412cda60e1e9d34c8f5d2aea1e6083f6e7454817349c",
+      "after_sha256": "f56d3fa15af48f53e403412cda60e1e9d34c8f5d2aea1e6083f6e7454817349c"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/NodeIso.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "72d02cf1db33f43c36422409a7f84c25a04dcc35d48f6e22002e9e52c413a291",
+      "after_sha256": "72d02cf1db33f43c36422409a7f84c25a04dcc35d48f6e22002e9e52c413a291"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/Normalization.lean",
+      "source_changed": false,
+      "theorem_headers": 12,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "284160756eb687d1fc6ea1c03e5e512b9c59ca9cae0145be948f225534635f8f",
+      "after_sha256": "284160756eb687d1fc6ea1c03e5e512b9c59ca9cae0145be948f225534635f8f"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/NormalizationCheck.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "6754569cf14711579c9e0051000a4b31445d4d65eb8e9144120d6dbe5159c3f1",
+      "after_sha256": "6754569cf14711579c9e0051000a4b31445d4d65eb8e9144120d6dbe5159c3f1"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/NormalizationReversal.lean",
+      "source_changed": false,
+      "theorem_headers": 3,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "a9d858977f964a3cbd11d64947d8dbe1dfb27128a091867a0cba180d2f67a29c",
+      "after_sha256": "a9d858977f964a3cbd11d64947d8dbe1dfb27128a091867a0cba180d2f67a29c"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/OrderedReversal.lean",
+      "source_changed": false,
+      "theorem_headers": 2,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "b8b9471c7421c77f84119f02fccdb57d115b64bf4fee529c24a95a53c4f138e3",
+      "after_sha256": "b8b9471c7421c77f84119f02fccdb57d115b64bf4fee529c24a95a53c4f138e3"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/OriginRecovery.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "48c28bcaf158f68181c983f9031ad012e5096c05ad6247394e2708ce0e20b54f",
+      "after_sha256": "48c28bcaf158f68181c983f9031ad012e5096c05ad6247394e2708ce0e20b54f"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/OriginalIso.lean",
+      "source_changed": false,
+      "theorem_headers": 4,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "f3e2cb827cd9d663d0b90b502fa51ea3ef376fd2133f327eb34afd6604bd1f6e",
+      "after_sha256": "f3e2cb827cd9d663d0b90b502fa51ea3ef376fd2133f327eb34afd6604bd1f6e"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/PrefixCheck.lean",
+      "source_changed": false,
+      "theorem_headers": 8,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "0051c602d55eef6c7ac8a798cb48320df60c040a7335bcc266396d8fdf6ed183",
+      "after_sha256": "0051c602d55eef6c7ac8a798cb48320df60c040a7335bcc266396d8fdf6ed183"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/RelativeCoins.lean",
+      "source_changed": false,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "10e2f7759076dbd07a1d72a2bd6c478a4644c38539c9a530e72cc42b3c04290e",
+      "after_sha256": "10e2f7759076dbd07a1d72a2bd6c478a4644c38539c9a530e72cc42b3c04290e"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/Reversal.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "0a60353dd962d975567e25032d10c37612fefc2780c6eaa6ea6bd9c0c367ae14",
+      "after_sha256": "0a60353dd962d975567e25032d10c37612fefc2780c6eaa6ea6bd9c0c367ae14"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/ReversalSlots.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "3ecbea8ed4b45c26d72744ee8d0d633885b57878055d5b7d8320f60d839daa46",
+      "after_sha256": "3ecbea8ed4b45c26d72744ee8d0d633885b57878055d5b7d8320f60d839daa46"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/StableEncoding.lean",
+      "source_changed": false,
+      "theorem_headers": 14,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "499625e0fcf145de37428dbb5813749540c52bd006be4f22f6dca6f8faf7a8a5",
+      "after_sha256": "499625e0fcf145de37428dbb5813749540c52bd006be4f22f6dca6f8faf7a8a5"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/SwappedTests.lean",
+      "source_changed": false,
+      "theorem_headers": 3,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "1b682dd9acecde56c9920f94940a1e50cba92c207578e992b988905fb52025f1",
+      "after_sha256": "1b682dd9acecde56c9920f94940a1e50cba92c207578e992b988905fb52025f1"
+    },
+    {
+      "path": "PPGraph/HLS/Encoding/TableCheck.lean",
+      "source_changed": false,
+      "theorem_headers": 11,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "3a101fa9840a2132080c78898edf6e8f9044c43e5f80478e5cc57fa51aa0634c",
+      "after_sha256": "3a101fa9840a2132080c78898edf6e8f9044c43e5f80478e5cc57fa51aa0634c"
+    },
+    {
+      "path": "PPGraph/HLS/Parameters.lean",
+      "source_changed": false,
+      "theorem_headers": 12,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "ca74367f01c4c2ff1aad8ff791f17224a91ca87a9ea3ff35a435b535e6aba56d",
+      "after_sha256": "ca74367f01c4c2ff1aad8ff791f17224a91ca87a9ea3ff35a435b535e6aba56d"
+    },
+    {
+      "path": "PPGraph/HLS/Probability/AugmentedCoordinates.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "cfc2feba3c226249e32a83835e6b11aa6944cbcbec5c285802a9d9922dc2e5da",
+      "after_sha256": "cfc2feba3c226249e32a83835e6b11aa6944cbcbec5c285802a9d9922dc2e5da"
+    },
+    {
+      "path": "PPGraph/HLS/Probability/AugmentedDependence.lean",
+      "source_changed": false,
+      "theorem_headers": 4,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "cf442dfc11dadb1689c523f9465a538b35d769b6b48d04ef8326acc72d1de6a5",
+      "after_sha256": "cf442dfc11dadb1689c523f9465a538b35d769b6b48d04ef8326acc72d1de6a5"
+    },
+    {
+      "path": "PPGraph/HLS/Probability/AugmentedPair.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "abe877d50ca2145d5bca80fe4dc227e56d194fb7f725df5a37ed34eb0f7ec868",
+      "after_sha256": "abe877d50ca2145d5bca80fe4dc227e56d194fb7f725df5a37ed34eb0f7ec868"
+    },
+    {
+      "path": "PPGraph/HLS/Probability/AugmentedSpace.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "27161d1aae0460a712be596907ce70036e5517c2d135c5b5d3fa75841a31442e",
+      "after_sha256": "27161d1aae0460a712be596907ce70036e5517c2d135c5b5d3fa75841a31442e"
+    },
+    {
+      "path": "PPGraph/HLS/Probability/BlockAssembly.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "491a667815471a775c615bd597b7a63963b4c7cbf87386406b8a4ec804186c33",
+      "after_sha256": "491a667815471a775c615bd597b7a63963b4c7cbf87386406b8a4ec804186c33"
+    },
+    {
+      "path": "PPGraph/HLS/Probability/BlockIntersection.lean",
+      "source_changed": false,
+      "theorem_headers": 3,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "e720e6cfb4e31848eb4aa240ec509297666afdf56b3eb5c398aa7485ff8a2e47",
+      "after_sha256": "e720e6cfb4e31848eb4aa240ec509297666afdf56b3eb5c398aa7485ff8a2e47"
+    },
+    {
+      "path": "PPGraph/HLS/Probability/BlockQueries.lean",
+      "source_changed": false,
+      "theorem_headers": 4,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "83468750f6f9aabfed6785818729b92ac41995dc239392dddf0cfe51aaa140df",
+      "after_sha256": "83468750f6f9aabfed6785818729b92ac41995dc239392dddf0cfe51aaa140df"
+    },
+    {
+      "path": "PPGraph/HLS/Probability/CoinQueryLaw.lean",
+      "source_changed": false,
+      "theorem_headers": 1,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "d543ebfdad9c3aea48f34aaa3ce3968902b1eeab9520f3be8e05c7e6c44bd634",
+      "after_sha256": "d543ebfdad9c3aea48f34aaa3ce3968902b1eeab9520f3be8e05c7e6c44bd634"
+    },
+    {
+      "path": "PPGraph/HLS/Probability/FootprintBlocks.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "9bd917e14d424c05fd8b8ef4e49c70adffd031c25c16f57805ecc3c1ae5823fb",
+      "after_sha256": "9bd917e14d424c05fd8b8ef4e49c70adffd031c25c16f57805ecc3c1ae5823fb"
+    },
+    {
+      "path": "PPGraph/HLS/Probability/PairProbability.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "527840e664bce4d6e5102e4ee3ab63dbfeca00f709c09f22a3ffbf04cfdb7506",
+      "after_sha256": "527840e664bce4d6e5102e4ee3ab63dbfeca00f709c09f22a3ffbf04cfdb7506"
+    },
+    {
+      "path": "PPGraph/HLS/Probability/QueryLaw.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "1fdac9dc9d4176e75e17a8119b2ecb628d47bfd1973c16447c0e6569db5658ea",
+      "after_sha256": "1fdac9dc9d4176e75e17a8119b2ecb628d47bfd1973c16447c0e6569db5658ea"
+    },
+    {
+      "path": "PPGraph/HLS/Probability/RefinedProbability.lean",
+      "source_changed": false,
+      "theorem_headers": 3,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "87e2ce8eb68e61e96fc4ccd89c23243825700713cc3e59d11b99f901c5e6b889",
+      "after_sha256": "87e2ce8eb68e61e96fc4ccd89c23243825700713cc3e59d11b99f901c5e6b889"
+    },
+    {
+      "path": "PPGraph/HLS/Probability/RootUnion.lean",
+      "source_changed": true,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "7941f44b1006317d8e3efc9e43b21e096ed98c204506951dfeaae2c41dca6806",
+      "after_sha256": "b0283a78edea45750983fe45fbf121c1bbf26a2adbf309ffc4c5813920e782fd"
+    },
+    {
+      "path": "PPGraph/HLS/Probability/UnitChecks.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "4a7bdb5bb1d88e3da9ebbf4079e7bcbc16de8a6e446daf8c9f170c9e7590c200",
+      "after_sha256": "4a7bdb5bb1d88e3da9ebbf4079e7bcbc16de8a6e446daf8c9f170c9e7590c200"
+    },
+    {
+      "path": "PPGraph/Integration/AbstractionRepair.lean",
+      "source_changed": false,
+      "theorem_headers": 12,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "0c0356a2e552b57aa9c4ee21480078e4acbc95e62e72b674c4813f1cd8c35dac",
+      "after_sha256": "0c0356a2e552b57aa9c4ee21480078e4acbc95e62e72b674c4813f1cd8c35dac"
+    },
+    {
+      "path": "PPGraph/Integration/CertificationDependency.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "0de8f7564477c63c449650ad310d0f2315b2738809f83099b4efdf4002e39a11",
+      "after_sha256": "0de8f7564477c63c449650ad310d0f2315b2738809f83099b4efdf4002e39a11"
+    },
+    {
+      "path": "PPGraph/Integration/CertifiedQuotientExample.lean",
+      "source_changed": false,
+      "theorem_headers": 8,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "37efe22b93375b86a6a99cc085de3977917d3bfcc2ef65e624aa4b8f20f2a688",
+      "after_sha256": "37efe22b93375b86a6a99cc085de3977917d3bfcc2ef65e624aa4b8f20f2a688"
+    },
+    {
+      "path": "PPGraph/Integration/DependencyInfeasibility.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "6a4e14d01af144e567c52da9eb209d97c6d5209d9afc14a1feac842ebede91d8",
+      "after_sha256": "6a4e14d01af144e567c52da9eb209d97c6d5209d9afc14a1feac842ebede91d8"
+    },
+    {
+      "path": "PPGraph/Integration/DependencyMoserTardos.lean",
+      "source_changed": false,
+      "theorem_headers": 2,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "6199422cfe7ee57e4bcdd85fa3f395b51ce8a2c815eff68e6859b4b49babca65",
+      "after_sha256": "6199422cfe7ee57e4bcdd85fa3f395b51ce8a2c815eff68e6859b4b49babca65"
+    },
+    {
+      "path": "PPGraph/Integration/FiniteAsciiJson.lean",
+      "source_changed": false,
+      "theorem_headers": 0,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "c2ec8c4cfc2c3a560cff9a82729c63fdef9bad1b0fac62a89bf3073f2f136866",
+      "after_sha256": "c2ec8c4cfc2c3a560cff9a82729c63fdef9bad1b0fac62a89bf3073f2f136866"
+    },
+    {
+      "path": "PPGraph/Integration/FiniteMTDrift.lean",
+      "source_changed": false,
+      "theorem_headers": 18,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "5cf346c551639d1c1ec604b95b1b21b9031b78758a6a0822956c064f4114538b",
+      "after_sha256": "5cf346c551639d1c1ec604b95b1b21b9031b78758a6a0822956c064f4114538b"
+    },
+    {
+      "path": "PPGraph/Integration/FinitePotentialExpectationMT.lean",
+      "source_changed": false,
+      "theorem_headers": 7,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "a77672d3f2ae038f4d6febb58179b323ae22918c0f4090f299f319d646643ee1",
+      "after_sha256": "a77672d3f2ae038f4d6febb58179b323ae22918c0f4090f299f319d646643ee1"
+    },
+    {
+      "path": "PPGraph/Integration/FinitePotentialMT.lean",
+      "source_changed": false,
+      "theorem_headers": 15,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "5914019d93f336ed8b935332b3e8929e97bced586949cc8d57f72b71689b62c6",
+      "after_sha256": "5914019d93f336ed8b935332b3e8929e97bced586949cc8d57f72b71689b62c6"
+    },
+    {
+      "path": "PPGraph/Integration/FinitePotentialTailMT.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "bbbf4554694a72e461202246345a94769adbc50f3aa2a7700fbb8ef11b150ca1",
+      "after_sha256": "bbbf4554694a72e461202246345a94769adbc50f3aa2a7700fbb8ef11b150ca1"
+    },
+    {
+      "path": "PPGraph/Integration/FiniteReadCertificates.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "8dfd8575aec21c073b52d14f5df6a6d02252c1bd68127d6f65dd8576e031adaf",
+      "after_sha256": "8dfd8575aec21c073b52d14f5df6a6d02252c1bd68127d6f65dd8576e031adaf"
+    },
+    {
+      "path": "PPGraph/Integration/HLSDecision.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "9b193db23bf361b5340fd380042196f55e734df13c0ca1dcd21872c78d5a3d13",
+      "after_sha256": "9b193db23bf361b5340fd380042196f55e734df13c0ca1dcd21872c78d5a3d13"
+    },
+    {
+      "path": "PPGraph/Integration/HLSRepair.lean",
+      "source_changed": false,
+      "theorem_headers": 3,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "ca972473fa3be2254f957b99c463969e015f353b8c8bc1fb6a2ada25482dd466",
+      "after_sha256": "ca972473fa3be2254f957b99c463969e015f353b8c8bc1fb6a2ada25482dd466"
+    },
+    {
+      "path": "PPGraph/Integration/IncludeAsciiBytes.lean",
+      "source_changed": false,
+      "theorem_headers": 0,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "2794677295b0f3e78d8f8f527f3c7cf45c814be4690910c40317e32ce1bb98ae",
+      "after_sha256": "2794677295b0f3e78d8f8f527f3c7cf45c814be4690910c40317e32ce1bb98ae"
+    },
+    {
+      "path": "PPGraph/Integration/LucesCertificateRepair.lean",
+      "source_changed": false,
+      "theorem_headers": 16,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "9029aba304cd0042298ab6a635cf92dadf23e01125b56a11f907f7450f7b9f7b",
+      "after_sha256": "9029aba304cd0042298ab6a635cf92dadf23e01125b56a11f907f7450f7b9f7b"
+    },
+    {
+      "path": "PPGraph/Integration/LucesObservedInputs.lean",
+      "source_changed": false,
+      "theorem_headers": 0,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "e75d4481516ea41ddbe7ae6c7b52637b0129862cb56f2e6546ef8aa49fab2bda",
+      "after_sha256": "e75d4481516ea41ddbe7ae6c7b52637b0129862cb56f2e6546ef8aa49fab2bda"
+    },
+    {
+      "path": "PPGraph/Integration/MoserTardosDriftRegion.lean",
+      "source_changed": false,
+      "theorem_headers": 8,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "82a7a29c241098882737f8bbba2e64b2ff4bf85c69f5c3bb366dd859b50414e7",
+      "after_sha256": "82a7a29c241098882737f8bbba2e64b2ff4bf85c69f5c3bb366dd859b50414e7"
+    },
+    {
+      "path": "PPGraph/Integration/MoserTardosInfeasibility.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "433572f98761c9599c40bd058ff64ed379bc7b29d848d0c00ccdb9dc37c2200f",
+      "after_sha256": "433572f98761c9599c40bd058ff64ed379bc7b29d848d0c00ccdb9dc37c2200f"
+    },
+    {
+      "path": "PPGraph/Integration/MoserTardosRepair.lean",
+      "source_changed": false,
+      "theorem_headers": 12,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "a99b802cc34934b9050f8529b98f38949b3352bfed208995d97fe05f640b7559",
+      "after_sha256": "a99b802cc34934b9050f8529b98f38949b3352bfed208995d97fe05f640b7559"
+    },
+    {
+      "path": "PPGraph/Integration/Policy/HLSCounting.lean",
+      "source_changed": true,
+      "theorem_headers": 14,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "85e0b00eb72a96a5ca6b1ba52ffe943b46446c8037a8bb1a21a74c7792c401f0",
+      "after_sha256": "020be5bc164646025b6d8567118ee7a254f546829c3a253aa2f46f150f463f98"
+    },
+    {
+      "path": "PPGraph/Integration/Policy/HLSDAG.lean",
+      "source_changed": false,
+      "theorem_headers": 16,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "0d6a6e737b2cafa0fd0ab11d729f1e6de47f2bd73f2ad3fdaade5545e68497a2",
+      "after_sha256": "0d6a6e737b2cafa0fd0ab11d729f1e6de47f2bd73f2ad3fdaade5545e68497a2"
+    },
+    {
+      "path": "PPGraph/Integration/Policy/HLSExpectation.lean",
+      "source_changed": true,
+      "theorem_headers": 13,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "12919ec43dd5421f2d4c32fc0407b48f5681824b8c9645ca9292403f1b587674",
+      "after_sha256": "3632e3201226709ecf41e6d507a6a91bc7432ce6edb0bb207ea466c44305b06d"
+    },
+    {
+      "path": "PPGraph/Integration/Policy/History.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "997e67e413517283cefd171cee8967aa3e0c1c41022ba266a624eb07c1916aac",
+      "after_sha256": "997e67e413517283cefd171cee8967aa3e0c1c41022ba266a624eb07c1916aac"
+    },
+    {
+      "path": "PPGraph/Integration/Policy/MoserTardos.lean",
+      "source_changed": false,
+      "theorem_headers": 14,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "47d6c6a1e469321b602eda0c13eff7f5487758740aeb1e154a8f69307c61b1d4",
+      "after_sha256": "47d6c6a1e469321b602eda0c13eff7f5487758740aeb1e154a8f69307c61b1d4"
+    },
+    {
+      "path": "PPGraph/LLL/General.lean",
+      "source_changed": true,
+      "theorem_headers": 30,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "dcb84033d68ab0b86bf0e6c566ed262b4e22ecea06a09b1cf8f980d9b5a3e628",
+      "after_sha256": "62d11f7606aba614a967408858dca8445cb521be5ef0b82d5a346348b61303bd"
+    },
+    {
+      "path": "PPGraph/LLL/Lopsided.lean",
+      "source_changed": false,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "dfbaa467fe2b26542df2bcba5341e9dd31208b9b61e751de59099e2db54d6e7d",
+      "after_sha256": "dfbaa467fe2b26542df2bcba5341e9dd31208b9b61e751de59099e2db54d6e7d"
+    },
+    {
+      "path": "PPGraph/LLL/Variable.lean",
+      "source_changed": false,
+      "theorem_headers": 29,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "c8772e34215fae9eff66898ca8533b0f554f1c8eceec97bbe36e834d5edf81d4",
+      "after_sha256": "c8772e34215fae9eff66898ca8533b0f554f1c8eceec97bbe36e834d5edf81d4"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Bounds/ConstantLog.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "d3519e87c77ff119ca47e2d0acd98552fc962c654fdc1da82d15252e39ecbc0d",
+      "after_sha256": "d3519e87c77ff119ca47e2d0acd98552fc962c654fdc1da82d15252e39ecbc0d"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Bounds/Convergence.lean",
+      "source_changed": false,
+      "theorem_headers": 2,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "d561917140fb9c001391cd080e67d68ce9d04de4ee95a03da625c3e59157b0fb",
+      "after_sha256": "d561917140fb9c001391cd080e67d68ce9d04de4ee95a03da625c3e59157b0fb"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Bounds/Drift.lean",
+      "source_changed": false,
+      "theorem_headers": 20,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "81b6e4cf05173f316d6867613c616cc8b149bffff95de80f8fc30332e4e606b4",
+      "after_sha256": "81b6e4cf05173f316d6867613c616cc8b149bffff95de80f8fc30332e4e606b4"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Bounds/DriftCost.lean",
+      "source_changed": true,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "35908e098696787c84376c50413a1d0be95da016cc00ca90fd099a9d36a843df",
+      "after_sha256": "4574a13857d744f94c8e3543adc30365d850886f9d7a32429b4f6b7128311ad2"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Bounds/Expectation.lean",
+      "source_changed": false,
+      "theorem_headers": 4,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "f63466f231dbe400f07bd716ca5ee225a4e97542d13e8dec11dc4bfbfe76e385",
+      "after_sha256": "f63466f231dbe400f07bd716ca5ee225a4e97542d13e8dec11dc4bfbfe76e385"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Bounds/OccurrenceExpectation.lean",
+      "source_changed": true,
+      "theorem_headers": 7,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "7ff526ae7dbc167291fa721b32eaa465169f16ca9cac188eb0d9216dd73294af",
+      "after_sha256": "161dd978bd5eb337d7928312416086a43fabc704876874d0a8b5f29f4ab934a8"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Bounds/Pegden.lean",
+      "source_changed": true,
+      "theorem_headers": 44,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "0e571e574dd67f46ee62b4e7a901ee84164c7dd8c2913501efae4c6813e7243f",
+      "after_sha256": "e8d1d5ce9ce7328abdf78844a44621aabad9a1c1b4646980e3f2f0e65c2a8dcf"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Bounds/Termination.lean",
+      "source_changed": false,
+      "theorem_headers": 7,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "ab0b7802ef525d8663f4d96bebd385ba5c323c74bf59831e77109c8281ac0f91",
+      "after_sha256": "ab0b7802ef525d8663f4d96bebd385ba5c323c74bf59831e77109c8281ac0f91"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Bounds/WeightSum.lean",
+      "source_changed": false,
+      "theorem_headers": 16,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "dda418168c3831f379b9265e4f757bb195a24529840f5261e7ac61d49781a5cf",
+      "after_sha256": "dda418168c3831f379b9265e4f757bb195a24529840f5261e7ac61d49781a5cf"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Counting/Counting.lean",
+      "source_changed": true,
+      "theorem_headers": 3,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "bbd1f7e4addb8d6898a536172c092559ef8839a4f8b4f261ead1c2c229c050a2",
+      "after_sha256": "3ac042c2d85402df780b3369b61d776c1cef4bcbd2f98f63738a24da3a9ae8d7"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Counting/OccurrenceCounting.lean",
+      "source_changed": false,
+      "theorem_headers": 3,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "a9da1be9f414c1089a6bb04128b7ba9dc426cc2fe3599dd31a8f0ab2c914d3ba",
+      "after_sha256": "a9da1be9f414c1089a6bb04128b7ba9dc426cc2fe3599dd31a8f0ab2c914d3ba"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Counting/ResamplingCount.lean",
+      "source_changed": true,
+      "theorem_headers": 14,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "de65d1cdbd8c05ab5df4f2cbbfd3a4eb6cf47617b272da2569b773f0835a1d4d",
+      "after_sha256": "a5207bda7f5d1f7766494d3daf2b67f54bdcf19be897f3f866ab4a3a0b9c3f88"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Probability/Intersection.lean",
+      "source_changed": false,
+      "theorem_headers": 13,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "3525a797e7559d4e364dadfcf51d4748036ec355084af8e185534d1ba38737ff",
+      "after_sha256": "3525a797e7559d4e364dadfcf51d4748036ec355084af8e185534d1ba38737ff"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Probability/OccurrenceProbability.lean",
+      "source_changed": false,
+      "theorem_headers": 4,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "835c03a55728050daa10da321581dc5235d7906e8fd8a72c81e7dec2471739c6",
+      "after_sha256": "835c03a55728050daa10da321581dc5235d7906e8fd8a72c81e7dec2471739c6"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Probability/PastIndependence.lean",
+      "source_changed": false,
+      "theorem_headers": 2,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "40a4a92bc2468957531a5003764efcaaf9680817b93cd79e12b7660d26a8e9cf",
+      "after_sha256": "40a4a92bc2468957531a5003764efcaaf9680817b93cd79e12b7660d26a8e9cf"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Probability/Probability.lean",
+      "source_changed": false,
+      "theorem_headers": 15,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "265ff1f58f7884c4d3fad105c102cbd5ada7395840e7878950912e95adfd2193",
+      "after_sha256": "265ff1f58f7884c4d3fad105c102cbd5ada7395840e7878950912e95adfd2193"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Probability/ProbabilityGeneral.lean",
+      "source_changed": false,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "6574f9f64e995468a2fcca16503c10e9678db7688d3571d54d815499a22b033a",
+      "after_sha256": "6574f9f64e995468a2fcca16503c10e9678db7688d3571d54d815499a22b033a"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Probability/RandomInitExpectation.lean",
+      "source_changed": false,
+      "theorem_headers": 14,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "0fd18e47d58621c197e0981fc15739288afed7da63860c5b190bc2d0f384dc03",
+      "after_sha256": "0fd18e47d58621c197e0981fc15739288afed7da63860c5b190bc2d0f384dc03"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Process/Basic.lean",
+      "source_changed": false,
+      "theorem_headers": 3,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "2bbe5b89a538dba8948f8be0e3939a498501b4703d5b96b54ebff8b048bcfb53",
+      "after_sha256": "2bbe5b89a538dba8948f8be0e3939a498501b4703d5b96b54ebff8b048bcfb53"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Process/FullResampling.lean",
+      "source_changed": false,
+      "theorem_headers": 18,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "a6158e4c029b2802db593ad5e3c86b953df4dfa8423314426762c1fb2af94239",
+      "after_sha256": "a6158e4c029b2802db593ad5e3c86b953df4dfa8423314426762c1fb2af94239"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Process/LogSpace.lean",
+      "source_changed": false,
+      "theorem_headers": 1,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "262a22873de3dd120d11ec4bc3d06f10ee7f2c57912c4d51620300ae21f2ee69",
+      "after_sha256": "262a22873de3dd120d11ec4bc3d06f10ee7f2c57912c4d51620300ae21f2ee69"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Process/Process.lean",
+      "source_changed": false,
+      "theorem_headers": 2,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "02a2c1288b33bedfd99cb03860fe3d15fdb7cc50bae2f67b76fc859ba792c3e3",
+      "after_sha256": "02a2c1288b33bedfd99cb03860fe3d15fdb7cc50bae2f67b76fc859ba792c3e3"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Process/RandomInitialization.lean",
+      "source_changed": false,
+      "theorem_headers": 3,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "bfcd394a0efd84f74fe4b1a7981cf1e645805f80474117ce30b6b41af544e802",
+      "after_sha256": "bfcd394a0efd84f74fe4b1a7981cf1e645805f80474117ce30b6b41af544e802"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Process/RandomTrajectory.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "6b6021b2f093e5c91123191f7e29aa06a34e873afc50057a24e7357c8dbfd742",
+      "after_sha256": "6b6021b2f093e5c91123191f7e29aa06a34e873afc50057a24e7357c8dbfd742"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/Canonical.lean",
+      "source_changed": false,
+      "theorem_headers": 15,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "e44113aad479231985df4ac7896519b16a333d6266496471c570006d683e5ca5",
+      "after_sha256": "e44113aad479231985df4ac7896519b16a333d6266496471c570006d683e5ca5"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/Check.lean",
+      "source_changed": false,
+      "theorem_headers": 1,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "f98006bf97ba09d8200be3f5b9d8029b148975e5f08f66e1d9207a01666cfd45",
+      "after_sha256": "f98006bf97ba09d8200be3f5b9d8029b148975e5f08f66e1d9207a01666cfd45"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/CheckBirth.lean",
+      "source_changed": false,
+      "theorem_headers": 22,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "e795db3d9dd052d7fe83f7be936e146138244a4ac86f0c3f4fad683aa5e9e73a",
+      "after_sha256": "e795db3d9dd052d7fe83f7be936e146138244a4ac86f0c3f4fad683aa5e9e73a"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/CheckBridge.lean",
+      "source_changed": false,
+      "theorem_headers": 2,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "d960c7d8530ee08ac969a903dc98080e078efbc744ea8be15ef27f79a05b9545",
+      "after_sha256": "d960c7d8530ee08ac969a903dc98080e078efbc744ea8be15ef27f79a05b9545"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/CheckInvariance.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "8bac2958bf332728d37363dd24c06ae1e609ce9f83714e9a33a299c0f663c4b2",
+      "after_sha256": "8bac2958bf332728d37363dd24c06ae1e609ce9f83714e9a33a299c0f663c4b2"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/CheckOrder.lean",
+      "source_changed": false,
+      "theorem_headers": 14,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "d60db9ae27cf03948b02e9f1ddf9c3ffafcea88febd3a7484e5a750a1fe7fd30",
+      "after_sha256": "d60db9ae27cf03948b02e9f1ddf9c3ffafcea88febd3a7484e5a750a1fe7fd30"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/CheckShape.lean",
+      "source_changed": false,
+      "theorem_headers": 8,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "b53740b1e8b2037f382a7b315367dc662f16e47a8a9e575f7fe92665a93cd91f",
+      "after_sha256": "b53740b1e8b2037f382a7b315367dc662f16e47a8a9e575f7fe92665a93cd91f"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/Correspondence.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "7ab5bd43219d517fb7a53deeb9e7cc6d2b95f8d6548e3d16d44e1bb59c40acf4",
+      "after_sha256": "7ab5bd43219d517fb7a53deeb9e7cc6d2b95f8d6548e3d16d44e1bb59c40acf4"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/Growing.lean",
+      "source_changed": false,
+      "theorem_headers": 8,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "f01138e41ab4a9385e714caf5d182dfed8855e3ded6afcc4c731561b0d857383",
+      "after_sha256": "f01138e41ab4a9385e714caf5d182dfed8855e3ded6afcc4c731561b0d857383"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/Injectivity.lean",
+      "source_changed": false,
+      "theorem_headers": 14,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "dfcde098b7db3e5f84c5dd6baadd6edeb82fb0e088d52f286e98387cf862cb90",
+      "after_sha256": "dfcde098b7db3e5f84c5dd6baadd6edeb82fb0e088d52f286e98387cf862cb90"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/InjectivityBridge.lean",
+      "source_changed": false,
+      "theorem_headers": 7,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "435c1f09fe53d7e4a7b0ab8eca9fc17e0659498357703597f9783ad041ba5010",
+      "after_sha256": "435c1f09fe53d7e4a7b0ab8eca9fc17e0659498357703597f9783ad041ba5010"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/LabelsAtDepthBridge.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "2ffeb37f53f694ad30f8888bfcfb1a3325e2fcc35213e5e0092950b8aeee1ce8",
+      "after_sha256": "2ffeb37f53f694ad30f8888bfcfb1a3325e2fcc35213e5e0092950b8aeee1ce8"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/Occurrence.lean",
+      "source_changed": false,
+      "theorem_headers": 7,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "fb801fed5bc45ca95bebec9b71c49d1b75bc825612334534ce5f63d5ad1ac0c3",
+      "after_sha256": "fb801fed5bc45ca95bebec9b71c49d1b75bc825612334534ce5f63d5ad1ac0c3"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/RealTree.lean",
+      "source_changed": false,
+      "theorem_headers": 13,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "82451a298a077e5c5b09db98b7d67adab227206ef50fff9b84e955fadce2840f",
+      "after_sha256": "82451a298a077e5c5b09db98b7d67adab227206ef50fff9b84e955fadce2840f"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/ToGrowingTreeCheckBridge.lean",
+      "source_changed": false,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "831b10ead70754983c3dd3269af1df41116d697ab3ec3dd747979fb3087def92",
+      "after_sha256": "831b10ead70754983c3dd3269af1df41116d697ab3ec3dd747979fb3087def92"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/WTreeCountable.lean",
+      "source_changed": false,
+      "theorem_headers": 1,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "dd7f2629be417bb16a8e24357e49b98ffeaba1af1d1909944e9b759db33e97b5",
+      "after_sha256": "dd7f2629be417bb16a8e24357e49b98ffeaba1af1d1909944e9b759db33e97b5"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/WTreeToGrowingTree.lean",
+      "source_changed": false,
+      "theorem_headers": 11,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "53f4ae9155717b11ba941e813bf4d5bd6579de9842933242d7159d2a245ba64a",
+      "after_sha256": "53f4ae9155717b11ba941e813bf4d5bd6579de9842933242d7159d2a245ba64a"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/Weight.lean",
+      "source_changed": false,
+      "theorem_headers": 3,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "c86afaeaaa96f24c8e4881c286c113c347a9826852895eb350ae2cbffd127477",
+      "after_sha256": "c86afaeaaa96f24c8e4881c286c113c347a9826852895eb350ae2cbffd127477"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/Witness.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "5d6200abf4444ebbb2388d4b9992d0dc82e4e3983c4c081c22ea6f71d651379f",
+      "after_sha256": "5d6200abf4444ebbb2388d4b9992d0dc82e4e3983c4c081c22ea6f71d651379f"
+    },
+    {
+      "path": "PPGraph/MoserTardos/Witness/WitnessFamily.lean",
+      "source_changed": true,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "e8ec0abe57be524e584316f654f999870cf0dc7e7fe41a2c22fe4f8c43b13ffe",
+      "after_sha256": "ad2a8501093fcc5570a66689baa6ffa79fbec2285411754041490c1cd70d7e67"
+    },
+    {
+      "path": "PPGraph/Optimization/ComplementarySlackness.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "9bb40d6117202186a4ffb34c217a70c863a618dfa803f9a503e59c006ef9bfb1",
+      "after_sha256": "9bb40d6117202186a4ffb34c217a70c863a618dfa803f9a503e59c006ef9bfb1"
+    },
+    {
+      "path": "PPGraph/Repair/HazardExamples.lean",
+      "source_changed": false,
+      "theorem_headers": 13,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "4d40c9691624644caaf2a3ac6c047e666705cbf2614f7920b6c2d79f0bacd42e",
+      "after_sha256": "4d40c9691624644caaf2a3ac6c047e666705cbf2614f7920b6c2d79f0bacd42e"
+    },
+    {
+      "path": "PPGraph/Repair/Hazards.lean",
+      "source_changed": true,
+      "theorem_headers": 23,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "172f5b373ae1b717ab82f6562e2dd5c1fd0c3fbd74f10fc96f07e6edebbc2fc1",
+      "after_sha256": "ec25c26e461f3f631bf24adab310d19d321863a1196a42370ce1fcf0a0741607"
+    },
+    {
+      "path": "PPGraph/Repair/ObservableAlgebra.lean",
+      "source_changed": false,
+      "theorem_headers": 31,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "77f2ebc744aae40795d70d1bcba1fa1c5115bce05beece79a7bd74e77e94bc4d",
+      "after_sha256": "77f2ebc744aae40795d70d1bcba1fa1c5115bce05beece79a7bd74e77e94bc4d"
+    },
+    {
+      "path": "PPGraph/Repair/ObservableExamples.lean",
+      "source_changed": false,
+      "theorem_headers": 14,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "5366dbdbd3e4ba8c5b99e150ddfef72e4ecc8e7912e67c7201e2b86f0e9e9829",
+      "after_sha256": "5366dbdbd3e4ba8c5b99e150ddfef72e4ecc8e7912e67c7201e2b86f0e9e9829"
+    },
+    {
+      "path": "PPGraph/Repair/ObservableKernel.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "55fa40c6ff924f5b798b61105faadcaedd9472fd21beceeb87a4e97d1206d3e8",
+      "after_sha256": "55fa40c6ff924f5b798b61105faadcaedd9472fd21beceeb87a4e97d1206d3e8"
+    },
+    {
+      "path": "PPGraph/Repair/ObservableSchemes.lean",
+      "source_changed": false,
+      "theorem_headers": 34,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "6f20e981f8bdd8fcb65ada38d44d7c6b3e9908cb8f72dd1453c31f4333c87a6e",
+      "after_sha256": "6f20e981f8bdd8fcb65ada38d44d7c6b3e9908cb8f72dd1453c31f4333c87a6e"
+    },
+    {
+      "path": "PPGraph/Repair/SemanticHazardExamples.lean",
+      "source_changed": false,
+      "theorem_headers": 26,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "e4502a882036f5dd3813643c255b270444b853b7421e5e6fa281db024e0420d8",
+      "after_sha256": "e4502a882036f5dd3813643c255b270444b853b7421e5e6fa281db024e0420d8"
+    },
+    {
+      "path": "PPGraph/Repair/SemanticHazards.lean",
+      "source_changed": false,
+      "theorem_headers": 27,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "fa733dc0bfab7297e55fa01d962592af2b46b2a3ec0fbdf3a5db78641adc7c00",
+      "after_sha256": "fa733dc0bfab7297e55fa01d962592af2b46b2a3ec0fbdf3a5db78641adc7c00"
+    },
+    {
+      "path": "PPGraph/Research/PlanRepair.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "6ef80c7a39a1d16fa87050070d74559955cfe4091c1dfa1c296328bcbe568668",
+      "after_sha256": "6ef80c7a39a1d16fa87050070d74559955cfe4091c1dfa1c296328bcbe568668"
+    },
+    {
+      "path": "PPGraph/Research/PlanRepairModel.lean",
+      "source_changed": false,
+      "theorem_headers": 20,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "39ee9161700f08e392fe77be7fbbf3b530338c160ac0eb2f617cf36161987fcc",
+      "after_sha256": "39ee9161700f08e392fe77be7fbbf3b530338c160ac0eb2f617cf36161987fcc"
+    },
+    {
+      "path": "PPGraph/Shearer/BDD.lean",
+      "source_changed": true,
+      "theorem_headers": 4,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "7fec8bdd838d30e5e763efc8da54dca470e8aae49a8905ac8f09008634ac0747",
+      "after_sha256": "515bcb013d90aac2be2cd86f621d25d91232eae0e3185e2bf2aff45abebec019"
+    },
+    {
+      "path": "PPGraph/Shearer/BDDBudget.lean",
+      "source_changed": false,
+      "theorem_headers": 8,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "2cd260cc026aad5fd842919e42fc653035ec947a9172cdc8669c4e37b22affb5",
+      "after_sha256": "2cd260cc026aad5fd842919e42fc653035ec947a9172cdc8669c4e37b22affb5"
+    },
+    {
+      "path": "PPGraph/Shearer/BDDExpectation.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "4dc5c6a70168874dbf76373ad5e037d6e04c674d6f573522351587eae2a55601",
+      "after_sha256": "4dc5c6a70168874dbf76373ad5e037d6e04c674d6f573522351587eae2a55601"
+    },
+    {
+      "path": "PPGraph/Shearer/Basic.lean",
+      "source_changed": false,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "677f5753c2e83d76dc1a6215b059a5a6dc0502d74f80ab4bd22023a2d3161d1b",
+      "after_sha256": "677f5753c2e83d76dc1a6215b059a5a6dc0502d74f80ab4bd22023a2d3161d1b"
+    },
+    {
+      "path": "PPGraph/Shearer/ComponentOccurrence.lean",
+      "source_changed": false,
+      "theorem_headers": 6,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "c6d7873fb10b34f60a8d51705d3cdef6275615b48703e78071c08085d5b6a043",
+      "after_sha256": "c6d7873fb10b34f60a8d51705d3cdef6275615b48703e78071c08085d5b6a043"
+    },
+    {
+      "path": "PPGraph/Shearer/Expectation.lean",
+      "source_changed": true,
+      "theorem_headers": 9,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "695faa61c3f0c303301f656e64bc0b3a96bc5b5b1f9ee135f95fc12c9ef910c7",
+      "after_sha256": "5f8f75c4dd611b84ec18465c43c3dd2b65d98a83fe87f3926b07eae4acfa13a6"
+    },
+    {
+      "path": "PPGraph/Shearer/Induction.lean",
+      "source_changed": false,
+      "theorem_headers": 5,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "d3244a307270808cc0d0caf46caf60d8030d00d33a2331555f06f601c26dbaad",
+      "after_sha256": "d3244a307270808cc0d0caf46caf60d8030d00d33a2331555f06f601c26dbaad"
+    },
+    {
+      "path": "PPGraph/Shearer/LayerProfile.lean",
+      "source_changed": false,
+      "theorem_headers": 11,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "7492ab3f01b55e8709dbcc03b684dd048ddd259a2fd16d18f1d1b0df90e79fab",
+      "after_sha256": "7492ab3f01b55e8709dbcc03b684dd048ddd259a2fd16d18f1d1b0df90e79fab"
+    },
+    {
+      "path": "PPGraph/Shearer/MT.lean",
+      "source_changed": false,
+      "theorem_headers": 7,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "54037e29cded6d6b74b061a9783a16e227b9e8b747f5ab942ccc6df16d6c1e3e",
+      "after_sha256": "54037e29cded6d6b74b061a9783a16e227b9e8b747f5ab942ccc6df16d6c1e3e"
+    },
+    {
+      "path": "PPGraph/Shearer/Occurrence.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "15c7259fda2d76b19f40769b39d3720a609c6831a357ea6bb002a73c92398b88",
+      "after_sha256": "15c7259fda2d76b19f40769b39d3720a609c6831a357ea6bb002a73c92398b88"
+    },
+    {
+      "path": "PPGraph/Shearer/Polynomial.lean",
+      "source_changed": true,
+      "theorem_headers": 14,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "e219f9d60a421f35e39845ca233f5567a52603013093d3df591ecd775138079c",
+      "after_sha256": "ec857fc4092d033cae6720dd04f728eeb8bd12281c8720951e6fd1a3d7c86f8b"
+    },
+    {
+      "path": "PPGraph/Shearer/SequenceProbability.lean",
+      "source_changed": false,
+      "theorem_headers": 8,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "d436a776cca281499ba14f3e45bb9daf2ec3b410f081a9d5fbb8356040188db2",
+      "after_sha256": "d436a776cca281499ba14f3e45bb9daf2ec3b410f081a9d5fbb8356040188db2"
+    },
+    {
+      "path": "PPGraph/Shearer/Slack.lean",
+      "source_changed": false,
+      "theorem_headers": 10,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "baac3ee8285fa7e45e6475f9eb300f31eb0eb35940cd16619694c043d8e3bab8",
+      "after_sha256": "baac3ee8285fa7e45e6475f9eb300f31eb0eb35940cd16619694c043d8e3bab8"
+    },
+    {
+      "path": "PPGraph/Shearer/SlackExpectation.lean",
+      "source_changed": false,
+      "theorem_headers": 2,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "363c84bc25a6b6e634c119607fc501990bb4ab1d6dd859d2d007ddd349ad9952",
+      "after_sha256": "363c84bc25a6b6e634c119607fc501990bb4ab1d6dd859d2d007ddd349ad9952"
+    },
+    {
+      "path": "PPGraph/Shearer/Stable.lean",
+      "source_changed": true,
+      "theorem_headers": 37,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "4c489b8cdffc0a714e793b589070382c98addc7c17fea156dbf785a453231034",
+      "after_sha256": "fe202313aeb32b8addea9ed696d83fd14f42277ec415c478172526ebcb622839"
+    },
+    {
+      "path": "PPGraph/Shearer/Witness.lean",
+      "source_changed": false,
+      "theorem_headers": 12,
+      "headers_equal": true,
+      "outside_proofs_equal": true,
+      "before_sha256": "1236400cfe9425aeeeccc695a6703402b7270bf4010d416dd6772b2188acefbf",
+      "after_sha256": "1236400cfe9425aeeeccc695a6703402b7270bf4010d416dd6772b2188acefbf"
+    }
+  ]
+}

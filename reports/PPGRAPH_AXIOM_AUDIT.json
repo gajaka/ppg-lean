@@ -1,6 +1,6 @@
 {
   "date_utc": "2026-11-19",
-  "toolchain": "leanprover/lean4:v4.35.0",
+  "toolchain": "leanprover/lean4:v4.37.0-rc1",
   "full_build_passed": true,
   "kernel_checked_library": true,
   "axiom_audit_passed": true,
@@ -18,13 +18,13 @@
     "PPGraph.All"
   ],
   "explicit_theorem_count": 2079,
-  "generated_theorem_count": 1789,
-  "environment_declaration_count": 5975,
+  "generated_theorem_count": 1874,
+  "environment_declaration_count": 6073,
   "source_sha256": {
     "PPGraph/Core/Graph.lean": "6e4d3ec172faa60aedb75a2c47451494e83284d38f37e560f86e319a0c295718",
     "PPGraph/Drift/Additive.lean": "d9e04c87dc3f806aea0e5a368ddc25dd18e768192a9c5e1d7a71f242e9957396",
     "PPGraph/Certification/AssessmentBridge.lean": "f6e7dcc6b3e0f77eaa0341722b8ac0fd61fe9ad7e532197284cc20a053404d81",
-    "PPGraph/Dependency/Decomposition.lean": "209d90ab9fa7e4e00b5e4fc2e30d27a8c296e8eb6eb02365d30b0843da26eb48",
+    "PPGraph/Dependency/Decomposition.lean": "a1c417a8d57a2d59b733bd6139d68591a4eac22c5dfe893cd12b09511ecf0b61",
     "PPGraph/Dependency/Cost.lean": "9e130926674b2676773f4eadf072cada28e575eb399946935c34530ee645ab32",
     "PPGraph/Dependency/Count.lean": "14f98526bb03c7c143388655b332eecd1711fa50d004d8cdaa0fe6a037cf710a",
     "PPGraph/Integration/DependencyInfeasibility.lean": "6a4e14d01af144e567c52da9eb209d97c6d5209d9afc14a1feac842ebede91d8",
@@ -43,17 +43,17 @@
     "PPGraph/Integration/AbstractionRepair.lean": "0c0356a2e552b57aa9c4ee21480078e4acbc95e62e72b674c4813f1cd8c35dac",
     "PPGraph/Decision/FiniteCore.lean": "37e694b05591db27678f915005a801559666b5a2338451537d2b3cca436eca46",
     "PPGraph/Finite/Drift/Basic.lean": "9842cbcd5f14f119bf67f18329ce818c9fa6ef1480a5754914e4b0c7266d102e",
-    "PPGraph/Finite/Drift/Process.lean": "06b6d46f2f82e9f325b59f45ee09ce43ab4173bda6ae4f1ae68fcfca4d46b262",
+    "PPGraph/Finite/Drift/Process.lean": "2cacad13342abd99daee44962a35ccd8c84f7f48570578218f5b2cdbfbaa24f2",
     "PPGraph/Decision/FiniteFeasibility.lean": "e583eb1a7ee795c1c762669c943d9c7cdea7d85331e479dd33885c273671a2e4",
     "PPGraph/Finite/Lumping/Basic.lean": "0ec27c12f426f089b235b5b83f3f82e7a09e2e16f1eb67058fd9eac6a9ecc23f",
     "PPGraph/Finite/Lumping/Update.lean": "72a338f0f2b6c52ff89a69a602d539b80d7b6884ca13e72a92956547f300acaa",
     "PPGraph/Integration/FiniteMTDrift.lean": "5cf346c551639d1c1ec604b95b1b21b9031b78758a6a0822956c064f4114538b",
     "PPGraph/Finite/Potential/Basic.lean": "5c3777831b86ededeba8832e464e70e5abbf960da8aa7ca557a876298b41948c",
-    "PPGraph/Finite/Potential/Expectation.lean": "3b1eae0e0bbd8261a89e9ba1e1c0780073748d8f505cb5f9aed6d9fc08414a66",
+    "PPGraph/Finite/Potential/Expectation.lean": "24206da3f8db52fd680641402dd521913d0f0495e16c92f014d164e398ef1840",
     "PPGraph/Integration/FinitePotentialExpectationMT.lean": "a77672d3f2ae038f4d6febb58179b323ae22918c0f4090f299f319d646643ee1",
     "PPGraph/Integration/FinitePotentialMT.lean": "5914019d93f336ed8b935332b3e8929e97bced586949cc8d57f72b71689b62c6",
     "PPGraph/Finite/Potential/Refutation.lean": "00bd917159ae86b3bbc3d1eaf568827ed3c7267992f764e7c4d99dfd61a18bfa",
-    "PPGraph/Finite/Potential/Tail.lean": "9e279445989e7797d3a226ff1a2fb94c0c942f2a2dfce1df5ae5350d0d8432d7",
+    "PPGraph/Finite/Potential/Tail.lean": "de813a296ac411b26b0cae8f708c3a6fd2438245425f49836e2f14e507a66ff4",
     "PPGraph/Finite/Potential/TailCertificate.lean": "3ff0418b0d28d95692382feb48397bb408820402aa98d6343e848f5f6f91af96",
     "PPGraph/Integration/FinitePotentialTailMT.lean": "bbbf4554694a72e461202246345a94769adbc50f3aa2a7700fbb8ef11b150ca1",
     "PPGraph/Finite/Resampling/Basic.lean": "ed9eb61837dc193c3ac3f0944fe073c002e3764cf818f267c2cfe456d2422950",
@@ -77,14 +77,14 @@
     "PPGraph/HLS/Bounds/CoinSaving.lean": "1141d51e99c9a728d73632dd23a1b98a2abe1cff8dcfc898af2531b08c8592f2",
     "PPGraph/HLS/Encoding/ColoredExpansion.lean": "8314681c1b06daf0d5edb3e3640541cfef0b05285e7c083ab36bbab0833bebaf",
     "PPGraph/Integration/HLSDecision.lean": "9b193db23bf361b5340fd380042196f55e734df13c0ca1dcd21872c78d5a3d13",
-    "PPGraph/HLS/Bounds/DecoratedBudget.lean": "7985bdb3aedae05eb7836e9767058cadac107b10479e3fda91f46f6150bc8d92",
+    "PPGraph/HLS/Bounds/DecoratedBudget.lean": "510b81ccb8380e08c931d10cb0172fe2de8a8dec17c3919534ec59159346fda8",
     "PPGraph/HLS/Encoding/ExpansionDecoder.lean": "a823ab893954542b1e4f462dcfe84173c6f53cf2e44235cbce73b0da34bde7b4",
     "PPGraph/HLS/Encoding/ExpansionFamily.lean": "4e32763b1fde4969f1fd09849f5f94ee5cafbb0faab85a3ed18bcb6df2b6a6fe",
     "PPGraph/HLS/DAG/ExpansionGraph.lean": "39b2c1aa7c81292c33f80ecf2ffaae04898c62753fe704a82b42ff93e0d5e103",
     "PPGraph/HLS/Encoding/ExpansionReversibility.lean": "cfbfc6075ed5686e656b67ae7a32bd1379c8ea79a4b15a4710eef0033a46443c",
     "PPGraph/HLS/DAG/ExpansionVertices.lean": "da855c3259b2e1f9d6e71d7af3ad18d5be8bb9c809dc7190ca31dcb3dd35a022",
     "PPGraph/HLS/Bounds/ExpansionWeight.lean": "50baf05c7ab45f682c6d7169897bbb9268cb77bf32dee782fdf88b2334856b7d",
-    "PPGraph/HLS/Bounds/Expectation.lean": "e6b4a233ffa4ff88f8dd097c8ac9114d18b7db6ba71d53b392e0e22074c554da",
+    "PPGraph/HLS/Bounds/Expectation.lean": "b2d4caa7fbe3c56bdfcfee0a889a34fd1872aec2184253f8b51b7a26a80b6201",
     "PPGraph/HLS/DAG/FiniteDAG.lean": "3dd90d858b5c517658f9452f7cd281477fd64bcb7545586afd1de62ac556905d",
     "PPGraph/HLS/Probability/FootprintBlocks.lean": "9bd917e14d424c05fd8b8ef4e49c70adffd031c25c16f57805ecc3c1ae5823fb",
     "PPGraph/HLS/Encoding/LabelRanks.lean": "f56d3fa15af48f53e403412cda60e1e9d34c8f5d2aea1e6083f6e7454817349c",
@@ -105,33 +105,33 @@
     "PPGraph/HLS/Probability/PairProbability.lean": "527840e664bce4d6e5102e4ee3ab63dbfeca00f709c09f22a3ffbf04cfdb7506",
     "PPGraph/HLS/Parameters.lean": "ca74367f01c4c2ff1aad8ff791f17224a91ca87a9ea3ff35a435b535e6aba56d",
     "PPGraph/HLS/DAG/ParitySelection.lean": "ec325b036257a44abec8c721300188b35c52c56a4bb4f5d44536624c48e64893",
-    "PPGraph/Integration/Policy/HLSCounting.lean": "85e0b00eb72a96a5ca6b1ba52ffe943b46446c8037a8bb1a21a74c7792c401f0",
+    "PPGraph/Integration/Policy/HLSCounting.lean": "020be5bc164646025b6d8567118ee7a254f546829c3a253aa2f46f150f463f98",
     "PPGraph/Integration/Policy/HLSDAG.lean": "0d6a6e737b2cafa0fd0ab11d729f1e6de47f2bd73f2ad3fdaade5545e68497a2",
-    "PPGraph/Integration/Policy/HLSExpectation.lean": "12919ec43dd5421f2d4c32fc0407b48f5681824b8c9645ca9292403f1b587674",
+    "PPGraph/Integration/Policy/HLSExpectation.lean": "3632e3201226709ecf41e6d507a6a91bc7432ce6edb0bb207ea466c44305b06d",
     "PPGraph/HLS/Encoding/PrefixCheck.lean": "0051c602d55eef6c7ac8a798cb48320df60c040a7335bcc266396d8fdf6ed183",
     "PPGraph/HLS/Bounds/ProductDiscount.lean": "dd972920a27cf87d70c0e8b70cf22ae7e0ba758fde1389e120ebb067d66340ca",
     "PPGraph/HLS/Probability/QueryLaw.lean": "1fdac9dc9d4176e75e17a8119b2ecb628d47bfd1973c16447c0e6569db5658ea",
     "PPGraph/HLS/DAG/RealDAG.lean": "1d4b42d11b942ece4f405bf0eae183ed8b6d24470fc5b3db95394864b12d8546",
     "PPGraph/HLS/DAG/RealDAGCounts.lean": "270b8b19aeed5cae0ac36a280af283ce35138320fbb5f8abb3d747f3808c5105",
-    "PPGraph/HLS/Bounds/RefinedBudget.lean": "38f5e260754be86de11e80a9c60738ead53e10343478b3061a8e8ec839edee5f",
+    "PPGraph/HLS/Bounds/RefinedBudget.lean": "800fbdc7d30a530e5704816abb1bae7a7e94de10dc251f6356bb7a45d976e0c1",
     "PPGraph/HLS/Probability/RefinedProbability.lean": "87e2ce8eb68e61e96fc4ccd89c23243825700713cc3e59d11b99f901c5e6b889",
     "PPGraph/HLS/Encoding/RelativeCoins.lean": "10e2f7759076dbd07a1d72a2bd6c478a4644c38539c9a530e72cc42b3c04290e",
     "PPGraph/Integration/HLSRepair.lean": "ca972473fa3be2254f957b99c463969e015f353b8c8bc1fb6a2ada25482dd466",
     "PPGraph/HLS/Encoding/Reversal.lean": "0a60353dd962d975567e25032d10c37612fefc2780c6eaa6ea6bd9c0c367ae14",
     "PPGraph/HLS/Encoding/ReversalSlots.lean": "3ecbea8ed4b45c26d72744ee8d0d633885b57878055d5b7d8320f60d839daa46",
-    "PPGraph/HLS/Probability/RootUnion.lean": "7941f44b1006317d8e3efc9e43b21e096ed98c204506951dfeaae2c41dca6806",
+    "PPGraph/HLS/Probability/RootUnion.lean": "b0283a78edea45750983fe45fbf121c1bbf26a2adbf309ffc4c5813920e782fd",
     "PPGraph/HLS/Encoding/StableEncoding.lean": "499625e0fcf145de37428dbb5813749540c52bd006be4f22f6dca6f8faf7a8a5",
     "PPGraph/HLS/Encoding/SwappedTests.lean": "1b682dd9acecde56c9920f94940a1e50cba92c207578e992b988905fb52025f1",
     "PPGraph/HLS/Encoding/TableCheck.lean": "3a101fa9840a2132080c78898edf6e8f9044c43e5f80478e5cc57fa51aa0634c",
     "PPGraph/HLS/DAG/TimeDAG.lean": "dfafd8f9a6efddc195178daa7503a387ea9eea4f3a9c023853abbcfee9c085f6",
     "PPGraph/HLS/DAG/TopologicalOrder.lean": "b722cffdd4e1d309bc12b80dd66046be91b65e8c05f4363719a1fd0aca659d35",
     "PPGraph/HLS/Probability/UnitChecks.lean": "4a7bdb5bb1d88e3da9ebbf4079e7bcbc16de8a6e446daf8c9f170c9e7590c200",
-    "PPGraph/HLS/Bounds/WitnessBudget.lean": "0032d6fc6bb04cbcb23cb3fad3e1e2b1c6e84f1fa1f749f49b93893d695bf588",
+    "PPGraph/HLS/Bounds/WitnessBudget.lean": "07bd78ea8a7fc78805eae6e621d6a4b3e499972b60d66d75e878f46c4854cde5",
     "PPGraph/HLS/DAG/WitnessDAG.lean": "879be69b5e0cc86388d77595fd7957706bd82f7a0b72dc4769a5a648cd41fff3",
     "PPGraph/HLS/DAG/WitnessLayers.lean": "70cfe2379e15513b5e42b1e125b2f53ffa7ae224809d5d2df336c3640121e07d",
     "PPGraph/Decision/Infeasibility.lean": "5e4d79bbb4408e35e5ab8eadfe00000b52d3bfbf0a7f944eacbb4d292e365c9f",
     "PPGraph/Decision/InfeasibilityCounting.lean": "1db8beecca5cbc463889c1f1a17e31991d02c8cbeed9e8cc76b7d25fc523fa35",
-    "PPGraph/LLL/General.lean": "dcb84033d68ab0b86bf0e6c566ed262b4e22ecea06a09b1cf8f980d9b5a3e628",
+    "PPGraph/LLL/General.lean": "62d11f7606aba614a967408858dca8445cb521be5ef0b82d5a346348b61303bd",
     "PPGraph/LLL/Lopsided.lean": "dfbaa467fe2b26542df2bcba5341e9dd31208b9b61e751de59099e2db54d6e7d",
     "PPGraph/Core/Meta.lean": "eed194f4725f98e32f7bd808a21645946b425e9ad63273d566c39c6d63f46462",
     "PPGraph/MoserTardos/Process/Basic.lean": "2bbe5b89a538dba8948f8be0e3939a498501b4703d5b96b54ebff8b048bcfb53",
@@ -145,9 +145,9 @@
     "PPGraph/MoserTardos/Bounds/ConstantLog.lean": "d3519e87c77ff119ca47e2d0acd98552fc962c654fdc1da82d15252e39ecbc0d",
     "PPGraph/MoserTardos/Bounds/Convergence.lean": "d561917140fb9c001391cd080e67d68ce9d04de4ee95a03da625c3e59157b0fb",
     "PPGraph/MoserTardos/Witness/Correspondence.lean": "7ab5bd43219d517fb7a53deeb9e7cc6d2b95f8d6548e3d16d44e1bb59c40acf4",
-    "PPGraph/MoserTardos/Counting/Counting.lean": "bbd1f7e4addb8d6898a536172c092559ef8839a4f8b4f261ead1c2c229c050a2",
+    "PPGraph/MoserTardos/Counting/Counting.lean": "3ac042c2d85402df780b3369b61d776c1cef4bcbd2f98f63738a24da3a9ae8d7",
     "PPGraph/MoserTardos/Bounds/Drift.lean": "81b6e4cf05173f316d6867613c616cc8b149bffff95de80f8fc30332e4e606b4",
-    "PPGraph/MoserTardos/Bounds/DriftCost.lean": "35908e098696787c84376c50413a1d0be95da016cc00ca90fd099a9d36a843df",
+    "PPGraph/MoserTardos/Bounds/DriftCost.lean": "4574a13857d744f94c8e3543adc30365d850886f9d7a32429b4f6b7128311ad2",
     "PPGraph/Integration/MoserTardosDriftRegion.lean": "82a7a29c241098882737f8bbba2e64b2ff4bf85c69f5c3bb366dd859b50414e7",
     "PPGraph/MoserTardos/Bounds/Expectation.lean": "f63466f231dbe400f07bd716ca5ee225a4e97542d13e8dec11dc4bfbfe76e385",
     "PPGraph/MoserTardos/Process/FullResampling.lean": "a6158e4c029b2802db593ad5e3c86b953df4dfa8423314426762c1fb2af94239",
@@ -161,10 +161,10 @@
     "PPGraph/MoserTardos/Process/LogSpace.lean": "262a22873de3dd120d11ec4bc3d06f10ee7f2c57912c4d51620300ae21f2ee69",
     "PPGraph/MoserTardos/Witness/Occurrence.lean": "fb801fed5bc45ca95bebec9b71c49d1b75bc825612334534ce5f63d5ad1ac0c3",
     "PPGraph/MoserTardos/Counting/OccurrenceCounting.lean": "a9da1be9f414c1089a6bb04128b7ba9dc426cc2fe3599dd31a8f0ab2c914d3ba",
-    "PPGraph/MoserTardos/Bounds/OccurrenceExpectation.lean": "7ff526ae7dbc167291fa721b32eaa465169f16ca9cac188eb0d9216dd73294af",
+    "PPGraph/MoserTardos/Bounds/OccurrenceExpectation.lean": "161dd978bd5eb337d7928312416086a43fabc704876874d0a8b5f29f4ab934a8",
     "PPGraph/MoserTardos/Probability/OccurrenceProbability.lean": "835c03a55728050daa10da321581dc5235d7906e8fd8a72c81e7dec2471739c6",
     "PPGraph/MoserTardos/Probability/PastIndependence.lean": "40a4a92bc2468957531a5003764efcaaf9680817b93cd79e12b7660d26a8e9cf",
-    "PPGraph/MoserTardos/Bounds/Pegden.lean": "0e571e574dd67f46ee62b4e7a901ee84164c7dd8c2913501efae4c6813e7243f",
+    "PPGraph/MoserTardos/Bounds/Pegden.lean": "e8d1d5ce9ce7328abdf78844a44621aabad9a1c1b4646980e3f2f0e65c2a8dcf",
     "PPGraph/Integration/Policy/MoserTardos.lean": "47d6c6a1e469321b602eda0c13eff7f5487758740aeb1e154a8f69307c61b1d4",
     "PPGraph/MoserTardos/Probability/Probability.lean": "265ff1f58f7884c4d3fad105c102cbd5ada7395840e7878950912e95adfd2193",
     "PPGraph/MoserTardos/Probability/ProbabilityGeneral.lean": "6574f9f64e995468a2fcca16503c10e9678db7688d3571d54d815499a22b033a",
@@ -174,7 +174,7 @@
     "PPGraph/MoserTardos/Process/RandomTrajectory.lean": "6b6021b2f093e5c91123191f7e29aa06a34e873afc50057a24e7357c8dbfd742",
     "PPGraph/MoserTardos/Witness/RealTree.lean": "82451a298a077e5c5b09db98b7d67adab227206ef50fff9b84e955fadce2840f",
     "PPGraph/Integration/MoserTardosRepair.lean": "a99b802cc34934b9050f8529b98f38949b3352bfed208995d97fe05f640b7559",
-    "PPGraph/MoserTardos/Counting/ResamplingCount.lean": "de65d1cdbd8c05ab5df4f2cbbfd3a4eb6cf47617b272da2569b773f0835a1d4d",
+    "PPGraph/MoserTardos/Counting/ResamplingCount.lean": "a5207bda7f5d1f7766494d3daf2b67f54bdcf19be897f3f866ab4a3a0b9c3f88",
     "PPGraph/MoserTardos/Bounds/Termination.lean": "ab0b7802ef525d8663f4d96bebd385ba5c323c74bf59831e77109c8281ac0f91",
     "PPGraph/MoserTardos/Witness/ToGrowingTreeCheckBridge.lean": "831b10ead70754983c3dd3269af1df41116d697ab3ec3dd747979fb3087def92",
     "PPGraph/MoserTardos/Witness/WTreeCountable.lean": "dd7f2629be417bb16a8e24357e49b98ffeaba1af1d1909944e9b759db33e97b5",
@@ -182,10 +182,10 @@
     "PPGraph/MoserTardos/Witness/Weight.lean": "c86afaeaaa96f24c8e4881c286c113c347a9826852895eb350ae2cbffd127477",
     "PPGraph/MoserTardos/Bounds/WeightSum.lean": "dda418168c3831f379b9265e4f757bb195a24529840f5261e7ac61d49781a5cf",
     "PPGraph/MoserTardos/Witness/Witness.lean": "5d6200abf4444ebbb2388d4b9992d0dc82e4e3983c4c081c22ea6f71d651379f",
-    "PPGraph/MoserTardos/Witness/WitnessFamily.lean": "e8ec0abe57be524e584316f654f999870cf0dc7e7fe41a2c22fe4f8c43b13ffe",
+    "PPGraph/MoserTardos/Witness/WitnessFamily.lean": "ad2a8501093fcc5570a66689baa6ffa79fbec2285411754041490c1cd70d7e67",
     "PPGraph/Certification/Parametric.lean": "24b4e7053eeb6d84ce027cfc6b51f352a2d9ee6355d6dc0289414964640cbaea",
     "PPGraph/Certification/ParametricQuotient.lean": "36ce8a8498deef6db620c7377d765939058eee7004f439d017f3ab690c212dca",
-    "PPGraph/Dependency/Probabilistic.lean": "30a2a2f39929123f5de75d5208ac0a3168ad1699091ce0087a5c30ee18b0cf74",
+    "PPGraph/Dependency/Probabilistic.lean": "3cbfe807e46044109647b4ded6c420adc4e0855acdfee1f102f87ff9def11d84",
     "PPGraph/Certification/QuotientBridge.lean": "5624ecb230cf7ba52dedae3252a009f3f199b5f9d2483a6f813dc2c8c00f675c",
     "PPGraph/Core/RR.lean": "35ee5b8a953048f5b06594930241d3b506c92304ffe58ee006b2f33ce112fc2d",
     "PPGraph/Decision/ReachabilityRefutation.lean": "768cdf05dce0e20a16129ea39dfc56a3d1ac92deb9f79fd973e7e478a36e5e85",
@@ -195,20 +195,20 @@
     "PPGraph/Certification/Selection.lean": "79dbd06d394d452ff5abdba22fbaa6ff21f6b8b746471be04225fa3bac1ce487",
     "PPGraph/Certification/SelfAssessment.lean": "b1a65ec27b9175e85fc87c4e3c4a31d3985e016117b944c4f548e551951b2a1f",
     "PPGraph/Shearer/Basic.lean": "677f5753c2e83d76dc1a6215b059a5a6dc0502d74f80ab4bd22023a2d3161d1b",
-    "PPGraph/Shearer/BDD.lean": "7fec8bdd838d30e5e763efc8da54dca470e8aae49a8905ac8f09008634ac0747",
+    "PPGraph/Shearer/BDD.lean": "515bcb013d90aac2be2cd86f621d25d91232eae0e3185e2bf2aff45abebec019",
     "PPGraph/Shearer/BDDBudget.lean": "2cd260cc026aad5fd842919e42fc653035ec947a9172cdc8669c4e37b22affb5",
     "PPGraph/Shearer/BDDExpectation.lean": "4dc5c6a70168874dbf76373ad5e037d6e04c674d6f573522351587eae2a55601",
     "PPGraph/Shearer/ComponentOccurrence.lean": "c6d7873fb10b34f60a8d51705d3cdef6275615b48703e78071c08085d5b6a043",
-    "PPGraph/Shearer/Expectation.lean": "695faa61c3f0c303301f656e64bc0b3a96bc5b5b1f9ee135f95fc12c9ef910c7",
+    "PPGraph/Shearer/Expectation.lean": "5f8f75c4dd611b84ec18465c43c3dd2b65d98a83fe87f3926b07eae4acfa13a6",
     "PPGraph/Shearer/Induction.lean": "d3244a307270808cc0d0caf46caf60d8030d00d33a2331555f06f601c26dbaad",
     "PPGraph/Shearer/LayerProfile.lean": "7492ab3f01b55e8709dbcc03b684dd048ddd259a2fd16d18f1d1b0df90e79fab",
     "PPGraph/Shearer/MT.lean": "54037e29cded6d6b74b061a9783a16e227b9e8b747f5ab942ccc6df16d6c1e3e",
     "PPGraph/Shearer/Occurrence.lean": "15c7259fda2d76b19f40769b39d3720a609c6831a357ea6bb002a73c92398b88",
-    "PPGraph/Shearer/Polynomial.lean": "e219f9d60a421f35e39845ca233f5567a52603013093d3df591ecd775138079c",
+    "PPGraph/Shearer/Polynomial.lean": "ec857fc4092d033cae6720dd04f728eeb8bd12281c8720951e6fd1a3d7c86f8b",
     "PPGraph/Shearer/SequenceProbability.lean": "d436a776cca281499ba14f3e45bb9daf2ec3b410f081a9d5fbb8356040188db2",
     "PPGraph/Shearer/Slack.lean": "baac3ee8285fa7e45e6475f9eb300f31eb0eb35940cd16619694c043d8e3bab8",
     "PPGraph/Shearer/SlackExpectation.lean": "363c84bc25a6b6e634c119607fc501990bb4ab1d6dd859d2d007ddd349ad9952",
-    "PPGraph/Shearer/Stable.lean": "4c489b8cdffc0a714e793b589070382c98addc7c17fea156dbf785a453231034",
+    "PPGraph/Shearer/Stable.lean": "fe202313aeb32b8addea9ed696d83fd14f42277ec415c478172526ebcb622839",
     "PPGraph/Shearer/Witness.lean": "1236400cfe9425aeeeccc695a6703402b7270bf4010d416dd6772b2188acefbf",
     "PPGraph/Decision/UnsatisfiableCore.lean": "7abebec429626aa0143bf5a41bdf80c1f9fe64062248478119e86b6e9963780a",
     "PPGraph/LLL/Variable.lean": "c8772e34215fae9eff66898ca8533b0f554f1c8eceec97bbe36e834d5edf81d4",
@@ -219,7 +219,7 @@
     "PPGraph/Integration/IncludeAsciiBytes.lean": "2794677295b0f3e78d8f8f527f3c7cf45c814be4690910c40317e32ce1bb98ae",
     "PPGraph/Integration/LucesObservedInputs.lean": "e75d4481516ea41ddbe7ae6c7b52637b0129862cb56f2e6546ef8aa49fab2bda",
     "PPGraph/Integration/LucesCertificateRepair.lean": "9029aba304cd0042298ab6a635cf92dadf23e01125b56a11f907f7450f7b9f7b",
-    "PPGraph/Repair/Hazards.lean": "172f5b373ae1b717ab82f6562e2dd5c1fd0c3fbd74f10fc96f07e6edebbc2fc1",
+    "PPGraph/Repair/Hazards.lean": "ec25c26e461f3f631bf24adab310d19d321863a1196a42370ce1fcf0a0741607",
     "PPGraph/Repair/HazardExamples.lean": "4d40c9691624644caaf2a3ac6c047e666705cbf2614f7920b6c2d79f0bacd42e",
     "PPGraph/Repair/SemanticHazards.lean": "fa733dc0bfab7297e55fa01d962592af2b46b2a3ec0fbdf3a5db78641adc7c00",
     "PPGraph/Repair/SemanticHazardExamples.lean": "e4502a882036f5dd3813643c255b270444b853b7421e5e6fa281db024e0420d8",
@@ -232,9 +232,9 @@
     "PPGraph.lean": "41760bb8a3187d98b8fdaaf2329d5296d753d161c6dbbdf979e98606908d3e96",
     "PPGraph/All.lean": "486199217d9b5c648c8285191347115d18e2b62c38629b4a7e9787f48817cfdf",
     "tools/module-map.json": "cf890604659616165a7ace426fe27d404b229d1089b93a4213ebf87ce6da65a2",
-    "lakefile.lean": "38fc21914e2365b1948c01db24f709abe5dc0d3347b928fbf7f10f94bb026d5a",
-    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
-    "lake-manifest.json": "69bd64ee24bd0360be6279ab7737e7b384b13db846fb9bfe5d0026f8debd4e72",
+    "lakefile.lean": "ef28d6b99e0d6d5daf0d4019ca9049ca921672a19ffa46969c5e85651d9d711b",
+    "lean-toolchain": "f11739c25d1640e2b3fda8a98af6d64e97d7b2b1c99840535587a9079b3afee7",
+    "lake-manifest.json": "85105f37b991f506f2eef46b25f6ef4d806ee414e2fd18b5e885f5bdce5c9534",
     "artifacts/luces/local_plan.json": "86f65e4d4c779825b809380a204ecb7746cdb50a995baebd0bec2f37b2dc9192",
     "artifacts/luces/local_plan_kernel_inputs.json": "c4837b129b640eb5f246659bc2f85f03d0ebb18e5c314bc9c03c5801e228c4e9"
   },
@@ -253,10 +253,10 @@
     ]
   },
   "audit_tool_sha256": "a5724e0d785228856590132c5d46a0f3f3c760d822ce9040ca5a31f3c3c7b459",
-  "full_build_log_sha256": "1ce18380814fa56dd718e049fe49dbad48ff6e4f151df19ec9e9a77410162f72",
+  "full_build_log_sha256": "955b12b9feccd6c083470454446d5ef4e7de9fad6524f56981cdab53b1a5657e",
   "literal_input_check_log_sha256": "0aacf5bb05ba4de83dc4bfe8558fe1c73a98df5202d5a90856896e42325b4b4c",
-  "inventory_log_sha256": "4bba7ebc601ed6451cbebe6cda74d05b9de36a8614cc99c3302626e263897378",
-  "axiom_log_sha256": "a876296f5e27427389b841e36bb733ccfdb9a6a34a13047aa183553a06af94d0",
+  "inventory_log_sha256": "7b965660d329ab47dbc7e8afd380f28a5895a8c29f2d645ae2015a4c6aae3e3d",
+  "axiom_log_sha256": "875cb8f12414588c9643f9afa4d420a34a4ffa0d93ef794e8ba8b8027d935221",
   "modules": {
     "PPGraph.Core.Graph": {
       "explicit_theorems": [
@@ -329,7 +329,7 @@
         "lll_condition_localizes",
         "lll_feasible_iff_componentwise"
       ],
-      "environment_declaration_count": 30
+      "environment_declaration_count": 29
     },
     "PPGraph.Dependency.Cost": {
       "explicit_theorems": [
@@ -441,7 +441,7 @@
         "RepairFeasibility.assessmentResult_impossible_sound",
         "RepairFeasibility.assessmentResult_certified_sound"
       ],
-      "environment_declaration_count": 72
+      "environment_declaration_count": 74
     },
     "PPGraph.Optimization.ComplementarySlackness": {
       "explicit_theorems": [
@@ -509,7 +509,7 @@
         "RepairFeasibility.abstractRefutationSearch_none_iff_reachable_good",
         "RepairFeasibility.abstractDecision_impossible_sound"
       ],
-      "environment_declaration_count": 87
+      "environment_declaration_count": 88
     },
     "PPGraph.Integration.AbstractionRepair": {
       "explicit_theorems": [
@@ -526,7 +526,7 @@
         "RepairFeasibility.constructiveDecision_isImpossible_iff",
         "RepairFeasibility.repairByFiniteAbstraction_spec"
       ],
-      "environment_declaration_count": 115
+      "environment_declaration_count": 122
     },
     "PPGraph.Decision.FiniteCore": {
       "explicit_theorems": [
@@ -649,7 +649,7 @@
         "FiniteLumpingUpdate.checkedClosedBad_mean_infinite",
         "FiniteLumpingUpdate.withPassive_commutes"
       ],
-      "environment_declaration_count": 37
+      "environment_declaration_count": 39
     },
     "PPGraph.Integration.FiniteMTDrift": {
       "explicit_theorems": [
@@ -803,7 +803,7 @@
         "FinitePotential.expectedHitCount_closedBad_eq_top",
         "FinitePotential.ae_never_good_closedBad"
       ],
-      "environment_declaration_count": 35
+      "environment_declaration_count": 37
     },
     "PPGraph.Finite.Potential.TailCertificate": {
       "explicit_theorems": [
@@ -886,7 +886,7 @@
         "FiniteTable.measurable_prefix",
         "FiniteTable.prefix_event_depends_consumed"
       ],
-      "environment_declaration_count": 83
+      "environment_declaration_count": 87
     },
     "PPGraph.Finite.Resampling.TableLaw": {
       "explicit_theorems": [
@@ -1019,7 +1019,7 @@
         "HLS.WitnessDAG.tableEvent_source_iff_block",
         "HLS.WitnessDAG.tableEvent_target_iff_block"
       ],
-      "environment_declaration_count": 18
+      "environment_declaration_count": 22
     },
     "PPGraph.HLS.Encoding.CanonicalEncoding": {
       "explicit_theorems": [
@@ -1042,7 +1042,7 @@
         "HLS.WitnessDAG.insertDown_iff_insertedBefore",
         "HLS.WitnessDAG.choices_eq_of_colored_eq"
       ],
-      "environment_declaration_count": 15
+      "environment_declaration_count": 19
     },
     "PPGraph.HLS.Bounds.ChoiceSum": {
       "explicit_theorems": [
@@ -1086,7 +1086,7 @@
         "HLS.coin_averaged_intersection_saving",
         "HLS.coin_averaged_saving_le_discounts"
       ],
-      "environment_declaration_count": 41
+      "environment_declaration_count": 42
     },
     "PPGraph.HLS.Encoding.ColoredExpansion": {
       "explicit_theorems": [
@@ -1133,7 +1133,7 @@
         "HLS.encoded_equality_recovers_choices",
         "HLS.decoded_length_eq_original"
       ],
-      "environment_declaration_count": 101
+      "environment_declaration_count": 108
     },
     "PPGraph.HLS.Encoding.ExpansionFamily": {
       "explicit_theorems": [
@@ -1186,7 +1186,7 @@
         "HLS.WitnessDAG.coloredExpansion_weight",
         "HLS.WitnessDAG.expansionFamilyMap_weight"
       ],
-      "environment_declaration_count": 17
+      "environment_declaration_count": 21
     },
     "PPGraph.HLS.Bounds.Expectation": {
       "explicit_theorems": [
@@ -1504,7 +1504,7 @@
         "HLS.WitnessDAG.flipped_prefix_passes_of_endpoint_tests",
         "HLS.WitnessDAG.flipped_prefix_failure_localizes"
       ],
-      "environment_declaration_count": 16
+      "environment_declaration_count": 15
     },
     "PPGraph.HLS.Bounds.ProductDiscount": {
       "explicit_theorems": [
@@ -1582,7 +1582,7 @@
         "HLS.map_relativeCoin",
         "HLS.coinLabel_target_iff_relative_flip"
       ],
-      "environment_declaration_count": 25
+      "environment_declaration_count": 26
     },
     "PPGraph.Integration.HLSRepair": {
       "explicit_theorems": [
@@ -1649,7 +1649,7 @@
         "HLS.WitnessDAG.prod_map_stableEncoding",
         "HLS.WitnessDAG.sequenceWeight_stableEncoding"
       ],
-      "environment_declaration_count": 43
+      "environment_declaration_count": 45
     },
     "PPGraph.HLS.Encoding.SwappedTests": {
       "explicit_theorems": [
@@ -1887,7 +1887,7 @@
         "WTree.canonicalizeFuel_countLabel",
         "WTree.canonicalize_countLabel"
       ],
-      "environment_declaration_count": 67
+      "environment_declaration_count": 70
     },
     "PPGraph.MoserTardos.Witness.Check": {
       "explicit_theorems": [
@@ -1937,7 +1937,7 @@
         "GrowingTree.toWTreeFuel_footprintCountBeyondAt",
         "GrowingTree.localCount_eq_footprintCountBeyondAt"
       ],
-      "environment_declaration_count": 42
+      "environment_declaration_count": 45
     },
     "PPGraph.MoserTardos.Witness.CheckOrder": {
       "explicit_theorems": [
@@ -1956,7 +1956,7 @@
         "attachAt_new_old_sameDepth_indep",
         "\u03c4Build_sameDepthIndependent"
       ],
-      "environment_declaration_count": 29
+      "environment_declaration_count": 31
     },
     "PPGraph.MoserTardos.Witness.CheckShape": {
       "explicit_theorems": [
@@ -1969,7 +1969,7 @@
         "WTree.tauCheck_iff_tauCheck_canonicalize",
         "WTree.tauCheck_congr_of_canonicalize_eq"
       ],
-      "environment_declaration_count": 38
+      "environment_declaration_count": 40
     },
     "PPGraph.MoserTardos.Bounds.ConstantLog": {
       "explicit_theorems": [
@@ -2037,7 +2037,7 @@
         "RepairDrift.ae_randomInit_exists_good_of_drift",
         "RepairDrift.mtRepairGraph_globally_repairable_of_drift"
       ],
-      "environment_declaration_count": 62
+      "environment_declaration_count": 64
     },
     "PPGraph.MoserTardos.Bounds.DriftCost": {
       "explicit_theorems": [
@@ -2153,7 +2153,7 @@
         "\u03c4C_countLabel_ne_of_lt",
         "\u03c4C_injective_on_occurrences"
       ],
-      "environment_declaration_count": 52
+      "environment_declaration_count": 54
     },
     "PPGraph.MoserTardos.Witness.InjectivityBridge": {
       "explicit_theorems": [
@@ -2296,7 +2296,7 @@
         "Pegden.TernaryExample.expected_work_le_two",
         "Pegden.TernaryExample.strictly_extends_product_criterion"
       ],
-      "environment_declaration_count": 118
+      "environment_declaration_count": 123
     },
     "PPGraph.Integration.Policy.MoserTardos": {
       "explicit_theorems": [
@@ -2395,7 +2395,7 @@
         "measurable_randStep",
         "measurable_randTraj"
       ],
-      "environment_declaration_count": 50
+      "environment_declaration_count": 54
     },
     "PPGraph.MoserTardos.Witness.RealTree": {
       "explicit_theorems": [
@@ -2413,7 +2413,7 @@
         "\u03c4C_root_label",
         "\u03c4C_toWTree_wellFormed_proper"
       ],
-      "environment_declaration_count": 36
+      "environment_declaration_count": 38
     },
     "PPGraph.Integration.MoserTardosRepair": {
       "explicit_theorems": [
@@ -2494,7 +2494,7 @@
         "WTree.labelsAtDepthChildren_eq_domFilter_map",
         "WTree.toGrowingTree_sameDepthIndependent_of_labelsAtDepth"
       ],
-      "environment_declaration_count": 73
+      "environment_declaration_count": 79
     },
     "PPGraph.MoserTardos.Witness.Weight": {
       "explicit_theorems": [
@@ -2502,7 +2502,7 @@
         "WTree.weight_children",
         "WTree.weight_mono"
       ],
-      "environment_declaration_count": 16
+      "environment_declaration_count": 17
     },
     "PPGraph.MoserTardos.Bounds.WeightSum": {
       "explicit_theorems": [
@@ -2523,7 +2523,7 @@
         "wtreesUpTo_mono",
         "wtreesUpTo_mono_le"
       ],
-      "environment_declaration_count": 100
+      "environment_declaration_count": 107
     },
     "PPGraph.MoserTardos.Witness.Witness": {
       "explicit_theorems": [
@@ -2533,7 +2533,7 @@
         "WTree.wellFormed_singleton",
         "WTree.proper_singleton"
       ],
-      "environment_declaration_count": 58
+      "environment_declaration_count": 59
     },
     "PPGraph.MoserTardos.Witness.WitnessFamily": {
       "explicit_theorems": [
@@ -2544,7 +2544,7 @@
         "tsum_witnessFamilyWeight_eq_iSup_mtWeight",
         "tsum_witnessFamilyWeight_le"
       ],
-      "environment_declaration_count": 10
+      "environment_declaration_count": 9
     },
     "PPGraph.Certification.Parametric": {
       "explicit_theorems": [
@@ -2614,7 +2614,7 @@
         "negative_disc_infeasible",
         "lll_budget_feasible_or_infeasible"
       ],
-      "environment_declaration_count": 23
+      "environment_declaration_count": 22
     },
     "PPGraph.Certification.QuotientBridge": {
       "explicit_theorems": [
@@ -2689,7 +2689,7 @@
         "RepairFeasibility.classify_impossible_iff",
         "RepairFeasibility.classify_certified_sound"
       ],
-      "environment_declaration_count": 46
+      "environment_declaration_count": 47
     },
     "PPGraph.Decision.Undecidability": {
       "explicit_theorems": [
@@ -2977,7 +2977,7 @@
         "Shearer.tsum_properFamilyWeight_le",
         "Shearer.tsum_properFamilyWeight_lt_top"
       ],
-      "environment_declaration_count": 86
+      "environment_declaration_count": 87
     },
     "PPGraph.Shearer.Witness": {
       "explicit_theorems": [
@@ -3086,11 +3086,11 @@
         "FiniteReadCertificates.search_component_checked",
         "FiniteReadCertificates.search_preserves_and_restores"
       ],
-      "environment_declaration_count": 179
+      "environment_declaration_count": 193
     },
     "PPGraph.Integration.FiniteAsciiJson": {
       "explicit_theorems": [],
-      "environment_declaration_count": 112
+      "environment_declaration_count": 113
     },
     "PPGraph.Integration.IncludeAsciiBytes": {
       "explicit_theorems": [],
@@ -3098,7 +3098,7 @@
     },
     "PPGraph.Integration.LucesObservedInputs": {
       "explicit_theorems": [],
-      "environment_declaration_count": 53
+      "environment_declaration_count": 54
     },
     "PPGraph.Integration.LucesCertificateRepair": {
       "explicit_theorems": [
@@ -3197,7 +3197,7 @@
         "RepairSemanticHazard.checkedExactStep_preserves",
         "RepairSemanticHazard.checkedExactStep_target_of_accepted"
       ],
-      "environment_declaration_count": 103
+      "environment_declaration_count": 105
     },
     "PPGraph.Repair.SemanticHazardExamples": {
       "explicit_theorems": [
@@ -3362,7 +3362,7 @@
         "PlanRepair.steps_retain_justification",
         "PlanRepair.steps_retain_history"
       ],
-      "environment_declaration_count": 132
+      "environment_declaration_count": 133
     },
     "PPGraph.Research.PlanRepair": {
       "explicit_theorems": [
@@ -4583,6 +4583,12 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "FiniteAsciiJson.Value.ctorIdx._impl": {
+      "module": "PPGraph.Integration.FiniteAsciiJson",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "FiniteAsciiJson.Value.int": {
       "module": "PPGraph.Integration.FiniteAsciiJson",
       "kind": "constructor",
@@ -4744,6 +4750,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4752,6 +4759,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4760,6 +4768,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4768,6 +4777,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4776,6 +4786,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4790,6 +4801,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4860,6 +4872,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4868,6 +4881,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4876,6 +4890,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4884,6 +4899,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4892,6 +4908,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4900,6 +4917,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4908,6 +4926,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4916,6 +4935,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4924,6 +4944,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4932,6 +4953,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4940,6 +4962,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4948,6 +4971,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4956,6 +4980,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4964,6 +4989,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4972,6 +4998,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4980,6 +5007,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4988,6 +5016,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -4996,6 +5025,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -5014,6 +5044,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -5058,6 +5089,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -5066,6 +5098,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -5074,6 +5107,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -5082,6 +5116,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -5090,6 +5125,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -5122,6 +5158,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -6512,6 +6549,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -6521,6 +6559,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -6530,6 +6569,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -6559,6 +6599,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -7439,6 +7480,18 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "FinitePotential.survival.match_1.congr_eq_1": {
+      "module": "PPGraph.Finite.Potential.Tail",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FinitePotential.survival.match_1.congr_eq_2": {
+      "module": "PPGraph.Finite.Potential.Tail",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "FinitePotential.survivalTableDecidable": {
       "module": "PPGraph.Finite.Potential.TailCertificate",
       "kind": "definition",
@@ -7674,6 +7727,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -7683,6 +7737,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -7829,6 +7884,12 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "FiniteReadCertificates.Check.ctorIdx._impl": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "FiniteReadCertificates.Check.either": {
       "module": "PPGraph.Integration.FiniteReadCertificates",
       "kind": "constructor",
@@ -7942,6 +8003,48 @@
     "FiniteReadCertificates.Check.eval.match_1": {
       "module": "PPGraph.Integration.FiniteReadCertificates",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.match_1.congr_eq_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.match_1.congr_eq_2": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.match_1.congr_eq_3": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.match_1.congr_eq_4": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.match_1.congr_eq_5": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.match_1.congr_eq_6": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.eval.match_1.congr_eq_7": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -8111,6 +8214,36 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "FiniteReadCertificates.Check.reads.match_1.congr_eq_1": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.reads.match_1.congr_eq_2": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.reads.match_1.congr_eq_3": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.reads.match_1.congr_eq_4": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Check.reads.match_1.congr_eq_5": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "FiniteReadCertificates.Check.rec": {
       "module": "PPGraph.Integration.FiniteReadCertificates",
       "kind": "recursor",
@@ -8178,6 +8311,12 @@
       "axioms": []
     },
     "FiniteReadCertificates.Comparison.ctorIdx": {
+      "module": "PPGraph.Integration.FiniteReadCertificates",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteReadCertificates.Comparison.ctorIdx._impl": {
       "module": "PPGraph.Integration.FiniteReadCertificates",
       "kind": "definition",
       "explicit_theorem": false,
@@ -10723,6 +10862,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -10752,6 +10892,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -10889,6 +11030,18 @@
     "FiniteTable.run.match_1": {
       "module": "PPGraph.Finite.Resampling.Table",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteTable.run.match_1.congr_eq_1": {
+      "module": "PPGraph.Finite.Resampling.Table",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteTable.run.match_1.congr_eq_2": {
+      "module": "PPGraph.Finite.Resampling.Table",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -11115,6 +11268,18 @@
     "FiniteTable.uses.match_1": {
       "module": "PPGraph.Finite.Resampling.Table",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteTable.uses.match_1.congr_eq_1": {
+      "module": "PPGraph.Finite.Resampling.Table",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteTable.uses.match_1.congr_eq_2": {
+      "module": "PPGraph.Finite.Resampling.Table",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -11533,6 +11698,18 @@
     "FiniteUpdate.iidTrajectory.match_1": {
       "module": "PPGraph.Finite.Update.IID",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteUpdate.iidTrajectory.match_1.congr_eq_1": {
+      "module": "PPGraph.Finite.Lumping.Update",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "FiniteUpdate.iidTrajectory.match_1.congr_eq_2": {
+      "module": "PPGraph.Finite.Lumping.Update",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -12963,6 +13140,12 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "HLS.ExpansionChoice.ctorIdx._impl": {
+      "module": "PPGraph.HLS.Encoding.ExpansionDecoder",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "HLS.ExpansionChoice.down": {
       "module": "PPGraph.HLS.Encoding.ExpansionDecoder",
       "kind": "constructor",
@@ -13316,6 +13499,12 @@
       "axioms": []
     },
     "HLS.OrientationCoin.ctorIdx": {
+      "module": "PPGraph.HLS.Bounds.CoinSaving",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.OrientationCoin.ctorIdx._impl": {
       "module": "PPGraph.HLS.Bounds.CoinSaving",
       "kind": "definition",
       "explicit_theorem": false,
@@ -14859,6 +15048,30 @@
     "HLS.WitnessDAG.choiceWeight.match_1": {
       "module": "PPGraph.HLS.Bounds.ExpansionWeight",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.WitnessDAG.choiceWeight.match_1.congr_eq_1": {
+      "module": "PPGraph.HLS.Bounds.ExpansionWeight",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.WitnessDAG.choiceWeight.match_1.congr_eq_2": {
+      "module": "PPGraph.HLS.Bounds.ExpansionWeight",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.WitnessDAG.choiceWeight.match_1.congr_eq_3": {
+      "module": "PPGraph.HLS.Bounds.ExpansionWeight",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.WitnessDAG.choiceWeight.match_1.congr_eq_4": {
+      "module": "PPGraph.HLS.Bounds.ExpansionWeight",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -16474,6 +16687,18 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "HLS.WitnessDAG.layerSequence.match_1.congr_eq_1": {
+      "module": "PPGraph.HLS.Encoding.StableEncoding",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.WitnessDAG.layerSequence.match_1.congr_eq_2": {
+      "module": "PPGraph.HLS.Encoding.StableEncoding",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "HLS.WitnessDAG.layerSequence_eq_range_map": {
       "module": "PPGraph.HLS.Encoding.StableEncoding",
       "kind": "theorem",
@@ -17191,6 +17416,30 @@
     "HLS.WitnessDAG.needsExtra.match_1": {
       "module": "PPGraph.HLS.DAG.ExpansionVertices",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.WitnessDAG.needsExtra.match_1.congr_eq_1": {
+      "module": "PPGraph.HLS.Encoding.ChoiceRecovery",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.WitnessDAG.needsExtra.match_1.congr_eq_2": {
+      "module": "PPGraph.HLS.Encoding.ChoiceRecovery",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.WitnessDAG.needsExtra.match_1.congr_eq_3": {
+      "module": "PPGraph.HLS.Encoding.ChoiceRecovery",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.WitnessDAG.needsExtra.match_1.congr_eq_4": {
+      "module": "PPGraph.HLS.Encoding.ChoiceRecovery",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -18078,6 +18327,7 @@
       "kind": "theorem",
       "explicit_theorem": true,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -19010,16 +19260,6 @@
         "propext"
       ]
     },
-    "HLS.WitnessDAG.tableEvent.congr_simp": {
-      "module": "PPGraph.HLS.Encoding.PrefixCheck",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
     "HLS.WitnessDAG.tableEvent.eq_1": {
       "module": "PPGraph.HLS.Encoding.PrefixCheck",
       "kind": "theorem",
@@ -19679,16 +19919,6 @@
         "propext"
       ]
     },
-    "HLS.coinLabel.congr_simp": {
-      "module": "PPGraph.HLS.Encoding.RelativeCoins",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
     "HLS.coinLabel.eq_1": {
       "module": "PPGraph.HLS.Encoding.RelativeCoins",
       "kind": "theorem",
@@ -19871,6 +20101,18 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "HLS.decodeExpansion.match_1.congr_eq_1": {
+      "module": "PPGraph.HLS.Encoding.ExpansionDecoder",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.decodeExpansion.match_1.congr_eq_2": {
+      "module": "PPGraph.HLS.Encoding.ExpansionDecoder",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "HLS.decode_encodeExpansion": {
       "module": "PPGraph.HLS.Encoding.ExpansionDecoder",
       "kind": "theorem",
@@ -19970,6 +20212,30 @@
     "HLS.expansionBlock.match_1": {
       "module": "PPGraph.HLS.Encoding.ExpansionDecoder",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.expansionBlock.match_1.congr_eq_1": {
+      "module": "PPGraph.HLS.Encoding.ExpansionDecoder",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.expansionBlock.match_1.congr_eq_2": {
+      "module": "PPGraph.HLS.Encoding.ExpansionDecoder",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.expansionBlock.match_1.congr_eq_3": {
+      "module": "PPGraph.HLS.Encoding.ExpansionDecoder",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.expansionBlock.match_1.congr_eq_4": {
+      "module": "PPGraph.HLS.Encoding.ExpansionDecoder",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -20078,6 +20344,30 @@
     "HLS.fourVariable.match_1": {
       "module": "PPGraph.HLS.Probability.QueryLaw",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.fourVariable.match_1.congr_eq_1": {
+      "module": "PPGraph.HLS.Probability.BlockQueries",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.fourVariable.match_1.congr_eq_2": {
+      "module": "PPGraph.HLS.Probability.BlockQueries",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.fourVariable.match_1.congr_eq_3": {
+      "module": "PPGraph.HLS.Probability.BlockQueries",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.fourVariable.match_1.congr_eq_4": {
+      "module": "PPGraph.HLS.Probability.BlockQueries",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -21338,6 +21628,18 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "HLS.swapCoin.match_1.congr_eq_1": {
+      "module": "PPGraph.HLS.Encoding.RelativeCoins",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "HLS.swapCoin.match_1.congr_eq_2": {
+      "module": "PPGraph.HLS.Encoding.RelativeCoins",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "HLS.tableQuery_equidistributed": {
       "module": "PPGraph.HLS.Probability.QueryLaw",
       "kind": "theorem",
@@ -21489,6 +21791,7 @@
       "kind": "theorem",
       "explicit_theorem": true,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -21497,6 +21800,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -21637,6 +21941,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -21645,6 +21950,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -21653,6 +21959,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -21661,6 +21968,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -21669,6 +21977,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -21936,6 +22245,12 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "LucesObservedInputs.Field.ctorIdx._impl": {
+      "module": "PPGraph.Integration.LucesObservedInputs",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "LucesObservedInputs.Field.datasetKey": {
       "module": "PPGraph.Integration.LucesObservedInputs",
       "kind": "constructor",
@@ -22149,6 +22464,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -22236,6 +22552,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -24842,16 +25159,6 @@
         "propext"
       ]
     },
-    "Pegden.family.congr_simp": {
-      "module": "PPGraph.MoserTardos.Bounds.Pegden",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
     "Pegden.familyWeight": {
       "module": "PPGraph.MoserTardos.Bounds.Pegden",
       "kind": "definition",
@@ -25278,6 +25585,18 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "Pegden.weight.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Bounds.Pegden",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "Pegden.weight.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Bounds.Pegden",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "Pegden.weight_le": {
       "module": "PPGraph.MoserTardos.Bounds.Pegden",
       "kind": "theorem",
@@ -25355,6 +25674,12 @@
       "axioms": []
     },
     "PlanRepair.Event.ctorIdx": {
+      "module": "PPGraph.Research.PlanRepairModel",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "PlanRepair.Event.ctorIdx._impl": {
       "module": "PPGraph.Research.PlanRepairModel",
       "kind": "definition",
       "explicit_theorem": false,
@@ -25541,6 +25866,7 @@
       "kind": "theorem",
       "explicit_theorem": true,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -25578,6 +25904,7 @@
       "kind": "theorem",
       "explicit_theorem": true,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -26061,6 +26388,7 @@
       "kind": "theorem",
       "explicit_theorem": true,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -26082,6 +26410,7 @@
       "kind": "theorem",
       "explicit_theorem": true,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -27680,6 +28009,16 @@
         "propext"
       ]
     },
+    "RepairFeasibility.AbstractDecision.ctorIdx._impl": {
+      "module": "PPGraph.Decision.Abstraction",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "RepairFeasibility.AbstractDecision.impossible": {
       "module": "PPGraph.Decision.Abstraction",
       "kind": "constructor",
@@ -27941,6 +28280,16 @@
       ]
     },
     "RepairFeasibility.AssessmentResult.ctorIdx": {
+      "module": "PPGraph.Decision.CertifiedDecision",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairFeasibility.AssessmentResult.ctorIdx._impl": {
       "module": "PPGraph.Decision.CertifiedDecision",
       "kind": "definition",
       "explicit_theorem": false,
@@ -28400,9 +28749,9 @@
         "propext"
       ]
     },
-    "RepairFeasibility.ConstructiveRepairDecision.impossible": {
+    "RepairFeasibility.ConstructiveRepairDecision.ctorIdx._impl": {
       "module": "PPGraph.Integration.AbstractionRepair",
-      "kind": "constructor",
+      "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
         "Classical.choice",
@@ -28410,9 +28759,9 @@
         "propext"
       ]
     },
-    "RepairFeasibility.ConstructiveRepairDecision.impossible.congr_simp": {
+    "RepairFeasibility.ConstructiveRepairDecision.impossible": {
       "module": "PPGraph.Integration.AbstractionRepair",
-      "kind": "theorem",
+      "kind": "constructor",
       "explicit_theorem": false,
       "axioms": [
         "Classical.choice",
@@ -28510,6 +28859,26 @@
         "propext"
       ]
     },
+    "RepairFeasibility.ConstructiveRepairDecision.isRepaired.match_1.congr_eq_1": {
+      "module": "PPGraph.Integration.AbstractionRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairFeasibility.ConstructiveRepairDecision.isRepaired.match_1.congr_eq_2": {
+      "module": "PPGraph.Integration.AbstractionRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "RepairFeasibility.ConstructiveRepairDecision.noConfusion": {
       "module": "PPGraph.Integration.AbstractionRepair",
       "kind": "definition",
@@ -28553,16 +28922,6 @@
     "RepairFeasibility.ConstructiveRepairDecision.repaired": {
       "module": "PPGraph.Integration.AbstractionRepair",
       "kind": "constructor",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "RepairFeasibility.ConstructiveRepairDecision.repaired.congr_simp": {
-      "module": "PPGraph.Integration.AbstractionRepair",
-      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
         "Classical.choice",
@@ -28968,6 +29327,16 @@
         "propext"
       ]
     },
+    "RepairFeasibility.FeasibilityResult.ctorIdx._impl": {
+      "module": "PPGraph.Decision.CertifiedDecision",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "RepairFeasibility.FeasibilityResult.isWitness": {
       "module": "PPGraph.Decision.CertifiedDecision",
       "kind": "definition",
@@ -29001,6 +29370,26 @@
     "RepairFeasibility.FeasibilityResult.isWitness.match_1": {
       "module": "PPGraph.Decision.CertifiedDecision",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairFeasibility.FeasibilityResult.isWitness.match_1.congr_eq_1": {
+      "module": "PPGraph.Decision.CertifiedDecision",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairFeasibility.FeasibilityResult.isWitness.match_1.congr_eq_2": {
+      "module": "PPGraph.Decision.CertifiedDecision",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
         "Classical.choice",
@@ -29058,16 +29447,6 @@
         "propext"
       ]
     },
-    "RepairFeasibility.FeasibilityResult.refuted.congr_simp": {
-      "module": "PPGraph.Decision.CertifiedDecision",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
     "RepairFeasibility.FeasibilityResult.refuted.elim": {
       "module": "PPGraph.Decision.CertifiedDecision",
       "kind": "definition",
@@ -29101,16 +29480,6 @@
     "RepairFeasibility.FeasibilityResult.witness": {
       "module": "PPGraph.Decision.CertifiedDecision",
       "kind": "constructor",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "RepairFeasibility.FeasibilityResult.witness.congr_simp": {
-      "module": "PPGraph.Decision.CertifiedDecision",
-      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
         "Classical.choice",
@@ -29243,6 +29612,18 @@
     "RepairFeasibility.GoodPath.match_1": {
       "module": "PPGraph.Integration.AbstractionRepair",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairFeasibility.GoodPath.match_1.congr_eq_1": {
+      "module": "PPGraph.Integration.AbstractionRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairFeasibility.GoodPath.match_1.congr_eq_2": {
+      "module": "PPGraph.Integration.AbstractionRepair",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -29497,6 +29878,12 @@
       "axioms": []
     },
     "RepairFeasibility.RepairRegion.ctorIdx": {
+      "module": "PPGraph.Decision.RepairDecision",
+      "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairFeasibility.RepairRegion.ctorIdx._impl": {
       "module": "PPGraph.Decision.RepairDecision",
       "kind": "definition",
       "explicit_theorem": false,
@@ -30020,6 +30407,18 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "RepairFeasibility.boundedPaths.match_1.congr_eq_1": {
+      "module": "PPGraph.Integration.AbstractionRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairFeasibility.boundedPaths.match_1.congr_eq_2": {
+      "module": "PPGraph.Integration.AbstractionRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "RepairFeasibility.boundedPaths_eventually_nonempty": {
       "module": "PPGraph.Integration.AbstractionRepair",
       "kind": "theorem",
@@ -30466,6 +30865,18 @@
     "RepairFeasibility.executeAbstractPath.match_1": {
       "module": "PPGraph.Integration.AbstractionRepair",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairFeasibility.executeAbstractPath.match_1.congr_eq_1": {
+      "module": "PPGraph.Integration.AbstractionRepair",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairFeasibility.executeAbstractPath.match_1.congr_eq_2": {
+      "module": "PPGraph.Integration.AbstractionRepair",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -32697,6 +33108,26 @@
         "propext"
       ]
     },
+    "RepairHazard.planWrites.match_1.congr_eq_1": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "RepairHazard.planWrites.match_1.congr_eq_2": {
+      "module": "PPGraph.Repair.Hazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "RepairHazard.preserved_of_disjoint": {
       "module": "PPGraph.Repair.Hazards",
       "kind": "theorem",
@@ -34029,6 +34460,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -34038,6 +34470,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -34279,6 +34712,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -34929,15 +35363,15 @@
       "explicit_theorem": false,
       "axioms": []
     },
-    "RepairSemanticHazard.HazardResult.invalidated": {
+    "RepairSemanticHazard.HazardResult.ctorIdx._impl": {
       "module": "PPGraph.Repair.SemanticHazards",
-      "kind": "constructor",
+      "kind": "definition",
       "explicit_theorem": false,
       "axioms": []
     },
-    "RepairSemanticHazard.HazardResult.invalidated.congr_simp": {
+    "RepairSemanticHazard.HazardResult.invalidated": {
       "module": "PPGraph.Repair.SemanticHazards",
-      "kind": "theorem",
+      "kind": "constructor",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -34994,6 +35428,18 @@
     "RepairSemanticHazard.HazardResult.isHazard.match_1": {
       "module": "PPGraph.Repair.SemanticHazards",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.isHazard.match_1.congr_eq_1": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "RepairSemanticHazard.HazardResult.isHazard.match_1.congr_eq_2": {
+      "module": "PPGraph.Repair.SemanticHazards",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -37305,16 +37751,6 @@
         "propext"
       ]
     },
-    "Shearer.properFamily.congr_simp": {
-      "module": "PPGraph.Shearer.Stable",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
     "Shearer.properFamilyWeight": {
       "module": "PPGraph.Shearer.Stable",
       "kind": "definition",
@@ -38018,6 +38454,24 @@
     "Shearer.stableSequences.match_1": {
       "module": "PPGraph.Shearer.Stable",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Shearer.stableSequences.match_1.congr_eq_1": {
+      "module": "PPGraph.Shearer.Stable",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Shearer.stableSequences.match_1.congr_eq_2": {
+      "module": "PPGraph.Shearer.Stable",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
         "Quot.sound",
@@ -39165,6 +39619,12 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "WTree.beq.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Bounds.WeightSum",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "WTree.beqList": {
       "module": "PPGraph.MoserTardos.Bounds.WeightSum",
       "kind": "definition",
@@ -39230,6 +39690,30 @@
     "WTree.beqList.match_1": {
       "module": "PPGraph.MoserTardos.Bounds.WeightSum",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.beqList.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Bounds.WeightSum",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.beqList.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Bounds.WeightSum",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.beqList.match_1.congr_eq_3": {
+      "module": "PPGraph.MoserTardos.Bounds.WeightSum",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.beqList.match_1.congr_eq_4": {
+      "module": "PPGraph.MoserTardos.Bounds.WeightSum",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -39384,6 +39868,18 @@
     "WTree.canonicalizeFuel.match_1": {
       "module": "PPGraph.MoserTardos.Witness.Canonical",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.canonicalizeFuel.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Bounds.Pegden",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.canonicalizeFuel.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Bounds.Pegden",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -39612,6 +40108,18 @@
     "WTree.checkOKList.match_1": {
       "module": "PPGraph.MoserTardos.Witness.CheckShape",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.checkOKList.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Witness.CheckShape",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.checkOKList.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Witness.CheckShape",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -39851,6 +40359,12 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "WTree.countLabel.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Witness.Canonical",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "WTree.countLabelList": {
       "module": "PPGraph.MoserTardos.Witness.Canonical",
       "kind": "definition",
@@ -39904,6 +40418,18 @@
     "WTree.countLabelList.match_1": {
       "module": "PPGraph.MoserTardos.Witness.Canonical",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.countLabelList.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Witness.Canonical",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.countLabelList.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Witness.Canonical",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -40015,6 +40541,18 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "WTree.depthList.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Witness.RealTree",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.depthList.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Witness.RealTree",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "WTree.depthList_le": {
       "module": "PPGraph.MoserTardos.Witness.RealTree",
       "kind": "theorem",
@@ -40040,6 +40578,7 @@
       "kind": "theorem",
       "explicit_theorem": true,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -40049,6 +40588,7 @@
       "kind": "theorem",
       "explicit_theorem": true,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -40145,6 +40685,12 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "WTree.footprintCountBeyondAt.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Witness.CheckInvariance",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "WTree.footprintCountBeyondListAt": {
       "module": "PPGraph.MoserTardos.Witness.CheckInvariance",
       "kind": "definition",
@@ -40231,6 +40777,18 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "WTree.footprintCountBeyondListAt.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Witness.CheckInvariance",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.footprintCountBeyondListAt.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Witness.CheckInvariance",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "WTree.footprintCountBeyondListAt_eq_sum": {
       "module": "PPGraph.MoserTardos.Witness.CheckInvariance",
       "kind": "theorem",
@@ -40286,6 +40844,12 @@
     "WTree.label.match_1": {
       "module": "PPGraph.MoserTardos.Witness.Witness",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.label.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Witness.Witness",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -40358,6 +40922,18 @@
     "WTree.labelsAtDepth.match_1": {
       "module": "PPGraph.MoserTardos.Witness.WTreeToGrowingTree",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.labelsAtDepth.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Bounds.Pegden",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.labelsAtDepth.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Bounds.Pegden",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -40801,6 +41377,18 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "WTree.toGT_domChildren.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Witness.WTreeToGrowingTree",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.toGT_domChildren.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Witness.WTreeToGrowingTree",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "WTree.toGT_domChildren_footprintCountBeyondAt": {
       "module": "PPGraph.MoserTardos.Witness.ToGrowingTreeCheckBridge",
       "kind": "theorem",
@@ -40946,6 +41534,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -40954,6 +41543,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -40962,6 +41552,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -40970,6 +41561,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -40978,6 +41570,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -40986,6 +41579,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -40994,6 +41588,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -41003,9 +41598,33 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "WTree.toGT_lab.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Witness.WTreeToGrowingTree",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.toGT_lab.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Witness.WTreeToGrowingTree",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "WTree.toGT_lab.match_3": {
       "module": "PPGraph.MoserTardos.Witness.WTreeToGrowingTree",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.toGT_lab.match_3.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Witness.WTreeToGrowingTree",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.toGT_lab.match_3.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Witness.WTreeToGrowingTree",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -41098,6 +41717,12 @@
     "WTree.weight.match_1": {
       "module": "PPGraph.MoserTardos.Witness.Weight",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "WTree.weight.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Witness.Weight",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -41483,6 +42108,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -41701,6 +42327,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -41710,6 +42337,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -41719,6 +42347,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -41746,6 +42375,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -41755,6 +42385,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -41811,6 +42442,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -41820,6 +42452,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -41889,6 +42522,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -41898,6 +42532,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -41907,6 +42542,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -41934,6 +42570,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -41943,6 +42580,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -41952,6 +42590,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -41961,6 +42600,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -41998,15 +42638,17 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
     },
-    "_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.uses_congr._proof_1_5": {
+    "_private.PPGraph.Finite.Resampling.Table.0.FiniteTable.uses_congr._proof_1_3": {
       "module": "PPGraph.Finite.Resampling.Table",
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42016,6 +42658,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42025,6 +42668,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42052,6 +42696,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42129,6 +42774,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42324,6 +42970,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42333,6 +42980,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42482,6 +43130,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42491,6 +43140,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42500,6 +43150,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42539,6 +43190,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42548,6 +43200,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42557,6 +43210,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42566,6 +43220,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42575,6 +43230,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42584,6 +43240,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42613,6 +43270,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42622,6 +43280,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42659,6 +43318,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42848,6 +43508,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -42857,6 +43518,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -43249,29 +43911,51 @@
       "explicit_theorem": false,
       "axioms": []
     },
-    "_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_eq_range_map._proof_1_4": {
+    "_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_eq_range_map._proof_1_2": {
       "module": "PPGraph.HLS.Encoding.StableEncoding",
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
     },
-    "_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_getD._proof_1_5": {
+    "_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_getD._proof_1_3": {
       "module": "PPGraph.HLS.Encoding.StableEncoding",
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
     },
-    "_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_getD._simp_1_4": {
+    "_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_getD._simp_1_2": {
       "module": "PPGraph.HLS.Encoding.StableEncoding",
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "propext"
+      ]
+    },
+    "_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_mem_index._proof_1_2": {
+      "module": "PPGraph.HLS.Encoding.StableEncoding",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_mem_index._proof_1_3": {
+      "module": "PPGraph.HLS.Encoding.StableEncoding",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
         "propext"
       ]
     },
@@ -43280,6 +43964,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -43289,24 +43974,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_mem_index._proof_1_6": {
-      "module": "PPGraph.HLS.Encoding.StableEncoding",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "_private.PPGraph.HLS.Encoding.StableEncoding.0.HLS.WitnessDAG.layerSequence_mem_index._proof_1_7": {
-      "module": "PPGraph.HLS.Encoding.StableEncoding",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -43613,7 +44281,7 @@
       "explicit_theorem": false,
       "axioms": []
     },
-    "_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.mem_boundedPaths_iff._simp_1_7": {
+    "_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.mem_boundedPaths_iff._simp_1_3": {
       "module": "PPGraph.Integration.AbstractionRepair",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -43621,7 +44289,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.mem_boundedPaths_iff._simp_1_8": {
+    "_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.mem_boundedPaths_iff._simp_1_4": {
       "module": "PPGraph.Integration.AbstractionRepair",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -43629,7 +44297,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.mem_boundedPaths_iff._simp_1_9": {
+    "_private.PPGraph.Integration.AbstractionRepair.0.RepairFeasibility.mem_boundedPaths_iff._simp_1_5": {
       "module": "PPGraph.Integration.AbstractionRepair",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -43716,6 +44384,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -43839,6 +44508,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -43847,6 +44517,7 @@
       "kind": "definition",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "propext"
       ]
     },
@@ -43971,6 +44642,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -44006,6 +44678,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -44071,6 +44744,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -44080,6 +44754,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -44095,6 +44770,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -44104,6 +44780,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -44119,6 +44796,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -44128,6 +44806,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -44143,6 +44822,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -44152,6 +44832,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -44217,6 +44898,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -44556,6 +45238,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -44609,6 +45292,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -44725,37 +45409,37 @@
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.canonicalizeFuel_mem_treesUpTo._simp_1_11": {
-      "module": "PPGraph.MoserTardos.Bounds.Pegden",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.canonicalizeFuel_mem_treesUpTo._simp_1_13": {
-      "module": "PPGraph.MoserTardos.Bounds.Pegden",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.canonicalizeFuel_mem_treesUpTo._simp_1_14": {
-      "module": "PPGraph.MoserTardos.Bounds.Pegden",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
     "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.canonicalizeFuel_mem_treesUpTo._simp_1_2": {
+      "module": "PPGraph.MoserTardos.Bounds.Pegden",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.canonicalizeFuel_mem_treesUpTo._simp_1_6": {
+      "module": "PPGraph.MoserTardos.Bounds.Pegden",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.canonicalizeFuel_mem_treesUpTo._simp_1_8": {
+      "module": "PPGraph.MoserTardos.Bounds.Pegden",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.canonicalizeFuel_mem_treesUpTo._simp_1_9": {
       "module": "PPGraph.MoserTardos.Bounds.Pegden",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -44785,6 +45469,26 @@
         "propext"
       ]
     },
+    "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_mono._simp_1_2": {
+      "module": "PPGraph.MoserTardos.Bounds.Pegden",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_mono._simp_1_3": {
+      "module": "PPGraph.MoserTardos.Bounds.Pegden",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_mono._simp_1_4": {
       "module": "PPGraph.MoserTardos.Bounds.Pegden",
       "kind": "theorem",
@@ -44795,7 +45499,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_mono._simp_1_5": {
+    "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_subset._simp_1_2": {
       "module": "PPGraph.MoserTardos.Bounds.Pegden",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -44805,7 +45509,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_mono._simp_1_6": {
+    "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_subset._simp_1_3": {
       "module": "PPGraph.MoserTardos.Bounds.Pegden",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -44816,26 +45520,6 @@
       ]
     },
     "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_subset._simp_1_4": {
-      "module": "PPGraph.MoserTardos.Bounds.Pegden",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_subset._simp_1_5": {
-      "module": "PPGraph.MoserTardos.Bounds.Pegden",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "_private.PPGraph.MoserTardos.Bounds.Pegden.0.Pegden.treesUpTo_subset._simp_1_6": {
       "module": "PPGraph.MoserTardos.Bounds.Pegden",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -44983,6 +45667,26 @@
         "propext"
       ]
     },
+    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_label._simp_1_2": {
+      "module": "PPGraph.MoserTardos.Bounds.WeightSum",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_label._simp_1_3": {
+      "module": "PPGraph.MoserTardos.Bounds.WeightSum",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_label._simp_1_4": {
       "module": "PPGraph.MoserTardos.Bounds.WeightSum",
       "kind": "theorem",
@@ -45003,7 +45707,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_label._simp_1_6": {
+    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_proper._simp_1_2": {
       "module": "PPGraph.MoserTardos.Bounds.WeightSum",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -45013,7 +45717,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_label._simp_1_7": {
+    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_proper._simp_1_3": {
       "module": "PPGraph.MoserTardos.Bounds.WeightSum",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -45048,7 +45752,6 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
-        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -45063,16 +45766,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_proper._simp_1_8": {
-      "module": "PPGraph.MoserTardos.Bounds.WeightSum",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_proper._simp_1_9": {
+    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_10": {
       "module": "PPGraph.MoserTardos.Bounds.WeightSum",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -45082,7 +45776,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_11": {
+    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_2": {
       "module": "PPGraph.MoserTardos.Bounds.WeightSum",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -45092,7 +45786,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_12": {
+    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_3": {
       "module": "PPGraph.MoserTardos.Bounds.WeightSum",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -45127,7 +45821,6 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
-        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -45138,15 +45831,6 @@
       "explicit_theorem": false,
       "axioms": [
         "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.mem_wtreesUpTo_wellFormed._simp_1_8": {
-      "module": "PPGraph.MoserTardos.Bounds.WeightSum",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
         "Quot.sound",
         "propext"
       ]
@@ -45179,6 +45863,26 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo_mono._simp_1_2": {
+      "module": "PPGraph.MoserTardos.Bounds.WeightSum",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo_mono._simp_1_3": {
+      "module": "PPGraph.MoserTardos.Bounds.WeightSum",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo_mono._simp_1_4": {
       "module": "PPGraph.MoserTardos.Bounds.WeightSum",
       "kind": "theorem",
@@ -45190,26 +45894,6 @@
       ]
     },
     "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo_mono._simp_1_5": {
-      "module": "PPGraph.MoserTardos.Bounds.WeightSum",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo_mono._simp_1_6": {
-      "module": "PPGraph.MoserTardos.Bounds.WeightSum",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "_private.PPGraph.MoserTardos.Bounds.WeightSum.0.wtreesUpTo_mono._simp_1_7": {
       "module": "PPGraph.MoserTardos.Bounds.WeightSum",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -45292,6 +45976,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -45301,6 +45986,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -45310,6 +45996,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -45327,6 +46014,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -45336,6 +46024,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -45667,11 +46356,12 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Witness.Canonical.0.WTree.canonicalizeFuel_countLabel._proof_1_7": {
+    "_private.PPGraph.MoserTardos.Witness.Canonical.0.WTree.canonicalizeFuel_countLabel._proof_1_5": {
       "module": "PPGraph.MoserTardos.Witness.Canonical",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -45686,6 +46376,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -45852,11 +46543,12 @@
       "explicit_theorem": false,
       "axioms": []
     },
-    "_private.PPGraph.MoserTardos.Witness.Canonical.0.WTree.depth_lt_depthList._proof_1_4": {
+    "_private.PPGraph.MoserTardos.Witness.Canonical.0.WTree.depth_lt_depthList._proof_1_2": {
       "module": "PPGraph.MoserTardos.Witness.Canonical",
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46016,6 +46708,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46025,6 +46718,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46042,6 +46736,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46051,6 +46746,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46060,6 +46756,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46069,6 +46766,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46128,11 +46826,12 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Witness.CheckInvariance.0.WTree.canonicalizeFuel_footprintCountBeyondAt._proof_1_6": {
+    "_private.PPGraph.MoserTardos.Witness.CheckInvariance.0.WTree.canonicalizeFuel_footprintCountBeyondAt._proof_1_4": {
       "module": "PPGraph.MoserTardos.Witness.CheckInvariance",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -46216,7 +46915,7 @@
       "explicit_theorem": false,
       "axioms": []
     },
-    "_private.PPGraph.MoserTardos.Witness.CheckOrder.0.\u03c4Build_sameDepthIndependent._simp_1_6": {
+    "_private.PPGraph.MoserTardos.Witness.CheckOrder.0.\u03c4Build_sameDepthIndependent._simp_1_4": {
       "module": "PPGraph.MoserTardos.Witness.CheckOrder",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -46237,6 +46936,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46269,7 +46969,7 @@
       "explicit_theorem": false,
       "axioms": []
     },
-    "_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.checkOKList_iff_forall_mem._simp_1_7": {
+    "_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.checkOKList_iff_forall_mem._simp_1_4": {
       "module": "PPGraph.MoserTardos.Witness.CheckShape",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -46277,7 +46977,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.checkOKList_iff_forall_mem._simp_1_8": {
+    "_private.PPGraph.MoserTardos.Witness.CheckShape.0.WTree.checkOKList_iff_forall_mem._simp_1_5": {
       "module": "PPGraph.MoserTardos.Witness.CheckShape",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -46309,6 +47009,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46523,16 +47224,37 @@
       "explicit_theorem": false,
       "axioms": []
     },
-    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_le._proof_1_5": {
+    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_le._proof_1_3": {
       "module": "PPGraph.MoserTardos.Witness.Injectivity",
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_le._simp_1_4": {
+    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_le._simp_1_2": {
+      "module": "PPGraph.MoserTardos.Witness.Injectivity",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_lt._proof_1_3": {
+      "module": "PPGraph.MoserTardos.Witness.Injectivity",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_lt._proof_1_4": {
       "module": "PPGraph.MoserTardos.Witness.Injectivity",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -46547,29 +47269,12 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_lt._proof_1_6": {
-      "module": "PPGraph.MoserTardos.Witness.Injectivity",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_lt._proof_1_7": {
-      "module": "PPGraph.MoserTardos.Witness.Injectivity",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_lt._simp_1_4": {
+    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_lt._simp_1_2": {
       "module": "PPGraph.MoserTardos.Witness.Injectivity",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -46584,20 +47289,22 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_mem_of_lt._proof_1_6": {
+    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_mem_of_lt._proof_1_4": {
       "module": "PPGraph.MoserTardos.Witness.Injectivity",
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_mem_of_lt._simp_1_5": {
+    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.stepsCovered_mem_of_lt._simp_1_3": {
       "module": "PPGraph.MoserTardos.Witness.Injectivity",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -46625,16 +47332,17 @@
       "explicit_theorem": false,
       "axioms": []
     },
-    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.\u03c4Build_root_and_count._proof_1_8": {
+    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.\u03c4Build_root_and_count._proof_1_4": {
       "module": "PPGraph.MoserTardos.Witness.Injectivity",
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
     },
-    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.\u03c4Build_root_and_count._proof_1_9": {
+    "_private.PPGraph.MoserTardos.Witness.Injectivity.0.\u03c4Build_root_and_count._proof_1_5": {
       "module": "PPGraph.MoserTardos.Witness.Injectivity",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -46649,6 +47357,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46728,6 +47437,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46737,6 +47447,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46746,6 +47457,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46755,6 +47467,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46764,6 +47477,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46773,6 +47487,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46832,6 +47547,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46841,6 +47557,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46850,6 +47567,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46859,6 +47577,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46918,6 +47637,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46935,6 +47655,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46944,6 +47665,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46971,6 +47693,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46980,6 +47703,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46989,6 +47713,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -46998,6 +47723,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47007,6 +47733,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47016,6 +47743,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47097,6 +47825,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47122,6 +47851,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47131,6 +47861,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47140,6 +47871,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47162,11 +47894,12 @@
       "explicit_theorem": false,
       "axioms": []
     },
-    "_private.PPGraph.MoserTardos.Witness.RealTree.0.WTree.depthList_le._proof_1_6": {
+    "_private.PPGraph.MoserTardos.Witness.RealTree.0.WTree.depthList_le._proof_1_4": {
       "module": "PPGraph.MoserTardos.Witness.RealTree",
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47194,6 +47927,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47222,6 +47956,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47231,6 +47966,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47240,6 +47976,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47301,6 +48038,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47371,7 +48109,7 @@
       "explicit_theorem": false,
       "axioms": []
     },
-    "_private.PPGraph.MoserTardos.Witness.WTreeToGrowingTree.0.WTree.labelsAtDepthChildren_eq_domFilter_map._simp_6": {
+    "_private.PPGraph.MoserTardos.Witness.WTreeToGrowingTree.0.WTree.labelsAtDepthChildren_eq_domFilter_map._simp_4": {
       "module": "PPGraph.MoserTardos.Witness.WTreeToGrowingTree",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -47392,6 +48130,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47449,6 +48188,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47458,6 +48198,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47652,7 +48393,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.Repair.Hazards.0.RepairHazard.rawHazard_eq_false_iff._simp_1_3": {
+    "_private.PPGraph.Repair.Hazards.0.RepairHazard.runPlan_frame._simp_1_2": {
       "module": "PPGraph.Repair.Hazards",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -47662,17 +48403,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.Repair.Hazards.0.RepairHazard.runPlan_frame._simp_1_4": {
-      "module": "PPGraph.Repair.Hazards",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "_private.PPGraph.Repair.Hazards.0.RepairHazard.runPlan_frame._simp_1_5": {
+    "_private.PPGraph.Repair.Hazards.0.RepairHazard.runPlan_frame._simp_1_3": {
       "module": "PPGraph.Repair.Hazards",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -47681,16 +48412,6 @@
       ]
     },
     "_private.PPGraph.Repair.Hazards.0.RepairHazard.wawHazard_eq_false_iff._simp_1_2": {
-      "module": "PPGraph.Repair.Hazards",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "_private.PPGraph.Repair.Hazards.0.RepairHazard.wawHazard_eq_false_iff._simp_1_3": {
       "module": "PPGraph.Repair.Hazards",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -47761,6 +48482,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47810,6 +48532,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47917,6 +48640,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -47926,6 +48650,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -48039,6 +48764,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -48048,6 +48774,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -48073,6 +48800,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -48082,6 +48810,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -48091,6 +48820,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -48100,6 +48830,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -48235,6 +48966,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -48284,6 +49016,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -48313,6 +49046,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -48344,7 +49078,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_append_empty._simp_1_4": {
+    "_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_append_empty._simp_1_2": {
       "module": "PPGraph.Shearer.Stable",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -48354,7 +49088,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_head_length._simp_1_4": {
+    "_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_head_length._simp_1_2": {
       "module": "PPGraph.Shearer.Stable",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -48364,7 +49098,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_layers._simp_1_4": {
+    "_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_layers._simp_1_2": {
       "module": "PPGraph.Shearer.Stable",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -48374,7 +49108,7 @@
         "propext"
       ]
     },
-    "_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_layers._simp_1_5": {
+    "_private.PPGraph.Shearer.Stable.0.Shearer.stableSequences_layers._simp_1_3": {
       "module": "PPGraph.Shearer.Stable",
       "kind": "theorem",
       "explicit_theorem": false,
@@ -48427,6 +49161,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -48456,6 +49191,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -48465,6 +49201,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -48474,6 +49211,7 @@
       "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
@@ -49680,16 +50418,6 @@
         "propext"
       ]
     },
-    "componentFootprint.congr_simp": {
-      "module": "PPGraph.Dependency.Decomposition",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
     "componentFootprint.eq_1": {
       "module": "PPGraph.Dependency.Decomposition",
       "kind": "theorem",
@@ -50802,15 +51530,6 @@
     "independent": {
       "module": "PPGraph.Dependency.Probabilistic",
       "kind": "definition",
-      "explicit_theorem": false,
-      "axioms": [
-        "Quot.sound",
-        "propext"
-      ]
-    },
-    "independent.eq_1": {
-      "module": "PPGraph.Dependency.Probabilistic",
-      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": [
         "Quot.sound",
@@ -52976,6 +53695,26 @@
         "propext"
       ]
     },
+    "pickFromList.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Process.RandomTrajectory",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "pickFromList.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Process.RandomTrajectory",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "pickFromList_mem_or_default": {
       "module": "PPGraph.MoserTardos.Process.RandomTrajectory",
       "kind": "theorem",
@@ -53447,6 +54186,18 @@
     "randStep.match_1": {
       "module": "PPGraph.MoserTardos.Process.RandomTrajectory",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "randStep.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Bounds.Drift",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "randStep.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Bounds.Drift",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },
@@ -54326,6 +55077,26 @@
         "propext"
       ]
     },
+    "resampleChain.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Process.RandomTrajectory",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "resampleChain.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Process.RandomTrajectory",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
     "resampleChain_eq_of_mem": {
       "module": "PPGraph.MoserTardos.Process.RandomTrajectory",
       "kind": "theorem",
@@ -54849,6 +55620,18 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "stepsCovered.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Witness.Injectivity",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "stepsCovered.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Witness.Injectivity",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "stepsCovered_fresh": {
       "module": "PPGraph.MoserTardos.Witness.Injectivity",
       "kind": "theorem",
@@ -55277,16 +56060,6 @@
         "propext"
       ]
     },
-    "witnessFamily.congr_simp": {
-      "module": "PPGraph.MoserTardos.Witness.WitnessFamily",
-      "kind": "theorem",
-      "explicit_theorem": false,
-      "axioms": [
-        "Classical.choice",
-        "Quot.sound",
-        "propext"
-      ]
-    },
     "witnessFamilyWeight": {
       "module": "PPGraph.MoserTardos.Witness.WitnessFamily",
       "kind": "definition",
@@ -55473,6 +56246,18 @@
       "explicit_theorem": false,
       "axioms": []
     },
+    "wtreesUpTo.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Bounds.WeightSum",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "wtreesUpTo.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Bounds.WeightSum",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
     "wtreesUpTo_mono": {
       "module": "PPGraph.MoserTardos.Bounds.WeightSum",
       "kind": "theorem",
@@ -55616,6 +56401,18 @@
     "\u03c4Build.match_1": {
       "module": "PPGraph.MoserTardos.Witness.Growing",
       "kind": "definition",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "\u03c4Build.match_1.congr_eq_1": {
+      "module": "PPGraph.MoserTardos.Witness.CheckOrder",
+      "kind": "theorem",
+      "explicit_theorem": false,
+      "axioms": []
+    },
+    "\u03c4Build.match_1.congr_eq_2": {
+      "module": "PPGraph.MoserTardos.Witness.CheckOrder",
+      "kind": "theorem",
       "explicit_theorem": false,
       "axioms": []
     },

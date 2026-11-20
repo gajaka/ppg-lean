@@ -1,0 +1,41 @@
+{
+  "status": "FAIL",
+  "project_roots_requested": 6073,
+  "project_declarations_found": 6060,
+  "missing_project_declarations": [
+    "FiniteAsciiJson.Value.ctorIdx._impl",
+    "FiniteReadCertificates.Check.ctorIdx._impl",
+    "FiniteReadCertificates.Comparison.ctorIdx._impl",
+    "HLS.ExpansionChoice.ctorIdx._impl",
+    "HLS.OrientationCoin.ctorIdx._impl",
+    "LucesObservedInputs.Field.ctorIdx._impl",
+    "PlanRepair.Event.ctorIdx._impl",
+    "RepairFeasibility.AbstractDecision.ctorIdx._impl",
+    "RepairFeasibility.AssessmentResult.ctorIdx._impl",
+    "RepairFeasibility.ConstructiveRepairDecision.ctorIdx._impl",
+    "RepairFeasibility.FeasibilityResult.ctorIdx._impl",
+    "RepairFeasibility.RepairRegion.ctorIdx._impl",
+    "RepairSemanticHazard.HazardResult.ctorIdx._impl"
+  ],
+  "kind_mismatches": [],
+  "exported_declarations": 63378,
+  "exported_declaration_kinds": {
+    "inductive": 1476,
+    "constructor": 1912,
+    "recursor": 1520,
+    "def": 14789,
+    "quot": 4,
+    "thm": 43605,
+    "axiom": 3,
+    "opaque": 69
+  },
+  "exported_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "export_sha256": "949fa129273cb35f6ff817ad0c99b0fefd176e6c6e9fc33d3d01472e6c1ea375",
+  "lines": 7771463,
+  "elapsed_seconds": 6.045,
+  "scope": "Independent streaming declaration-membership/kind inventory for every audited project declaration. Actual proof typechecking is performed separately."
+}

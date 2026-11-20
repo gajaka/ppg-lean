@@ -1,0 +1,7 @@
+{
+  "exit_code": 0,
+  "export_sha256": "01b29cbec2ecda34dbbb67a87c627df93fb3a6985d9519d261cf2ef7863fdcd9",
+  "bytes": 419895479,
+  "elapsed_seconds": null,
+  "note": "Exporter returned successfully; initial receipt writer failed because macOS Python lacks hashlib.file_digest. Hash recomputed by streaming."
+}

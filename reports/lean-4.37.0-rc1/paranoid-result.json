@@ -1,0 +1,28 @@
+{
+  "command": [
+    "lake",
+    "check",
+    "--paranoid",
+    "--inadvisably-no-sandbox"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 2052.06,
+  "sandboxed": false,
+  "inputs_unchanged": true,
+  "inputs_checked": 216,
+  "log_sha256": "a9d4b250982f8a19a3ce0a0971dd8cb64f83b06b27f556366d042f83f6d91d41",
+  "kernel_messages": [
+    "Running Lean paranoid kernel on solution",
+    "Lean paranoid kernel accepts the solution",
+    "Running lean4lean kernel on solution",
+    "lean4lean kernel accepts the solution",
+    "Running nanoda kernel on solution",
+    "nanoda kernel accepts the solution",
+    "Running con-leche kernel on solution",
+    "con-leche kernel accepts the solution",
+    "Running con-ron kernel on solution",
+    "con-ron kernel accepts the solution",
+    "Running Lean default kernel on solution",
+    "Lean default kernel accepts the solution"
+  ]
+}
