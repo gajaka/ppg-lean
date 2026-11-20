@@ -1,4 +1,4 @@
-# Proof-Preserving Graphs: Formal Certification, Self-Assessment, and Repair (Lean 4)
+# Proof-Preserving Graphs: Formal Certification, Self-Assessment, and Repair (Lean 4.37.0-rc1)
 
 This Lean 4 development studies graded certification, blocking and repair. It
 contains **208 modules**, covering generic PPG theory, repair hazards, observable
@@ -34,9 +34,8 @@ lake --wfail build
 python3 -B tools/audit_ppgraph.py
 ```
 
-Following the [Lean 4.35.0 announcement](https://leodemoura.github.io/blog/2026-10-15-lean-now-ships-with-verified-kernels/),
-build, export and recheck the project with Lean's kernel and all bundled external
-checkers, allowing only the standard axioms:
+Build, export and recheck the project with Lean 4.37.0-rc1 and all six bundled
+kernels, allowing only the standard axioms:
 
 ```sh
 lake check --paranoid
@@ -48,6 +47,14 @@ checks without sandbox isolation:
 ```sh
 lake check --paranoid --inadvisably-no-sandbox
 ```
+
+<details>
+<summary>Historical Lean 4.35.0 verification (October 2026)</summary>
+
+The records below describe earlier revisions. Current Lean 4.37.0-rc1 results
+are summarized above and in the [migration record](docs/LEAN_4_37_MIGRATION.md).
+The [Lean 4.35.0 announcement](https://leodemoura.github.io/blog/2026-10-15-lean-now-ships-with-verified-kernels/)
+introduced the bundled external kernels used in those checks.
 
 In the historical Lean 4.35 check, bundled `nanoda` aborted with `stack overflow`,
 so the combined paranoid command did not pass. That bundled version, 0.4.19, had a reported
@@ -129,6 +136,8 @@ The eight added repair modules contribute 178 explicit results. Every explicit
 result retains a `#check`, and all audited dependencies stay within the standard
 axiom allowlist. These checks use Lean's kernel; the external-checker results
 above remain the historical 2026-10-18 record.
+
+</details>
 
 ## Motivation
 
@@ -330,7 +339,7 @@ would hide that distinction. The
 contains the concrete results. Different checks use different aspects of the
 measurements; shared data does not make them probabilistically independent.
 
-The library has **2,054 explicitly declared theorems and lemmas**, with an explicit
+The library has **2,079 explicitly declared theorems and lemmas**, with an explicit
 `#check` for each. This inventory includes structural laws, projections and API
 helpers as well as the main mathematical results. The
 [theorem-scope note](docs/THEOREM_SCOPE.md) explains the local-state repair model
@@ -338,7 +347,9 @@ and the 2026-10-28 removal of a `True` placeholder. The diagram below shows how
 certification, dependency
 analysis, repair, finite decisions and work bounds fit together.
 
-The [module inventory](docs/THEORY_INDEX.md) lists all 206 modules. Run
+The [subject inventory](docs/THEORY_INDEX.md) describes 206 modules; the
+[research-plan guide](PPGraph/Research/README.md) covers the two additional
+modules, for 208 in total. Run
 `python3 tools/audit_ppgraph.py` to rebuild and inspect the axiom dependencies of
 every project declaration, including generated theorem constants. Results and
 source hashes are recorded in `reports/PPGRAPH_AXIOM_AUDIT.txt` and
@@ -348,7 +359,7 @@ source hashes are recorded in `reports/PPGRAPH_AXIOM_AUDIT.txt` and
 
 ## Library layout
 
-The 206 modules are grouped by mathematical subject under `PPGraph/`.
+The 208 modules are grouped by mathematical subject under `PPGraph/`.
 Import a specific module to use one part of the library, or import
 `PPGraph.All` for the complete development. `import PPGraph` remains a small
 entry point for the core graph theory.
@@ -368,6 +379,7 @@ entry point for the core graph theory.
 | `PPGraph/Decision/` | Feasibility, refutations, exact finite decisions, abstraction and undecidability |
 | `PPGraph/Optimization/` | Complementary slackness and optimal-transport certificates |
 | `PPGraph/Integration/` | Results connecting different mathematical families |
+| `PPGraph/Research/` | Evidence-bearing research-plan transitions and their PPG instance |
 
 `MoserTardos` has `Process`, `Witness`, `Probability`, `Counting` and `Bounds` subdirectories;
 `HLS` has `DAG`, `Encoding`, `Probability` and `Bounds` subdirectories. These
@@ -459,6 +471,8 @@ the later probabilistic and decision results.
 | `PPGraph/MoserTardos/Bounds/ConstantLog.lean` | 9 | Reach a good state from any initial state via the constant log |
 | `PPGraph/MoserTardos/Bounds/Termination.lean` | 7 | E[T_LOG] < ∞ ⟹ almost-sure termination ⟹ a good state exists (measure-one, not Classical.choose) |
 | `PPGraph/Integration/MoserTardosRepair.lean` | 12 | Existential MT reachability and primitive-step-compatible directed repair paths |
+| `PPGraph/Research/PlanRepairModel.lean` | 20 | Soundness and retention over admitted research-plan transitions |
+| `PPGraph/Research/PlanRepair.lean` | 5 | Research-plan transitions as a proof-preserving graph |
 
 ## Central Theorems
 

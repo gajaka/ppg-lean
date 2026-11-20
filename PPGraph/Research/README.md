@@ -28,6 +28,8 @@ lake --wfail build PPGraph.Research.PlanRepair
 python3 tools/audit_ppgraph.py
 ```
 
+These commands use the repository's pinned Lean 4.37.0-rc1 toolchain.
+
 The new modules are included in `PPGraph.All` and the whole-library audit map.
 There are no new project axioms or proof placeholders. This extension does not
 prove a Python coordinator, an automatic research policy or paper interpretation.
